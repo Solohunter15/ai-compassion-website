@@ -44,14 +44,14 @@ export default function SpeakerSection() {
 ))}
 
       </div>
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <a
           href="/producers"
           className="inline-block px-6 py-3 bg-[#89478D] text-white font-semibold rounded-lg shadow hover:bg-[#6d346e] transition"
         >
           Click to View Producers
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -12,10 +12,10 @@ export default function Hero() {
       <div className="flex flex-col gap-4 md:gap-6 justify-center h-full w-full lg:w-1/2">
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
           AI+Compassion <br />
-          Global Forum 2025
+          Global Forum 2026
         </h1>
         <p className="leading-tight font-bold text-black-700 text-2xl md:text-3xl">
-          October 2, 2025 | USA Pavilion, Expo 2025 Osaka
+          October 2, 2026
         </p>
         <p className="text-base text-gray-600">
           The Global Forum on AI + Compassion unites innovators, policymakers,

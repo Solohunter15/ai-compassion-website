@@ -408,7 +408,9 @@ export default function Timeline() {
 
   return (
     <div id="schedule" className="py-12 px-4 flex flex-col items-center space-y-12">
-      <TimelineSection title="Pre-Event Global Labs" events={preEvent} lineColor="#89478D" stickyTitle />
+      
+      {/* Pre-Event Global Labs */}
+      {/* <TimelineSection title="Pre-Event Global Labs" events={preEvent} lineColor="#89478D" stickyTitle /> */}
 
       <TimelineSection
         title="Complete 24-Hour Schedule"
