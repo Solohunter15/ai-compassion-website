@@ -114,7 +114,16 @@ export default function Footer() {
                     <p className="font-libre">
                         © {new Date().getFullYear()} AI+ Compassion Global Forum • All Rights Reserved
                     </p>
-                    <div className="flex gap-6">
+                    <div className="flex items-center gap-6">
+                        <a 
+                            href="https://2025.compassionai.io" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:text-white transition-colors flex items-center gap-1"
+                        >
+                            <span>2025 Edition</span>
+                            <span className="text-[10px] text-white/50">↗</span>
+                        </a>
                         <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
                     </div>
