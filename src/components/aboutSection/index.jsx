@@ -178,19 +178,19 @@ export default function AboutSection() {
             Our approach is guided by two essential Japanese concepts:
           </p>
           <div className="border-l-4 pl-4 py-4 border-[#CB4B4B]">
-            <b>Wa (和)</b>
+            <b>Futokoro (懐)</b>
             <p className="text-base md:text-lg pt-2">
-              The principle of harmony and peaceful unity, where diverse
-              elements come together in balance.
+              Translates to the intimate space near the body or the deep embrace of nature. Exploring how
+              we responsibly receive AI into physical bodies, homes, care systems, and ecosystems.
             </p>
           </div>
-          <div className="border-l-4 pl-4 py-4 border-[#CB4B4B]">
+          {/* <div className="border-l-4 pl-4 py-4 border-[#CB4B4B]">
             <b>Ma (間)</b>
             <p className="text-base md:text-lg pt-2">
               The concept of vital space between elements—the pause that gives
               meaning and allows for reflection.
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="w-full xl:w-1/2 flex justify-center items-center">
           <Image
@@ -209,40 +209,45 @@ export default function AboutSection() {
         {/* Left Card */}
         <div className="rounded-2xl bg-pink-300 p-8 md:p-10 shadow-lg flex flex-col justify-center w-full mx-auto">
           <h3 className="justify-center flex text-4xl md:text-5xl font-extrabold text-gray-900">
-            5
+            90%
           </h3>
           <p className="mt-3 text-lg font-semibold text-gray-800 justify-center flex">
-            GPT-5 Impact
+            AI Use at Work
           </p>
           <p className="mt-4 text-sm text-gray-700 text-center">
-            The latest AI represents a "PhD-level expert in your pocket" with
-            unprecedented reasoning abilities and multilingual mastery.
+            90% of digital-trust professionals surveyed by ISACA in 2026 said they 
+            believe employees are already using AI in their organizations—while only 22% 
+            said AI ROI had met or exceeded expectations.
           </p>
         </div>
         {/* Right Card */}
         <div className="rounded-2xl bg-purple-400 p-8 md:p-10 shadow-lg flex flex-col justify-center w-full mx-auto">
           <h3 className="text-4xl md:text-5xl font-extrabold text-white justify-center flex">
-            32%
+            52%
           </h3>
           <p className="mt-3 text-lg font-semibold text-white justify-center flex">
-            Global AI Trust
+            People Say AI Makes Them Nervous
           </p>
           <p className="mt-4 text-sm text-white/90 text-center">
-            Only slightly more than half of people worldwide express trust in
-            artificial intelligence systems (47-country comprehensive study).
+            Stanford's 2026 AI Index reports that 52% of respondents said AI products and 
+            services make them nervous, even as 59% said they see more benefits than drawbacks.
           </p>
         </div>
       </div>
       {/* Bottom Description */}
       <p className="mt-1 text-sm text-gray-600 leading-relaxed max-w-3xl mx-auto text-center">
-        Between these growing capabilities and limited trust lies the vital
-        space that must be filled with empathy and accountability. This Forum
-        addresses this gap at a pivotal moment in technological development.
+        AI capability is accelerating. Adoption is accelerating. Trust, governance and public 
+        understanding must evolve with them.
+        The question is no longer simply what AI can do. It is what we choose to do 
+        with it and how we keep humanity at the centre.
+
       </p>
       {/* Constraints Section */}
-      <ConstraintsSection />
+        {/* <ConstraintsSection /> */}
+
       {/* Expo Inspiration Section */}
-      <ExpoInspiration />
+        {/* <ExpoInspiration /> */}
+
       {/* Thematic Pillars Section */}
       <div className="mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">

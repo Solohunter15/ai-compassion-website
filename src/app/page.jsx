@@ -7,12 +7,14 @@ import AboutSection from "@/components/aboutSection";
 import SpeakerSection from "@/components/speakerSection";
 import { PartnerSection } from "@/components/partnersection";
 import MeetMyTeam from "@/components/meetmyteam";
+import ProducersPage from "@/components/producers"
 
 export default function Home() {
   return (
     <>
       <Herosection />
       <AboutSection />
+      <ProducersPage />
       <SpeakerSection />
       <TimelineSection />
       <SponsorSection />
