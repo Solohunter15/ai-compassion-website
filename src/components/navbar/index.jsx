@@ -170,7 +170,7 @@ export default function Navbar() {
               className="w-full h-full object-contain"
             />
           </Link>
-          <div className="flex flex-row items-center gap-6 relative">
+          <div className="flex flex-row items-center gap-4 lg:gap-6 relative">
             {links.map((link) => (
               <Link
                 key={link.href}
