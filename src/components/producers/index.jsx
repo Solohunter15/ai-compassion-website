@@ -2,7 +2,7 @@ import React from "react";
 
 // Example producers data (replace with real data as needed)
 const producers = [
-  { name: "Avkash Chauhan", subtitle: "Regional Producer - South Asia", img: "/avkash.jpg" },
+  // { name: "Avkash Chauhan", subtitle: "Regional Producer - South Asia", img: "/avkash.jpg" },
   { name: "Walied Albasheer", subtitle: "Regional Producer - GCC/Europe", img: "/walied.jpg" },
   { name: "Dr. Lee Kironget", subtitle: "Regional Producer - Africa", img: "/lee.jpg" },
   { name: "Marques Anderson", subtitle: "Regional Producer - Latin America", img: "/marques.jpg" },

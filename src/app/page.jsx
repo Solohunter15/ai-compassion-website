@@ -15,11 +15,11 @@ export default function Home() {
       <Herosection />
       <AboutSection />
       <ProducersPage />
-      <SpeakerSection />
+      {/* <SpeakerSection /> */}
       <TimelineSection />
       <SponsorSection />
       <PartnerSection />
-      <MeetMyTeam />
+      {/* <MeetMyTeam /> */}
       <FaqSection />
       <Joinsection />
     </>
