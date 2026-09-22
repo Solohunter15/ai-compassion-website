@@ -16,7 +16,7 @@ export default function Home() {
       <AboutSection />
       <ProducersPage />
       {/* <SpeakerSection /> */}
-      <TimelineSection />
+      {/* <TimelineSection /> */}
       <SponsorSection />
       <PartnerSection />
       {/* <MeetMyTeam /> */}
