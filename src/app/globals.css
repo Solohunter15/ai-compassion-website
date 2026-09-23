@@ -149,6 +149,39 @@ html.lenis, html.lenis body {
   transform-style: preserve-3d;
 }
 
+/* Continuous Infinite Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeLeft 30s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeRight 30s linear infinite;
+}
+
 /* Reduced motion fallbacks */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
