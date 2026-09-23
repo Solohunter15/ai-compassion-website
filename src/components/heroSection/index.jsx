@@ -1,74 +1,268 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowDown, Sparkles } from 'lucide-react';
+
 import plant from '@/../public/road.png';
 import pot from '@/../public/paper.png';
 import dance from '@/../public/light.png';
 import temple from '@/../public/temple.webp';
-export default function Hero() {
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export default function HeroSection() {
+  const containerRef = useRef(null);
+  const leftContentRef = useRef(null);
+  const img1Ref = useRef(null);
+  const img2Ref = useRef(null);
+  const img3Ref = useRef(null);
+  const img4Ref = useRef(null);
+  const gridContainerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      // Staggered initial entrance
+      const elements = leftContentRef.current?.children;
+      if (elements) {
+        gsap.fromTo(
+          elements,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' }
+        );
+      }
+
+      // Parallax scrolling on editorial images
+      if (img1Ref.current && img2Ref.current && img3Ref.current && img4Ref.current) {
+        gsap.to(img1Ref.current, {
+          y: -40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2,
+          },
+        });
+
+        gsap.to(img2Ref.current, {
+          y: -75,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.8,
+          },
+        });
+
+        gsap.to(img3Ref.current, {
+          y: -25,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+        });
+
+        gsap.to(img4Ref.current, {
+          y: -55,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const scrollToAbout = () => {
+    const el = document.getElementById('about');
+    if (el) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(el, { offset: -60, duration: 1.2 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <section className="mt-24 lg:mt-8 p-4 md:px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-center gap-8">
-      {/* Left Content */}
-      <div className="flex flex-col gap-4 md:gap-6 justify-center h-full w-full lg:w-1/2">
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-          AI+Compassion <br />
-          Global Forum 2026
-        </h1>
-        <p className="leading-tight font-bold text-black-700 text-2xl md:text-3xl">
-          October 2, 2026
-        </p>
-        <p className="text-base text-gray-600">
-          The Global Forum on AI + Compassion unites innovators, policymakers,
-          and cultural leaders to explore how artificial intelligence can
-          serve humanity and the planet. Together, we’ll launch a global
-          alliance, spark a new narrative, and activate projects that place
-          compassion at the heart of technology.
-        </p>
-        <Link
-          href="/join"
-          className="w-fit rounded-full bg-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-purple-700 transition"
-        >
-          Join Us
-        </Link>
+    <section
+      id="hero"
+      ref={containerRef}
+      className="relative z-10 w-full min-h-[92vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden"
+    >
+      {/* Dynamic Ambient Background Illumination inspired by Beyond Syllabus */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="absolute -top-32 left-1/4 w-[650px] h-[650px] bg-gradient-to-br from-[#163B32]/10 via-[#C9A96A]/8 to-transparent rounded-full blur-3xl opacity-70 animate-pulse-glow" />
+        <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-gradient-to-bl from-[#C96F4A]/8 via-[#557C8B]/6 to-transparent rounded-full blur-3xl opacity-60" />
+        
+        {/* Subtle Japanese Watermark */}
+        <div className="absolute right-12 bottom-6 text-[180px] font-serif font-black text-[#163B32]/[0.025] select-none pointer-events-none leading-none">
+          懐
+        </div>
       </div>
 
-      {/* Right Content - Images Grid */}
-      <div className="md:py-4 lg:py-8 grid grid-cols-2 gap-6 w-full lg:w-1/2">
-        <div className="overflow-hidden rounded-2xl ">
-          <Image
-            src={plant}
-            alt="Plant in hands"
-            width={500}
-            height={500}
-            className="h-full w-full"
-          />
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        {/* Left Content (7 Cols) */}
+        <div ref={leftContentRef} className="lg:col-span-7 flex flex-col justify-center gap-6">
+          
+          {/* Eyebrow / Tag */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 border border-[#E6E9E4] text-xs font-semibold tracking-wider uppercase text-[#163B32] w-fit shadow-xs backdrop-blur-xs">
+            <span className="w-2 h-2 rounded-full bg-[#163B32] animate-pulse" />
+            <span>Global Forum 2026</span>
+          </div>
+
+          {/* Locked Main Title */}
+          <div className="flex flex-col">
+            <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#171918] leading-[1.05]">
+              AI+Compassion
+              <br />
+              <span className="text-[#5E625D] font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Global Forum 2026
+              </span>
+            </h1>
+          </div>
+
+          {/* Locked Date */}
+          <div className="flex items-center gap-3">
+            <span className="h-[2px] w-8 bg-[#C96F4A]" />
+            <p className="font-editorial text-xl sm:text-2xl md:text-3xl font-bold text-[#163B32]">
+              October 2, 2026
+            </p>
+          </div>
+
+          {/* Locked Description */}
+          <p className="text-base sm:text-lg text-[#5E625D] leading-relaxed max-w-2xl font-normal text-balance">
+            The Global Forum on AI + Compassion unites innovators, policymakers,
+            and cultural leaders to explore how artificial intelligence can
+            serve humanity and the planet. Together, we’ll launch a global
+            alliance, spark a new narrative, and activate projects that place
+            compassion at the heart of technology.
+          </p>
+
+          {/* Actions */}
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <Link
+              href="/join"
+              className="inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              Join Us
+            </Link>
+
+            <button
+              type="button"
+              onClick={scrollToAbout}
+              className="px-6 py-4 text-xs font-semibold tracking-wider uppercase text-[#5E625D] hover:text-[#171918] transition-colors rounded-full hover:bg-black/5 flex items-center gap-2 cursor-pointer"
+            >
+              <span>Explore Vision</span>
+              <ArrowDown className="w-3.5 h-3.5 text-[#C96F4A] animate-bounce" />
+            </button>
+          </div>
+
+          {/* Key Forum Facts Metrics Strip from aicompassion.org */}
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-[#E6E9E4] text-[#163B32]">
+            <div className="flex flex-col">
+              <span className="font-editorial text-2xl font-bold tracking-tight">24h</span>
+              <span className="text-[11px] font-mono text-[#5E625D] uppercase tracking-wider">Continuous Relay</span>
+            </div>
+            <div className="h-8 w-[1px] bg-[#E6E9E4]" />
+            <div className="flex flex-col">
+              <span className="font-editorial text-2xl font-bold tracking-tight">12</span>
+              <span className="text-[11px] font-mono text-[#5E625D] uppercase tracking-wider">World Regions</span>
+            </div>
+            <div className="h-8 w-[1px] bg-[#E6E9E4]" />
+            <div className="flex flex-col">
+              <span className="font-editorial text-2xl font-bold tracking-tight">28</span>
+              <span className="text-[11px] font-mono text-[#5E625D] uppercase tracking-wider">Flagship Hubs</span>
+            </div>
+            <div className="h-8 w-[1px] bg-[#E6E9E4]" />
+            <div className="flex flex-col">
+              <span className="font-editorial text-2xl font-bold tracking-tight">1</span>
+              <span className="text-[11px] font-mono text-[#5E625D] uppercase tracking-wider">Shared Vow</span>
+            </div>
+          </div>
         </div>
-        <div className="overflow-hidden rounded-2xl mt-10">
-          <Image
-            src={pot}
-            alt="Clay pots"
-            width={500}
-            height={500}
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div className="overflow-hidden">
-          <Image
-            src={temple}
-            alt="Temple"
-            width={500}
-            height={500}
-            className="h-full w-full object-fit"
-          />
-        </div>
-        <div className="overflow-hidden rounded-2xlx mt-10">
-          <Image
-            src={dance}
-            alt="Traditional dancer"
-            width={500}
-            height={500}
-            className="h-full w-full object-cover"
-          />
+
+        {/* Right Editorial Image Grid (5 Cols) with Independent Parallax Layers */}
+        <div
+          ref={gridContainerRef}
+          className="lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6 w-full max-w-lg mx-auto lg:max-w-none perspective-1000"
+        >
+          {/* Top-left image (Road / Plant sprout in hands) */}
+          <div
+            ref={img1Ref}
+            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
+          >
+            <Image
+              src={plant}
+              alt="Hands holding green sprout"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-108"
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              priority
+            />
+          </div>
+
+          {/* Top-right image (Paper / Clay pottery) */}
+          <div
+            ref={img2Ref}
+            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
+          >
+            <Image
+              src={pot}
+              alt="Handmade pottery craft"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-108"
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              priority
+            />
+          </div>
+
+          {/* Bottom-left image (Pagoda Temple) */}
+          <div
+            ref={img3Ref}
+            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group -mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
+          >
+            <Image
+              src={temple}
+              alt="Traditional Japanese temple"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-108"
+              sizes="(max-width: 1024px) 50vw, 25vw"
+            />
+          </div>
+
+          {/* Bottom-right image (Traditional Dancer / Light) */}
+          <div
+            ref={img4Ref}
+            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
+          >
+            <Image
+              src={dance}
+              alt="Traditional cultural dancer"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-108"
+              sizes="(max-width: 1024px) 50vw, 25vw"
+            />
+          </div>
         </div>
       </div>
     </section>

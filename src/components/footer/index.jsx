@@ -1,134 +1,121 @@
-import Link from "next/link"; 
-import Image from "next/image";
-import { FaDiscord, FaEnvelope, FaGraduationCap, FaHandshake, FaBullhorn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { FaDiscord } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Footer() {
-    return (
-        <footer className="bg-gradient-to-br from-[#8265AB] via-[#6B4E94] to-[#5A3D7C] text-white overflow-hidden relative rounded-t-[2.5rem] md:rounded-t-[5rem]" id="contact">
-            {/* Background pattern decoration */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -mr-48 -mt-48 transition-transform duration-1000"></div>
-            
-            <div className="max-w-7xl mx-auto px-6 py-12 md:py-16 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between gap-12">
-                    {/* Left Column: Contact & Info */}
-                    <div className="flex flex-col gap-8 max-w-xl">
-                        <div className="space-y-4">
-                            <h3 className="font-libre text-2xl md:text-3xl font-bold tracking-tight">
-                                Have a specific question?
-                            </h3>
-                            <p className="text-white/80 max-w-md">
-                                We're here to help. Reach out to the appropriate department for any inquiries about the AI+ Compassion Global Forum.
-                            </p>
-                        </div>
+  const [copied, setCopied] = useState(false);
+  const email = 'connect@compassionai.io';
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
-                            {[
-                                { label: "General inquiries", email: "connect@compassionai.io", icon: <FaEnvelope className="text-purple-200" /> },
-                                { label: "Academic partnerships", email: "connect@compassionai.io", icon: <FaGraduationCap className="text-purple-200" /> },
-                                { label: "Sponsorship opportunities", email: "jsuto@SCUBEDLLC.com", icon: <FaHandshake className="text-purple-200" /> },
-                                { label: "Media inquiries", email: "connect@compassionai.io", icon: <FaBullhorn className="text-purple-200" /> }
-                            ].map((item, idx) => (
-                                <div key={idx} className="group transition-all duration-300">
-                                    <span className="block text-xs font-semibold uppercase tracking-wider text-white/60 mb-1 group-hover:text-white transition-colors">
-                                        {item.label}
-                                    </span>
-                                    <Link 
-                                        href={`mailto:${item.email}`}
-                                        className="flex items-center gap-2 text-sm font-medium hover:text-purple-200 transition-colors break-all"
-                                    >
-                                        <span className="shrink-0">{item.icon}</span>
-                                        <span className="underline underline-offset-4 decoration-white/30 group-hover:decoration-purple-200">
-                                            {item.email}
-                                        </span>
-                                    </Link>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-                    {/* Right Column: Socials & Branding */}
-                    <div className="flex flex-col items-start md:items-end gap-10">
-                        {/* Social Links */}
-                        <div className="flex flex-col items-start md:items-end gap-4">
-                            <span className="text-xs font-semibold uppercase tracking-wider text-white/60">Connect With Us</span>
-                            <div className="flex items-center gap-5">
-                                <a 
-                                    href="https://x.com/ai_compassion" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110 active:scale-95 border border-white/10"
-                                    aria-label="X (Twitter)"
-                                >
-                                    <FaXTwitter size={24} />
-                                </a>
-                                <a 
-                                    href="https://discord.com/invite/3hzvqf4qJ" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110 active:scale-95 border border-white/10"
-                                    aria-label="Discord"
-                                >
-                                    <FaDiscord size={24} />
-                                </a>
-                            </div>
-                        </div>
+  return (
+    <footer
+      id="contact"
+      className="relative z-20 w-full bg-[#FFFFFF] text-[#171918] border-t border-[#EAECE8] pt-20 pb-12 px-4 sm:px-6 lg:px-12 overflow-hidden"
+    >
+      <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-14">
+        
+        {/* Single Contact Layout */}
+        <div className="flex flex-col items-center gap-6 max-w-2xl">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-xs font-mono font-semibold text-slate-700 tracking-wider uppercase">
+            <Mail className="w-3.5 h-3.5 text-[#163B32]" />
+            Connect
+          </span>
 
-                        {/* Co-organized branding with Glassmorphism */}
-                        <div className="flex flex-col items-start md:items-end gap-4">
-                            <span className="text-xs font-semibold uppercase tracking-wider text-white/60">Partnered Foundation</span>
-                            <div className="flex flex-col items-center gap-3">
-                                <span className="text-xs font-libre italic text-white/70">Co-organized with:</span>
-                                <a 
-                                    href="https://www.goipeace.or.jp/en/" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-4 hover:bg-white/15 transition-all duration-500 group overflow-hidden relative shadow-xl"
-                                >
-                                    {/* Shimmer effect */}
-                                    <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-                                    
-                                    <Image
-                                        src="/goi-peace.svg"
-                                        alt="Goi Peace Foundation"
-                                        width={48}
-                                        height={56}
-                                        className="brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
-                                    />
-                                    <div className="flex flex-col">
-                                        <span className="font-libre text-[15px] font-bold leading-tight tracking-wide">
-                                            Goi Peace<br />Foundation
-                                        </span>
-                                        <span className="text-[10px] uppercase tracking-widest text-white/50 group-hover:text-white/70 transition-colors">
-                                            Official Partner
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#172554]">
+            Join the Global Dialogue
+          </h2>
 
-                {/* Footer Bottom Bar */}
-                <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40 tracking-wider uppercase">
-                    <p className="font-libre">
-                        © {new Date().getFullYear()} AI+ Compassion Global Forum • All Rights Reserved
-                    </p>
-                    <div className="flex items-center gap-6">
-                        <a 
-                            href="https://2025.compassionai.io" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="hover:text-white transition-colors flex items-center gap-1"
-                        >
-                            <span>2025 Edition</span>
-                            <span className="text-[10px] text-white/50">↗</span>
-                        </a>
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-lg">
+            For all inquiries, partnerships, and collaborations regarding the AI+Compassion Global Forum 2026:
+          </p>
+
+          {/* Clean Apple-style Email Pill with Direct Mailto & Copy Button */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 p-2 pl-5 bg-slate-50 border border-slate-200/80 rounded-2xl shadow-xs hover:border-[#163B32]/40 transition-all duration-300">
+            <a
+              href={`mailto:${email}`}
+              className="text-base sm:text-lg font-semibold text-[#163B32] hover:text-[#C96F4A] transition-colors tracking-tight underline decoration-slate-300 hover:decoration-[#C96F4A] underline-offset-4"
+            >
+              {email}
+            </a>
+
+            <button
+              onClick={handleCopy}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-[#163B32] hover:text-white hover:border-[#163B32] shadow-2xs transition-all duration-200 cursor-pointer active:scale-95"
+              aria-label="Copy email address"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Social Channels */}
+          <div className="flex items-center gap-4 mt-2">
+            <a
+              href="https://x.com/ai_compassion"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#163B32] hover:text-white hover:border-[#163B32] shadow-2xs hover:shadow-md transition-all duration-300 transform hover:scale-105"
+              aria-label="Visit AI + Compassion on X"
+            >
+              <FaXTwitter className="w-4 h-4" />
+            </a>
+
+            <a
+              href="https://discord.com/invite/3hzvqf4qJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#163B32] hover:text-white hover:border-[#163B32] shadow-2xs hover:shadow-md transition-all duration-300 transform hover:scale-105"
+              aria-label="Join AI + Compassion Discord Community"
+            >
+              <FaDiscord className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Legal & Archive Row */}
+        <div className="w-full pt-8 border-t border-slate-200/80 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium">
+          <p>© 2026 AI+ Compassion Global Forum • All Rights Reserved</p>
+
+          <div className="flex items-center gap-6">
+            <a
+              href="https://2025.compassionai.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-900 transition-colors flex items-center gap-1 font-semibold text-[#163B32]"
+            >
+              <span>2025 Edition Archive</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+
+            <Link href="#" className="hover:text-slate-900 transition-colors">
+              Privacy Policy
+            </Link>
+
+            <Link href="#" className="hover:text-slate-900 transition-colors">
+              Terms of Use
+            </Link>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
 }

@@ -1,22 +1,151 @@
-import Link from "next/link";
+'use client';
 
-export default function Joinsection() {
-    return (
-        <div className='font-plus-jakarta-sans text-center flex flex-col items-center justify-center gap-6 px-4 py-8 md:p-8 lg:p-16'>
-            <h1 className="text-2xl md:text-3xl font-semibold text-[#0A2144]">Why Join Us</h1>
-            <p className="w-full lg:w-[60%] text-sm md:text-base text-[#0A2144BF]">
-                On October 2, 2025, our journey will begin in Osaka, circle the globe, and conclude in ancient Kyoto—symbolizing the harmonious integration of past wisdom and future innovation.
-            </p>
-            <p className="w-full lg:w-[60%] text-sm md:text-base text-[#0A2144BF]">
-                Together, we will create a world where nature,<b> humanity, and technology flourish as one</b>—not in competition, but in compassionate partnership.
-            </p>
-            <p className="w-full lg:w-[60%] md:text-base text-[#0A2144BF]">
-                “The true measure of AI’s success will not be its power, but its wisdom, not its efficiency, but its compassion.”
-            </p>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 w-full">
-                <Link className="w-full md:w-fit px-10 py-3 bg-[#89478D] text-white rounded-full font-semibold" href="/join" aria-label="Join Us">Join Us</Link>
-                <Link className="w-full md:w-fit px-10 py-3 border rounded-full font-semibold" href="mailto:connect@compassionai.io " aria-label="Ask a question">Ask a question</Link>
-            </div>
+import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight, Mail } from 'lucide-react';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export default function JoinSection() {
+  const containerRef = useRef(null);
+  const quoteRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      if (quoteRef.current) {
+        gsap.fromTo(
+          quoteRef.current,
+          { opacity: 0.2, y: 30, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: quoteRef.current,
+              start: 'top 95%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+
+      if (contentRef.current) {
+        gsap.fromTo(
+          contentRef.current,
+          { opacity: 0.2, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: contentRef.current,
+              start: 'top 95%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      id="join"
+      ref={containerRef}
+      className="relative z-20 w-full bg-[#163B32] text-[#F8F6F0] py-24 sm:py-32 px-4 sm:px-6 lg:px-12 transition-colors overflow-hidden border-t border-[#163B32]/40"
+    >
+      {/* Background Japanese Watermark */}
+      <div
+        aria-hidden="true"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] sm:text-[320px] font-serif font-black text-white/[0.03] select-none pointer-events-none leading-none"
+      >
+        慈悲
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center gap-12 text-[#F8F6F0]">
+        
+        {/* High-Impact Statement Pause: The Quote */}
+        <div
+          ref={quoteRef}
+          className="w-full max-w-3xl mx-auto p-8 sm:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm text-center shadow-2xl"
+        >
+          <blockquote className="font-editorial text-xl sm:text-2xl md:text-3xl italic text-[#F8F6F0] leading-relaxed">
+            “The true measure of AI’s success will not be its power, but its wisdom, not its efficiency, but its compassion.”
+          </blockquote>
         </div>
-    )
+
+        {/* Core Invitation Narrative */}
+        <div ref={contentRef} className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-2">
+            <span className="font-mono text-xs tracking-widest uppercase text-[#C9A96A] font-bold">
+              09 / Why Join Us
+            </span>
+
+            <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#F8F6F0]">
+              Why Join Us
+            </h2>
+          </div>
+
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed text-balance font-light">
+            On October 2, 2026, our journey will begin in Osaka, circle the globe,
+            and conclude in ancient Kyoto—symbolizing the harmonious integration
+            of past wisdom and future innovation.
+          </p>
+
+          <p className="text-sm sm:text-base text-white/70 max-w-xl leading-relaxed">
+            Together, we will create a world where nature, humanity, and technology
+            flourish as one—not in competition, but in compassionate partnership.
+          </p>
+
+          {/* Nature • Humanity • Technology FLOURISH AS ONE */}
+          <div className="flex flex-col items-center gap-2 pt-2">
+            <div className="flex items-center gap-4 text-xs font-mono uppercase text-[#C9A96A] tracking-widest">
+              <span>Nature</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C96F4A]" />
+              <span>Humanity</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C96F4A]" />
+              <span>Technology</span>
+            </div>
+
+            <h3 className="font-editorial text-2xl sm:text-4xl font-extrabold text-[#F8F6F0] tracking-tight">
+              FLOURISH AS ONE
+            </h3>
+          </div>
+
+          {/* Final Restrained CTA Endpoint */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 w-full">
+            <Link
+              href="/join"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-10 py-4 rounded-full bg-[#C96F4A] hover:bg-[#B55F3B] text-white font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              <span>Join Us</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <a
+              href="mailto:connect@compassionai.io"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-[#F8F6F0] border border-white/20 font-semibold text-xs tracking-wider uppercase backdrop-blur-sm transition-all duration-300"
+            >
+              <Mail className="w-4 h-4 text-[#C9A96A]" />
+              <span>Ask a Question</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
