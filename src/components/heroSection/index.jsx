@@ -54,7 +54,7 @@ export default function HeroSection() {
       // Parallax scrolling on editorial images
       if (img1Ref.current && img2Ref.current && img3Ref.current && img4Ref.current) {
         gsap.to(img1Ref.current, {
-          y: -40,
+          y: -35,
           ease: 'none',
           scrollTrigger: {
             trigger: containerRef.current,
@@ -65,7 +65,7 @@ export default function HeroSection() {
         });
 
         gsap.to(img2Ref.current, {
-          y: -75,
+          y: -60,
           ease: 'none',
           scrollTrigger: {
             trigger: containerRef.current,
@@ -76,7 +76,7 @@ export default function HeroSection() {
         });
 
         gsap.to(img3Ref.current, {
-          y: -25,
+          y: -20,
           ease: 'none',
           scrollTrigger: {
             trigger: containerRef.current,
@@ -87,7 +87,7 @@ export default function HeroSection() {
         });
 
         gsap.to(img4Ref.current, {
-          y: -55,
+          y: -45,
           ease: 'none',
           scrollTrigger: {
             trigger: containerRef.current,
@@ -106,17 +106,12 @@ export default function HeroSection() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative z-10 w-full min-h-[92vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden"
+      className="relative z-10 w-full min-h-[90vh] flex flex-col justify-center items-center pt-28 pb-14 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden"
     >
-      {/* Ambient Background Illumination */}
+      {/* Ambient Background Illumination without any watermarks */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute -top-32 left-1/4 w-[650px] h-[650px] bg-gradient-to-br from-[#163B32]/10 via-[#C9A96A]/8 to-transparent rounded-full blur-3xl opacity-70 animate-pulse-glow" />
         <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-gradient-to-bl from-[#C96F4A]/8 via-[#557C8B]/6 to-transparent rounded-full blur-3xl opacity-60" />
-        
-        {/* Subtle Japanese Watermark */}
-        <div className="absolute right-12 bottom-6 text-[180px] font-serif font-black text-[#163B32]/[0.025] select-none pointer-events-none leading-none">
-          懐
-        </div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -149,7 +144,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Locked Description */}
+          {/* Description */}
           <p className="text-base sm:text-lg text-[#5E625D] leading-relaxed max-w-2xl font-normal text-balance">
             The Global Forum on AI + Compassion unites innovators, policymakers,
             and cultural leaders to explore how artificial intelligence can
@@ -203,13 +198,13 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right Editorial Image Grid with Rotating Circular Seal */}
+        {/* Right Editorial Image Grid */}
         <div className="lg:col-span-5 relative w-full max-w-lg mx-auto lg:max-w-none">
           <div
             ref={gridContainerRef}
             className="grid grid-cols-2 gap-4 sm:gap-6 w-full perspective-1000"
           >
-            {/* Top-left image (Road / Plant sprout in hands) */}
+            {/* Top-left image */}
             <div
               ref={img1Ref}
               className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
@@ -224,7 +219,7 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Top-right image (Paper / Clay pottery) */}
+            {/* Top-right image */}
             <div
               ref={img2Ref}
               className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
@@ -239,7 +234,7 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Bottom-left image (Pagoda Temple) */}
+            {/* Bottom-left image */}
             <div
               ref={img3Ref}
               className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group -mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
@@ -253,7 +248,7 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Bottom-right image (Traditional Dancer / Light) */}
+            {/* Bottom-right image */}
             <div
               ref={img4Ref}
               className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
@@ -268,9 +263,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Circular Moving Emblem / Seal rotating continuously */}
-          <div className="absolute -bottom-8 -left-8 sm:-bottom-10 sm:-left-10 z-20 pointer-events-none">
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center">
+          {/* Clean Circular Moving Emblem placed neatly in lower-left corner */}
+          <div className="absolute -bottom-6 -left-6 z-20 pointer-events-none">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
               {/* Spinning circular text path */}
               <div ref={circleStampRef} className="absolute inset-0 w-full h-full will-change-transform">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -279,7 +274,7 @@ export default function HeroSection() {
                     d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                     fill="none"
                   />
-                  <text className="text-[7.5px] font-mono tracking-[0.2em] fill-[#163B32] uppercase font-bold">
+                  <text className="text-[7.2px] font-mono tracking-[0.22em] fill-[#163B32] uppercase font-bold">
                     <textPath href="#circlePath" startOffset="0%">
                       • AI + COMPASSION • 24H RELAY • 12 REGIONS • 2026
                     </textPath>
@@ -287,9 +282,9 @@ export default function HeroSection() {
                 </svg>
               </div>
 
-              {/* Inner Circle Glow Badge */}
-              <div className="w-12 h-12 rounded-full bg-[#163B32] text-[#F8F6F0] flex items-center justify-center shadow-lg border-2 border-[#C9A96A]/40">
-                <Sparkles className="w-5 h-5 text-[#C9A96A] animate-pulse" />
+              {/* Inner Circle Badge */}
+              <div className="w-10 h-10 rounded-full bg-[#163B32] text-[#F8F6F0] flex items-center justify-center shadow-lg border-2 border-[#C9A96A]/40">
+                <Sparkles className="w-4 h-4 text-[#C9A96A] animate-pulse" />
               </div>
             </div>
           </div>

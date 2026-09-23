@@ -75,32 +75,27 @@ export default function MediaSection() {
     <section
       id="media"
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-[#F8F6F0] text-[#163B32] overflow-hidden border-t border-[#163B32]/10"
+      className="relative py-20 lg:py-24 bg-[#F8F6F0] text-[#163B32] overflow-hidden border-t border-[#163B32]/10"
     >
-      {/* Background Japanese Watermark */}
-      <div className="absolute top-12 right-6 md:right-16 text-[120px] md:text-[200px] font-serif font-black text-[#163B32]/[0.03] select-none pointer-events-none leading-none">
-        記録
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 border-b border-[#163B32]/10 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-6 border-b border-[#163B32]/10 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#163B32]/20 bg-[#E5EBE5]/60 text-[11px] font-mono tracking-widest text-[#163B32] uppercase mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#163B32]/20 bg-[#E5EBE5]/60 text-[11px] font-mono tracking-widest text-[#163B32] uppercase mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C96F4A] animate-pulse" />
               2025 Edition Highlights
             </div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light tracking-tight text-[#163B32] leading-tight">
-              Relay Dialogues &amp; Keynotes
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-tight text-[#163B32] leading-tight">
+              2025 Highlights: Relay Dialogues &amp; Keynotes
             </h2>
-            <p className="mt-3 text-base md:text-lg text-[#163B32]/70 max-w-xl font-light">
-              Highlights and recorded keynotes from the inaugural 2025 AI + Compassion Global Relay.
+            <p className="mt-2.5 text-sm md:text-base text-[#163B32]/70 max-w-xl font-light">
+              Keynote dialogues, regional insights, and commemorative moments from the inaugural 2025 AI + Compassion Global Relay.
             </p>
           </div>
 
           <Link
             href="/gallery"
-            className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#163B32]/30 text-xs font-mono uppercase tracking-widest text-[#163B32] hover:bg-[#163B32] hover:text-[#F8F6F0] transition-all duration-300 self-start md:self-auto"
+            className="group inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-[#163B32]/30 text-xs font-mono uppercase tracking-widest text-[#163B32] hover:bg-[#163B32] hover:text-[#F8F6F0] transition-all duration-300 self-start md:self-auto"
           >
             <span>View Full 2025 Archive (30+ Sessions)</span>
             <span className="text-[#C9A96A] group-hover:translate-x-1 transition-transform duration-300">
@@ -110,7 +105,7 @@ export default function MediaSection() {
         </div>
 
         {/* Hero Featured Video with Scroll-Driven Clip-Path Mask Reveal */}
-        <div ref={heroCardRef} className="relative mb-12 md:mb-16">
+        <div ref={heroCardRef} className="relative mb-10 md:mb-12">
           <div
             onClick={() => setActiveVideo(mainVideo)}
             className="group cursor-pointer relative aspect-video md:aspect-[21/9] w-full overflow-hidden rounded-3xl shadow-2xl bg-[#163B32] border border-[#163B32]/20"
@@ -130,11 +125,11 @@ export default function MediaSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#163B32]/95 via-[#163B32]/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#163B32]/70 via-transparent to-transparent hidden md:block" />
 
-            {/* Center Cinematic Play Button */}
+            {/* Center Play Button */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border border-[#C9A96A]/60 bg-[#163B32]/70 backdrop-blur-md flex items-center justify-center text-[#F8F6F0] shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:border-[#C9A96A] group-hover:bg-[#163B32]/90">
+              <div className="w-18 h-18 md:w-24 md:h-24 rounded-full border border-[#C9A96A]/60 bg-[#163B32]/70 backdrop-blur-md flex items-center justify-center text-[#F8F6F0] shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:border-[#C9A96A] group-hover:bg-[#163B32]/90">
                 <svg
-                  className="w-8 h-8 md:w-10 md:h-10 text-[#C9A96A] translate-x-1 transition-transform duration-300 group-hover:translate-x-1.5"
+                  className="w-7 h-7 md:w-9 md:h-9 text-[#C9A96A] translate-x-1 transition-transform duration-300 group-hover:translate-x-1.5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -144,15 +139,15 @@ export default function MediaSection() {
             </div>
 
             {/* Content Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-4 pointer-events-none">
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col md:flex-row md:items-end justify-between gap-4 pointer-events-none">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C96F4A]/90 text-white text-[10px] font-mono tracking-widest uppercase mb-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C96F4A]/90 text-white text-[10px] font-mono tracking-widest uppercase mb-2.5">
                   Featured 2025 Keynote • {mainVideo.segment}
                 </div>
-                <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif text-[#F8F6F0] tracking-tight font-light leading-tight">
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-serif text-[#F8F6F0] tracking-tight font-light leading-tight">
                   {mainVideo.title}
                 </h3>
-                <p className="mt-2 text-sm md:text-base text-[#F8F6F0]/80 font-light">
+                <p className="mt-1.5 text-xs md:text-sm text-[#F8F6F0]/80 font-light">
                   {mainVideo.speaker} • Co-Organized with Goi Peace Foundation
                 </p>
               </div>
@@ -166,43 +161,43 @@ export default function MediaSection() {
         </div>
 
         {/* 3 Regional Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {highlightVideos.map((video) => (
             <div
               key={video.id}
               onClick={() => setActiveVideo(video)}
-              className="group cursor-pointer flex flex-col bg-white rounded-2xl overflow-hidden border border-[#163B32]/10 shadow-sm hover:shadow-xl hover:border-[#C9A96A]/50 transition-all duration-500"
+              className="group cursor-pointer flex flex-col bg-white rounded-2xl overflow-hidden border border-[#163B32]/10 shadow-xs hover:shadow-xl hover:border-[#C9A96A]/50 transition-all duration-300"
             >
               <div className="relative aspect-video w-full overflow-hidden bg-[#163B32]/10">
                 <Image
                   src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
                   alt={video.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-[#163B32]/80 backdrop-blur-sm text-[#F8F6F0] text-[10px] font-mono tracking-widest uppercase">
+                <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#163B32]/80 backdrop-blur-sm text-[#F8F6F0] text-[9px] font-mono tracking-widest uppercase">
                   {video.segment}
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-                  <div className="w-12 h-12 rounded-full bg-[#163B32]/80 backdrop-blur-md text-[#C9A96A] flex items-center justify-center border border-[#C9A96A]/40 transition-transform duration-300 group-hover:scale-110">
-                    <svg className="w-5 h-5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 rounded-full bg-[#163B32]/80 backdrop-blur-md text-[#C9A96A] flex items-center justify-center border border-[#C9A96A]/40 transition-transform duration-300 group-hover:scale-110">
+                    <svg className="w-4 h-4 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
                 </div>
               </div>
 
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="font-serif text-lg font-normal text-[#163B32] group-hover:text-[#C96F4A] transition-colors leading-snug">
+                  <h4 className="font-serif text-base font-normal text-[#163B32] group-hover:text-[#C96F4A] transition-colors leading-snug">
                     {video.title}
                   </h4>
-                  <p className="mt-1 text-xs text-[#163B32]/60 font-light">
+                  <p className="mt-1 text-[11px] text-[#163B32]/60 font-light">
                     {video.speaker}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#163B32]/10 flex items-center justify-between text-[11px] font-mono text-[#163B32]/70 uppercase tracking-wider">
+                <div className="mt-3 pt-2.5 border-t border-[#163B32]/10 flex items-center justify-between text-[10px] font-mono text-[#163B32]/70 uppercase tracking-wider">
                   <span>Playback</span>
                   <span className="text-[#C9A96A] group-hover:translate-x-1 transition-transform">
                     →

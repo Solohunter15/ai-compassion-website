@@ -83,7 +83,6 @@ const PILLARS_DATA = [
 function describeArc(cx, cy, rInner, rOuter, startAngleDeg, endAngleDeg) {
   const toRad = (deg) => (deg * Math.PI) / 180;
   
-  // Subtract a small margin (e.g. 1.2 deg) so segments have a crisp gap
   const pad = 1.2;
   const startRad = toRad(startAngleDeg + pad);
   const endRad = toRad(endAngleDeg - pad);
@@ -124,27 +123,27 @@ export default function PillarsSection() {
   return (
     <section
       id="pillars"
-      className="relative z-10 w-full bg-[#FFFFFF] py-24 lg:py-32 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8] overflow-hidden"
+      className="relative z-10 w-full bg-[#FFFFFF] py-18 lg:py-24 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8] overflow-hidden"
     >
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-16 lg:gap-20">
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-12 lg:gap-16">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto">
+        <div className="flex flex-col items-center text-center gap-3.5 max-w-3xl mx-auto">
           <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#172554]">
             Thematic Pillars
           </h2>
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-2xl">
+          <p className="text-xs sm:text-sm md:text-base text-[#475569] leading-relaxed max-w-2xl">
             Six interconnected themes will guide our discussions, workshops, and commitments.
-            Each pillar will feature dedicated sessions led by global experts who embody both
-            technical expertise and humanistic values, ensuring a holistic approach to AI development.
+            Each pillar features dedicated sessions led by global experts who embody both
+            technical excellence and humanistic values.
           </p>
         </div>
 
-        {/* Circular Donut Mandala & Flanking Pillars Layout */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+        {/* Circular Donut Mandala & Flanking Pillars Layout (Scaled / Zoomed out) */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center">
           
           {/* Left Column: 3 Pillars */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-10 lg:gap-14 lg:text-right order-2 lg:order-1">
+          <div className="lg:col-span-4 flex flex-col justify-between gap-6 lg:gap-8 lg:text-right order-2 lg:order-1">
             {leftPillars.map((pillar) => {
               const isHovered = hoveredIdx === pillar.id;
               return (
@@ -152,20 +151,20 @@ export default function PillarsSection() {
                   key={pillar.id}
                   onMouseEnter={() => setHoveredIdx(pillar.id)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`cursor-pointer transition-all duration-300 p-4 rounded-2xl ${
+                  className={`cursor-pointer transition-all duration-300 p-3.5 sm:p-4 rounded-2xl ${
                     isHovered
                       ? 'bg-[#F8FAFC] lg:translate-x-1 shadow-xs'
                       : 'hover:bg-[#FAFAFA]'
                   }`}
                 >
                   <h3
-                    className={`font-editorial text-lg sm:text-xl font-bold transition-colors ${
+                    className={`font-editorial text-base sm:text-lg font-bold transition-colors ${
                       isHovered ? 'text-[#0F172A]' : 'text-[#1E293B]'
                     }`}
                   >
                     {pillar.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-[#64748B] leading-relaxed">
+                  <p className="mt-1.5 text-xs sm:text-[13px] text-[#64748B] leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>
@@ -173,16 +172,15 @@ export default function PillarsSection() {
             })}
           </div>
 
-          {/* Center Column: 6-Segment Circular Donut SVG */}
-          <div className="lg:col-span-4 flex items-center justify-center order-1 lg:order-2 py-4">
-            <div className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] select-none">
+          {/* Center Column: 6-Segment Circular Donut SVG (Zoomed out) */}
+          <div className="lg:col-span-4 flex items-center justify-center order-1 lg:order-2 py-2">
+            <div className="relative w-[270px] h-[270px] sm:w-[320px] sm:h-[320px] select-none">
               
               <svg
                 viewBox="0 0 400 400"
                 className="w-full h-full filter drop-shadow-md"
               >
                 <defs>
-                  {/* Subtle ethereal pastel pink / lavender gradient */}
                   <linearGradient id="segmentGradDefault" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FDEAF2" />
                     <stop offset="50%" stopColor="#F5DCF5" />
@@ -195,7 +193,6 @@ export default function PillarsSection() {
                     <stop offset="100%" stopColor="#C084FC" />
                   </linearGradient>
 
-                  {/* Inner subtle glow filter */}
                   <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
                     <feGaussianBlur stdDeviation="4" result="blur" />
                     <feComposite in="SourceGraphic" in2="blur" operator="over" />
@@ -214,7 +211,6 @@ export default function PillarsSection() {
                   );
                   const isHovered = hoveredIdx === pillar.id;
 
-                  // Icon position in SVG coordinates
                   const rad = (pillar.iconAngle * Math.PI) / 180;
                   const iconX = Math.round(cx + rIcon * Math.cos(rad));
                   const iconY = Math.round(cy - rIcon * Math.sin(rad));
@@ -228,7 +224,6 @@ export default function PillarsSection() {
                       onMouseEnter={() => setHoveredIdx(pillar.id)}
                       onMouseLeave={() => setHoveredIdx(null)}
                     >
-                      {/* Donut Arc Slice */}
                       <path
                         d={pathData}
                         fill={isHovered ? 'url(#segmentGradHover)' : 'url(#segmentGradDefault)'}
@@ -238,7 +233,6 @@ export default function PillarsSection() {
                         filter={isHovered ? 'url(#glow)' : undefined}
                       />
 
-                      {/* Icon Centered Inside Segment */}
                       <foreignObject
                         x={iconX - 16}
                         y={iconY - 16}
@@ -248,7 +242,7 @@ export default function PillarsSection() {
                       >
                         <div className="w-full h-full flex items-center justify-center">
                           <IconComp
-                            className={`w-5 h-5 transition-transform duration-300 ${
+                            className={`w-4.5 h-4.5 transition-transform duration-300 ${
                               isHovered
                                 ? 'text-white scale-120 drop-shadow-sm'
                                 : 'text-[#70587C]'
@@ -260,7 +254,6 @@ export default function PillarsSection() {
                   );
                 })}
 
-                {/* Center Circle Cutout */}
                 <circle
                   cx={cx}
                   cy={cy}
@@ -273,7 +266,7 @@ export default function PillarsSection() {
           </div>
 
           {/* Right Column: 3 Pillars */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-10 lg:gap-14 lg:text-left order-3">
+          <div className="lg:col-span-4 flex flex-col justify-between gap-6 lg:gap-8 lg:text-left order-3">
             {rightPillars.map((pillar) => {
               const isHovered = hoveredIdx === pillar.id;
               return (
@@ -281,20 +274,20 @@ export default function PillarsSection() {
                   key={pillar.id}
                   onMouseEnter={() => setHoveredIdx(pillar.id)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`cursor-pointer transition-all duration-300 p-4 rounded-2xl ${
+                  className={`cursor-pointer transition-all duration-300 p-3.5 sm:p-4 rounded-2xl ${
                     isHovered
                       ? 'bg-[#F8FAFC] lg:-translate-x-1 shadow-xs'
                       : 'hover:bg-[#FAFAFA]'
                   }`}
                 >
                   <h3
-                    className={`font-editorial text-lg sm:text-xl font-bold transition-colors ${
+                    className={`font-editorial text-base sm:text-lg font-bold transition-colors ${
                       isHovered ? 'text-[#0F172A]' : 'text-[#1E293B]'
                     }`}
                   >
                     {pillar.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-[#64748B] leading-relaxed">
+                  <p className="mt-1.5 text-xs sm:text-[13px] text-[#64748B] leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>
