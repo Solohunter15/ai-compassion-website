@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Calendar,
   Clock,
@@ -10,6 +10,8 @@ import {
   Table as TableIcon,
   GitCommit,
   Sparkles,
+  ChevronRight,
+  Radio,
 } from 'lucide-react';
 import {
   TIMEZONES,
@@ -20,6 +22,10 @@ export default function ScheduleSection() {
   const [selectedTz, setSelectedTz] = useState('UTC');
   const [activeView, setActiveView] = useState('timeline'); // 'timeline' | 'matrix'
   const [searchQuery, setSearchQuery] = useState('');
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeNodeIdx, setActiveNodeIdx] = useState(0);
+
+  const timelineContainerRef = useRef(null);
 
   // Find active timezone object
   const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
@@ -33,6 +39,54 @@ export default function ScheduleSection() {
     return matchRegion || matchHub;
   });
 
+  // Scroll Progress Tracker for the Storytelling Timeline
+  useEffect(() => {
+    let animationFrameId;
+
+    const handleScroll = () => {
+      const container = timelineContainerRef.current;
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Start filling when container enters middle of viewport
+      const startOffset = windowHeight * 0.75;
+      const totalScrollable = rect.height - windowHeight * 0.5;
+
+      const currentScroll = startOffset - rect.top;
+      const progress = Math.min(1, Math.max(0, currentScroll / totalScrollable));
+      
+      setScrollProgress(progress);
+
+      // Determine active block index based on progress
+      if (filteredBlocks.length > 0) {
+        const rawIdx = Math.floor(progress * filteredBlocks.length);
+        const clampedIdx = Math.min(filteredBlocks.length - 1, Math.max(0, rawIdx));
+        setActiveNodeIdx(clampedIdx);
+      }
+    };
+
+    const throttledScroll = () => {
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(() => {
+          handleScroll();
+          animationFrameId = null;
+        });
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    window.addEventListener('resize', throttledScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resize', throttledScroll);
+    };
+  }, [filteredBlocks.length]);
+
   return (
     <section
       id="schedule"
@@ -42,6 +96,11 @@ export default function ScheduleSection() {
         
         {/* Top Header */}
         <div className="flex flex-col items-center text-center gap-3 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-xs font-mono font-bold text-[#8B5083] uppercase tracking-widest shadow-2xs">
+            <Radio className="w-3.5 h-3.5 text-[#C96F4A] animate-pulse" />
+            <span>24-Hour Continuous Journey</span>
+          </div>
+
           <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#8B5083] leading-tight">
             Complete 24-Hour Schedule
           </h2>
@@ -88,7 +147,7 @@ export default function ScheduleSection() {
                 }`}
               >
                 <GitCommit className="w-3.5 h-3.5 rotate-90" />
-                <span>Timeline View</span>
+                <span>Storytelling Timeline</span>
               </button>
 
               <button
@@ -120,92 +179,165 @@ export default function ScheduleSection() {
         </div>
 
         {/* ========================================================================= */}
-        {/* VIEW 1: TIMELINE VIEW */}
+        {/* VIEW 1: STORYTELLING TIMELINE VIEW (Animated Scroll-Driven Progression) */}
         {/* ========================================================================= */}
         {activeView === 'timeline' && (
-          <div className="w-full max-w-5xl mx-auto flex flex-col gap-16 py-6">
+          <div
+            ref={timelineContainerRef}
+            className="w-full max-w-5xl mx-auto flex flex-col gap-12 py-6 relative"
+          >
+            {/* Stage Progress HUD Bar */}
+            <div className="w-full flex items-center justify-between px-4 py-2.5 rounded-2xl bg-gradient-to-r from-purple-50 via-amber-50/50 to-purple-50 border border-purple-100 shadow-2xs">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#8B5083] animate-ping" />
+                <span className="font-mono text-xs font-bold text-[#8B5083] uppercase tracking-wider">
+                  Stage {String(activeNodeIdx + 1).padStart(2, '0')} of {filteredBlocks.length}
+                </span>
+                <span className="hidden sm:inline text-xs text-slate-500">
+                  • {filteredBlocks[activeNodeIdx]?.region.replace(/Block \d+ — /, '')}
+                </span>
+              </div>
 
-            {/* MAIN RELAY TIMELINE: 12 Regions + Ceremonies */}
-            <div className="flex flex-col items-center gap-12">
-              <h3 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#8B5083] text-center">
-                Global 24-Hour Relay Schedule
-              </h3>
+              <div className="flex items-center gap-2">
+                <div className="w-24 sm:w-36 h-2 bg-purple-200/60 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-[#8B5083] via-[#C96F4A] to-[#D8B56A] transition-all duration-150 rounded-full"
+                    style={{ width: `${Math.max(5, scrollProgress * 100)}%` }}
+                  />
+                </div>
+                <span className="font-mono text-[11px] font-bold text-[#8B5083]">
+                  {Math.round(scrollProgress * 100)}%
+                </span>
+              </div>
+            </div>
 
-              {/* Vertical Timeline Structure */}
-              <div className="relative w-full max-w-4xl mx-auto">
-                {/* Continuous Central Vertical Purple Line */}
-                <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-[#8B5083] -translate-x-1/2 z-0" />
+            {/* Vertical Timeline Structure */}
+            <div className="relative w-full max-w-4xl mx-auto pt-4 pb-8">
+              
+              {/* Central Background Guide Line */}
+              <div className="absolute left-5 md:left-1/2 top-4 bottom-4 w-1 bg-purple-100 -translate-x-1/2 rounded-full z-0" />
 
-                <div className="flex flex-col gap-10 sm:gap-12">
-                  {filteredBlocks.map((block, idx) => {
-                    const isEven = idx % 2 === 0;
-                    const timeVal = block.times[selectedTz] || block.times.UTC;
-                    const isSpecial = block.isSpecial;
+              {/* Dynamic Animated Scroll Progress Line */}
+              <div
+                className="absolute left-5 md:left-1/2 top-4 w-1 bg-gradient-to-b from-[#8B5083] via-[#C96F4A] to-[#D8B56A] -translate-x-1/2 rounded-full z-0 transition-all duration-75 shadow-sm shadow-purple-500/20"
+                style={{ height: `${scrollProgress * 100}%` }}
+              >
+                {/* Glowing Leading Orb at Tip of Progress Line */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#C96F4A] ring-4 ring-[#C96F4A]/30 shadow-lg shadow-[#C96F4A]/50 animate-pulse" />
+              </div>
 
-                    return (
+              {/* Timeline Items List */}
+              <div className="flex flex-col gap-10 sm:gap-14">
+                {filteredBlocks.map((block, idx) => {
+                  const isEven = idx % 2 === 0;
+                  const timeVal = block.times[selectedTz] || block.times.UTC;
+                  const isSpecial = block.isSpecial;
+                  const isPassed = idx <= activeNodeIdx;
+                  const isCurrent = idx === activeNodeIdx;
+
+                  return (
+                    <div
+                      key={block.id}
+                      className={`relative flex items-start gap-6 md:gap-0 transition-all duration-500 ${
+                        isEven
+                          ? 'md:flex-row'
+                          : 'md:flex-row-reverse'
+                      } ${isPassed ? 'opacity-100' : 'opacity-70'}`}
+                    >
+                      {/* Content Box */}
                       <div
-                        key={block.id}
-                        className={`relative flex items-start gap-6 md:gap-0 ${
+                        className={`w-full md:w-1/2 pl-14 md:pl-0 ${
                           isEven
-                            ? 'md:flex-row'
-                            : 'md:flex-row-reverse'
+                            ? 'md:pr-12 md:text-right'
+                            : 'md:pl-12 md:text-left'
                         }`}
                       >
-                        {/* Content Box */}
                         <div
-                          className={`w-full md:w-1/2 pl-12 md:pl-0 ${
-                            isEven
-                              ? 'md:pr-12 md:text-right'
-                              : 'md:pl-12 md:text-left'
+                          className={`flex flex-col gap-2.5 rounded-2xl p-5 sm:p-6 transition-all duration-300 border ${
+                            isCurrent
+                              ? 'bg-white border-[#8B5083] shadow-xl shadow-purple-900/10 scale-[1.02] ring-2 ring-purple-200'
+                              : isSpecial
+                              ? 'bg-amber-50/70 border-amber-200 shadow-xs'
+                              : 'bg-[#FAF8FC] hover:bg-white border-purple-100/90 shadow-2xs hover:shadow-md'
                           }`}
                         >
+                          {/* Time & Stage Header Pill */}
                           <div
-                            className={`flex flex-col gap-2 rounded-2xl p-5 sm:p-6 transition-all duration-300 ${
-                              isSpecial
-                                ? 'bg-amber-50/70 border border-amber-200/80 shadow-xs'
-                                : 'bg-[#FAF8FC] hover:bg-white border border-purple-100/90 shadow-2xs hover:shadow-md'
+                            className={`flex flex-wrap items-center gap-2 ${
+                              isEven ? 'md:justify-end' : 'md:justify-start'
                             }`}
                           >
-                            {/* Time Header */}
-                            <div
-                              className={`text-sm sm:text-base font-bold text-slate-900 ${
-                                isEven ? 'md:justify-end' : 'md:justify-start'
-                              } flex items-center gap-2`}
-                            >
-                              <span className="text-[#8B5083] font-mono">
-                                {timeVal} {selectedTz}
+                            <span className="font-mono text-xs font-bold text-[#8B5083] bg-purple-100/80 px-2.5 py-0.5 rounded-full">
+                              {timeVal} {selectedTz}
+                            </span>
+
+                            {isSpecial && (
+                              <span className="font-mono text-[10px] font-bold text-amber-800 bg-amber-200/80 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                Special Block
                               </span>
-                            </div>
+                            )}
+                          </div>
 
-                            {/* Block Title / Region */}
-                            <h4
-                              className={`text-base sm:text-lg md:text-xl font-bold text-slate-900 leading-snug`}
-                            >
-                              {block.region.replace(/Block \d+ — /, '')}
-                            </h4>
+                          {/* Block Title / Region */}
+                          <h4 className="font-editorial text-base sm:text-lg md:text-xl font-bold text-slate-900 leading-snug">
+                            {block.region.replace(/Block \d+ — /, '')}
+                          </h4>
 
-                            {/* Hub tag */}
-                            <span className="text-xs font-semibold text-[#8B5083]">
-                              {block.hub}
+                          {/* Hub Tag */}
+                          <div
+                            className={`flex items-center gap-1.5 ${
+                              isEven ? 'md:justify-end' : 'md:justify-start'
+                            }`}
+                          >
+                            <span className="text-xs font-semibold text-[#8B5083] flex items-center gap-1">
+                              <Globe className="w-3 h-3 text-[#C96F4A]" />
+                              <span>{block.hub}</span>
                             </span>
                           </div>
-                        </div>
 
-                        {/* Center Purple Dot sitting on the central line */}
-                        <div className="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 z-10 flex items-center justify-center">
-                          <div
-                            className={`w-4 h-4 rounded-full bg-[#8B5083] ring-4 ${
-                              isSpecial ? 'ring-amber-200 bg-amber-600' : 'ring-purple-100'
-                            }`}
-                          />
+                          {/* Speakers & Moderators Section if available */}
+                          {(block.moderators?.length > 0 || block.speakers?.length > 0) && (
+                            <div className="pt-3 border-t border-purple-100/70 flex flex-col gap-1.5 mt-1 text-xs text-slate-600">
+                              {block.moderators?.length > 0 && (
+                                <p className="font-medium text-[#8B5083]">
+                                  Moderator: {block.moderators.join(', ')}
+                                </p>
+                              )}
+                              {block.speakers?.length > 0 && (
+                                <p className="text-slate-500 line-clamp-2">
+                                  Speakers: {block.speakers.slice(0, 4).join(', ')}
+                                  {block.speakers.length > 4 ? ` +${block.speakers.length - 4} more` : ''}
+                                </p>
+                              )}
+                            </div>
+                          )}
                         </div>
-
-                        {/* Spacing column for other side on desktop */}
-                        <div className="hidden md:block w-1/2" />
                       </div>
-                    );
-                  })}
-                </div>
+
+                      {/* Center Milestone Node (Illuminates & Scales on Scroll) */}
+                      <div className="absolute left-5 md:left-1/2 top-6 -translate-x-1/2 z-10 flex items-center justify-center">
+                        <div
+                          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold transition-all duration-300 shadow-sm ${
+                            isCurrent
+                              ? 'bg-[#C96F4A] text-white ring-4 ring-orange-200 scale-125 shadow-lg shadow-orange-500/30'
+                              : isPassed
+                              ? 'bg-[#8B5083] text-white ring-4 ring-purple-100 scale-105'
+                              : 'bg-white text-purple-900 border-2 border-purple-200 scale-95'
+                          }`}
+                        >
+                          {isSpecial ? (
+                            <Sparkles className="w-3.5 h-3.5 text-amber-200" />
+                          ) : (
+                            <span>{String(idx + 1).padStart(2, '0')}</span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Empty Spacing column on opposite side for desktop alternation */}
+                      <div className="hidden md:block w-1/2" />
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
