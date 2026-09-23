@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 import plant from '@/../public/road.png';
 import pot from '@/../public/paper.png';
@@ -24,7 +24,6 @@ export default function HeroSection() {
   const img3Ref = useRef(null);
   const img4Ref = useRef(null);
   const gridContainerRef = useRef(null);
-  const circleStampRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -39,16 +38,6 @@ export default function HeroSection() {
           { opacity: 0, y: 30 },
           { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' }
         );
-      }
-
-      // Continuous 360 circle rotation for the seal badge
-      if (circleStampRef.current) {
-        gsap.to(circleStampRef.current, {
-          rotation: 360,
-          duration: 22,
-          ease: 'none',
-          repeat: -1,
-        });
       }
 
       // Parallax scrolling on editorial images
@@ -260,32 +249,6 @@ export default function HeroSection() {
                 className="object-cover transition-transform duration-700 group-hover:scale-108"
                 sizes="(max-width: 1024px) 50vw, 25vw"
               />
-            </div>
-          </div>
-
-          {/* Clean Circular Moving Emblem placed neatly in lower-left corner */}
-          <div className="absolute -bottom-6 -left-6 z-20 pointer-events-none">
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
-              {/* Spinning circular text path */}
-              <div ref={circleStampRef} className="absolute inset-0 w-full h-full will-change-transform">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <path
-                    id="circlePath"
-                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                    fill="none"
-                  />
-                  <text className="text-[7.2px] font-mono tracking-[0.22em] fill-[#163B32] uppercase font-bold">
-                    <textPath href="#circlePath" startOffset="0%">
-                      • AI + COMPASSION • 24H RELAY • 12 REGIONS • 2026
-                    </textPath>
-                  </text>
-                </svg>
-              </div>
-
-              {/* Inner Circle Badge */}
-              <div className="w-10 h-10 rounded-full bg-[#163B32] text-[#F8F6F0] flex items-center justify-center shadow-lg border-2 border-[#C9A96A]/40">
-                <Sparkles className="w-4 h-4 text-[#C9A96A] animate-pulse" />
-              </div>
             </div>
           </div>
         </div>
