@@ -3,6 +3,7 @@ import React from "react";
 const producers = [
   { name: "Christina Gerakiteys", subtitle: "Regional Producer — Oceania & Pacific", img: "/christina.jpg" },
   { name: "Jun Suto", subtitle: "Regional Producer — Kyoto & Osaka", img: "/jun.png" },
+  { name: "Deepu S Nath", subtitle: "Regional Producer — South Asia", img: "/deepu.png" },
   { name: "Walied Albasheer", subtitle: "Regional Producer — GCC & Europe", img: "/walied.jpg" },
   { name: "Dr. Lee Kironget", subtitle: "Regional Producer — Africa", img: "/lee.jpg" },
   { name: "Marques Anderson", subtitle: "Regional Producer — Latin America", img: "/marques.jpg" },

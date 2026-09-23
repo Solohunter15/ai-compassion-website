@@ -14,6 +14,11 @@ const PRODUCERS = [
     img: '/jun.png',
   },
   {
+    name: 'Deepu S Nath',
+    role: 'Regional Producer — South Asia',
+    img: '/deepu.png',
+  },
+  {
     name: 'Walied Albasheer',
     role: 'Regional Producer — GCC & Europe',
     img: '/walied.jpg',
@@ -41,7 +46,7 @@ export default function ProducersPage() {
       id="producers"
       className="relative z-10 w-full bg-[#FFFFFF] py-14 lg:py-18 px-4 sm:px-6 lg:px-8 border-t border-[#EAECE8] overflow-hidden"
     >
-      <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-8 sm:gap-10">
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-8 sm:gap-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-2">
@@ -53,12 +58,12 @@ export default function ProducersPage() {
           </p>
         </div>
 
-        {/* Clean Balanced 3-Column Responsive Grid for 6 Producers */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
+        {/* Clean Balanced Centered Grid for All Regional Producers */}
+        <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-5 max-w-6xl mx-auto">
           {PRODUCERS.map((producer, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 flex flex-col items-center text-center gap-3 group"
+              className="w-[calc(50%-8px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-16px)] max-w-[250px] min-w-[145px] bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 flex flex-col items-center text-center gap-3 group"
             >
               {/* Compact portrait image or initial monogram placeholder */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100 shadow-xs group-hover:scale-103 transition-transform duration-300">
