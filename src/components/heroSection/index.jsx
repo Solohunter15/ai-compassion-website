@@ -215,42 +215,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Interactive 3D Layered Glassmorphic Scene */}
-          <div className="lg:col-span-6 relative w-full h-[360px] sm:h-[480px] lg:h-[580px] flex items-center justify-center perspective-1000">
+          {/* RIGHT COLUMN: Scenic Visual Showcase with Scroll Target Indicator */}
+          <div className="lg:col-span-6 relative w-full h-[360px] sm:h-[480px] lg:h-[580px] flex items-center justify-center">
             
-            {/* 3D Floating Glass Card 1: AI Hand Connection with Glow */}
-            <div
-              className="absolute top-4 sm:top-8 right-2 sm:right-6 z-20 max-w-[240px] sm:max-w-[280px] p-4 sm:p-5 rounded-2xl bg-white/75 backdrop-blur-xl border border-white/60 shadow-xl transition-all duration-300 hover:scale-105 animate-float-1 will-change-transform"
-              style={{
-                transform: 'translate3d(calc(var(--mouse-x, 0) * -30px), calc(var(--mouse-y, 0) * -25px), 40px) rotate(calc(var(--mouse-x, 0) * 4deg))',
-              }}
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#C96F4A] animate-ping" />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#163B32]">Human Connection</span>
-              </div>
-              <p className="font-editorial text-xs sm:text-sm font-semibold italic text-[#163B32] leading-snug">
-                &ldquo;A kinder intelligence is possible.&rdquo;
-              </p>
-            </div>
-
-            {/* 3D Floating Glass Card 2: Cultural Pillars */}
-            <div
-              className="absolute bottom-12 sm:bottom-16 right-4 sm:right-12 z-20 max-w-[260px] sm:max-w-[300px] p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl transition-all duration-300 hover:scale-105 animate-float-2 will-change-transform"
-              style={{
-                transform: 'translate3d(calc(var(--mouse-x, 0) * 35px), calc(var(--mouse-y, 0) * 30px), 60px) rotate(calc(var(--mouse-x, 0) * -4deg))',
-              }}
-            >
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-[#C96F4A] uppercase">
-                  Global Relay 2026
-                </span>
-                <p className="text-xs font-semibold text-[#171918] tracking-tight">
-                  PEOPLE • IDEAS • CULTURES • FOR A BRIGHTER TOMORROW
-                </p>
-              </div>
-            </div>
-
             {/* Scroll Target Indicator */}
             <a
               href="#about"
