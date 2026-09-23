@@ -1,16 +1,12 @@
 import React from "react";
 
-// Example producers data (replace with real data as needed)
 const producers = [
-  // { name: "Avkash Chauhan", subtitle: "Regional Producer - South Asia", img: "/avkash.jpg" },
-  { name: "Walied Albasheer", subtitle: "Regional Producer - GCC/Europe", img: "/walied.jpg" },
-  { name: "Dr. Lee Kironget", subtitle: "Regional Producer - Africa", img: "/lee.jpg" },
-  { name: "Marques Anderson", subtitle: "Regional Producer - Latin America", img: "/marques.jpg" },
-  { name: "Ani Chahal Honan", subtitle: "Regional Producer - North America", img: "/ani.jpg" },
-  { name: "Jun Suto", subtitle: "Regional Producer - Kyoto,Osaka", img: "/jun.png" },
-  // { name: "Chris Ewald", subtitle: "Regional Producer - Kyoto", img: "/chris.png" },
-  { name: "Christina Gerakiteys", subtitle: "Regional Producer - Oceania", img: "/christina.jpg" },
-  // { name: "Producer 9", subtitle: "", img: "/producer9.png" },
+  { name: "Christina Gerakiteys", subtitle: "Regional Producer — Oceania & Pacific", img: "/christina.jpg" },
+  { name: "Jun Suto", subtitle: "Regional Producer — Kyoto & Osaka", img: "/jun.png" },
+  { name: "Walied Albasheer", subtitle: "Regional Producer — GCC & Europe", img: "/walied.jpg" },
+  { name: "Dr. Lee Kironget", subtitle: "Regional Producer — Africa", img: "/lee.jpg" },
+  { name: "Marques Anderson", subtitle: "Regional Producer — Latin America", img: "/marques.jpg" },
+  { name: "Ani Chahal Honan", subtitle: "Regional Producer — North America", img: "/ani.jpg" },
 ];
 
 export default function ProducersPage() {

@@ -4,39 +4,34 @@ import Image from 'next/image';
 
 const PRODUCERS = [
   {
-    name: 'Deepu S Nath',
-    role: 'Regional Producer - South Asia',
-    img: '/deepu.png',
+    name: 'Christina Gerakiteys',
+    role: 'Regional Producer — Oceania & Pacific',
+    img: '/christina.jpg',
+  },
+  {
+    name: 'Jun Suto',
+    role: 'Regional Producer — Kyoto & Osaka',
+    img: '/jun.png',
   },
   {
     name: 'Walied Albasheer',
-    role: 'Regional Producer - GCC/Europe',
+    role: 'Regional Producer — GCC & Europe',
     img: '/walied.jpg',
   },
   {
     name: 'Dr. Lee Kironget',
-    role: 'Regional Producer - Africa',
+    role: 'Regional Producer — Africa',
     img: '/lee.jpg',
   },
   {
     name: 'Marques Anderson',
-    role: 'Regional Producer - Latin America',
+    role: 'Regional Producer — Latin America',
     img: '/marques.jpg',
   },
   {
     name: 'Ani Chahal Honan',
-    role: 'Regional Producer - North America',
+    role: 'Regional Producer — North America',
     img: '/ani.jpg',
-  },
-  {
-    name: 'Jun Suto',
-    role: 'Regional Producer - Kyoto,Osaka',
-    img: '/jun.png',
-  },
-  {
-    name: 'Christina Gerakiteys',
-    role: 'Regional Producer - Oceania',
-    img: '/christina.jpg',
   },
 ];
 
@@ -58,8 +53,8 @@ export default function ProducersPage() {
           </p>
         </div>
 
-        {/* Clean Compact Responsive Grid */}
-        <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
+        {/* Clean Balanced 3-Column Responsive Grid for 6 Producers */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {PRODUCERS.map((producer, idx) => (
             <div
               key={idx}
