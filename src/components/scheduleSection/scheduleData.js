@@ -67,8 +67,7 @@ export const SCHEDULE_MATRIX = [
     id: 'block-2',
     blockNumber: 'Block 2',
     region: 'Block 2 — Japan, Korea, Taiwan & NE Asia (Hub: Seoul/Taipei)',
-    hub: 'Osaka & Seoul/Taipei Hub',
-    isPavilionOpening: true,
+    hub: 'Seoul & Taipei Hubs',
     times: {
       UTC: '09:00–11:00',
       PDT: '02:00–04:00',
@@ -83,15 +82,6 @@ export const SCHEDULE_MATRIX = [
     },
     moderators: ['Jean Alfonso-Decena (Moderator)'],
     speakers: [
-      'Taikyo Murakami / Narumi Yoshikawa',
-      'Tamami Tono',
-      'Dr. Olaf Witkowski',
-      'Sister Jenna',
-      'Toshie Takahashi',
-      'Hiroshi Ishiguro & Edi Pyrek',
-      'Alex Cahana',
-      'Yoichi Ochiai',
-      'Ben Weber',
       'Hiroo Saionji',
       'Ahmer Inam',
       'Kunal Sood',
@@ -401,36 +391,3 @@ export const SCHEDULE_MATRIX = [
     speakers: ['Shoukei Matsumoto', 'Global Regional Delegations'],
   },
 ];
-
-// Curated Osaka USA Pavilion Opening speakers list (2 columns like Screenshot 2)
-export const OSAKA_OPENING_DATA = {
-  title: 'Osaka: USA Pavilion Opening',
-  date: 'October 2, 2026',
-  utcTime: '11:00 AM - 5:00 PM UTC',
-  times: {
-    UTC: '11:00 AM - 5:00 PM UTC',
-    PDT: '04:00 AM - 10:00 AM PDT',
-    JST: '20:00 - 02:00 (+1) JST',
-    IST: '16:30 - 22:30 IST',
-    GST: '15:00 - 21:00 GST',
-    BST: '12:00 - 18:00 BST',
-    EDT: '07:00 AM - 01:00 PM EDT',
-    WAT: '12:00 - 18:00 WAT',
-    BRT: '08:00 - 14:00 BRT',
-    AEST: '21:00 - 03:00 (+1) AEST',
-  },
-  leftColumn: [
-    'Jean Alfonso-Decena (Moderator)',
-    'Tamami Tono',
-    'Sister Jenna',
-    'Hiroshi Ishiguro & Edi Pyrek',
-    'Yoichi Ochiai',
-  ],
-  rightColumn: [
-    'Taikyo Murakami / Narumi Yoshikawa',
-    'Dr. Olaf Witkowski',
-    'Toshie Takahashi',
-    'Alex Cahana',
-    'Ben Weber',
-  ],
-};

@@ -28,13 +28,46 @@ function createCurveBetweenCoords(c1, c2, radius) {
   return new THREE.QuadraticBezierCurve3(v1, mid, v2);
 }
 
+// Fallback procedural texture generator for instant rendering
+function createProceduralEarthTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1024;
+  canvas.height = 512;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
+
+  // Deep Ocean Gradient
+  const grad = ctx.createLinearGradient(0, 0, 0, 512);
+  grad.addColorStop(0, '#102A24');
+  grad.addColorStop(0.5, '#163B32');
+  grad.addColorStop(1, '#0F2620');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 1024, 512);
+
+  // Subtle Landmass Grid Accents
+  ctx.fillStyle = '#235347';
+  for (let x = 0; x < 1024; x += 16) {
+    for (let y = 0; y < 512; y += 16) {
+      if ((x * y) % 7 === 0) {
+        ctx.beginPath();
+        ctx.arc(x, y, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
+}
+
 export default function ThreeEarthGlobe({
   activeIndex = 0,
   onSelectRegion,
   scrollProgress = 0,
 }) {
   const mountRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
   const [hoveredNode, setHoveredNode] = useState(null);
 
   const globeGroupRef = useRef(null);
@@ -47,17 +80,32 @@ export default function ThreeEarthGlobe({
   const mouseVecRef = useRef(new THREE.Vector2(-999, -999));
   const lastSelectedIdxRef = useRef(activeIndex);
 
-  const activeRegion = RELAY_REGIONS[activeIndex] || RELAY_REGIONS[0];
-
-  // Keep target orientation aligned with active region when changed externally
+  // Synchronize target orientation continuously with scrollProgress and active region
   useEffect(() => {
     lastSelectedIdxRef.current = activeIndex;
-    const r = RELAY_REGIONS[activeIndex] || RELAY_REGIONS[0];
-    const targetY = -(r.lng * Math.PI) / 180 - Math.PI / 2;
-    const targetX = (r.lat * Math.PI) / 180 * 0.45;
+
+    const totalRegions = RELAY_REGIONS.length;
+    // Map scroll progress smoothly across all 12 regions
+    const floatIndex = Math.min(totalRegions - 1, Math.max(0, scrollProgress * (totalRegions - 1)));
+    const baseIndex = Math.floor(floatIndex);
+    const nextIndex = Math.min(totalRegions - 1, baseIndex + 1);
+    const fraction = floatIndex - baseIndex;
+
+    const r1 = RELAY_REGIONS[baseIndex] || RELAY_REGIONS[0];
+    const r2 = RELAY_REGIONS[nextIndex] || r1;
+
+    const currentLat = r1.lat + (r2.lat - r1.lat) * fraction;
+
+    let dLng = r2.lng - r1.lng;
+    while (dLng < -180) dLng += 360;
+    while (dLng > 180) dLng -= 360;
+    const currentLng = r1.lng + dLng * fraction;
+
+    const targetY = -(currentLng * Math.PI) / 180 - Math.PI / 2;
+    const targetX = (currentLat * Math.PI) / 180 * 0.45;
 
     targetRotationRef.current = { x: targetX, y: targetY };
-  }, [activeIndex]);
+  }, [scrollProgress, activeIndex]);
 
   useEffect(() => {
     const container = mountRef.current;
@@ -78,7 +126,7 @@ export default function ThreeEarthGlobe({
       powerPreference: 'high-performance',
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
     container.appendChild(renderer.domElement);
@@ -88,16 +136,16 @@ export default function ThreeEarthGlobe({
     scene.add(globeGroup);
     globeGroupRef.current = globeGroup;
 
-    // Subtle Starfield Particles in background
+    // Starfield Particles in background
     const starGeo = new THREE.BufferGeometry();
-    const starCount = 280;
+    const starCount = 240;
     const starPositions = new Float32Array(starCount * 3);
     for (let i = 0; i < starCount * 3; i += 3) {
       const u = Math.random();
       const v = Math.random();
       const theta = u * 2.0 * Math.PI;
       const phi = Math.acos(2.0 * v - 1.0);
-      const r = 7 + Math.random() * 8;
+      const r = 7 + Math.random() * 7;
       starPositions[i] = r * Math.sin(phi) * Math.cos(theta);
       starPositions[i + 1] = r * Math.sin(phi) * Math.sin(theta);
       starPositions[i + 2] = r * Math.cos(phi);
@@ -129,30 +177,39 @@ export default function ThreeEarthGlobe({
     scene.add(topFill);
 
     // Texture Loader with Earth maps
-    const textureLoader = new THREE.TextureLoader();
     const radius = 2.0;
-
-    const colorMap = textureLoader.load(
-      '/earth/earth_color_2k.jpg',
-      () => setIsLoaded(true),
-      undefined,
-      () => setIsLoaded(true)
-    );
-    colorMap.colorSpace = THREE.SRGBColorSpace;
-
-    const bumpMap = textureLoader.load('/earth/earth_bump_2k.jpg');
+    const initialTexture = createProceduralEarthTexture();
 
     // Earth Sphere Mesh
     const sphereGeo = new THREE.SphereGeometry(radius, 64, 64);
     const sphereMat = new THREE.MeshStandardMaterial({
-      map: colorMap,
-      bumpMap: bumpMap,
-      bumpScale: 0.045,
+      map: initialTexture,
       roughness: 0.62,
       metalness: 0.08,
     });
     const earthMesh = new THREE.Mesh(sphereGeo, sphereMat);
     globeGroup.add(earthMesh);
+
+    // Load High-Res Photorealistic Textures
+    const textureLoader = new THREE.TextureLoader();
+    textureLoader.load(
+      '/earth/earth_color_2k.jpg',
+      (tex) => {
+        tex.colorSpace = THREE.SRGBColorSpace;
+        sphereMat.map = tex;
+        sphereMat.needsUpdate = true;
+      },
+      undefined,
+      (err) => {
+        console.warn('Fallback texture active');
+      }
+    );
+
+    textureLoader.load('/earth/earth_bump_2k.jpg', (bumpTex) => {
+      sphereMat.bumpMap = bumpTex;
+      sphereMat.bumpScale = 0.045;
+      sphereMat.needsUpdate = true;
+    });
 
     // Outer Atmosphere Fresnel Glow
     const atmoGeo = new THREE.SphereGeometry(radius * 1.035, 32, 32);
@@ -176,7 +233,7 @@ export default function ThreeEarthGlobe({
     const haloMesh = new THREE.Mesh(haloGeo, haloMat);
     scene.add(haloMesh);
 
-    // Interactive Hub Markers and Radar Rings
+    // Interactive Hub Markers and Radar Rings for all 12 regions
     const markersGroup = new THREE.Group();
     globeGroup.add(markersGroup);
 
@@ -201,7 +258,7 @@ export default function ThreeEarthGlobe({
       markersGroup.add(pinMesh);
       markerMeshes.push(pinMesh);
 
-      // Invisible generous hit sphere for responsive mouse hovering
+      // Generous invisible hit sphere for responsive clicking / hovering
       const hitGeo = new THREE.SphereGeometry(0.24, 12, 12);
       const hitMat = new THREE.MeshBasicMaterial({ visible: false });
       const hitMesh = new THREE.Mesh(hitGeo, hitMat);
@@ -225,7 +282,7 @@ export default function ThreeEarthGlobe({
       markerBeacons.push(ringMesh);
     });
 
-    // Flight Arcs connecting relay nodes in sequence
+    // Flight Arcs connecting all 12 relay nodes in global loop
     const curves = [];
     for (let i = 0; i < RELAY_REGIONS.length; i++) {
       const nextIdx = (i + 1) % RELAY_REGIONS.length;
@@ -253,7 +310,7 @@ export default function ThreeEarthGlobe({
     const tracerMesh = new THREE.Mesh(tracerGeo, tracerMat);
     globeGroup.add(tracerMesh);
 
-    // Initial orientation
+    // Set initial orientation
     const initTarget = targetRotationRef.current;
     globeGroup.rotation.y = initTarget.y;
     globeGroup.rotation.x = initTarget.x;
@@ -266,12 +323,7 @@ export default function ThreeEarthGlobe({
       animationFrameId = requestAnimationFrame(animate);
       const time = clock.getElapsedTime();
 
-      // Ambient continuous planetary rotation when user is not dragging or inspecting a node
-      if (!isDraggingRef.current && !isHoveringNodeRef.current) {
-        targetRotationRef.current.y += 0.0016;
-      }
-
-      // Animate Beacons pulse & scale
+      // Animate Beacons pulse & highlight
       markerBeacons.forEach((ring, idx) => {
         const isActive = idx === lastSelectedIdxRef.current;
         if (isActive) {
@@ -298,7 +350,7 @@ export default function ThreeEarthGlobe({
         tracerMesh.position.copy(tracerPos);
       }
 
-      // Smoothly interpolate (lerp) globe rotation towards target
+      // Smoothly interpolate globe rotation towards scroll-based target
       if (!isDraggingRef.current) {
         const target = targetRotationRef.current;
         
@@ -310,7 +362,7 @@ export default function ThreeEarthGlobe({
         globeGroup.rotation.x += (target.x - globeGroup.rotation.x) * 0.08;
       }
 
-      // Raycasting for interactive marker hover & producer display
+      // Raycasting for interactive marker hover & inspection
       if (cameraRef.current && hitSpheres.length > 0) {
         raycasterRef.current.setFromCamera(mouseVecRef.current, cameraRef.current);
         const intersects = raycasterRef.current.intersectObjects(hitSpheres);
@@ -322,7 +374,6 @@ export default function ThreeEarthGlobe({
           isHoveringNodeRef.current = true;
           container.style.cursor = 'pointer';
 
-          // Automatically show producer of hovered region
           if (targetIndex !== lastSelectedIdxRef.current && onSelectRegion) {
             lastSelectedIdxRef.current = targetIndex;
             onSelectRegion(targetIndex);
@@ -363,7 +414,6 @@ export default function ThreeEarthGlobe({
       mousePosRef.current = { x: e.clientX, y: e.clientY };
       container.style.cursor = 'grabbing';
 
-      // Direct click on a 3D node
       if (cameraRef.current && hitSpheres.length > 0) {
         const rect = container.getBoundingClientRect();
         const clickVec = new THREE.Vector2(
@@ -459,17 +509,12 @@ export default function ThreeEarthGlobe({
     };
   }, [onSelectRegion]);
 
+  const activeRegion = RELAY_REGIONS[activeIndex] || RELAY_REGIONS[0];
+
   return (
     <div className="relative w-full aspect-square max-w-[560px] mx-auto flex items-center justify-center select-none">
       {/* 3D WebGL Canvas Container */}
       <div ref={mountRef} className="w-full h-full cursor-grab" />
-
-      {/* Loading Overlay */}
-      {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#F8F6F0]/80 backdrop-blur-xs rounded-full">
-          <div className="w-8 h-8 rounded-full border-2 border-[#163B32] border-t-transparent animate-spin" />
-        </div>
-      )}
 
       {/* Dynamic Hover Tooltip displaying Producer of that region */}
       {hoveredNode && hoveredNode.producer && (

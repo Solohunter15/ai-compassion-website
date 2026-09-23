@@ -2,24 +2,16 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Compass,
   MapPin,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
   Clock,
   Radio,
-  ArrowDown,
 } from 'lucide-react';
 import ThreeEarthGlobe from './ThreeEarthGlobe';
 import { RELAY_REGIONS } from './relayData';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function GlobalRelayGlobeSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -54,46 +46,51 @@ export default function GlobalRelayGlobeSection() {
     return () => clearInterval(interval);
   }, [activeIndex]);
 
-  // Pinned ScrollTrigger Timeline
+  // Robust Native & Smooth Sticky Scroll Progress Tracker
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) return;
+    let animationFrameId;
 
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
       const track = outerTrackRef.current;
       if (!track) return;
 
-      ScrollTrigger.create({
-        trigger: track,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 0.6,
-        onUpdate: (self) => {
-          if (isProgrammaticScroll.current) return;
-          const p = self.progress;
-          setScrollProgress(p);
+      const rect = track.getBoundingClientRect();
+      const totalScrollable = track.offsetHeight - window.innerHeight;
+      if (totalScrollable <= 0) return;
 
-          // Calculate stage from 0 to 11
-          const rawIndex = Math.floor(p * RELAY_REGIONS.length);
-          const clampedIndex = Math.min(RELAY_REGIONS.length - 1, Math.max(0, rawIndex));
-          setActiveIndex(clampedIndex);
-        },
-      });
-    }, outerTrackRef);
+      // rect.top is 0 when track starts sticking at top of viewport
+      // rect.top is -totalScrollable when track finishes sticking
+      const currentScroll = -rect.top;
+      const p = Math.min(1, Math.max(0, currentScroll / totalScrollable));
+      
+      setScrollProgress(p);
 
-    return () => ctx.revert();
+      // Map progress to 0..11 stages
+      const rawIndex = Math.floor(p * RELAY_REGIONS.length);
+      const clampedIndex = Math.min(RELAY_REGIONS.length - 1, Math.max(0, rawIndex));
+      setActiveIndex(clampedIndex);
+    };
+
+    const throttledScroll = () => {
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(() => {
+          handleScroll();
+          animationFrameId = null;
+        });
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    window.addEventListener('resize', throttledScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resize', throttledScroll);
+    };
   }, []);
-
-  // Animate card contents when active region changes
-  useEffect(() => {
-    if (infoCardRef.current) {
-      gsap.fromTo(
-        infoCardRef.current,
-        { opacity: 0.35, y: 14, scale: 0.98 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power2.out' }
-      );
-    }
-  }, [activeIndex]);
 
   // Jump to specific region via scroll
   const handleSelectRegion = (index) => {
@@ -108,7 +105,7 @@ export default function GlobalRelayGlobeSection() {
 
       if (window.__lenis) {
         window.__lenis.scrollTo(targetScroll, {
-          duration: 1.2,
+          duration: 1.1,
           onComplete: () => {
             isProgrammaticScroll.current = false;
           },
@@ -139,12 +136,12 @@ export default function GlobalRelayGlobeSection() {
     <section
       id="relay"
       ref={outerTrackRef}
-      className="relative w-full min-h-[220vh] bg-[#F8F6F0] border-t border-b border-[#D9DDD6]/80 transition-colors duration-700"
+      className="relative w-full min-h-[340vh] bg-[#F8F6F0] border-t border-b border-[#D9DDD6]/80 transition-colors duration-700"
     >
       {/* Sticky Full-Viewport Stage */}
       <div
         ref={stickyContainerRef}
-        className="sticky top-0 h-screen w-full flex flex-col justify-between py-6 md:py-8 px-4 sm:px-6 lg:px-12 overflow-hidden z-20"
+        className="sticky top-0 h-screen w-full flex flex-col justify-between py-5 md:py-7 px-4 sm:px-6 lg:px-12 overflow-hidden z-20"
       >
         {/* Background Subtle Ambient Glow */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -152,7 +149,7 @@ export default function GlobalRelayGlobeSection() {
         </div>
 
         {/* Top Header & Navigation Bar */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#D9DDD6]/80 pb-4">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D9DDD6]/80 pb-3">
           
           <div className="flex items-center gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#D9DDD6] text-xs font-mono tracking-widest text-[#163B32] uppercase font-bold shadow-xs">
@@ -162,12 +159,12 @@ export default function GlobalRelayGlobeSection() {
 
             <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-[#163B32]/5 border border-[#163B32]/15 text-xs font-mono text-[#163B32]">
               <Radio className="w-3 h-3 text-[#C96F4A] animate-pulse" />
-              <span>Scroll to Rotate Earth</span>
+              <span>Scroll down to rotate around Earth</span>
             </div>
           </div>
 
           {/* Stepper Controls & Stage Indicator */}
-          <div className="flex items-center gap-2.5 self-end sm:self-auto">
+          <div className="flex items-center gap-2 self-end sm:self-auto">
             <button
               type="button"
               onClick={prevRegion}
@@ -197,11 +194,11 @@ export default function GlobalRelayGlobeSection() {
         </div>
 
         {/* Centerpiece 2-Column Interactive Showcase */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center my-auto">
+        <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center my-auto">
           
           {/* Left: 3D Photorealistic Interactive Earth Globe (6 Cols) */}
           <div className="lg:col-span-6 flex flex-col items-center justify-center relative w-full">
-            <div className="relative w-full max-w-[360px] sm:max-w-[440px] lg:max-w-[480px] aspect-square flex items-center justify-center">
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[460px] aspect-square flex items-center justify-center">
               <ThreeEarthGlobe
                 activeIndex={activeIndex}
                 onSelectRegion={handleSelectRegion}
@@ -210,13 +207,13 @@ export default function GlobalRelayGlobeSection() {
             </div>
           </div>
 
-          {/* Right: Dynamic Compact Producer & Inquiry Information Card (6 Cols) */}
+          {/* Right: Dynamic Producer & Inquiry Information Card (6 Cols) */}
           <div
             ref={infoCardRef}
-            className="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-[#D9DDD6] shadow-xl flex flex-col gap-5 backdrop-blur-md"
+            className="lg:col-span-6 bg-white rounded-3xl p-5 sm:p-7 border border-[#D9DDD6] shadow-xl flex flex-col gap-4 backdrop-blur-md transition-all duration-300"
           >
             {/* Stage Badge & Live Local Clock */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E6E9E4] pb-3.5">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E6E9E4] pb-3">
               <div className="flex items-center gap-2">
                 <span className="font-mono text-xs font-bold text-[#C96F4A] bg-[#C96F4A]/10 px-3 py-1 rounded-full">
                   STAGE {String(activeRegion.id).padStart(2, '0')}
@@ -240,27 +237,27 @@ export default function GlobalRelayGlobeSection() {
                 <MapPin className="w-3.5 h-3.5 text-[#C96F4A]" />
                 <span>{activeRegion.city}</span>
               </div>
-              <h3 className="font-editorial text-xl sm:text-2xl md:text-3xl font-bold text-[#171918] leading-snug tracking-tight">
+              <h3 className="font-editorial text-lg sm:text-2xl md:text-2xl lg:text-3xl font-bold text-[#171918] leading-snug tracking-tight">
                 “{activeRegion.question}”
               </h3>
             </div>
 
-            {/* Compact Producer Editorial Profile */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F6F0] border border-[#E6E9E4] flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            {/* Producer Profile */}
+            <div className="p-4 sm:p-4.5 rounded-2xl bg-[#F8F6F0] border border-[#E6E9E4] flex flex-col sm:flex-row items-center sm:items-start gap-4">
               
               {/* Producer Portrait */}
-              <div className="relative w-20 h-20 sm:w-22 sm:h-22 shrink-0 rounded-2xl overflow-hidden border border-[#D9DDD6] bg-white shadow-sm group">
+              <div className="relative w-18 h-18 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border border-[#D9DDD6] bg-white shadow-sm group">
                 <Image
                   src={producer.img}
                   alt={producer.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="88px"
+                  sizes="80px"
                 />
               </div>
 
               {/* Producer Details */}
-              <div className="flex flex-col gap-1.5 text-center sm:text-left">
+              <div className="flex flex-col gap-1 text-center sm:text-left">
                 <div>
                   <h4 className="font-editorial text-base sm:text-lg font-bold text-[#163B32]">
                     {producer.name}
@@ -288,7 +285,7 @@ export default function GlobalRelayGlobeSection() {
               </div>
             </div>
 
-            {/* Scroll Hint & Quick Actions */}
+            {/* Hub Details & Next Hub Action */}
             <div className="flex items-center justify-between pt-1">
               <span className="text-[11px] font-mono text-[#5E625D]">
                 Hub: <strong>{activeRegion.hubs}</strong>
@@ -307,7 +304,7 @@ export default function GlobalRelayGlobeSection() {
         </div>
 
         {/* Bottom Relay Progress Bar & Region Pills */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col gap-2 pt-2">
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col gap-2 pt-1">
           
           {/* Continuous Scroll Progress Track */}
           <div className="w-full h-1.5 bg-[#E6E9E4] rounded-full overflow-hidden relative shadow-inner">
@@ -325,7 +322,7 @@ export default function GlobalRelayGlobeSection() {
                 <button
                   key={r.id}
                   onClick={() => handleSelectRegion(idx)}
-                  className={`shrink-0 flex items-center justify-center px-2 sm:px-3 py-1 rounded-full border text-[10px] font-mono transition-all duration-200 cursor-pointer ${
+                  className={`shrink-0 flex items-center justify-center px-2.5 sm:px-3 py-1 rounded-full border text-[10px] font-mono transition-all duration-200 cursor-pointer ${
                     isCurrent
                       ? 'bg-[#163B32] text-[#F8F6F0] border-[#163B32] shadow-sm font-bold scale-105'
                       : 'bg-white text-[#5E625D] border-[#D9DDD6] hover:text-[#171918] hover:border-[#163B32]/40'

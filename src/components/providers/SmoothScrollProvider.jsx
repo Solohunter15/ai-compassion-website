@@ -2,67 +2,54 @@
 
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export default function SmoothScrollProvider({ children }) {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    // Gracefully handle reduced motion preference if requested
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.2,
-      infinite: false,
-    });
+    if (prefersReducedMotion) {
+      return;
+    }
 
-    lenisRef.current = lenis;
-    window.__lenis = lenis;
+    try {
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 0.95,
+        touchMultiplier: 1.1,
+        infinite: false,
+      });
 
-    // Sync Lenis scroll with GSAP ScrollTrigger
-    lenis.on('scroll', () => {
-      ScrollTrigger.update();
-    });
+      lenisRef.current = lenis;
+      window.__lenis = lenis;
 
-    const updateTicker = (time) => {
-      lenis.raf(time * 1000);
-    };
+      let animationFrameId;
 
-    gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
+      function raf(time) {
+        lenis.raf(time);
+        animationFrameId = requestAnimationFrame(raf);
+      }
 
-    // Refresh ScrollTrigger after initial mount and on window resize
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
+      animationFrameId = requestAnimationFrame(raf);
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
-
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-      gsap.ticker.remove(updateTicker);
-      lenis.destroy();
-      window.__lenis = null;
-    };
+      return () => {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        lenis.destroy();
+        window.__lenis = null;
+      };
+    } catch (err) {
+      console.warn('SmoothScrollProvider fallback to native scroll:', err);
+    }
   }, []);
 
   return <>{children}</>;

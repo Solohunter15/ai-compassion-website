@@ -14,7 +14,6 @@ import {
 import {
   TIMEZONES,
   SCHEDULE_MATRIX,
-  OSAKA_OPENING_DATA,
 } from './scheduleData';
 
 export default function ScheduleSection() {
@@ -43,12 +42,8 @@ export default function ScheduleSection() {
     >
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-12">
         
-        {/* Top Titles Matching Screenshot 2 */}
+        {/* Top Header */}
         <div className="flex flex-col items-center text-center gap-3 max-w-4xl mx-auto">
-          <span className="text-[#8B5083] font-medium text-lg sm:text-xl md:text-2xl tracking-tight">
-            Pre-Event Global Labs
-          </span>
-
           <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#8B5083] leading-tight">
             Complete 24-Hour Schedule
           </h2>
@@ -58,7 +53,7 @@ export default function ScheduleSection() {
           </p>
         </div>
 
-        {/* Timezone Selector Buttons Row Matching Screenshot 2 */}
+        {/* Timezone Selector Buttons Row */}
         <div className="w-full flex flex-col items-center gap-4">
           <div className="w-full overflow-x-auto pb-2 scrollbar-none">
             <div className="flex items-center justify-center min-w-max gap-2 sm:gap-3 px-2 mx-auto">
@@ -127,59 +122,12 @@ export default function ScheduleSection() {
         </div>
 
         {/* ========================================================================= */}
-        {/* VIEW 1: TIMELINE VIEW (Matching Screenshots 1, 2, and 3) */}
+        {/* VIEW 1: TIMELINE VIEW */}
         {/* ========================================================================= */}
         {activeView === 'timeline' && (
           <div className="w-full max-w-5xl mx-auto flex flex-col gap-16 py-6">
 
-            {/* SPECIAL SECTION: Osaka USA Pavilion Opening Block Matching Screenshot 2 */}
-            {!searchQuery && (
-              <div className="w-full flex flex-col items-center text-center gap-6 bg-purple-50/40 rounded-3xl p-6 sm:p-10 border border-purple-100 shadow-sm">
-                <div className="flex flex-col items-center gap-2">
-                  <h3 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold text-[#8B5083]">
-                    {OSAKA_OPENING_DATA.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm font-semibold text-slate-600">
-                    {OSAKA_OPENING_DATA.date}: {OSAKA_OPENING_DATA.times[selectedTz] || OSAKA_OPENING_DATA.utcTime}
-                  </p>
-                </div>
-
-                {/* Two-Column Timeline with Central Dots Matching Screenshot 2 */}
-                <div className="relative w-full max-w-3xl mx-auto pt-6">
-                  {/* Central Vertical Line */}
-                  <div className="absolute left-1/2 top-4 bottom-4 w-0.5 bg-[#8B5083]/40 -translate-x-1/2 hidden md:block" />
-
-                  <div className="flex flex-col gap-4">
-                    {OSAKA_OPENING_DATA.leftColumn.map((leftItem, idx) => {
-                      const rightItem = OSAKA_OPENING_DATA.rightColumn[idx];
-                      return (
-                        <div
-                          key={idx}
-                          className="flex flex-col md:grid md:grid-cols-2 items-center gap-3 md:gap-8 relative"
-                        >
-                          {/* Left Item */}
-                          <div className="w-full text-center md:text-right pr-0 md:pr-4 text-sm sm:text-base font-medium text-slate-800">
-                            {leftItem}
-                          </div>
-
-                          {/* Center Dot (Desktop) */}
-                          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10">
-                            <div className="w-3.5 h-3.5 rounded-full bg-[#8B5083] ring-4 ring-purple-100" />
-                          </div>
-
-                          {/* Right Item */}
-                          <div className="w-full text-center md:text-left pl-0 md:pl-4 text-sm sm:text-base font-medium text-slate-800">
-                            {rightItem || ''}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* MAIN RELAY TIMELINE: Alternating Global 24-Hour Schedule Matching Screenshots 1 & 3 */}
+            {/* MAIN RELAY TIMELINE: Alternating Global 24-Hour Schedule (12 Regions + Ceremonies) */}
             <div className="flex flex-col items-center gap-12">
               <h3 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#8B5083] text-center">
                 Global 24-Hour Relay Schedule
@@ -243,7 +191,7 @@ export default function ScheduleSection() {
                               {block.hub}
                             </span>
 
-                            {/* Bulleted List of Moderators and Speakers Matching Screenshots 1 & 3 */}
+                            {/* Bulleted List of Moderators and Speakers */}
                             <div className="pt-3 border-t border-purple-100/70 flex flex-col gap-1.5 mt-1">
                               {/* Moderators */}
                               {block.moderators?.map((mod, mIdx) => (
