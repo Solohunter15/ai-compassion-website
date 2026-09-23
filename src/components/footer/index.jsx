@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
-import { FaDiscord } from 'react-icons/fa';
+import { FaDiscord, FaLinkedinIn, FaInstagram, FaYoutube, FaFacebookF } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Footer() {
@@ -16,6 +16,45 @@ export default function Footer() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const socials = [
+    {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/ai-plus-compassion/posts/?feedView=all',
+      icon: FaLinkedinIn,
+      label: 'Visit AI + Compassion on LinkedIn',
+    },
+    {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/aicompassion?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
+      icon: FaInstagram,
+      label: 'Follow AI + Compassion on Instagram',
+    },
+    {
+      name: 'YouTube',
+      href: 'https://www.youtube.com/@AICompassionGlobalForum',
+      icon: FaYoutube,
+      label: 'Subscribe to AI + Compassion on YouTube',
+    },
+    {
+      name: 'X',
+      href: 'https://x.com/ai_compassion?s=20',
+      icon: FaXTwitter,
+      label: 'Follow AI + Compassion on X',
+    },
+    {
+      name: 'Facebook',
+      href: 'https://www.facebook.com/profile.php?id=61581155761799',
+      icon: FaFacebookF,
+      label: 'Connect with AI + Compassion on Facebook',
+    },
+    {
+      name: 'Discord',
+      href: 'https://discord.gg/qBbCNtca8N',
+      icon: FaDiscord,
+      label: 'Join AI + Compassion Discord Community',
+    },
+  ];
+
   return (
     <footer
       id="contact"
@@ -25,7 +64,7 @@ export default function Footer() {
         
         {/* Compact Contact Layout */}
         <div className="flex flex-col items-center gap-4 max-w-xl">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-[11px] font-mono font-semibold text-slate-700 tracking-wider uppercase">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-[11px] font-mono font-semibold text-[#163B32] border border-[#163B32]/20 tracking-wider uppercase">
             <Mail className="w-3 h-3 text-[#163B32]" />
             Connect
           </span>
@@ -66,27 +105,24 @@ export default function Footer() {
             </button>
           </div>
 
-          {/* Social Channels */}
-          <div className="flex items-center gap-3 mt-1">
-            <a
-              href="https://x.com/ai_compassion"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#163B32] hover:text-white hover:border-[#163B32] shadow-2xs hover:shadow-sm transition-all duration-300 transform hover:scale-105"
-              aria-label="Visit AI + Compassion on X"
-            >
-              <FaXTwitter className="w-3.5 h-3.5" />
-            </a>
-
-            <a
-              href="https://discord.com/invite/3hzvqf4qJ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#163B32] hover:text-white hover:border-[#163B32] shadow-2xs hover:shadow-sm transition-all duration-300 transform hover:scale-105"
-              aria-label="Join AI + Compassion Discord Community"
-            >
-              <FaDiscord className="w-3.5 h-3.5" />
-            </a>
+          {/* All Social Channels */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
+            {socials.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#163B32] hover:text-white hover:border-[#163B32] shadow-2xs hover:shadow-sm transition-all duration-300 transform hover:scale-110 cursor-pointer"
+                  aria-label={social.label}
+                  title={social.name}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              );
+            })}
           </div>
         </div>
 

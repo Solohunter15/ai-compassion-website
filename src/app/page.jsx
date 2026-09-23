@@ -9,7 +9,6 @@ import SponsorSection from "@/components/sponsorSection";
 import PartnerSection from "@/components/partnersection";
 import FaqSection from "@/components/faqSection";
 import ScheduleSection from "@/components/scheduleSection";
-import JoinSection from "@/components/joinSection";
 import JourneyIndicator from "@/components/journeyIndicator";
 
 export default function Home() {
@@ -30,7 +29,6 @@ export default function Home() {
       <SponsorSection />
       <PartnerSection />
       <FaqSection />
-      <JoinSection />
     </>
   );
 }

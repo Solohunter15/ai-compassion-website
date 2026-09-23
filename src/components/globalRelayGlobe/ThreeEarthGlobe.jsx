@@ -67,7 +67,6 @@ export default function ThreeEarthGlobe({
   scrollProgress = 0,
 }) {
   const mountRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(true);
   const [hoveredNode, setHoveredNode] = useState(null);
 
   const globeGroupRef = useRef(null);
@@ -168,7 +167,7 @@ export default function ThreeEarthGlobe({
     sunLight.position.set(5, 3.5, 5);
     scene.add(sunLight);
 
-    const rimLight = new THREE.DirectionalLight(0xc96f4a, 0.9);
+    const rimLight = new THREE.DirectionalLight(0x22c55e, 0.8);
     rimLight.position.set(-6, -2, -4);
     scene.add(rimLight);
 
@@ -218,6 +217,7 @@ export default function ThreeEarthGlobe({
       transparent: true,
       opacity: 0.12,
       side: THREE.BackSide,
+      depthWrite: false,
     });
     const atmoMesh = new THREE.Mesh(atmoGeo, atmoMat);
     scene.add(atmoMesh);
@@ -225,10 +225,11 @@ export default function ThreeEarthGlobe({
     // Outer Soft Glowing Halo
     const haloGeo = new THREE.SphereGeometry(radius * 1.15, 32, 32);
     const haloMat = new THREE.MeshBasicMaterial({
-      color: 0xc9a96a,
+      color: 0x22c55e,
       transparent: true,
       opacity: 0.04,
       side: THREE.BackSide,
+      depthWrite: false,
     });
     const haloMesh = new THREE.Mesh(haloGeo, haloMat);
     scene.add(haloMesh);
@@ -244,12 +245,12 @@ export default function ThreeEarthGlobe({
     RELAY_REGIONS.forEach((r, idx) => {
       const pos = latLngToVector3(r.lat, r.lng, radius * 1.018);
 
-      // Core Luminous Pin Sphere
+      // Core Luminous Pin Sphere with independent material
       const pinGeo = new THREE.SphereGeometry(0.042, 16, 16);
       const pinMat = new THREE.MeshStandardMaterial({
-        color: idx === activeIndex ? 0xc96f4a : 0x163b32,
-        emissive: idx === activeIndex ? 0xc96f4a : 0x163b32,
-        emissiveIntensity: 0.8,
+        color: idx === activeIndex ? 0x22c55e : 0x163b32,
+        emissive: idx === activeIndex ? 0x22c55e : 0x163b32,
+        emissiveIntensity: idx === activeIndex ? 1.4 : 0.6,
         roughness: 0.2,
       });
       const pinMesh = new THREE.Mesh(pinGeo, pinMat);
@@ -267,13 +268,14 @@ export default function ThreeEarthGlobe({
       markersGroup.add(hitMesh);
       hitSpheres.push(hitMesh);
 
-      // Outer Pulsing Radar Ring
+      // Outer Pulsing Radar Ring with independent material
       const ringGeo = new THREE.RingGeometry(0.055, 0.085, 24);
       const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x163b32,
+        color: 0x22c55e,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.7,
+        opacity: idx === activeIndex ? 0.9 : 0.35,
+        depthWrite: false,
       });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
       ringMesh.position.copy(pos);
@@ -292,9 +294,9 @@ export default function ThreeEarthGlobe({
       const points = curve.getPoints(50);
       const curveGeo = new THREE.BufferGeometry().setFromPoints(points);
       const curveMat = new THREE.LineBasicMaterial({
-        color: 0xc9a96a,
+        color: 0x22c55e,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.4,
       });
       const curveLine = new THREE.Line(curveGeo, curveMat);
       globeGroup.add(curveLine);
@@ -303,7 +305,7 @@ export default function ThreeEarthGlobe({
     // Glowing Tracer Light on Active Flight Arc
     const tracerGeo = new THREE.SphereGeometry(0.05, 16, 16);
     const tracerMat = new THREE.MeshBasicMaterial({
-      color: 0xfff0c2,
+      color: 0x86efac,
       transparent: true,
       opacity: 0.95,
     });
@@ -323,22 +325,30 @@ export default function ThreeEarthGlobe({
       animationFrameId = requestAnimationFrame(animate);
       const time = clock.getElapsedTime();
 
-      // Animate Beacons pulse & highlight
+      // Fast, crisp, clean green pulse for the active node
+      const fastPulse = Math.sin(time * 8.5) * 0.5 + 0.5; // Fast 8.5 rad/s pulse
+
       markerBeacons.forEach((ring, idx) => {
         const isActive = idx === lastSelectedIdxRef.current;
         if (isActive) {
-          const scale = 1 + Math.sin(time * 4) * 0.45;
+          const scale = 1.0 + fastPulse * 0.6;
           ring.scale.set(scale, scale, scale);
-          ring.material.color.setHex(0xc96f4a);
-          ring.material.opacity = 0.95;
-          markerMeshes[idx].scale.set(1.4, 1.4, 1.4);
-          markerMeshes[idx].material.emissiveIntensity = 1.6;
+          ring.material.color.setHex(0x22c55e); // Pure crisp emerald green
+          ring.material.opacity = 0.5 + fastPulse * 0.5;
+
+          markerMeshes[idx].scale.set(1.3, 1.3, 1.3);
+          markerMeshes[idx].material.color.setHex(0x22c55e);
+          markerMeshes[idx].material.emissive.setHex(0x22c55e);
+          markerMeshes[idx].material.emissiveIntensity = 1.2 + fastPulse * 1.0;
         } else {
-          ring.scale.set(0.8, 0.8, 0.8);
-          ring.material.color.setHex(0x557c8b);
-          ring.material.opacity = 0.35;
-          markerMeshes[idx].scale.set(1, 1, 1);
-          markerMeshes[idx].material.emissiveIntensity = 0.6;
+          ring.scale.set(0.85, 0.85, 0.85);
+          ring.material.color.setHex(0x163b32);
+          ring.material.opacity = 0.3;
+
+          markerMeshes[idx].scale.set(1.0, 1.0, 1.0);
+          markerMeshes[idx].material.color.setHex(0x163b32);
+          markerMeshes[idx].material.emissive.setHex(0x163b32);
+          markerMeshes[idx].material.emissiveIntensity = 0.5;
         }
       });
 
@@ -531,7 +541,7 @@ export default function ThreeEarthGlobe({
             <span className="font-editorial text-xs font-bold text-white tracking-tight">
               {hoveredNode.producer.name}
             </span>
-            <span className="text-[10px] text-amber-300 font-mono">
+            <span className="text-[10px] text-emerald-300 font-mono">
               {hoveredNode.hubs}
             </span>
           </div>
@@ -540,7 +550,7 @@ export default function ThreeEarthGlobe({
 
       {/* Floating Coordinate HUD Telemetry */}
       <div className="absolute bottom-3 left-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E6E9E4] shadow-xs text-[11px] font-mono text-[#163B32] pointer-events-none">
-        <span className="w-2 h-2 rounded-full bg-[#C96F4A] animate-ping" />
+        <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-ping" />
         <span className="font-bold uppercase tracking-wider">{activeRegion.code}</span>
         <span className="text-[#5E625D]">
           {activeRegion.lat > 0 ? `${activeRegion.lat.toFixed(1)}°N` : `${Math.abs(activeRegion.lat).toFixed(1)}°S`},{' '}
@@ -550,7 +560,7 @@ export default function ThreeEarthGlobe({
 
       {/* Hub Tag */}
       <div className="absolute top-3 right-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-[#163B32] text-[#F8F6F0] text-[10px] font-mono tracking-wider uppercase shadow-md pointer-events-none">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D8B56A]" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
         <span>{activeRegion.hubs}</span>
       </div>
     </div>

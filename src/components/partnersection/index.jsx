@@ -20,36 +20,51 @@ const PARTNERS = [
 ];
 
 export function PartnerSection() {
+  // Duplicate array 3 times for seamless infinite continuous marquee loop
+  const marqueeList = [...PARTNERS, ...PARTNERS, ...PARTNERS];
+
   return (
     <section
       id="partners"
-      className="relative z-10 w-full bg-[#FFFFFF] pt-12 pb-24 px-4 sm:px-6 lg:px-12 border-b border-[#EAECE8]"
+      className="relative z-10 w-full bg-[#FFFFFF] pt-12 pb-20 px-4 sm:px-6 lg:px-12 border-b border-[#EAECE8] overflow-hidden"
     >
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-12">
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-10">
         
         {/* Centered Heading */}
-        <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#172554] text-center">
-          Our Partners
-        </h2>
+        <div className="flex flex-col items-center gap-2">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#163B32] font-semibold">
+            Global Ecosystem
+          </span>
+          <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#172554] text-center">
+            Our Partners
+          </h2>
+        </div>
 
-        {/* Clean Minimal Horizontal Logo Row Matching Screenshot 3 */}
-        <div className="w-full max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-          {PARTNERS.map((partner, idx) => (
-            <div
-              key={idx}
-              className="flex items-center justify-center p-3 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105"
-            >
-              <div className="relative h-12 sm:h-14 w-28 sm:w-36 flex items-center justify-center">
-                <Image
-                  src={partner.img}
-                  alt={partner.name}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 112px, 144px"
-                />
+        {/* Continuous Horizontal Moving Marquee with Full Color Logos */}
+        <div className="relative w-full overflow-hidden py-4 mask-gradient group">
+          {/* Subtle Left & Right Edge Fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+          {/* Marquee Track (Moving Right to Left) */}
+          <div className="flex items-center gap-12 sm:gap-16 w-max animate-marquee-left group-hover:[animation-play-state:paused]">
+            {marqueeList.map((partner, idx) => (
+              <div
+                key={idx}
+                className="flex items-center justify-center p-3 transition-transform duration-300 hover:scale-110 shrink-0"
+              >
+                <div className="relative h-12 sm:h-14 w-32 sm:w-40 flex items-center justify-center">
+                  <Image
+                    src={partner.img}
+                    alt={partner.name}
+                    fill
+                    className="object-contain transition-opacity duration-300"
+                    sizes="(max-width: 640px) 128px, 160px"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
       </div>
