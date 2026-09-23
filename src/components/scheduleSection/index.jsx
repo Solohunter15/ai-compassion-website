@@ -30,9 +30,7 @@ export default function ScheduleSection() {
     const q = searchQuery.toLowerCase();
     const matchRegion = b.region.toLowerCase().includes(q);
     const matchHub = b.hub.toLowerCase().includes(q);
-    const matchMods = b.moderators?.some((m) => m.toLowerCase().includes(q));
-    const matchSpeakers = b.speakers?.some((s) => s.toLowerCase().includes(q));
-    return matchRegion || matchHub || matchMods || matchSpeakers;
+    return matchRegion || matchHub;
   });
 
   return (
@@ -112,7 +110,7 @@ export default function ScheduleSection() {
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search speaker, region, hub..."
+                placeholder="Search region, hub..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-xl border border-purple-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#8B5083]/30"
@@ -127,7 +125,7 @@ export default function ScheduleSection() {
         {activeView === 'timeline' && (
           <div className="w-full max-w-5xl mx-auto flex flex-col gap-16 py-6">
 
-            {/* MAIN RELAY TIMELINE: Alternating Global 24-Hour Schedule (12 Regions + Ceremonies) */}
+            {/* MAIN RELAY TIMELINE: 12 Regions + Ceremonies */}
             <div className="flex flex-col items-center gap-12">
               <h3 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#8B5083] text-center">
                 Global 24-Hour Relay Schedule
@@ -138,7 +136,7 @@ export default function ScheduleSection() {
                 {/* Continuous Central Vertical Purple Line */}
                 <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-[#8B5083] -translate-x-1/2 z-0" />
 
-                <div className="flex flex-col gap-12 sm:gap-16">
+                <div className="flex flex-col gap-10 sm:gap-12">
                   {filteredBlocks.map((block, idx) => {
                     const isEven = idx % 2 === 0;
                     const timeVal = block.times[selectedTz] || block.times.UTC;
@@ -153,7 +151,7 @@ export default function ScheduleSection() {
                             : 'md:flex-row-reverse'
                         }`}
                       >
-                        {/* Content Box (Left or Right on desktop, aligned on right of line on mobile) */}
+                        {/* Content Box */}
                         <div
                           className={`w-full md:w-1/2 pl-12 md:pl-0 ${
                             isEven
@@ -190,35 +188,6 @@ export default function ScheduleSection() {
                             <span className="text-xs font-semibold text-[#8B5083]">
                               {block.hub}
                             </span>
-
-                            {/* Bulleted List of Moderators and Speakers */}
-                            <div className="pt-3 border-t border-purple-100/70 flex flex-col gap-1.5 mt-1">
-                              {/* Moderators */}
-                              {block.moderators?.map((mod, mIdx) => (
-                                <div
-                                  key={mIdx}
-                                  className={`text-xs sm:text-sm font-semibold text-slate-800 flex items-center gap-2 ${
-                                    isEven ? 'md:justify-end' : 'md:justify-start'
-                                  }`}
-                                >
-                                  <span className="text-[#8B5083] font-black text-sm">•</span>
-                                  <span>{mod}</span>
-                                </div>
-                              ))}
-
-                              {/* Speakers */}
-                              {block.speakers?.map((speaker, sIdx) => (
-                                <div
-                                  key={sIdx}
-                                  className={`text-xs sm:text-sm text-slate-700 flex items-center gap-2 ${
-                                    isEven ? 'md:justify-end' : 'md:justify-start'
-                                  }`}
-                                >
-                                  <span className="text-[#8B5083] font-black text-sm">•</span>
-                                  <span>{speaker}</span>
-                                </div>
-                              ))}
-                            </div>
                           </div>
                         </div>
 
@@ -231,7 +200,7 @@ export default function ScheduleSection() {
                           />
                         </div>
 
-                        {/* Empty spacing column for other side on desktop */}
+                        {/* Spacing column for other side on desktop */}
                         <div className="hidden md:block w-1/2" />
                       </div>
                     );
@@ -242,7 +211,7 @@ export default function ScheduleSection() {
 
             {filteredBlocks.length === 0 && (
               <div className="w-full p-12 text-center text-slate-500 bg-purple-50/50 rounded-2xl border border-purple-200">
-                No sessions or speakers found matching &ldquo;{searchQuery}&rdquo;.
+                No sessions found matching &ldquo;{searchQuery}&rdquo;.
               </div>
             )}
           </div>

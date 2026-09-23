@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 import plant from '@/../public/road.png';
 import pot from '@/../public/paper.png';
@@ -24,6 +24,7 @@ export default function HeroSection() {
   const img3Ref = useRef(null);
   const img4Ref = useRef(null);
   const gridContainerRef = useRef(null);
+  const circleStampRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,6 +39,16 @@ export default function HeroSection() {
           { opacity: 0, y: 30 },
           { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' }
         );
+      }
+
+      // Continuous 360 circle rotation for the seal badge
+      if (circleStampRef.current) {
+        gsap.to(circleStampRef.current, {
+          rotation: 360,
+          duration: 22,
+          ease: 'none',
+          repeat: -1,
+        });
       }
 
       // Parallax scrolling on editorial images
@@ -91,24 +102,13 @@ export default function HeroSection() {
     return () => ctx.revert();
   }, []);
 
-  const scrollToAbout = () => {
-    const el = document.getElementById('about');
-    if (el) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(el, { offset: -60, duration: 1.2 });
-      } else {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
   return (
     <section
       id="hero"
       ref={containerRef}
       className="relative z-10 w-full min-h-[92vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden"
     >
-      {/* Dynamic Ambient Background Illumination inspired by Beyond Syllabus */}
+      {/* Ambient Background Illumination */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute -top-32 left-1/4 w-[650px] h-[650px] bg-gradient-to-br from-[#163B32]/10 via-[#C9A96A]/8 to-transparent rounded-full blur-3xl opacity-70 animate-pulse-glow" />
         <div className="absolute top-1/2 -right-32 w-[550px] h-[550px] bg-gradient-to-bl from-[#C96F4A]/8 via-[#557C8B]/6 to-transparent rounded-full blur-3xl opacity-60" />
@@ -167,17 +167,19 @@ export default function HeroSection() {
               Join Us
             </Link>
 
-            <button
-              type="button"
-              onClick={scrollToAbout}
-              className="px-6 py-4 text-xs font-semibold tracking-wider uppercase text-[#5E625D] hover:text-[#171918] transition-colors rounded-full hover:bg-black/5 flex items-center gap-2 cursor-pointer"
+            {/* Why Now Button linking directly to https://ai-compassion-relay.vercel.app/#relay */}
+            <a
+              href="https://ai-compassion-relay.vercel.app/#relay"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-4 text-xs font-semibold tracking-wider uppercase text-[#163B32] hover:text-[#C96F4A] transition-all rounded-full bg-white/90 hover:bg-white border border-[#D9DDD6] hover:border-[#C96F4A]/50 flex items-center gap-2 cursor-pointer shadow-xs hover:shadow-md"
             >
-              <span>Explore Vision</span>
-              <ArrowDown className="w-3.5 h-3.5 text-[#C96F4A] animate-bounce" />
-            </button>
+              <span>Why Now</span>
+              <ArrowUpRight className="w-4 h-4 text-[#C96F4A]" />
+            </a>
           </div>
 
-          {/* Key Forum Facts Metrics Strip from aicompassion.org */}
+          {/* Key Forum Facts Metrics Strip */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-[#E6E9E4] text-[#163B32]">
             <div className="flex flex-col">
               <span className="font-editorial text-2xl font-bold tracking-tight">24h</span>
@@ -201,69 +203,98 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right Editorial Image Grid (5 Cols) with Independent Parallax Layers */}
-        <div
-          ref={gridContainerRef}
-          className="lg:col-span-5 grid grid-cols-2 gap-4 sm:gap-6 w-full max-w-lg mx-auto lg:max-w-none perspective-1000"
-        >
-          {/* Top-left image (Road / Plant sprout in hands) */}
+        {/* Right Editorial Image Grid with Rotating Circular Seal */}
+        <div className="lg:col-span-5 relative w-full max-w-lg mx-auto lg:max-w-none">
           <div
-            ref={img1Ref}
-            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
+            ref={gridContainerRef}
+            className="grid grid-cols-2 gap-4 sm:gap-6 w-full perspective-1000"
           >
-            <Image
-              src={plant}
-              alt="Hands holding green sprout"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-108"
-              sizes="(max-width: 1024px) 50vw, 25vw"
-              priority
-            />
+            {/* Top-left image (Road / Plant sprout in hands) */}
+            <div
+              ref={img1Ref}
+              className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
+            >
+              <Image
+                src={plant}
+                alt="Hands holding green sprout"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-108"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                priority
+              />
+            </div>
+
+            {/* Top-right image (Paper / Clay pottery) */}
+            <div
+              ref={img2Ref}
+              className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
+            >
+              <Image
+                src={pot}
+                alt="Handmade pottery craft"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-108"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                priority
+              />
+            </div>
+
+            {/* Bottom-left image (Pagoda Temple) */}
+            <div
+              ref={img3Ref}
+              className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group -mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
+            >
+              <Image
+                src={temple}
+                alt="Traditional Japanese temple"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-108"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+
+            {/* Bottom-right image (Traditional Dancer / Light) */}
+            <div
+              ref={img4Ref}
+              className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
+            >
+              <Image
+                src={dance}
+                alt="Traditional cultural dancer"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-108"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
           </div>
 
-          {/* Top-right image (Paper / Clay pottery) */}
-          <div
-            ref={img2Ref}
-            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
-          >
-            <Image
-              src={pot}
-              alt="Handmade pottery craft"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-108"
-              sizes="(max-width: 1024px) 50vw, 25vw"
-              priority
-            />
-          </div>
+          {/* Circular Moving Emblem / Seal rotating continuously */}
+          <div className="absolute -bottom-8 -left-8 sm:-bottom-10 sm:-left-10 z-20 pointer-events-none">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center">
+              {/* Spinning circular text path */}
+              <div ref={circleStampRef} className="absolute inset-0 w-full h-full will-change-transform">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <path
+                    id="circlePath"
+                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                    fill="none"
+                  />
+                  <text className="text-[7.5px] font-mono tracking-[0.2em] fill-[#163B32] uppercase font-bold">
+                    <textPath href="#circlePath" startOffset="0%">
+                      • AI + COMPASSION • 24H RELAY • 12 REGIONS • 2026
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
 
-          {/* Bottom-left image (Pagoda Temple) */}
-          <div
-            ref={img3Ref}
-            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group -mt-6 hover:shadow-2xl transition-all duration-500 will-change-transform"
-          >
-            <Image
-              src={temple}
-              alt="Traditional Japanese temple"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-108"
-              sizes="(max-width: 1024px) 50vw, 25vw"
-            />
-          </div>
-
-          {/* Bottom-right image (Traditional Dancer / Light) */}
-          <div
-            ref={img4Ref}
-            className="relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-[#E6E9E4] bg-white group hover:shadow-2xl transition-all duration-500 will-change-transform"
-          >
-            <Image
-              src={dance}
-              alt="Traditional cultural dancer"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-108"
-              sizes="(max-width: 1024px) 50vw, 25vw"
-            />
+              {/* Inner Circle Glow Badge */}
+              <div className="w-12 h-12 rounded-full bg-[#163B32] text-[#F8F6F0] flex items-center justify-center shadow-lg border-2 border-[#C9A96A]/40">
+                <Sparkles className="w-5 h-5 text-[#C9A96A] animate-pulse" />
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

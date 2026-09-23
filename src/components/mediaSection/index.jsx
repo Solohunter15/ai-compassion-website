@@ -88,13 +88,13 @@ export default function MediaSection() {
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#163B32]/20 bg-[#E5EBE5]/60 text-[11px] font-mono tracking-widest text-[#163B32] uppercase mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C96F4A] animate-pulse" />
-              Previous Year Highlights
+              2025 Edition Highlights
             </div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light tracking-tight text-[#163B32] leading-tight">
               Relay Dialogues &amp; Keynotes
             </h2>
             <p className="mt-3 text-base md:text-lg text-[#163B32]/70 max-w-xl font-light">
-              Moments from the Osaka opening, global regional nodes, and the sacred Kyoto closing.
+              Highlights and recorded keynotes from the inaugural 2025 AI + Compassion Global Relay.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function MediaSection() {
             href="/gallery"
             className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#163B32]/30 text-xs font-mono uppercase tracking-widest text-[#163B32] hover:bg-[#163B32] hover:text-[#F8F6F0] transition-all duration-300 self-start md:self-auto"
           >
-            <span>View Full Archive (30+ Sessions)</span>
+            <span>View Full 2025 Archive (30+ Sessions)</span>
             <span className="text-[#C9A96A] group-hover:translate-x-1 transition-transform duration-300">
               →
             </span>
@@ -112,7 +112,6 @@ export default function MediaSection() {
         {/* Hero Featured Video with Scroll-Driven Clip-Path Mask Reveal */}
         <div ref={heroCardRef} className="relative mb-12 md:mb-16">
           <div
-            ref={maskRef}
             onClick={() => setActiveVideo(mainVideo)}
             className="group cursor-pointer relative aspect-video md:aspect-[21/9] w-full overflow-hidden rounded-3xl shadow-2xl bg-[#163B32] border border-[#163B32]/20"
           >
@@ -134,7 +133,7 @@ export default function MediaSection() {
             {/* Center Cinematic Play Button */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border border-[#C9A96A]/60 bg-[#163B32]/70 backdrop-blur-md flex items-center justify-center text-[#F8F6F0] shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:border-[#C9A96A] group-hover:bg-[#163B32]/90">
-              <svg
+                <svg
                   className="w-8 h-8 md:w-10 md:h-10 text-[#C9A96A] translate-x-1 transition-transform duration-300 group-hover:translate-x-1.5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
@@ -148,7 +147,7 @@ export default function MediaSection() {
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-4 pointer-events-none">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C96F4A]/90 text-white text-[10px] font-mono tracking-widest uppercase mb-3">
-                  Featured Keynote • {mainVideo.segment}
+                  Featured 2025 Keynote • {mainVideo.segment}
                 </div>
                 <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif text-[#F8F6F0] tracking-tight font-light leading-tight">
                   {mainVideo.title}
@@ -159,7 +158,7 @@ export default function MediaSection() {
               </div>
 
               <div className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-[#C9A96A] uppercase">
-                <span>Watch Session</span>
+                <span>Watch 2025 Keynote</span>
                 <span>↗</span>
               </div>
             </div>

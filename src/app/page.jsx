@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <JourneyIndicator />
       <HeroSection />
-      <ContinuousMarquee />
+      <ContinuousMarquee variant="dark" />
       <AboutSection />
       <WhyNowSection />
       <PillarsSection />
