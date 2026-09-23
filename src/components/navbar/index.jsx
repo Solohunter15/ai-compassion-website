@@ -181,14 +181,14 @@ export default function Navbar() {
               onClick={() => setIsJoinModalOpen(true)}
               className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
             >
-              Join Us
+              Register
             </button>
           ) : (
             <Link
               href="/join"
               className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
             >
-              Join Us
+              Register
             </Link>
           )}
         </div>
@@ -253,7 +253,7 @@ export default function Navbar() {
                   }}
                   className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm cursor-pointer"
                 >
-                  Join Us
+                  Register
                 </button>
               ) : (
                 <Link
@@ -261,7 +261,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm"
                 >
-                  Join Us
+                  Register
                 </Link>
               )}
             </div>

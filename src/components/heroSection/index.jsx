@@ -133,13 +133,6 @@ export default function HeroSection() {
           {/* LEFT COLUMN: Editorial Narrative, CTAs & Live 4-Metric Statistics */}
           <div className="lg:col-span-6 flex flex-col justify-center gap-5 sm:gap-6 z-20">
             
-            {/* Eyebrow Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-[#D9DDD6] text-xs font-mono font-bold tracking-wider uppercase text-[#171918] w-fit shadow-xs backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#163B32] animate-pulse" />
-              <span>GLOBAL FORUM 2026</span>
-              <span className="text-[#C96F4A] font-bold">• 24H RELAY</span>
-            </div>
-
             {/* Main Editorial Headline */}
             <div className="flex flex-col gap-1">
               <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#171918] leading-[1.02]">
@@ -164,16 +157,16 @@ export default function HeroSection() {
               A 24-hour global conversation for a more human-centered future.
             </p>
 
-            {/* Action Buttons: JOIN US, JOIN AS SPEAKER & WHY NOW */}
+            {/* Action Buttons: REGISTER NOW, JOIN AS SPEAKER & WHY NOW */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 pt-2">
               
-              {/* 1. JOIN US Button (Opens Google Form Modal) */}
+              {/* 1. REGISTER NOW Button (Opens Google Form Modal) */}
               <button
                 type="button"
                 onClick={() => setIsJoinModalOpen(true)}
                 className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <span>JOIN US</span>
+                <span>REGISTER NOW</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
 
@@ -189,10 +182,11 @@ export default function HeroSection() {
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
               </a>
 
-              {/* 3. WHY NOW Button */}
+              {/* 3. WHY NOW Button (Redirects to https://ai-compassion-relay.vercel.app/#relay) */}
               <a
-                href="#about"
-                onClick={(e) => handleScrollToSection(e, 'about')}
+                href="https://ai-compassion-relay.vercel.app/#relay"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#171918] hover:text-[#C96F4A] transition-all rounded-full bg-white/95 hover:bg-white border border-[#D9DDD6] hover:border-[#163B32] shadow-xs hover:shadow-md cursor-pointer"
               >
                 <span>WHY NOW</span>
