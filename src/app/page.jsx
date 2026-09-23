@@ -1,7 +1,6 @@
 import HeroSection from "@/components/heroSection";
 import ContinuousMarquee from "@/components/continuousMarquee";
 import AboutSection from "@/components/aboutSection";
-import WhyNowSection from "@/components/whyNowSection";
 import PillarsSection from "@/components/pillarsSection";
 import GlobalRelayGlobeSection from "@/components/globalRelayGlobe";
 import ProducersPage from "@/components/producers";
@@ -18,10 +17,11 @@ export default function Home() {
     <>
       <JourneyIndicator />
       <HeroSection />
+      {/* Moving Bar 1: After Hero */}
       <ContinuousMarquee variant="dark" />
       <AboutSection />
-      <WhyNowSection />
       <PillarsSection />
+      {/* Moving Bar 2: Between Pillars & 12 Regions Relay */}
       <ContinuousMarquee reverse={true} variant="dark" />
       <GlobalRelayGlobeSection />
       <ProducersPage />

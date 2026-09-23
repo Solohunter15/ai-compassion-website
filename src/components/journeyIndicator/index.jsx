@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 const JOURNEY_STAGES = [
   { id: 'hero', label: '01', title: 'Entrance' },
   { id: 'about', label: '02', title: 'Vision' },
-  { id: 'why-now', label: '03', title: 'Why Now' },
-  { id: 'pillars', label: '04', title: 'Thematic Pillars' },
-  { id: 'relay', label: '05', title: '12 Regions (3D Globe)' },
-  { id: 'producers', label: '06', title: 'Producers' },
+  { id: 'pillars', label: '03', title: 'Thematic Pillars' },
+  { id: 'relay', label: '04', title: '12 Regions (3D Globe)' },
+  { id: 'producers', label: '05', title: 'Producers' },
+  { id: 'media', label: '06', title: '2025 Highlights' },
   { id: 'schedule', label: '07', title: 'Schedule' },
   { id: 'sponsors', label: '08', title: 'Sponsors' },
   { id: 'partners', label: '09', title: 'Partners' },
@@ -118,4 +118,3 @@ export default function JourneyIndicator() {
     </aside>
   );
 }
-
