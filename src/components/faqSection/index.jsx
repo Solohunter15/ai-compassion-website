@@ -20,7 +20,7 @@ export default function FaqSection() {
       className="relative z-10 w-full bg-white py-20 sm:py-28 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8]"
     >
       <div className="w-full max-w-7xl mx-auto">
-        {/* Large Rounded Off-White Card Container Matching User Screenshot */}
+        {/* Large Rounded Off-White Card Container Matching User Design */}
         <div className="w-full bg-[#FAF9F5] rounded-3xl sm:rounded-[40px] border border-[#ECE9E0] py-16 sm:py-20 px-6 sm:px-10 lg:px-14 shadow-xs">
           
           {/* Centered Heading */}
@@ -30,7 +30,7 @@ export default function FaqSection() {
             </h2>
           </div>
 
-          {/* 3-Column FAQ Accordion Grid Matching User Screenshot */}
+          {/* 3-Column FAQ Accordion Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-2 items-start">
             {faqColumns.map((col) => (
               <div key={col.colIndex} className="flex flex-col">
@@ -67,7 +67,7 @@ export default function FaqSection() {
                           isOpen ? 'grid-rows-[1fr] opacity-100 pt-3' : 'grid-rows-[0fr] opacity-0'
                         }`}
                       >
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden min-h-0">
                           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                             {item.answer}
                           </p>

@@ -70,7 +70,9 @@ export default function HeroSection() {
       <section
         id="hero"
         ref={heroRef}
-        className="relative z-10 w-full min-h-[92vh] lg:min-h-[98vh] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden select-none"
+        className={`relative z-10 w-full min-h-[92vh] lg:min-h-[98vh] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden select-none transition-all duration-700 ease-out origin-top ${
+          isJoinModalOpen ? 'scale-[0.965] -translate-y-2 brightness-90 rounded-3xl' : 'scale-100 translate-y-0 brightness-100'
+        }`}
       >
         {/* ========================================================================= */}
         {/* 1. 8K ULTRA-CLARITY SCENIC BACKDROP WITH 3D DEPTH & PARALLAX */}

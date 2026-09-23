@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, CheckCircle2, Loader2, Send, Sparkles, User, Mail, Globe, MapPin, Building } from 'lucide-react';
 
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeIDIvHm6LIU_19tYpmOqtAk034QK6u0LHdFyqn8dqssEz4yw/formResponse';
@@ -61,6 +61,22 @@ export default function JoinModal({ isOpen, onClose }) {
   });
 
   const [status, setStatus] = useState('idle');
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('modal-zoom-out');
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.classList.remove('modal-zoom-out');
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.classList.remove('modal-zoom-out');
+    }
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -128,8 +144,8 @@ export default function JoinModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-y-auto border border-[#D9DDD6] text-[#171918]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-md animate-in fade-in duration-300">
+      <div className="relative w-full max-w-2xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-y-auto border border-[#D9DDD6] text-[#171918] animate-in zoom-in-95 duration-300">
         
         {/* Close Button */}
         <button
