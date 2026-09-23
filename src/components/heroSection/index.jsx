@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Play, Sparkles, Mic, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, Play, Mic } from 'lucide-react';
 import JoinModal from '@/components/joinModal';
 
 export default function HeroSection() {
@@ -65,18 +65,6 @@ export default function HeroSection() {
     };
   }, []);
 
-  const handleScrollToSection = (e, sectionId) => {
-    e.preventDefault();
-    const el = document.getElementById(sectionId);
-    if (el) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(el, { offset: -70, duration: 1.2 });
-      } else {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
   return (
     <>
       <section
@@ -95,8 +83,8 @@ export default function HeroSection() {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/hero_scenic_ultra.jpg"
-              alt="AI + Compassion Global Forum 2026 8K Ultra Artwork"
+              src="/hero_clean_ultra.jpg"
+              alt="AI + Compassion Global Forum 2026 Artwork"
               fill
               priority
               quality={100}
@@ -215,24 +203,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Scenic Visual Showcase with Scroll Target Indicator */}
-          <div className="lg:col-span-6 relative w-full h-[360px] sm:h-[480px] lg:h-[580px] flex items-center justify-center">
-            
-            {/* Scroll Target Indicator */}
-            <a
-              href="#about"
-              onClick={(e) => handleScrollToSection(e, 'about')}
-              className="absolute bottom-2 right-2 sm:right-6 z-25 flex flex-col items-center gap-1 group cursor-pointer"
-            >
-              <div className="w-9 h-9 rounded-full border border-[#163B32]/40 bg-white/90 backdrop-blur-md flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:border-[#163B32] transition-all">
-                <ChevronDown className="w-4 h-4 text-[#163B32] animate-bounce" />
-              </div>
-              <span className="text-[9px] font-mono tracking-widest text-[#5E625D] group-hover:text-[#163B32] uppercase font-bold text-center transition-colors">
-                SCROLL<br />TO EXPLORE
-              </span>
-            </a>
-
-          </div>
+          {/* RIGHT COLUMN: Scenic Visual Showcase (Clean background without duplicate overlays) */}
+          <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[440px] lg:h-[560px]" />
 
         </div>
       </section>
