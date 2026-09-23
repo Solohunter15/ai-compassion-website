@@ -13,7 +13,7 @@ const team = [
   { name: "Rasha Hasoon", role: "", img: "/rasha.png" },
   { name: "Nash", role: "", img: "/nash.png" },
   { name: "Dany Koshy", role: "", img: "/dany.png" },
-  { name: "Akshat Pradeep", role: "", img: "/akshat.png" },
+  { name: "Akshat Pradeep", role: "Project Manager", img: "/akshat.png" },
   { name: "Jibu Mathew", role: "", img: "/jibu.png" },
 ];
 

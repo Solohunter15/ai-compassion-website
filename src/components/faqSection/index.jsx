@@ -1,54 +1,87 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { GoChevronDown } from "react-icons/go";
-import { faqs } from "./faqData";
+import { useState } from 'react';
+import { faqColumns } from './faqData';
+import { ChevronDown } from 'lucide-react';
 
-export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState(null);
+export default function FaqSection() {
+  const [openIds, setOpenIds] = useState({});
 
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+  const toggleItem = (id) => {
+    setOpenIds((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
-    // Split faqs into 3 roughly equal chunks
-    const columns = [[], [], []];
-    faqs.forEach((faq, i) => {
-        columns[i % 3].push(faq);
-    });
-
-    return (
-        <div id="faq" className="bg-[#FAF7F0] text-[#0A2144] px-6 py-8 md:py-12 md:px-20 m-4 my-6 rounded-4xl md:rounded-[4rem]">
-            <h2 className="text-2xl md:text-3xl font-libre font-bold text-center mb-8">
-                Frequently Asked Questions
+  return (
+    <section
+      id="faq"
+      className="relative z-10 w-full bg-white py-20 sm:py-28 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8]"
+    >
+      <div className="w-full max-w-7xl mx-auto">
+        {/* Large Rounded Off-White Card Container Matching User Design */}
+        <div className="w-full bg-[#FAF9F5] rounded-3xl sm:rounded-[40px] border border-[#ECE9E0] py-16 sm:py-20 px-6 sm:px-10 lg:px-14 shadow-xs">
+          
+          {/* Centered Heading */}
+          <div className="text-center flex flex-col items-center gap-3 mb-14 sm:mb-16">
+            <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#163B32]">
+              Frequently Asked Questions
             </h2>
+          </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-8 divide-y divide-gray-300 xl:divide-y-0">
-                {columns.map((col, colIndex) => (
-                    <div key={colIndex} className="max-w-2xl mx-auto flex flex-col divide-y divide-gray-300 w-full">
-                        {col.map((faq, index) => {
-                            const actualIndex = colIndex * faqs.length + index;
-                            return (
-                                <div key={index} className="py-4 ">
-                                    <button
-                                        onClick={() => toggleFAQ(actualIndex)}
-                                        className="w-full flex gap-4 items-center justify-between font-sen text-left text-lg focus:outline-none"
-                                    >
-                                        {faq.question}
-                                        <GoChevronDown
-                                            className={`transform transition-transform duration-300 ${openIndex === actualIndex ? "rotate-180" : ""
-                                                }`}
-                                        />
-                                    </button>
-                                    {openIndex === actualIndex && (
-                                        <p className="mt-3 text-sm text-gray-700">{faq.answer}</p>
-                                    )}
-                                </div>
-                            );
-                        })}
+          {/* 3-Column FAQ Accordion Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-2 items-start">
+            {faqColumns.map((col) => (
+              <div key={col.colIndex} className="flex flex-col">
+                {col.items.map((item) => {
+                  const isOpen = Boolean(openIds[item.id]);
+
+                  return (
+                    <div
+                      key={item.id}
+                      className="border-b border-[#E2DFD6] transition-colors py-4 sm:py-5"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleItem(item.id)}
+                        aria-expanded={isOpen}
+                        className="w-full text-left flex items-center justify-between gap-3 focus:outline-none cursor-pointer group"
+                      >
+                        <span className="text-sm sm:text-base font-medium text-slate-800 group-hover:text-[#163B32] transition-colors leading-snug">
+                          {item.question}
+                        </span>
+
+                        <div className="shrink-0 text-slate-500 group-hover:text-[#163B32] transition-transform duration-300">
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-300 ${
+                              isOpen ? 'rotate-180 text-[#163B32]' : ''
+                            }`}
+                          />
+                        </div>
+                      </button>
+
+                      {/* Smooth Expanding Answer */}
+                      <div
+                        className={`grid transition-all duration-300 ease-in-out ${
+                          isOpen ? 'grid-rows-[1fr] opacity-100 pt-3' : 'grid-rows-[0fr] opacity-0'
+                        }`}
+                      >
+                        <div className="overflow-hidden min-h-0">
+                          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                            {item.answer}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                ))}
-            </div>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+
         </div>
-    );
+      </div>
+    </section>
+  );
 }

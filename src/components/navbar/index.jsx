@@ -1,274 +1,279 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import logoImage from '@/../public/logoai.png';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import JoinModal from '@/components/joinModal';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentSection, setCurrentSection] = useState('#');
-  const pathname = usePathname(); // 👈 detect current page
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('#');
+  const pathname = usePathname();
 
-  // links for homepage (sections) and other pages (routes)
-  const links =
-    pathname === '/' || pathname === ''
-      ? [
-          { href: '#', label: 'Info' },
-          { href: '#about', label: 'About' },
-          { href: '#speakers', label: 'Speakers' },
-          { href: '#schedule', label: 'Schedule' },
-          { href: '/gallery', label: 'Gallery' },
-          { href: '#faq', label: 'FAQ' },
-          { href: '#contact', label: 'Contact' },
-        ]
-      : [
-          { href: '/#', label: 'Home' },
-          { href: '/#about', label: 'About' },
-          { href: '/#speakers', label: 'Speakers' },
-          { href: '/#schedule', label: 'Schedule' },
-          { href: '/gallery', label: 'Gallery' },
-          { href: '/#faq', label: 'FAQ' },
-          { href: '/#contact', label: 'Contact' },
-        ];
+  const isHome = pathname === '/' || pathname === '';
+
+  // Exact links as requested
+  const navLinks = [
+    { href: isHome ? '#' : '/#', label: 'Info', id: 'info' },
+    { href: isHome ? '#about' : '/#about', label: 'About', id: 'about' },
+    { href: isHome ? '#pillars' : '/#pillars', label: 'Pillars', id: 'pillars' },
+    { href: isHome ? '#relay' : '/#relay', label: 'The Relay', id: 'relay' },
+    { href: isHome ? '#schedule' : '/#schedule', label: 'Schedule', id: 'schedule' },
+    { href: isHome ? '#sponsors' : '/#sponsors', label: 'Sponsors', id: 'sponsors' },
+    { href: isHome ? '#faq' : '/#faq', label: 'FAQ', id: 'faq' },
+  ];
 
   useEffect(() => {
-    if (pathname !== '/' && pathname !== '') {
-      // 👈 for non-home routes just set to pathname
-      setCurrentSection(pathname);
-      return;
-    }
-
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
 
-      const sections = [
-        { href: '#', id: 'top' },
-        { href: '#about', id: 'about' },
-        { href: '#speakers', id: 'speakers' },
-        { href: '#schedule', id: 'schedule' },
-        { href: '#faq', id: 'faq' },
-        { href: '#contact', id: 'contact' },
-      ];
+      if (!isHome) {
+        setActiveSection(pathname);
+        return;
+      }
 
+      const sections = ['faq', 'partners', 'sponsors', 'schedule', 'relay', 'pillars', 'why-now', 'about'];
       let found = '#';
-      for (let i = 0; i < sections.length; i++) {
-        const el = document.getElementById(sections[i].id);
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // 👇 no break, so the last matching section overrides
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            found = sections[i].href;
+          if (rect.top <= 200 && rect.bottom >= 100) {
+            found = `#${id}`;
+            break;
           }
         }
       }
 
-      if (window.scrollY < 50) found = '#';
-      setCurrentSection(found);
+      if (window.scrollY < 120) found = '#';
+      setActiveSection(found);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname]);
+  }, [isHome, pathname]);
 
-  const handleMobileMenuToggle = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const handleLinkClick = (section) => {
+  const handleLinkClick = (e, href) => {
     setIsMobileMenuOpen(false);
 
-    if (pathname === '/' && section.startsWith('#')) {
-      setCurrentSection(section);
-      if (section === '#') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isHome && href.startsWith('#')) {
+      e.preventDefault();
+      setActiveSection(href);
+      if (href === '#') {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(0, { duration: 1.2 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       } else {
-        const el = document.getElementById(section.replace('#', ''));
-        if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY - 70;
-          window.scrollTo({ top, behavior: 'smooth' });
+        const targetId = href.replace('#', '');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          if (window.__lenis) {
+            window.__lenis.scrollTo(targetEl, { offset: -70, duration: 1.2 });
+          } else {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       }
     }
   };
 
-  const getLinkClass = (href) => {
-    const base = 'transition-colors duration-200 relative';
-    // homepage (hash links)
-    if (pathname === '/' || pathname === '') {
-      return currentSection === href
-        ? `${base} text-black`
-        : `${base} text-[#0A2144]/50 hover:text-black`;
-    }
-    // other pages (route highlight)
-    // Special case: highlight 'Contact' label if pathname is '/contact'
-    if (pathname === '/contact' && href === '/contact' && href === '#contact') {
-      return `${base} text-black`;
-    }
-    return pathname === href
-      ? `${base} text-black`
-      : `${base} text-[#0A2144]/50 hover:text-black`;
-  };
-
-  // Fix: define isScrolledStyles before using it
-  const isScrolledStyles = isScrolled
-    ? 'bg-white shadow-[0_0_15px_rgba(0,0,0,0.1)]'
-    : 'bg-white';
-
   return (
-    <nav className="fixed top-1 mx-auto w-full max-w-[1800px] md:h-[5rem] z-[1000] p-4 flex items-center justify-center">
-      <div
-        className={`relative w-full px-4 py-2 md:p-0 flex items-center justify-between
-        transition-all duration-300 ease-in-out ${isScrolledStyles} ${isMobileMenuOpen ? '!bg-white !shadow-none rounded-t-2xl md:rounded-t-3xl' : 'rounded-2xl md:rounded-t-3xl'}`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex justify-center px-4 sm:px-6 lg:px-8 ${
+        isScrolled ? 'py-2.5' : 'py-4 md:py-6'
+      }`}
+    >
+      <nav
+        aria-label="Main Navigation"
+        className={`w-full max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2 rounded-full transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#F8F6F0]/90 backdrop-blur-md shadow-sm border border-[#E6E9E4]'
+            : 'bg-[#F8F6F0]/60 backdrop-blur-xs border border-transparent'
+        }`}
       >
-        {/* Mobile Logo */}
+        {/* Logo */}
         <Link
           href="/"
-          aria-label="logo"
-          onClick={() => handleLinkClick('#')}
-          className="block md:hidden w-16 z-40"
+          onClick={(e) => handleLinkClick(e, '#')}
+          className="flex items-center gap-3 group focus:outline-none rounded-lg"
+          aria-label="AI + Compassion Global Forum 2026 Home"
         >
-          <Image
-            src={logoImage}
-            alt="logo"
-            width={900}
-            height={900}
-            className="w-full h-full object-contain"
-          />
-        </Link>
-
-        {/* Hamburger */}
-        <div
-          className="cursor-pointer block md:hidden z-50"
-          onClick={handleMobileMenuToggle}
-        >
-          <div
-            className={`w-[25px] h-[3px] ${isScrolled || isMobileMenuOpen ? 'bg-black' : 'bg-green-900'
-              } rounded-full my-1 transition-transform duration-400 ${isMobileMenuOpen ? 'rotate-[-45deg] translate-y-[9px]' : ''
-              }`}
-          />
-          <div
-            className={`w-[25px] h-[3px] ${isScrolled || isMobileMenuOpen ? 'bg-black' : 'bg-green-900'
-              } rounded-full my-1 transition-opacity duration-400 ${isMobileMenuOpen ? 'opacity-0' : ''
-              }`}
-          />
-          <div
-            className={`w-[25px] h-[3px] ${isScrolled || isMobileMenuOpen ? 'bg-black' : 'bg-green-900'
-              } rounded-full my-1 transition-transform duration-400 ${isMobileMenuOpen ? 'rotate-[45deg] -translate-y-[9px]' : ''
-              }`}
-          />
-        </div>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center justify-between w-full text-sm font-semibold px-2">
-          <Link href="/" aria-label="logo" onClick={() => handleLinkClick('#')}>
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 overflow-hidden transition-transform duration-300 group-hover:scale-105">
             <Image
               src={logoImage}
-              alt="logo"
-              width={800}
-              height={800}
+              alt="AI + Compassion Logo"
+              width={120}
+              height={120}
               className="w-full h-full object-contain"
+              priority
             />
-          </Link>
-          <div className="flex flex-row items-center gap-4 lg:gap-6 relative">
-            {links.map((link) => (
+          </div>
+          <span className="font-editorial tracking-tight text-sm sm:text-base font-bold text-[#171918] group-hover:text-[#163B32] transition-colors leading-none whitespace-nowrap">
+            AI + COMPASSION
+          </span>
+        </Link>
+
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-1 lg:gap-2 text-xs font-semibold tracking-wide uppercase">
+          {navLinks.map((link) => {
+            const isRoute = link.href.startsWith('/');
+            const isActive = isRoute
+              ? pathname === link.href
+              : isHome && activeSection === link.href;
+
+            return isRoute ? (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
-                onClick={() => handleLinkClick(link.href)}
-                className={`${getLinkClass(link.href)} flex flex-col items-center`}
+                className={`relative px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? 'text-[#171918] font-bold bg-[#171918]/5'
+                    : 'text-[#5E625D] hover:text-[#171918] hover:bg-black/5'
+                }`}
               >
                 {link.label}
-                <span
-                  className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D1462E] transition-all duration-300 ease-in-out ${
-                    // Highlight dot for contact page
-                    (pathname === '/contact' && link.href === '/contact') ||
-                    (pathname === '/gallery' && link.href === '/gallery') ||
-                    currentSection === link.href ||
-                    pathname === link.href
-                      ? 'opacity-100 scale-100'
-                      : 'opacity-0 scale-0'
-                  }`}
-                />
               </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            <a
-              href="https://2025.compassionai.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#0A2144]/70 hover:text-black bg-black/[0.04] hover:bg-black/[0.08] border border-black/5 hover:border-black/15 transition-all duration-200"
-              title="Visit 2025 Edition website"
-            >
-              <span>2025 Edition</span>
-              <svg
-                className="w-3 h-3 text-[#0A2144]/40 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.2}
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
+                className={`relative px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? 'text-[#171918] font-bold bg-[#171918]/5'
+                    : 'text-[#5E625D] hover:text-[#171918] hover:bg-black/5'
+                }`}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-
-            <Link
-              href="/join"
-              className="px-6 py-2 rounded-full bg-[#D55485] hover:bg-[#D55485]/80 transition-colors duration-200 text-white font-medium text-sm shadow-sm"
-            >
-              Join Us
-            </Link>
-          </div>
+                {link.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#C96F4A]" />
+                )}
+              </a>
+            );
+          })}
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-2xl p-5 flex flex-col gap-5 text-sm font-semibold z-40 border-t border-gray-100">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => handleLinkClick(link.href)}
-                className={`py-1 transition-colors ${currentSection === link.href ? 'text-black font-bold' : 'text-[#0A2144]/60 hover:text-black'}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="pt-3 border-t border-gray-100 flex flex-col gap-3">
+        {/* Right CTA / Archive */}
+        <div className="hidden sm:flex items-center gap-3">
+          <a
+            href="https://2025.compassionai.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-[#5E625D] hover:text-[#171918] transition-colors rounded-full hover:bg-black/5"
+            title="Visit 2025 Edition"
+          >
+            <span>2025 Edition</span>
+            <ArrowUpRight className="w-3 h-3 opacity-60" />
+          </a>
+
+          {isHome ? (
+            <button
+              type="button"
+              onClick={() => setIsJoinModalOpen(true)}
+              className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              Register
+            </button>
+          ) : (
+            <Link
+              href="/join"
+              className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
+            >
+              Register
+            </Link>
+          )}
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          type="button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 rounded-full text-[#171918] hover:bg-black/5 transition-colors focus:outline-none"
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Toggle navigation menu"
+        >
+          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu Drawer */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-x-4 top-20 bg-[#F8F6F0]/95 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-[#E6E9E4] z-50 animate-in fade-in zoom-in-95 duration-200">
+          <div className="flex flex-col gap-2">
+            {navLinks.map((link) => {
+              const isRoute = link.href.startsWith('/');
+              return isRoute ? (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-4 py-2.5 text-sm font-semibold text-[#171918] hover:bg-[#163B32]/10 rounded-2xl transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="px-4 py-2.5 text-sm font-semibold text-[#171918] hover:bg-[#163B32]/10 rounded-2xl transition-colors"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+
+            <div className="mt-3 pt-3 border-t border-[#E6E9E4] flex flex-col gap-3">
               <a
                 href="https://2025.compassionai.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 px-3.5 rounded-xl bg-[#0A2144]/[0.03] hover:bg-[#0A2144]/[0.06] text-[#0A2144]/80 hover:text-black transition-colors"
+                className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-white text-xs font-medium text-[#171918] border border-[#E6E9E4]"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-xs uppercase tracking-wider text-[#0A2144]/50 font-medium">Archive</span>
-                  <span className="font-semibold text-sm">2025 Edition</span>
-                </div>
-                <svg
-                  className="w-3.5 h-3.5 text-[#0A2144]/50"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <span>2025 Edition Archive</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#5E625D]" />
               </a>
-              <Link
-                href="/join"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-6 py-3 rounded-full text-center bg-[#D55485] hover:bg-[#D55485]/90 text-white font-medium shadow-sm transition-colors"
-              >
-                Join Us
-              </Link>
+
+              {isHome ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsJoinModalOpen(true);
+                  }}
+                  className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm cursor-pointer"
+                >
+                  Register
+                </button>
+              ) : (
+                <Link
+                  href="/join"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm"
+                >
+                  Register
+                </Link>
+              )}
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      )}
+
+      {/* Embedded Registration Modal */}
+      <JoinModal
+        isOpen={isJoinModalOpen}
+        onClose={() => setIsJoinModalOpen(false)}
+      />
+    </header>
   );
 }

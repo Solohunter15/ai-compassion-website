@@ -1,27 +1,34 @@
-import Herosection from "@/components/heroSection";
-import Joinsection from "@/components/joinSection";
-import SponsorSection from "@/components/sponsorSection";
-import FaqSection from "@/components/faqSection";
-import TimelineSection from "@/components/timelineSection";
+import HeroSection from "@/components/heroSection";
+import ContinuousMarquee from "@/components/continuousMarquee";
 import AboutSection from "@/components/aboutSection";
-import SpeakerSection from "@/components/speakerSection";
-import { PartnerSection } from "@/components/partnersection";
-import MeetMyTeam from "@/components/meetmyteam";
-import ProducersPage from "@/components/producers"
+import PillarsSection from "@/components/pillarsSection";
+import GlobalRelayGlobeSection from "@/components/globalRelayGlobe";
+import ProducersPage from "@/components/producers";
+import MediaSection from "@/components/mediaSection";
+import SponsorSection from "@/components/sponsorSection";
+import PartnerSection from "@/components/partnersection";
+import FaqSection from "@/components/faqSection";
+import ScheduleSection from "@/components/scheduleSection";
+import JourneyIndicator from "@/components/journeyIndicator";
 
 export default function Home() {
   return (
     <>
-      <Herosection />
+      <JourneyIndicator />
+      <HeroSection />
+      {/* Moving Bar 1: After Hero */}
+      <ContinuousMarquee variant="dark" />
       <AboutSection />
+      <PillarsSection />
+      {/* Moving Bar 2: Between Pillars & 12 Regions Relay */}
+      <ContinuousMarquee reverse={true} variant="dark" />
+      <GlobalRelayGlobeSection />
       <ProducersPage />
-      {/* <SpeakerSection /> */}
-      {/* <TimelineSection /> */}
+      <MediaSection />
+      <ScheduleSection />
       <SponsorSection />
       <PartnerSection />
-      {/* <MeetMyTeam /> */}
       <FaqSection />
-      <Joinsection />
     </>
   );
 }
