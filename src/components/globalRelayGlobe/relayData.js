@@ -74,7 +74,7 @@ export const RELAY_REGIONS = [
       name: 'Deepu S Nath',
       role: 'Regional Producer — South Asia',
       bio: 'Deepu leads grassroots technology and community education initiatives across South Asia, connecting youth ecosystems with compassionate AI architectures.',
-      img: '/deepu.png',
+      img: null,
       tags: ['Grassroots Tech', 'Youth Ecosystems', 'Kerala Hub'],
     },
     accent: '#C9A96A',

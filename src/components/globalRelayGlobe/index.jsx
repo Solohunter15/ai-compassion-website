@@ -245,15 +245,28 @@ export default function GlobalRelayGlobeSection() {
             {/* Producer Profile */}
             <div className="p-4 sm:p-4.5 rounded-2xl bg-[#F8F6F0] border border-[#E6E9E4] flex flex-col sm:flex-row items-center sm:items-start gap-4">
               
-              {/* Producer Portrait */}
+              {/* Producer Portrait or Monogram */}
               <div className="relative w-18 h-18 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border border-[#D9DDD6] bg-white shadow-sm group">
-                <Image
-                  src={producer.img}
-                  alt={producer.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="80px"
-                />
+                {producer.img ? (
+                  <Image
+                    src={producer.img}
+                    alt={producer.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="80px"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#163B32]/10 via-[#F8F6F0] to-[#C9A96A]/20 text-[#163B32]">
+                    <span className="font-editorial text-xl sm:text-2xl font-bold tracking-wider text-[#163B32]">
+                      {producer.name
+                        .split(' ')
+                        .map((n) => n[0])
+                        .filter(Boolean)
+                        .slice(0, 2)
+                        .join('')}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Producer Details */}
