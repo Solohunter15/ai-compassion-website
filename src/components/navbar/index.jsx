@@ -115,14 +115,9 @@ export default function Navbar() {
               priority
             />
           </div>
-          <div className="flex flex-col">
-            <span className="font-editorial tracking-tight text-sm sm:text-base font-bold text-[#171918] group-hover:text-[#163B32] transition-colors leading-none">
-              AI + COMPASSION
-            </span>
-            <span className="text-[10px] tracking-widest text-[#5E625D] uppercase font-medium mt-0.5">
-              Global Forum 2026
-            </span>
-          </div>
+          <span className="font-editorial tracking-tight text-sm sm:text-base font-bold text-[#171918] group-hover:text-[#163B32] transition-colors leading-none whitespace-nowrap">
+            AI + COMPASSION
+          </span>
         </Link>
 
         {/* Desktop Navigation Links */}
