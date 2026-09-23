@@ -4,11 +4,6 @@ import Image from 'next/image';
 
 const PRODUCERS = [
   {
-    name: 'Jibu Elias',
-    role: 'Regional Producer - South Asia',
-    img: '/jibu.png',
-  },
-  {
     name: 'Walied Albasheer',
     role: 'Regional Producer - GCC/Europe',
     img: '/walied.jpg',
@@ -55,8 +50,8 @@ export default function ProducersPage() {
           </h2>
         </div>
 
-        {/* Clean Responsive Grid */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        {/* 3x2 Clean Grid */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {PRODUCERS.map((producer, idx) => (
             <div
               key={idx}
