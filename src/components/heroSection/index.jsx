@@ -8,30 +8,61 @@ import JoinModal from '@/components/joinModal';
 
 export default function HeroSection() {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
+  const targetPosRef = useRef({ x: 0, y: 0 });
+  const currentPosRef = useRef({ x: 0, y: 0 });
+  const animFrameIdRef = useRef(null);
 
-  // 3D Perspective Tilt on Mouse Movement
-  const handleMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setMousePos({ x, y });
-  };
-
-  const handleMouseLeave = () => {
-    setMousePos({ x: 0, y: 0 });
-  };
-
-  // Parallax on scroll
+  // High-performance RAF lerp loop updating CSS variables directly (ZERO React re-renders)
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    const heroEl = heroRef.current;
+    if (!heroEl) return;
+
+    const onMouseMove = (e) => {
+      const rect = heroEl.getBoundingClientRect();
+      targetPosRef.current = {
+        x: (e.clientX - rect.left) / rect.width - 0.5,
+        y: (e.clientY - rect.top) / rect.height - 0.5,
+      };
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const onMouseLeave = () => {
+      targetPosRef.current = { x: 0, y: 0 };
+    };
+
+    const onScroll = () => {
+      if (heroEl) {
+        heroEl.style.setProperty('--scroll-y', `${window.scrollY * 0.12}px`);
+      }
+    };
+
+    const renderLoop = () => {
+      const { x: tx, y: ty } = targetPosRef.current;
+      const { x: cx, y: cy } = currentPosRef.current;
+
+      const nx = cx + (tx - cx) * 0.08;
+      const ny = cy + (ty - cy) * 0.08;
+
+      currentPosRef.current = { x: nx, y: ny };
+
+      heroEl.style.setProperty('--mouse-x', nx.toFixed(4));
+      heroEl.style.setProperty('--mouse-y', ny.toFixed(4));
+
+      animFrameIdRef.current = requestAnimationFrame(renderLoop);
+    };
+
+    heroEl.addEventListener('mousemove', onMouseMove, { passive: true });
+    heroEl.addEventListener('mouseleave', onMouseLeave, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    animFrameIdRef.current = requestAnimationFrame(renderLoop);
+
+    return () => {
+      heroEl.removeEventListener('mousemove', onMouseMove);
+      heroEl.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener('scroll', onScroll);
+      if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
+    };
   }, []);
 
   const handleScrollToSection = (e, sectionId) => {
@@ -51,17 +82,15 @@ export default function HeroSection() {
       <section
         id="hero"
         ref={heroRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
         className="relative z-10 w-full min-h-[92vh] lg:min-h-[98vh] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-12 bg-[#F8F6F0] overflow-hidden select-none"
       >
         {/* ========================================================================= */}
         {/* 1. 8K ULTRA-CLARITY SCENIC BACKDROP WITH 3D DEPTH & PARALLAX */}
         {/* ========================================================================= */}
         <div
-          className="absolute inset-y-0 right-0 w-full lg:w-[70%] pointer-events-none z-0 overflow-hidden transition-transform duration-700 ease-out"
+          className="absolute inset-y-0 right-0 w-full lg:w-[70%] pointer-events-none z-0 overflow-hidden will-change-transform"
           style={{
-            transform: `translate3d(${mousePos.x * 16}px, ${scrollY * 0.12 + mousePos.y * 12}px, 0) scale(1.03)`,
+            transform: 'translate3d(calc(var(--mouse-x, 0) * 16px), calc(var(--scroll-y, 0px) + var(--mouse-y, 0) * 12px), 0) scale(1.03)',
           }}
         >
           <div className="relative w-full h-full">
@@ -71,7 +100,7 @@ export default function HeroSection() {
               fill
               priority
               quality={100}
-              className="object-cover object-right-bottom opacity-95 transition-opacity duration-1000"
+              className="object-cover object-right-bottom opacity-95"
               sizes="(max-width: 1024px) 100vw, 70vw"
             />
 
@@ -84,15 +113,15 @@ export default function HeroSection() {
 
         {/* Ambient Glassmorphic Glow Orbs */}
         <div
-          className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-emerald-300/15 blur-3xl pointer-events-none transition-transform duration-1000"
+          className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-emerald-300/15 blur-3xl pointer-events-none will-change-transform"
           style={{
-            transform: `translate3d(${-mousePos.x * 25}px, ${-mousePos.y * 25}px, 0)`,
+            transform: 'translate3d(calc(var(--mouse-x, 0) * -25px), calc(var(--mouse-y, 0) * -25px), 0)',
           }}
         />
         <div
-          className="absolute bottom-1/3 right-12 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none transition-transform duration-1000"
+          className="absolute bottom-1/3 right-12 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl pointer-events-none will-change-transform"
           style={{
-            transform: `translate3d(${mousePos.x * 20}px, ${mousePos.y * 20}px, 0)`,
+            transform: 'translate3d(calc(var(--mouse-x, 0) * 20px), calc(var(--mouse-y, 0) * 20px), 0)',
           }}
         />
 
@@ -197,9 +226,9 @@ export default function HeroSection() {
             
             {/* 3D Floating Glass Card 1: AI Hand Connection with Glow */}
             <div
-              className="absolute top-4 sm:top-8 right-2 sm:right-6 z-20 max-w-[240px] sm:max-w-[280px] p-4 sm:p-5 rounded-2xl bg-white/75 backdrop-blur-xl border border-white/60 shadow-xl transition-transform duration-500 hover:scale-105 animate-float-1"
+              className="absolute top-4 sm:top-8 right-2 sm:right-6 z-20 max-w-[240px] sm:max-w-[280px] p-4 sm:p-5 rounded-2xl bg-white/75 backdrop-blur-xl border border-white/60 shadow-xl transition-all duration-300 hover:scale-105 animate-float-1 will-change-transform"
               style={{
-                transform: `translate3d(${-mousePos.x * 30}px, ${-mousePos.y * 25}px, 40px) rotate(${mousePos.x * 4}deg)`,
+                transform: 'translate3d(calc(var(--mouse-x, 0) * -30px), calc(var(--mouse-y, 0) * -25px), 40px) rotate(calc(var(--mouse-x, 0) * 4deg))',
               }}
             >
               <div className="flex items-center gap-2 mb-2">
@@ -213,9 +242,9 @@ export default function HeroSection() {
 
             {/* 3D Floating Glass Card 2: Cultural Pillars */}
             <div
-              className="absolute bottom-12 sm:bottom-16 right-4 sm:right-12 z-20 max-w-[260px] sm:max-w-[300px] p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl transition-transform duration-500 hover:scale-105 animate-float-2"
+              className="absolute bottom-12 sm:bottom-16 right-4 sm:right-12 z-20 max-w-[260px] sm:max-w-[300px] p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl transition-all duration-300 hover:scale-105 animate-float-2 will-change-transform"
               style={{
-                transform: `translate3d(${mousePos.x * 35}px, ${mousePos.y * 30}px, 60px) rotate(${-mousePos.x * 4}deg)`,
+                transform: 'translate3d(calc(var(--mouse-x, 0) * 35px), calc(var(--mouse-y, 0) * 30px), 60px) rotate(calc(var(--mouse-x, 0) * -4deg))',
               }}
             >
               <div className="flex flex-col gap-1">
