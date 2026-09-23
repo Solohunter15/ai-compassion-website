@@ -6,10 +6,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logoImage from '@/../public/logoai.png';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
+import JoinModal from '@/components/joinModal';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#');
   const pathname = usePathname();
 
@@ -173,12 +175,22 @@ export default function Navbar() {
             <ArrowUpRight className="w-3 h-3 opacity-60" />
           </a>
 
-          <Link
-            href="/join"
-            className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
-          >
-            Join Us
-          </Link>
+          {isHome ? (
+            <button
+              type="button"
+              onClick={() => setIsJoinModalOpen(true)}
+              className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              Join Us
+            </button>
+          ) : (
+            <Link
+              href="/join"
+              className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5"
+            >
+              Join Us
+            </Link>
+          )}
         </div>
 
         {/* Mobile Hamburger */}
@@ -232,17 +244,36 @@ export default function Navbar() {
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#5E625D]" />
               </a>
 
-              <Link
-                href="/join"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm"
-              >
-                Join Us
-              </Link>
+              {isHome ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsJoinModalOpen(true);
+                  }}
+                  className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm cursor-pointer"
+                >
+                  Join Us
+                </button>
+              ) : (
+                <Link
+                  href="/join"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm"
+                >
+                  Join Us
+                </Link>
+              )}
             </div>
           </div>
         </div>
       )}
+
+      {/* Embedded Registration Modal */}
+      <JoinModal
+        isOpen={isJoinModalOpen}
+        onClose={() => setIsJoinModalOpen(false)}
+      />
     </header>
   );
 }

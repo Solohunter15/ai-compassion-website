@@ -26,6 +26,39 @@ export default function ScheduleSection() {
   const [activeNodeIdx, setActiveNodeIdx] = useState(0);
 
   const timelineContainerRef = useRef(null);
+  const itemsContainerRef = useRef(null);
+  const firstNodeRef = useRef(null);
+  const lastNodeRef = useRef(null);
+  const [lineBounds, setLineBounds] = useState({ top: 24, height: 0 });
+
+  // Dynamically calculate the precise center-to-center distance from Node 1 to Homecoming Node
+  useEffect(() => {
+    const updateLineBounds = () => {
+      if (!itemsContainerRef.current || !firstNodeRef.current || !lastNodeRef.current) return;
+      const containerRect = itemsContainerRef.current.getBoundingClientRect();
+      const firstRect = firstNodeRef.current.getBoundingClientRect();
+      const lastRect = lastNodeRef.current.getBoundingClientRect();
+
+      const firstCenterY = firstRect.top + firstRect.height / 2 - containerRect.top;
+      const lastCenterY = lastRect.top + lastRect.height / 2 - containerRect.top;
+      const totalHeight = Math.max(0, lastCenterY - firstCenterY);
+
+      setLineBounds({
+        top: firstCenterY,
+        height: totalHeight,
+      });
+    };
+
+    updateLineBounds();
+    window.addEventListener('resize', updateLineBounds);
+    const ro = new ResizeObserver(updateLineBounds);
+    if (itemsContainerRef.current) ro.observe(itemsContainerRef.current);
+
+    return () => {
+      window.removeEventListener('resize', updateLineBounds);
+      ro.disconnect();
+    };
+  }, [filteredBlocks, selectedTz, activeView]);
 
   // Find active timezone object
   const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
@@ -179,7 +212,7 @@ export default function ScheduleSection() {
         </div>
 
         {/* ========================================================================= */}
-        {/* VIEW 1: STORYTELLING TIMELINE VIEW (Dark Green Theme) */}
+        {/* VIEW 1: STORYTELLING TIMELINE VIEW (Dark Green Theme & Perfectly Terminating Line) */}
         {/* ========================================================================= */}
         {activeView === 'timeline' && (
           <div
@@ -212,28 +245,42 @@ export default function ScheduleSection() {
             </div>
 
             {/* Vertical Timeline Structure */}
-            <div className="relative w-full max-w-4xl mx-auto pt-4 pb-8">
+            <div className="relative w-full max-w-4xl mx-auto pt-2 pb-2">
               
-              {/* Central Background Guide Line */}
-              <div className="absolute left-5 md:left-1/2 top-4 bottom-4 w-1 bg-emerald-100 -translate-x-1/2 rounded-full z-0" />
+              {/* Timeline Items Container with Exact Start & End Anchors */}
+              <div ref={itemsContainerRef} className="relative flex flex-col gap-10 sm:gap-14">
+                
+                {/* Central Bounded Track: strictly from first milestone node to Homecoming closing node */}
+                <div
+                  className="absolute left-5 md:left-1/2 w-1 -translate-x-1/2 z-0 pointer-events-none"
+                  style={{
+                    top: `${lineBounds.top}px`,
+                    height: `${lineBounds.height}px`,
+                  }}
+                >
+                  {/* Background Track Guide Line */}
+                  <div className="w-full h-full bg-emerald-100 rounded-full" />
 
-              {/* Dynamic Animated Scroll Progress Line in Dark Green Gradient */}
-              <div
-                className="absolute left-5 md:left-1/2 top-4 w-1 bg-gradient-to-b from-[#163B32] via-[#22C55E] to-[#C9A96A] -translate-x-1/2 rounded-full z-0 transition-all duration-75 shadow-sm shadow-emerald-700/20"
-                style={{ height: `${scrollProgress * 100}%` }}
-              >
-                {/* Glowing Leading Orb at Tip of Progress Line */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#22C55E] ring-4 ring-emerald-300/40 shadow-lg shadow-emerald-500/50 animate-pulse" />
-              </div>
+                  {/* Dynamic Animated Scroll Progress Line */}
+                  <div
+                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#163B32] via-[#22C55E] to-[#C9A96A] rounded-full transition-all duration-75 shadow-sm shadow-emerald-700/20"
+                    style={{ height: `${scrollProgress * 100}%` }}
+                  >
+                    {/* Glowing Leading Orb at Tip of Progress Line */}
+                    {scrollProgress > 0.01 && (
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#22C55E] ring-4 ring-emerald-300/40 shadow-lg shadow-emerald-500/50 animate-pulse" />
+                    )}
+                  </div>
+                </div>
 
-              {/* Timeline Items List */}
-              <div className="flex flex-col gap-10 sm:gap-14">
                 {filteredBlocks.map((block, idx) => {
                   const isEven = idx % 2 === 0;
                   const timeVal = block.times[selectedTz] || block.times.UTC;
                   const isSpecial = block.isSpecial;
                   const isPassed = idx <= activeNodeIdx;
                   const isCurrent = idx === activeNodeIdx;
+                  const isFirst = idx === 0;
+                  const isLast = idx === filteredBlocks.length - 1;
 
                   return (
                     <div
@@ -315,7 +362,10 @@ export default function ScheduleSection() {
                       </div>
 
                       {/* Center Milestone Node (Illuminates & Scales on Scroll) */}
-                      <div className="absolute left-5 md:left-1/2 top-6 -translate-x-1/2 z-10 flex items-center justify-center">
+                      <div
+                        ref={isFirst ? firstNodeRef : isLast ? lastNodeRef : null}
+                        className="absolute left-5 md:left-1/2 top-6 -translate-x-1/2 z-10 flex items-center justify-center"
+                      >
                         <div
                           className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold transition-all duration-300 shadow-sm ${
                             isCurrent
