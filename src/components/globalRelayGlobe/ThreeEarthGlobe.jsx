@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
 import * as THREE from 'three';
 import { RELAY_REGIONS } from './relayData';
@@ -69,6 +69,23 @@ export default function ThreeEarthGlobe({
   const mountRef = useRef(null);
   const [hoveredNode, setHoveredNode] = useState(null);
 
+  const scrollProgressRef = useRef(scrollProgress);
+  const activeIndexRef = useRef(activeIndex);
+  const onSelectRegionRef = useRef(onSelectRegion);
+
+  // Update refs without triggering re-mounts
+  useEffect(() => {
+    scrollProgressRef.current = scrollProgress;
+  }, [scrollProgress]);
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
+
+  useEffect(() => {
+    onSelectRegionRef.current = onSelectRegion;
+  }, [onSelectRegion]);
+
   const globeGroupRef = useRef(null);
   const targetRotationRef = useRef({ x: 0, y: 0 });
   const isDraggingRef = useRef(false);
@@ -77,35 +94,8 @@ export default function ThreeEarthGlobe({
   const cameraRef = useRef(null);
   const raycasterRef = useRef(new THREE.Raycaster());
   const mouseVecRef = useRef(new THREE.Vector2(-999, -999));
-  const lastSelectedIdxRef = useRef(activeIndex);
 
-  // Synchronize target orientation continuously with scrollProgress and active region
-  useEffect(() => {
-    lastSelectedIdxRef.current = activeIndex;
-
-    const totalRegions = RELAY_REGIONS.length;
-    // Map scroll progress smoothly across all 12 regions
-    const floatIndex = Math.min(totalRegions - 1, Math.max(0, scrollProgress * (totalRegions - 1)));
-    const baseIndex = Math.floor(floatIndex);
-    const nextIndex = Math.min(totalRegions - 1, baseIndex + 1);
-    const fraction = floatIndex - baseIndex;
-
-    const r1 = RELAY_REGIONS[baseIndex] || RELAY_REGIONS[0];
-    const r2 = RELAY_REGIONS[nextIndex] || r1;
-
-    const currentLat = r1.lat + (r2.lat - r1.lat) * fraction;
-
-    let dLng = r2.lng - r1.lng;
-    while (dLng < -180) dLng += 360;
-    while (dLng > 180) dLng -= 360;
-    const currentLng = r1.lng + dLng * fraction;
-
-    const targetY = -(currentLng * Math.PI) / 180 - Math.PI / 2;
-    const targetX = (currentLat * Math.PI) / 180 * 0.45;
-
-    targetRotationRef.current = { x: targetX, y: targetY };
-  }, [scrollProgress, activeIndex]);
-
+  // Initialize WebGL Scene ONLY ONCE on mount
   useEffect(() => {
     const container = mountRef.current;
     if (!container) return;
@@ -128,6 +118,9 @@ export default function ThreeEarthGlobe({
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.display = 'block';
     container.appendChild(renderer.domElement);
 
     // Group containing the rotating Earth and its markers
@@ -137,7 +130,7 @@ export default function ThreeEarthGlobe({
 
     // Starfield Particles in background
     const starGeo = new THREE.BufferGeometry();
-    const starCount = 240;
+    const starCount = 200;
     const starPositions = new Float32Array(starCount * 3);
     for (let i = 0; i < starCount * 3; i += 3) {
       const u = Math.random();
@@ -189,7 +182,7 @@ export default function ThreeEarthGlobe({
     const earthMesh = new THREE.Mesh(sphereGeo, sphereMat);
     globeGroup.add(earthMesh);
 
-    // Load High-Res Photorealistic Textures
+    // Load High-Res Photorealistic Textures asynchronously
     const textureLoader = new THREE.TextureLoader();
     textureLoader.load(
       '/earth/earth_color_2k.jpg',
@@ -248,9 +241,9 @@ export default function ThreeEarthGlobe({
       // Core Luminous Pin Sphere with independent material
       const pinGeo = new THREE.SphereGeometry(0.042, 16, 16);
       const pinMat = new THREE.MeshStandardMaterial({
-        color: idx === activeIndex ? 0x22c55e : 0x163b32,
-        emissive: idx === activeIndex ? 0x22c55e : 0x163b32,
-        emissiveIntensity: idx === activeIndex ? 1.4 : 0.6,
+        color: 0x163b32,
+        emissive: 0x163b32,
+        emissiveIntensity: 0.6,
         roughness: 0.2,
       });
       const pinMesh = new THREE.Mesh(pinGeo, pinMat);
@@ -271,10 +264,10 @@ export default function ThreeEarthGlobe({
       // Outer Pulsing Radar Ring with independent material
       const ringGeo = new THREE.RingGeometry(0.055, 0.085, 24);
       const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x22c55e,
+        color: 0x163b32,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: idx === activeIndex ? 0.9 : 0.35,
+        opacity: 0.35,
         depthWrite: false,
       });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
@@ -312,11 +305,6 @@ export default function ThreeEarthGlobe({
     const tracerMesh = new THREE.Mesh(tracerGeo, tracerMat);
     globeGroup.add(tracerMesh);
 
-    // Set initial orientation
-    const initTarget = targetRotationRef.current;
-    globeGroup.rotation.y = initTarget.y;
-    globeGroup.rotation.x = initTarget.x;
-
     // Animation Loop
     let animationFrameId;
     let clock = new THREE.Clock();
@@ -325,15 +313,39 @@ export default function ThreeEarthGlobe({
       animationFrameId = requestAnimationFrame(animate);
       const time = clock.getElapsedTime();
 
+      // Read current scroll progress and active index smoothly from refs
+      const curProgress = scrollProgressRef.current;
+      const curActiveIdx = activeIndexRef.current;
+
+      // Calculate Target Orientation based on scroll progress
+      const totalRegions = RELAY_REGIONS.length;
+      const floatIndex = Math.min(totalRegions - 1, Math.max(0, curProgress * (totalRegions - 1)));
+      const baseIndex = Math.floor(floatIndex);
+      const nextIndex = Math.min(totalRegions - 1, baseIndex + 1);
+      const fraction = floatIndex - baseIndex;
+
+      const r1 = RELAY_REGIONS[baseIndex] || RELAY_REGIONS[0];
+      const r2 = RELAY_REGIONS[nextIndex] || r1;
+
+      const currentLat = r1.lat + (r2.lat - r1.lat) * fraction;
+
+      let dLng = r2.lng - r1.lng;
+      while (dLng < -180) dLng += 360;
+      while (dLng > 180) dLng -= 360;
+      const currentLng = r1.lng + dLng * fraction;
+
+      const targetY = -(currentLng * Math.PI) / 180 - Math.PI / 2;
+      const targetX = (currentLat * Math.PI) / 180 * 0.45;
+
       // Fast, crisp, clean green pulse for the active node
-      const fastPulse = Math.sin(time * 8.5) * 0.5 + 0.5; // Fast 8.5 rad/s pulse
+      const fastPulse = Math.sin(time * 9.0) * 0.5 + 0.5;
 
       markerBeacons.forEach((ring, idx) => {
-        const isActive = idx === lastSelectedIdxRef.current;
+        const isActive = idx === curActiveIdx;
         if (isActive) {
           const scale = 1.0 + fastPulse * 0.6;
           ring.scale.set(scale, scale, scale);
-          ring.material.color.setHex(0x22c55e); // Pure crisp emerald green
+          ring.material.color.setHex(0x22c55e);
           ring.material.opacity = 0.5 + fastPulse * 0.5;
 
           markerMeshes[idx].scale.set(1.3, 1.3, 1.3);
@@ -353,23 +365,20 @@ export default function ThreeEarthGlobe({
       });
 
       // Animate Tracer light traveling along current active arc
-      const currentActive = lastSelectedIdxRef.current;
-      if (curves[currentActive]) {
+      if (curves[curActiveIdx]) {
         const t = (time * 0.45) % 1;
-        const tracerPos = curves[currentActive].getPoint(t);
+        const tracerPos = curves[curActiveIdx].getPoint(t);
         tracerMesh.position.copy(tracerPos);
       }
 
       // Smoothly interpolate globe rotation towards scroll-based target
       if (!isDraggingRef.current) {
-        const target = targetRotationRef.current;
-        
-        let dY = target.y - globeGroup.rotation.y;
+        let dY = targetY - globeGroup.rotation.y;
         while (dY < -Math.PI) dY += Math.PI * 2;
         while (dY > Math.PI) dY -= Math.PI * 2;
 
         globeGroup.rotation.y += dY * 0.08;
-        globeGroup.rotation.x += (target.x - globeGroup.rotation.x) * 0.08;
+        globeGroup.rotation.x += (targetX - globeGroup.rotation.x) * 0.08;
       }
 
       // Raycasting for interactive marker hover & inspection
@@ -384,9 +393,8 @@ export default function ThreeEarthGlobe({
           isHoveringNodeRef.current = true;
           container.style.cursor = 'pointer';
 
-          if (targetIndex !== lastSelectedIdxRef.current && onSelectRegion) {
-            lastSelectedIdxRef.current = targetIndex;
-            onSelectRegion(targetIndex);
+          if (targetIndex !== curActiveIdx && onSelectRegionRef.current) {
+            onSelectRegionRef.current(targetIndex);
           }
         } else {
           setHoveredNode(null);
@@ -432,10 +440,9 @@ export default function ThreeEarthGlobe({
         );
         raycasterRef.current.setFromCamera(clickVec, cameraRef.current);
         const intersects = raycasterRef.current.intersectObjects(hitSpheres);
-        if (intersects.length > 0 && onSelectRegion) {
+        if (intersects.length > 0 && onSelectRegionRef.current) {
           const clickedIdx = intersects[0].object.userData.regionIndex;
-          lastSelectedIdxRef.current = clickedIdx;
-          onSelectRegion(clickedIdx);
+          onSelectRegionRef.current(clickedIdx);
         }
       }
     };
@@ -513,11 +520,11 @@ export default function ThreeEarthGlobe({
       starMat.dispose();
       renderer.dispose();
 
-      if (renderer.domElement.parentNode) {
-        renderer.domElement.parentNode.removeChild(renderer.domElement);
+      if (renderer.domElement && container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement);
       }
     };
-  }, [onSelectRegion]);
+  }, []); // Run ONLY ONCE on mount - zero flickering on state changes
 
   const activeRegion = RELAY_REGIONS[activeIndex] || RELAY_REGIONS[0];
 

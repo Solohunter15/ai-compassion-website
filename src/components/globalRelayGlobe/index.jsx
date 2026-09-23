@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import {
   Compass,
@@ -59,8 +59,6 @@ export default function GlobalRelayGlobeSection() {
       const totalScrollable = track.offsetHeight - window.innerHeight;
       if (totalScrollable <= 0) return;
 
-      // rect.top is 0 when track starts sticking at top of viewport
-      // rect.top is -totalScrollable when track finishes sticking
       const currentScroll = -rect.top;
       const p = Math.min(1, Math.max(0, currentScroll / totalScrollable));
       
@@ -92,8 +90,8 @@ export default function GlobalRelayGlobeSection() {
     };
   }, []);
 
-  // Jump to specific region via scroll
-  const handleSelectRegion = (index) => {
+  // Jump to specific region via scroll with stable useCallback
+  const handleSelectRegion = useCallback((index) => {
     setActiveIndex(index);
     isProgrammaticScroll.current = true;
 
@@ -117,7 +115,7 @@ export default function GlobalRelayGlobeSection() {
         }, 800);
       }
     }
-  };
+  }, []);
 
   const nextRegion = () => {
     const nextIdx = (activeIndex + 1) % RELAY_REGIONS.length;
@@ -158,7 +156,7 @@ export default function GlobalRelayGlobeSection() {
             </div>
 
             <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-[#163B32]/5 border border-[#163B32]/15 text-xs font-mono text-[#163B32]">
-              <Radio className="w-3 h-3 text-[#C96F4A] animate-pulse" />
+              <Radio className="w-3 h-3 text-[#22C55E] animate-pulse" />
               <span>Scroll down to rotate around Earth</span>
             </div>
           </div>
@@ -322,7 +320,7 @@ export default function GlobalRelayGlobeSection() {
           {/* Continuous Scroll Progress Track */}
           <div className="w-full h-1.5 bg-[#E6E9E4] rounded-full overflow-hidden relative shadow-inner">
             <div
-              className="h-full bg-gradient-to-r from-[#163B32] via-[#C96F4A] to-[#D8B56A] transition-all duration-150 rounded-full"
+              className="h-full bg-gradient-to-r from-[#163B32] via-[#22C55E] to-[#C9A96A] transition-all duration-150 rounded-full"
               style={{ width: `${Math.max(8, (activeIndex + 1) / RELAY_REGIONS.length * 100)}%` }}
             />
           </div>
