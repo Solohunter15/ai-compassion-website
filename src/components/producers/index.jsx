@@ -24,6 +24,11 @@ const PRODUCERS = [
     img: '/walied.jpg',
   },
   {
+    name: 'Fabrizio Gramuglio',
+    role: 'Regional Producer — Europe',
+    img: '/fabrizio.jpg',
+  },
+  {
     name: 'Dr. Lee Kironget',
     role: 'Regional Producer — Africa',
     img: '/lee.jpg',

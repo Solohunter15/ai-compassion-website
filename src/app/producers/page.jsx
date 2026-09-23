@@ -5,6 +5,7 @@ const producers = [
   { name: "Jun Suto", subtitle: "Regional Producer — Kyoto & Osaka", img: "/jun.png" },
   { name: "Deepu S Nath", subtitle: "Regional Producer — South Asia", img: "/deepu.png" },
   { name: "Walied Albasheer", subtitle: "Regional Producer — GCC & Europe", img: "/walied.jpg" },
+  { name: "Fabrizio Gramuglio", subtitle: "Regional Producer — Europe", img: "/fabrizio.jpg" },
   { name: "Dr. Lee Kironget", subtitle: "Regional Producer — Africa", img: "/lee.jpg" },
   { name: "Marques Anderson", subtitle: "Regional Producer — Latin America", img: "/marques.jpg" },
   { name: "Ani Chahal Honan", subtitle: "Regional Producer — North America", img: "/ani.jpg" },

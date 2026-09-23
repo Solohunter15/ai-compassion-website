@@ -215,7 +215,7 @@ export const SCHEDULE_MATRIX = [
       BRT: '16:00–18:00',
       AEST: '05:00–07:00 (Oct 3)',
     },
-    moderators: ['Ben Hawthorne (Moderator)'],
+    moderators: ['Fabrizio Gramuglio (Moderator)'],
     speakers: [
       'Dr. Lee Kironget',
       'Christina Gerakiteys',
