@@ -31,6 +31,18 @@ export default function ScheduleSection() {
   const lastNodeRef = useRef(null);
   const [lineBounds, setLineBounds] = useState({ top: 24, height: 0 });
 
+  // Find active timezone object
+  const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
+
+  // Filter schedule based on search query (declared before useEffect to avoid TDZ)
+  const filteredBlocks = SCHEDULE_MATRIX.filter((b) => {
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase();
+    const matchRegion = b.region?.toLowerCase().includes(q);
+    const matchHub = b.hub?.toLowerCase().includes(q);
+    return matchRegion || matchHub;
+  });
+
   // Dynamically calculate the precise center-to-center distance from Node 1 to Homecoming Node
   useEffect(() => {
     const updateLineBounds = () => {
@@ -51,26 +63,18 @@ export default function ScheduleSection() {
 
     updateLineBounds();
     window.addEventListener('resize', updateLineBounds);
-    const ro = new ResizeObserver(updateLineBounds);
-    if (itemsContainerRef.current) ro.observe(itemsContainerRef.current);
+    
+    let ro = null;
+    if (typeof ResizeObserver !== 'undefined' && itemsContainerRef.current) {
+      ro = new ResizeObserver(updateLineBounds);
+      ro.observe(itemsContainerRef.current);
+    }
 
     return () => {
       window.removeEventListener('resize', updateLineBounds);
-      ro.disconnect();
+      if (ro) ro.disconnect();
     };
   }, [filteredBlocks, selectedTz, activeView]);
-
-  // Find active timezone object
-  const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
-
-  // Filter schedule based on search query
-  const filteredBlocks = SCHEDULE_MATRIX.filter((b) => {
-    if (!searchQuery.trim()) return true;
-    const q = searchQuery.toLowerCase();
-    const matchRegion = b.region.toLowerCase().includes(q);
-    const matchHub = b.hub.toLowerCase().includes(q);
-    return matchRegion || matchHub;
-  });
 
   // Scroll Progress Tracker for the Storytelling Timeline
   useEffect(() => {
@@ -88,7 +92,7 @@ export default function ScheduleSection() {
       const totalScrollable = rect.height - windowHeight * 0.5;
 
       const currentScroll = startOffset - rect.top;
-      const progress = Math.min(1, Math.max(0, currentScroll / totalScrollable));
+      const progress = totalScrollable > 0 ? Math.min(1, Math.max(0, currentScroll / totalScrollable)) : 0;
       
       setScrollProgress(progress);
 
@@ -227,7 +231,7 @@ export default function ScheduleSection() {
                   Stage {String(activeNodeIdx + 1).padStart(2, '0')} of {filteredBlocks.length}
                 </span>
                 <span className="hidden sm:inline text-xs text-slate-600 font-medium">
-                  • {filteredBlocks[activeNodeIdx]?.region.replace(/Block \d+ — /, '')}
+                  {filteredBlocks[activeNodeIdx]?.region ? `• ${filteredBlocks[activeNodeIdx].region.replace(/Block \d+ — /, '')}` : ''}
                 </span>
               </div>
 
@@ -327,7 +331,7 @@ export default function ScheduleSection() {
 
                           {/* Block Title / Region */}
                           <h4 className="font-editorial text-base sm:text-lg md:text-xl font-bold text-slate-900 leading-snug">
-                            {block.region.replace(/Block \d+ — /, '')}
+                            {block.region ? block.region.replace(/Block \d+ — /, '') : ''}
                           </h4>
 
                           {/* Hub Tag */}
