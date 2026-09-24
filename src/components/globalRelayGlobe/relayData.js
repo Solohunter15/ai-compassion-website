@@ -9,7 +9,6 @@ export const RELAY_REGIONS = [
     code: 'OCN-01',
     lat: -33.8688,
     lng: 151.2093,
-    question: 'CAN AI HELP US PROTECT THE LAND AND OCEANS WE SHARE?',
     theme: 'Indigenous wisdom, planetary stewardship and compassionate futures',
     coordinator: 'Jeniffer Jerald JN',
     producer: {
@@ -31,8 +30,7 @@ export const RELAY_REGIONS = [
     code: 'JPN-02',
     lat: 35.0116,
     lng: 135.7681,
-    question: 'WHEN MACHINES HELP CARE FOR US, WHAT ESSENCE OF LIFE & NATURE MUST WE PRESERVE?',
-    theme: 'Human-centred AI, education, robotics and intergenerational responsibility',
+    theme: 'Planet-centered AI, education, robotics and intergenerational responsibility',
     coordinator: 'Kavya',
     producer: {
       name: 'Jun Suto',
@@ -53,7 +51,6 @@ export const RELAY_REGIONS = [
     code: 'SEA-03',
     lat: 1.3521,
     lng: 103.8198,
-    question: 'CAN AI OPEN MORE DOORS FOR YOUTH WITHOUT LEAVING COMMUNITIES BEHIND?',
     theme: 'Youth & AI+Compassion',
     coordinator: 'Jeniffer Jerald JN',
     producer: {
@@ -75,7 +72,6 @@ export const RELAY_REGIONS = [
     code: 'IND-04',
     lat: 8.5241,
     lng: 76.9366,
-    question: 'HOW CAN AI HELP MORE PEOPLE LEARN WITHOUT DISPLACING LIVING WISDOM?',
     theme: 'AI for social impact, youth opportunity, health',
     coordinator: 'Kavya',
     producer: {
@@ -97,7 +93,6 @@ export const RELAY_REGIONS = [
     code: 'GCC-05',
     lat: 25.2048,
     lng: 55.2708,
-    question: 'WHEN CITIES BECOME SMARTER, WHO REMAINS RESPONSIBLE TO ALL LIVING SYSTEMS?',
     theme: 'Long-horizon governance, coexistence, peacebuilding and future cities',
     coordinator: 'Ann Rose Mathew',
     producer: {
@@ -119,7 +114,6 @@ export const RELAY_REGIONS = [
     code: 'AFR-06',
     lat: -1.2921,
     lng: 36.8219,
-    question: 'CAN AI BRING DECENTRALIZED CARE TO COMMUNITIES ACROSS THE BIOSPHERE?',
     theme: 'Global justice, climate resilience, peace, democracy and ethical governance',
     coordinator: 'Meera',
     producer: {
@@ -141,7 +135,6 @@ export const RELAY_REGIONS = [
     code: 'EUR-07',
     lat: 51.5074,
     lng: -0.1278,
-    question: 'IF AI MAKES SYSTEMIC DECISIONS, HOW DO WE PRESERVE LIVING DIGNITY & CONTESTABILITY?',
     theme: 'Compassionate leadership, responsible innovation, migration and global citizenship',
     coordinator: 'Adithya Baiju',
     producer: {
@@ -163,7 +156,6 @@ export const RELAY_REGIONS = [
     code: 'LATAM-08',
     lat: -23.5505,
     lng: -46.6333,
-    question: 'WHEN AI RESHAPES OUR COMMUNITIES, HOW DO WE CENTER INDIGENOUS WISDOM & NATURE?',
     theme: 'Biodiversity, Indigenous communities, social innovation and regenerative economies',
     coordinator: 'Adithya Baiju',
     producer: {
@@ -185,14 +177,13 @@ export const RELAY_REGIONS = [
     code: 'NA-09',
     lat: 40.7128,
     lng: -74.006,
-    question: 'WHEN AI CAN GENERATE SYNTHETIC REALITIES, HOW DO WE NURTURE LIVING TRUST?',
     theme: 'Civil rights, democratic participation, global health and youth-led social movements',
     coordinator: 'Meera',
     producer: {
       name: 'Dr. Theodore Schwartz & Dr. Sandra Chapman',
       role: 'Featured Regional Speakers — Eastern Americas',
       bio: 'Renowned neuroscientists, clinicians, and researchers exploring cognitive resilience, neural empathy, and democratic participation in AI.',
-      img: '/city.png',
+      img: '/schwartz.webp',
       tags: ['Civil Rights', 'Democratic AI', 'New York Hub'],
     },
     accent: '#C96F4A',
@@ -207,7 +198,6 @@ export const RELAY_REGIONS = [
     code: 'MEX-10',
     lat: 19.4326,
     lng: -99.1332,
-    question: 'HOW CAN AI HONOR AND PRESERVE INDIGENOUS LANGUAGES AND LIVING TRADITIONS?',
     theme: 'Cross-border collaboration, entrepreneurship, education access and compassionate communities',
     coordinator: 'Niya',
     producer: {
@@ -229,7 +219,6 @@ export const RELAY_REGIONS = [
     code: 'USA-11',
     lat: 34.0522,
     lng: -118.2437,
-    question: 'WHAT RESPONSIBILITY COMES WITH SCALING COMPUTE AT THE EDGE OF BIOSPHERE LIMITS?',
     theme: 'Frontier AI, creativity, entertainment, entrepreneurship and technology with compassion',
     coordinator: 'Ann Rose Mathew',
     producer: {
@@ -251,7 +240,6 @@ export const RELAY_REGIONS = [
     code: 'PAC-12',
     lat: 21.3069,
     lng: -157.8583,
-    question: 'HOW DO WE EMBED INDIGENOUS OCEANIC STEWARDSHIP INTO PLANET-CENTERED AI?',
     theme: 'Ocean consciousness, Indigenous navigation, ecological responsibility & island communities',
     coordinator: 'Niya',
     producer: {
@@ -264,3 +252,4 @@ export const RELAY_REGIONS = [
     accent: '#C9A96A',
   },
 ];
+

@@ -21,26 +21,43 @@ export default function JourneyIndicator() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate total page scroll percentage
       const winScroll = window.scrollY || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      setScrollProgress(scrolled);
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      const maxScroll = docHeight - winHeight;
+      
+      const scrolled = maxScroll > 0 ? (winScroll / maxScroll) * 100 : 0;
+      setScrollProgress(Math.min(100, Math.max(0, scrolled)));
 
-      // Detect active stage
+      // Check boundary conditions: top and bottom
+      const isAtBottom = maxScroll > 0 && winScroll + winHeight >= docHeight - 60;
+      const isAtTop = winScroll < 80;
+
+      if (isAtTop) {
+        setActiveStage(JOURNEY_STAGES[0].id);
+        return;
+      }
+
+      if (isAtBottom) {
+        setActiveStage(JOURNEY_STAGES[JOURNEY_STAGES.length - 1].id);
+        return;
+      }
+
+      // Robust top-down threshold scanning
+      const viewportThreshold = winHeight * 0.45;
+      let currentStageId = JOURNEY_STAGES[0].id;
+
       for (const stage of JOURNEY_STAGES) {
         const el = document.getElementById(stage.id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= window.innerHeight * 0.45 && rect.bottom >= window.innerHeight * 0.15) {
-            setActiveStage(stage.id);
+          if (rect.top <= viewportThreshold) {
+            currentStageId = stage.id;
           }
         }
       }
 
-      if (winScroll < 150) {
-        setActiveStage('hero');
-      }
+      setActiveStage(currentStageId);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -68,22 +85,22 @@ export default function JourneyIndicator() {
   return (
     <aside
       aria-label="Story Journey Indicator"
-      className="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-3 pointer-events-auto"
+      className="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-3 pointer-events-auto select-none"
     >
       {/* Top micro progress counter */}
-      <div className="text-[10px] font-mono tracking-widest text-[#5E625D] font-bold opacity-80 mb-1 select-none">
+      <div className="text-[10px] font-mono tracking-widest text-[#5E625D] font-bold opacity-80 mb-1">
         {Math.round(scrollProgress)}%
       </div>
 
       <div className="flex flex-col items-center gap-2 relative">
-        {/* Background thin connector line */}
-        <div className="absolute top-2 bottom-2 w-[1.5px] bg-[#D9DDD6] left-1/2 -translate-x-1/2" />
-        
-        {/* Active progress fill overlay line */}
-        <div
-          className="absolute top-2 w-[2px] bg-gradient-to-b from-[#163B32] to-[#C96F4A] left-1/2 -translate-x-1/2 transition-all duration-150 rounded-full"
-          style={{ height: `${Math.min(100, Math.max(0, scrollProgress))}%` }}
-        />
+        {/* Track bounded cleanly between top and bottom dot centers */}
+        <div className="absolute top-[13px] bottom-[13px] w-[1.5px] left-1/2 -translate-x-1/2 pointer-events-none">
+          <div className="w-full h-full bg-[#D9DDD6]/80 rounded-full" />
+          <div
+            className="absolute top-0 w-full bg-gradient-to-b from-[#163B32] via-[#163B32] to-[#C96F4A] transition-all duration-150 rounded-full"
+            style={{ height: `${scrollProgress}%` }}
+          />
+        </div>
 
         {JOURNEY_STAGES.map((stage) => {
           const isActive = activeStage === stage.id;

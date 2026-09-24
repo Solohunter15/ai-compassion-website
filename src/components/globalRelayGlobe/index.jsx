@@ -128,33 +128,14 @@ export default function GlobalRelayGlobeSection() {
 
           {/* Right: Dynamic Producer & Inquiry Information Card (6 Cols) */}
           <div className="lg:col-span-6 bg-white rounded-3xl p-5 sm:p-7 border border-[#D9DDD6] shadow-xl flex flex-col gap-4 backdrop-blur-md transition-all duration-300">
-            {/* Stage Badge & Live Local Clock */}
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E6E9E4] pb-3">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-bold text-[#C96F4A] bg-[#C96F4A]/10 px-3 py-1 rounded-full">
-                  BLOCK {String(activeRegion.id).padStart(2, '0')}
-                </span>
-                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#163B32]">
-                  {activeRegion.code}
-                </span>
-              </div>
-
-              {/* Live Local Clock at Hub */}
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F8F6F0] border border-[#E6E9E4] text-xs font-mono text-[#163B32]">
-                <Clock className="w-3.5 h-3.5 text-[#C96F4A]" />
-                <span className="font-bold" suppressHydrationWarning>{localTime || '--:--:--'}</span>
-                <span className="text-[#5E625D] text-[10px]">({activeRegion.utcOffset})</span>
-              </div>
-            </div>
-
-            {/* Region Title & Ethical Inquiry Question */}
-            <div className="flex flex-col gap-1.5">
+            {/* Region Title & City */}
+            <div className="flex flex-col gap-1">
               <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#5E625D]">
                 <MapPin className="w-3.5 h-3.5 text-[#C96F4A]" />
                 <span>{activeRegion.city}</span>
               </div>
               <h3 className="font-editorial text-lg sm:text-xl md:text-2xl font-bold text-[#171918] leading-snug tracking-tight">
-                “{activeRegion.question}”
+                {activeRegion.region}
               </h3>
             </div>
 
@@ -199,7 +180,22 @@ export default function GlobalRelayGlobeSection() {
 
               {/* Producer Details */}
               <div className="flex flex-col gap-1 text-left flex-1 min-w-0">
-                <div>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <span className={`text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                      producer.role.toLowerCase().includes('featured speaker') || producer.role.toLowerCase().includes('speakers')
+                        ? 'bg-amber-100 text-amber-900 border border-amber-200'
+                        : producer.role.toLowerCase().includes('regional lead')
+                        ? 'bg-blue-50 text-blue-900 border border-blue-200'
+                        : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
+                    }`}>
+                      {producer.role.toLowerCase().includes('featured speaker') || producer.role.toLowerCase().includes('speakers')
+                        ? 'Featured Regional Speakers'
+                        : producer.role.toLowerCase().includes('regional lead')
+                        ? 'Regional Lead'
+                        : 'Regional Producer'}
+                    </span>
+                  </div>
                   <h4 className="font-editorial text-sm sm:text-base font-bold text-[#163B32] leading-tight">
                     {producer.name}
                   </h4>
