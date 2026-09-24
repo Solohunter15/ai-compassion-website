@@ -2,7 +2,20 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, Loader2, Send, Sparkles, Globe, User, Mail, Building, MapPin } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Loader2,
+  Send,
+  Sparkles,
+  Globe,
+  User,
+  Mail,
+  Building,
+  MapPin,
+  CheckSquare,
+  Square,
+} from 'lucide-react';
 
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeIDIvHm6LIU_19tYpmOqtAk034QK6u0LHdFyqn8dqssEz4yw/formResponse';
 
@@ -20,8 +33,8 @@ const FIELD_IDS = {
 
 const REGIONAL_HUBS = [
   'Australia, New Zealand & South Pacific',
-  'Japan, Korea, Taiwan & Northeast Asia',
-  'Southeast Asia',
+  'Japan, Korea, Taiwan & Northeast Asia (Kyoto)',
+  'Southeast Asia (Youth Hub / Singapore)',
   'South Asia',
   'Middle East, Caucasus & Central Asia',
   'East Africa, Southern Africa & Central Europe',
@@ -55,8 +68,8 @@ export default function JoinPage() {
     lastName: '',
     country: '',
     city: '',
-    regionalHub: 'Japan, Korea, Taiwan & Northeast Asia',
-    roleDescription: 'Working professional',
+    regionalHubs: ['Japan, Korea, Taiwan & Northeast Asia (Kyoto)'],
+    roles: ['Working professional'],
     affiliation: '',
     newsletter: 'Yes',
   });
@@ -68,8 +81,33 @@ export default function JoinPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const toggleHub = (hub) => {
+    setFormData((prev) => {
+      const exists = prev.regionalHubs.includes(hub);
+      if (exists) {
+        if (prev.regionalHubs.length === 1) return prev; // Keep at least one
+        return { ...prev, regionalHubs: prev.regionalHubs.filter((h) => h !== hub) };
+      } else {
+        return { ...prev, regionalHubs: [...prev.regionalHubs, hub] };
+      }
+    });
+  };
+
+  const toggleRole = (role) => {
+    setFormData((prev) => {
+      const exists = prev.roles.includes(role);
+      if (exists) {
+        if (prev.roles.length === 1) return prev; // Keep at least one
+        return { ...prev, roles: prev.roles.filter((r) => r !== role) };
+      } else {
+        return { ...prev, roles: [...prev.roles, role] };
+      }
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status === 'loading') return;
     setStatus('loading');
 
     try {
@@ -79,12 +117,14 @@ export default function JoinPage() {
       formBody.append(FIELD_IDS.lastName, formData.lastName.trim());
       formBody.append(FIELD_IDS.country, formData.country.trim());
       formBody.append(FIELD_IDS.city, formData.city.trim());
-      formBody.append(FIELD_IDS.regionalHub, formData.regionalHub);
-      formBody.append(FIELD_IDS.roleDescription, formData.roleDescription);
+      
+      // Join multiple selected checkboxes with commas for clean submission
+      formBody.append(FIELD_IDS.regionalHub, formData.regionalHubs.join(', '));
+      formBody.append(FIELD_IDS.roleDescription, formData.roles.join(', '));
       formBody.append(FIELD_IDS.affiliation, formData.affiliation.trim());
       formBody.append(FIELD_IDS.newsletter, formData.newsletter);
 
-      // Submit directly to Google Forms in background via no-cors fetch
+      // Single clean submission to avoid duplicates
       await fetch(GOOGLE_FORM_ACTION, {
         method: 'POST',
         mode: 'no-cors',
@@ -94,61 +134,33 @@ export default function JoinPage() {
         body: formBody.toString(),
       });
 
-      // Also create a backup hidden form submission to guarantee Google Form records the response
-      const hiddenIframe = document.createElement('iframe');
-      hiddenIframe.name = 'gform_hidden_sink';
-      hiddenIframe.style.display = 'none';
-      document.body.appendChild(hiddenIframe);
-
-      const hiddenForm = document.createElement('form');
-      hiddenForm.action = GOOGLE_FORM_ACTION;
-      hiddenForm.method = 'POST';
-      hiddenForm.target = 'gform_hidden_sink';
-      hiddenForm.style.display = 'none';
-
-      Object.entries(FIELD_IDS).forEach(([key, entryId]) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = entryId;
-        input.value = formData[key] || '';
-        hiddenForm.appendChild(input);
-      });
-
-      document.body.appendChild(hiddenForm);
-      hiddenForm.submit();
-
-      setTimeout(() => {
-        if (document.body.contains(hiddenForm)) document.body.removeChild(hiddenForm);
-        if (document.body.contains(hiddenIframe)) document.body.removeChild(hiddenIframe);
-      }, 2500);
-
       setStatus('success');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       console.error('Registration submission error:', err);
-      // Even if network mode throws warning, the response is recorded
+      // Mode no-cors always records
       setStatus('success');
     }
   };
 
   if (status === 'success') {
     return (
-      <div className="min-h-screen bg-[#F8F6F0] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6">
-        <div className="max-w-lg w-full bg-white rounded-3xl shadow-2xl p-8 sm:p-12 text-center border border-[#D9DDD6] flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-300">
-          <div className="w-20 h-20 bg-emerald-50 text-[#163B32] border border-emerald-200 rounded-full flex items-center justify-center mx-auto shadow-sm">
-            <CheckCircle2 className="w-10 h-10 text-[#22C55E]" />
+      <div className="min-h-screen bg-[#F8F6F0] flex items-center justify-center pt-24 pb-16 px-4 sm:px-6">
+        <div className="max-w-lg w-full bg-white rounded-3xl shadow-2xl p-6 sm:p-10 md:p-12 text-center border border-[#D9DDD6] flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-300">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-50 text-[#163B32] border border-emerald-200 rounded-full flex items-center justify-center mx-auto shadow-xs">
+            <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#22C55E]" />
           </div>
 
           <div className="flex flex-col gap-2">
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#22C55E]">
               Confirmation
             </span>
-            <h1 className="font-editorial text-3xl sm:text-4xl font-bold text-[#171918]">
+            <h1 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold text-[#171918]">
               You&apos;re registered! 🌍
             </h1>
           </div>
 
-          <div className="text-slate-600 text-sm sm:text-base leading-relaxed space-y-3 font-normal">
+          <div className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed space-y-3 font-normal">
             <p className="font-medium text-[#163B32]">
               Welcome to the AI + Compassion Global Forum 2026.
             </p>
@@ -162,7 +174,7 @@ export default function JoinPage() {
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-[#163B32] text-[#F8F6F0] px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-[#0F2620] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 mt-2"
+            className="inline-flex items-center justify-center gap-2 bg-[#163B32] text-[#F8F6F0] px-6 sm:px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-[#0F2620] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 mt-2 w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Global Forum</span>
@@ -173,32 +185,32 @@ export default function JoinPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8F6F0] pt-28 sm:pt-32 pb-20 px-4 sm:px-6 flex flex-col items-center">
-      <div className="max-w-3xl w-full flex flex-col items-center gap-8">
+    <div className="min-h-screen bg-[#F8F6F0] pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 px-3 sm:px-6 flex flex-col items-center">
+      <div className="max-w-3xl w-full flex flex-col items-center gap-6 sm:gap-8">
         
         {/* Main Card */}
-        <div className="w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#D9DDD6]">
+        <div className="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-[#D9DDD6]">
           
           {/* Header Banner */}
-          <div className="bg-[#163B32] p-8 md:p-12 text-[#F8F6F0] relative overflow-hidden">
+          <div className="bg-[#163B32] p-6 sm:p-8 md:p-12 text-[#F8F6F0] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-72 h-72 bg-[#22C55E]/15 rounded-full -mr-20 -mt-20 blur-3xl pointer-events-none" />
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[11px] font-mono tracking-widest text-[#D8B56A] uppercase mb-3 border border-white/15">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D8B56A] uppercase mb-3 border border-white/15">
               <Sparkles className="w-3.5 h-3.5 text-[#D8B56A]" />
               <span>Official Forum Registration</span>
             </div>
-            <h1 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold mb-3 relative z-10 leading-tight">
+            <h1 className="font-editorial text-2xl sm:text-3xl md:text-5xl font-bold mb-3 relative z-10 leading-tight">
               AI + Compassion Global Forum 2026
             </h1>
-            <p className="text-white/80 text-sm sm:text-base max-w-2xl relative z-10 leading-relaxed font-light">
-              Join the 24-hour global conversation bringing together voices from 12 regions to explore how artificial intelligence can elevate human wellbeing and compassion. Free & open to all.
+            <p className="text-white/80 text-xs sm:text-sm md:text-base max-w-2xl relative z-10 leading-relaxed font-light">
+              Join the 24-hour global conversation bringing together voices from 12 regions to explore how artificial intelligence can elevate human wellbeing, nature, and compassion. Free & open to all.
             </p>
           </div>
 
           {/* Form Content */}
-          <form onSubmit={handleSubmit} className="p-6 sm:p-10 md:p-12 space-y-7 text-[#171918]">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-7 text-[#171918]">
             
             {/* Name Fields */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div className="space-y-1.5">
                 <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32] flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5 text-[#22C55E]" />
@@ -250,7 +262,7 @@ export default function JoinPage() {
             </div>
 
             {/* Location (Country & City) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div className="space-y-1.5">
                 <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32] flex items-center gap-1.5">
                   <Globe className="w-3.5 h-3.5 text-[#22C55E]" />
@@ -284,44 +296,78 @@ export default function JoinPage() {
               </div>
             </div>
 
-            {/* Regional Hub Selection */}
-            <div className="space-y-1.5">
-              <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32]">
-                Which regional hub would you like to join? *
-              </label>
-              <select
-                required
-                name="regionalHub"
-                value={formData.regionalHub}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3.5 rounded-xl bg-[#F8F6F0] border border-[#D9DDD6] focus:border-[#163B32] focus:bg-white outline-none transition-all text-sm text-slate-800 font-medium cursor-pointer"
-              >
-                {REGIONAL_HUBS.map((hub) => (
-                  <option key={hub} value={hub}>
-                    {hub}
-                  </option>
-                ))}
-              </select>
+            {/* Regional Hub Selection (Checkboxes / Multi-select) */}
+            <div className="space-y-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32]">
+                  Which regional hub(s) would you like to join? *
+                </label>
+                <span className="text-[11px] text-slate-500 font-medium">Select one or more</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-60 overflow-y-auto p-2 bg-[#F8F6F0]/80 rounded-2xl border border-[#D9DDD6]">
+                {REGIONAL_HUBS.map((hub) => {
+                  const isChecked = formData.regionalHubs.includes(hub);
+                  return (
+                    <button
+                      key={hub}
+                      type="button"
+                      onClick={() => toggleHub(hub)}
+                      className={`flex items-start gap-2.5 p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
+                        isChecked
+                          ? 'bg-emerald-50 border-[#163B32] text-[#163B32] font-semibold shadow-xs'
+                          : 'bg-white border-[#E2E6DF] text-slate-700 hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="shrink-0 mt-0.5">
+                        {isChecked ? (
+                          <CheckSquare className="w-4 h-4 text-[#163B32]" />
+                        ) : (
+                          <Square className="w-4 h-4 text-slate-400" />
+                        )}
+                      </div>
+                      <span className="leading-snug">{hub}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Role / Background Selection */}
-            <div className="space-y-1.5">
-              <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32]">
-                Which best describes you? *
-              </label>
-              <select
-                required
-                name="roleDescription"
-                value={formData.roleDescription}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3.5 rounded-xl bg-[#F8F6F0] border border-[#D9DDD6] focus:border-[#163B32] focus:bg-white outline-none transition-all text-sm text-slate-800 font-medium cursor-pointer"
-              >
-                {ROLE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
+            {/* Role / Background Selection (Checkboxes / Multi-select) */}
+            <div className="space-y-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32]">
+                  Which best describes you? *
+                </label>
+                <span className="text-[11px] text-slate-500 font-medium">Select one or more</span>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-2 bg-[#F8F6F0]/80 rounded-2xl border border-[#D9DDD6]">
+                {ROLE_OPTIONS.map((opt) => {
+                  const isChecked = formData.roles.includes(opt);
+                  return (
+                    <button
+                      key={opt}
+                      type="button"
+                      onClick={() => toggleRole(opt)}
+                      className={`flex items-center gap-2 p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
+                        isChecked
+                          ? 'bg-emerald-50 border-[#163B32] text-[#163B32] font-semibold shadow-xs'
+                          : 'bg-white border-[#E2E6DF] text-slate-700 hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="shrink-0">
+                        {isChecked ? (
+                          <CheckSquare className="w-4 h-4 text-[#163B32]" />
+                        ) : (
+                          <Square className="w-4 h-4 text-slate-400" />
+                        )}
+                      </div>
+                      <span className="leading-tight truncate">{opt}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* University, Organization, or Affiliation */}
@@ -354,7 +400,7 @@ export default function JoinPage() {
                     onClick={() => setFormData((p) => ({ ...p, newsletter: opt }))}
                     className={`flex items-center gap-2.5 px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
                       formData.newsletter === opt
-                        ? 'bg-[#163B32] text-white border-[#163B32] shadow-sm'
+                        ? 'bg-[#163B32] text-white border-[#163B32] shadow-xs'
                         : 'bg-[#F8F6F0] text-slate-700 border-[#D9DDD6] hover:bg-slate-100'
                     }`}
                   >
@@ -368,11 +414,11 @@ export default function JoinPage() {
             </div>
 
             {/* Submit Button */}
-            <div className="pt-4">
+            <div className="pt-3">
               <button
                 disabled={status === 'loading'}
                 type="submit"
-                className="w-full bg-[#163B32] hover:bg-[#0F2620] text-[#F8F6F0] py-4 rounded-2xl font-bold text-sm tracking-widest uppercase shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2.5 cursor-pointer"
+                className="w-full bg-[#163B32] hover:bg-[#0F2620] text-[#F8F6F0] py-4 rounded-2xl font-bold text-sm tracking-widest uppercase shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2.5 cursor-pointer min-h-[48px]"
               >
                 {status === 'loading' ? (
                   <>

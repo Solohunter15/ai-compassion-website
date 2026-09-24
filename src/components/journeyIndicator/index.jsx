@@ -13,7 +13,7 @@ const JOURNEY_STAGES = [
   { id: 'sponsors', label: '08', title: 'Sponsors' },
   { id: 'partners', label: '09', title: 'Partners' },
   { id: 'faq', label: '10', title: 'FAQ' },
-  { id: 'join', label: '11', title: 'Commitment' },
+  { id: 'contact', label: '11', title: 'Contact' },
 ];
 
 export default function JourneyIndicator() {

@@ -52,12 +52,12 @@ export const SCHEDULE_MATRIX = [
       AEST: '17:00–19:00',
     },
     producers: ['Christina Gerakiteys (Producer)'],
-    theme: 'Regenerative Intelligence & Ecological Care — Protecting Land & Oceans',
+    theme: 'Indigenous Wisdom, Planetary Stewardship and Compassionate Futures',
   },
   {
     id: 'block-2',
     blockNumber: 'Block 2',
-    region: 'Block 2 — Japan, Korea, Taiwan & NE Asia (Hub: Kyoto)',
+    region: 'Block 2 — Japan, Korea, Taiwan & NE Asia (Hub: Kyoto / Seoul / Taipei)',
     hub: 'Kyoto Hub',
     times: {
       UTC: '09:00–11:00',
@@ -72,12 +72,12 @@ export const SCHEDULE_MATRIX = [
       AEST: '19:00–21:00',
     },
     producers: ['Jun Sato (Producer)'],
-    theme: 'Futokoro & Care Systems: Preserving Life, Nature & Essence in Automation',
+    theme: 'Human-Centred AI, Education, Robotics and Intergenerational Responsibility (Prof. Tomohiro Ishizu)',
   },
   {
     id: 'block-3',
     blockNumber: 'Block 3',
-    region: 'Block 3 — Southeast Asia (Hub: Youth Hub)',
+    region: 'Block 3 — Southeast Asia / Youth Produced Segment (Hub: Singapore)',
     hub: 'Youth Hub',
     times: {
       UTC: '11:00–13:00',
@@ -92,7 +92,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '21:00–23:00',
     },
     producers: ['Aditi Singh (Producer)'],
-    theme: 'Youth Leadership, Digital Inclusion & Multilingual AI for Next-Gen Flourishing',
+    theme: 'Youth & AI+Compassion — Next-Gen Agency, Digital Inclusion & Mentorship',
   },
   {
     id: 'block-4',
@@ -112,7 +112,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '23:00–01:00 (Oct 2→3)',
     },
     producers: ['Deepu S Nath (Producer)'],
-    theme: 'Grassroots Tech, Education & Compassionate Architectures for Community Wisdom',
+    theme: 'AI for Social Impact, Youth Opportunity & Community Health',
   },
   {
     id: 'block-5',
@@ -132,7 +132,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '01:00–03:00 (Oct 3)',
     },
     producers: ['Walied Albasheer (Producer)'],
-    theme: 'Responsible Civic AI, Smart Governance & Cross-Continental Innovation',
+    theme: 'Long-Horizon Governance, Coexistence, Peacebuilding and Future Cities',
   },
   {
     id: 'block-6',
@@ -152,7 +152,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '03:00–05:00 (Oct 3)',
     },
     producers: ['Dr. Lee Kironget (Producer)'],
-    theme: 'Decentralized Healthcare, Solar Compute & Localized Frontier AI',
+    theme: 'Global Justice, Climate Resilience, Peace, Democracy & Ethical Governance',
   },
   {
     id: 'block-7',
@@ -172,12 +172,12 @@ export const SCHEDULE_MATRIX = [
       AEST: '05:00–07:00 (Oct 3)',
     },
     producers: ['Fabrizio Gramuglio (Producer)', 'Edith Öller (Co-Producer)'],
-    theme: 'Digital Ethics, Human Dignity & Ecological Contestability in Algorithmic Systems',
+    theme: 'Compassionate Leadership, Responsible Innovation, Migration & Global Citizenship',
   },
   {
     id: 'block-8',
     blockNumber: 'Block 8',
-    region: 'Block 8 — Eastern & Southern South America, Caribbean (Hub: São Paulo)',
+    region: 'Block 8 — Eastern & Southern South America, Caribbean (Hub: São Paulo/Curaçao)',
     hub: 'São Paulo Hub',
     times: {
       UTC: '21:00–23:00',
@@ -192,7 +192,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '07:00–09:00 (Oct 3)',
     },
     producers: ['Julieta Reyes (Producer)'],
-    theme: 'Indigenous Wisdom, Socio-Technical Ecosystems & the Future of Living Work',
+    theme: 'Biodiversity, Indigenous Communities, Social Innovation & Regenerative Economies',
   },
   {
     id: 'block-9',
@@ -211,8 +211,8 @@ export const SCHEDULE_MATRIX = [
       BRT: '20:00–22:00 (Oct 2)',
       AEST: '09:00–11:00 (Oct 3)',
     },
-    producers: ['Ani Chahal Honan (Producer)'],
-    theme: 'Content Authenticity, Digital Provenance & Living Trust in Synthetic Realities',
+    producers: [],
+    theme: 'Civil Rights, Democratic Participation, Global Health and Youth-Led Social Movements',
   },
   {
     id: 'block-10',
@@ -231,8 +231,8 @@ export const SCHEDULE_MATRIX = [
       BRT: '22:00–00:00 (Oct 2→3)',
       AEST: '11:00–13:00 (Oct 3)',
     },
-    producers: ['Central Americas Regional Leads (Stephen Butler & Nichol Bradford)'],
-    theme: 'Preserving Cultural Nuance, Oral Heritage & Native Languages in AI',
+    producers: [],
+    theme: 'Cross-Border Collaboration, Entrepreneurship, Education Access and Compassionate Communities',
   },
   {
     id: 'block-11',
@@ -251,8 +251,8 @@ export const SCHEDULE_MATRIX = [
       BRT: '00:00–02:00 (Oct 3)',
       AEST: '13:00–15:00 (Oct 3)',
     },
-    producers: ['Pacific Rim & Tech Regional Leads (Dr. Alex Cahana & Ben Waber)'],
-    theme: 'Frontier Safety, Clean Compute & Planetary Boundaries in Frontier AI',
+    producers: ['Ani Chahal Honan (Producer)'],
+    theme: 'Frontier AI, Creativity, Entertainment, Entrepreneurship and Technology with Compassion',
   },
   {
     id: 'block-12',
@@ -272,7 +272,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '15:00–17:00 (Oct 3)',
     },
     producers: ['Stephin Kalani (Regional Lead)'],
-    theme: 'Island Sovereignty, Indigenous Stewardship & Oceanic Data Protocols',
+    theme: 'Ocean Consciousness, Indigenous Navigation, Ecological Responsibility & Island Communities',
   },
   {
     id: 'homecoming',

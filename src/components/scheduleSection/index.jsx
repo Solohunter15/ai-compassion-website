@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Calendar,
   Clock,
@@ -34,16 +34,18 @@ export default function ScheduleSection() {
   // Find active timezone object
   const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
 
-  // Filter schedule based on search query (declared before useEffect to avoid TDZ)
-  const filteredBlocks = SCHEDULE_MATRIX.filter((b) => {
-    if (!searchQuery.trim()) return true;
+  // Filter schedule based on search query memoized to prevent infinite re-renders
+  const filteredBlocks = useMemo(() => {
+    if (!searchQuery.trim()) return SCHEDULE_MATRIX;
     const q = searchQuery.toLowerCase();
-    const matchRegion = b.region?.toLowerCase().includes(q);
-    const matchHub = b.hub?.toLowerCase().includes(q);
-    const matchTheme = b.theme?.toLowerCase().includes(q);
-    const matchProducers = b.producers?.some((p) => p.toLowerCase().includes(q));
-    return matchRegion || matchHub || matchTheme || matchProducers;
-  });
+    return SCHEDULE_MATRIX.filter((b) => {
+      const matchRegion = b.region?.toLowerCase().includes(q);
+      const matchHub = b.hub?.toLowerCase().includes(q);
+      const matchTheme = b.theme?.toLowerCase().includes(q);
+      const matchProducers = b.producers?.some((p) => p.toLowerCase().includes(q));
+      return matchRegion || matchHub || matchTheme || matchProducers;
+    });
+  }, [searchQuery]);
 
   // Dynamically calculate the precise center-to-center distance from Node 1 to Homecoming Node
   useEffect(() => {
@@ -57,26 +59,26 @@ export default function ScheduleSection() {
       const lastCenterY = lastRect.top + lastRect.height / 2 - containerRect.top;
       const totalHeight = Math.max(0, lastCenterY - firstCenterY);
 
-      setLineBounds({
-        top: firstCenterY,
-        height: totalHeight,
+      setLineBounds((prev) => {
+        if (Math.abs(prev.top - firstCenterY) < 1 && Math.abs(prev.height - totalHeight) < 1) {
+          return prev;
+        }
+        return {
+          top: firstCenterY,
+          height: totalHeight,
+        };
       });
     };
 
-    updateLineBounds();
+    // Calculate on next frame to ensure DOM layout has completed
+    const frameId = requestAnimationFrame(updateLineBounds);
     window.addEventListener('resize', updateLineBounds);
-    
-    let ro = null;
-    if (typeof ResizeObserver !== 'undefined' && itemsContainerRef.current) {
-      ro = new ResizeObserver(updateLineBounds);
-      ro.observe(itemsContainerRef.current);
-    }
 
     return () => {
+      cancelAnimationFrame(frameId);
       window.removeEventListener('resize', updateLineBounds);
-      if (ro) ro.disconnect();
     };
-  }, [filteredBlocks, selectedTz, activeView]);
+  }, [filteredBlocks.length, selectedTz, activeView]);
 
   // Scroll Progress Tracker for the Storytelling Timeline
   useEffect(() => {

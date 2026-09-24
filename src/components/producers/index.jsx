@@ -54,7 +54,7 @@ const PRODUCERS = [
   },
   {
     name: 'Ani Chahal Honan',
-    role: 'Regional Producer — North America',
+    role: 'Regional Producer — Western North America',
     img: '/ani.jpg',
     category: 'producer',
   },
