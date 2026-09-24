@@ -75,7 +75,7 @@ export const SCHEDULE_MATRIX = [
     },
     producers: ['Jun Suto (Producer)', 'Taikyo Murakami (Co-Producer)'],
     coordinator: 'Kavya',
-    theme: 'Human-centred AI, education, robotics and intergenerational responsibility (Prof. Tomohiro Ishizu)',
+    theme: 'Planet-centered AI, education, robotics and intergenerational responsibility (Prof. Tomohiro Ishizu)',
   },
   {
     id: 'block-3',

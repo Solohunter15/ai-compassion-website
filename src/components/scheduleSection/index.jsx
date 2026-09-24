@@ -356,7 +356,13 @@ export default function ScheduleSection() {
                               {block.producers?.length > 0 && (
                                 <div className={`flex flex-wrap items-center gap-1 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
                                   <span className="font-bold text-[#163B32]">
-                                    {block.producers.length > 1 ? 'Producers:' : 'Producer:'}
+                                    {block.producers.some(p => p.toLowerCase().includes('featured speaker') || p.toLowerCase().includes('speaker'))
+                                      ? 'Featured Speakers:'
+                                      : block.producers.some(p => p.toLowerCase().includes('regional lead'))
+                                      ? 'Regional Lead:'
+                                      : block.producers.length > 1
+                                      ? 'Producers & Co-Producers:'
+                                      : 'Producer:'}
                                   </span>
                                   <span className="font-medium text-slate-700">
                                     {block.producers.join(', ')}
