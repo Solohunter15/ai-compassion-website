@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 const PRODUCERS = [
+  // Producers
   {
     name: 'Christina Gerakiteys',
     role: 'Regional Producer — Oceania & Pacific',
@@ -11,7 +12,7 @@ const PRODUCERS = [
     category: 'producer',
   },
   {
-    name: 'Jun Sato',
+    name: 'Jun Suto',
     role: 'Regional Producer — Kyoto',
     img: '/jun.png',
     category: 'producer',
@@ -30,13 +31,13 @@ const PRODUCERS = [
   },
   {
     name: 'Walied Albasheer',
-    role: 'Regional Producer — GCC & Middle East',
+    role: 'Regional Producer — Middle East, Caucasus & Central Asia',
     img: '/walied.jpg',
     category: 'producer',
   },
   {
     name: 'Dr. Lee Kironget',
-    role: 'Regional Producer — Africa',
+    role: 'Regional Producer — Africa & Central Europe',
     img: '/lee.jpg',
     category: 'producer',
   },
@@ -58,11 +59,69 @@ const PRODUCERS = [
     img: '/ani.jpg',
     category: 'producer',
   },
+
+  // Co-Producers & Regional Leads
   {
     name: 'Edith Öller',
     role: 'Co-Producer — UK, Ireland, Iberia & West Africa',
     img: '/edith-oller.jpg',
     category: 'co-producer',
+  },
+  {
+    name: 'Taikyo Murakami',
+    role: 'Co-Producer — Kyoto',
+    img: '/murakami.webp',
+    category: 'co-producer',
+  },
+  {
+    name: 'Stephin Kalani',
+    role: 'Regional Lead — Hawaiʻi, Alaska & Pacific Islands',
+    img: '/stephin.webp',
+    category: 'co-producer',
+  },
+
+  // Regional Coordinators
+  {
+    name: 'Rasha & Jibu',
+    role: 'Regional Coordinators — Kyoto',
+    img: '/jibu.png',
+    category: 'coordinator',
+  },
+  {
+    name: 'Jeniffer Jerald JN',
+    role: 'Regional Coordinator — Oceania & Southeast Asia',
+    img: '/jean.png',
+    category: 'coordinator',
+  },
+  {
+    name: 'Kavya',
+    role: 'Regional Coordinator — Northeast Asia & South Asia',
+    img: '/akshaya.png',
+    category: 'coordinator',
+  },
+  {
+    name: 'Ann Rose Mathew',
+    role: 'Regional Coordinator — Middle East & Western North America',
+    img: '/anuka.png',
+    category: 'coordinator',
+  },
+  {
+    name: 'Meera',
+    role: 'Regional Coordinator — Africa, Central Europe & Eastern North America',
+    img: '/naomi.png',
+    category: 'coordinator',
+  },
+  {
+    name: 'Adithya Baiju',
+    role: 'Regional Coordinator — UK, West Africa & Latin America',
+    img: '/akshat.png',
+    category: 'coordinator',
+  },
+  {
+    name: 'Niya',
+    role: 'Regional Coordinator — Central North America & Pacific Islands',
+    img: '/dany.png',
+    category: 'coordinator',
   },
 ];
 
@@ -72,6 +131,7 @@ export default function ProducersPage() {
   const filteredMembers = PRODUCERS.filter((p) => {
     if (activeTab === 'producers') return p.category === 'producer';
     if (activeTab === 'co-producers') return p.category === 'co-producer';
+    if (activeTab === 'coordinators') return p.category === 'coordinator';
     return true;
   });
 
@@ -91,15 +151,15 @@ export default function ProducersPage() {
             Our Producers &amp; Co-Producers
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 max-w-lg font-light">
-            Meet the regional conveners, producers, and visionaries orchestrating the 24-hour continuous global relay.
+            Meet the regional conveners, producers, co-producers, and regional coordinators orchestrating the 24-hour continuous global relay.
           </p>
 
           {/* Filter Pills */}
-          <div className="flex items-center gap-2 mt-3 bg-emerald-50/70 p-1 rounded-full border border-emerald-200/70">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-3 bg-emerald-50/70 p-1.5 rounded-full border border-emerald-200/70">
             <button
               type="button"
               onClick={() => setActiveTab('all')}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'all'
                   ? 'bg-[#163B32] text-white shadow-xs'
                   : 'text-[#163B32] hover:text-[#0F2620]'
@@ -110,7 +170,7 @@ export default function ProducersPage() {
             <button
               type="button"
               onClick={() => setActiveTab('producers')}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'producers'
                   ? 'bg-[#163B32] text-white shadow-xs'
                   : 'text-[#163B32] hover:text-[#0F2620]'
@@ -121,13 +181,24 @@ export default function ProducersPage() {
             <button
               type="button"
               onClick={() => setActiveTab('co-producers')}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'co-producers'
                   ? 'bg-[#163B32] text-white shadow-xs'
                   : 'text-[#163B32] hover:text-[#0F2620]'
               }`}
             >
               Co-Producers ({PRODUCERS.filter((p) => p.category === 'co-producer').length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('coordinators')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                activeTab === 'coordinators'
+                  ? 'bg-[#163B32] text-white shadow-xs'
+                  : 'text-[#163B32] hover:text-[#0F2620]'
+              }`}
+            >
+              Coordinators ({PRODUCERS.filter((p) => p.category === 'coordinator').length})
             </button>
           </div>
         </div>
@@ -168,9 +239,15 @@ export default function ProducersPage() {
                 <span className={`text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                   producer.category === 'co-producer'
                     ? 'bg-amber-100 text-amber-900 border border-amber-200'
+                    : producer.category === 'coordinator'
+                    ? 'bg-blue-50 text-blue-800 border border-blue-200'
                     : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
                 }`}>
-                  {producer.category === 'co-producer' ? 'Co-Producer' : 'Producer'}
+                  {producer.category === 'co-producer'
+                    ? 'Co-Producer'
+                    : producer.category === 'coordinator'
+                    ? 'Regional Coordinator'
+                    : 'Producer'}
                 </span>
                 <h3 className="font-editorial text-xs sm:text-sm md:text-base font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-tight break-words">
                   {producer.name}
