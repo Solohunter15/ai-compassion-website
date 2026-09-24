@@ -93,9 +93,9 @@ export default function JoinSection() {
           </div>
 
           <p className="text-sm sm:text-base text-white/80 max-w-2xl leading-relaxed text-balance font-light">
-            On October 2, 2026, our journey will begin in Osaka, circle the globe,
+            On October 2, 2026, our journey will begin in Kyoto, circle the globe,
             and conclude in ancient Kyoto—symbolizing the harmonious integration
-            of past wisdom and future innovation.
+            of ancient wisdom and future innovation.
           </p>
 
           <p className="text-xs sm:text-sm text-white/70 max-w-xl leading-relaxed">

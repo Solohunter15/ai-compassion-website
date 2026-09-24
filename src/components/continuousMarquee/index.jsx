@@ -6,9 +6,9 @@ const MARQUEE_ITEMS = [
   '24 HOURS',
   'ONE GLOBAL CONVERSATION',
   'AI + COMPASSION',
-  'OSAKA & GLOBAL RELAY',
-  'OCTOBER 2, 2026',
-  'HUMAN-CENTERED INTELLIGENCE',
+  'KYOTO & GLOBAL RELAY',
+  'OCTOBER 2–3, 2026',
+  'PLANET-CENTERED INTELLIGENCE',
 ];
 
 export default function ContinuousMarquee({ reverse = false, variant = 'light' }) {
