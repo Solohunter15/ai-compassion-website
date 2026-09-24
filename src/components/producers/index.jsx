@@ -132,26 +132,26 @@ export default function ProducersPage() {
           </div>
         </div>
 
-        {/* Clean Balanced Centered Grid */}
-        <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-6 max-w-6xl mx-auto">
+        {/* Robust Responsive Grid - Zero Overlap on All Devices */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5 w-full max-w-6xl mx-auto">
           {filteredMembers.map((producer, idx) => (
             <div
               key={idx}
-              className="w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] lg:w-[calc(20%-16px)] max-w-[240px] min-w-[150px] bg-white rounded-2xl border border-emerald-100/90 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 flex flex-col items-center text-center gap-3 group"
+              className="w-full bg-white rounded-2xl border border-emerald-100/90 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-3 sm:p-5 flex flex-col items-center text-center gap-2.5 group overflow-hidden"
             >
               {/* Portrait Image */}
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-100 shadow-xs group-hover:scale-103 transition-transform duration-300 border border-emerald-100">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden bg-slate-100 shadow-xs group-hover:scale-103 transition-transform duration-300 border border-emerald-100 shrink-0">
                 {producer.img ? (
                   <Image
                     src={producer.img}
                     alt={producer.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 96px, 112px"
+                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 112px"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#163B32]/10 via-[#F8F6F0] to-[#C9A96A]/20 text-[#163B32]">
-                    <span className="font-editorial text-2xl sm:text-3xl font-bold tracking-wider text-[#163B32]">
+                    <span className="font-editorial text-xl sm:text-2xl font-bold tracking-wider text-[#163B32]">
                       {producer.name
                         .split(' ')
                         .map((n) => n[0])
@@ -164,18 +164,18 @@ export default function ProducersPage() {
               </div>
 
               {/* Producer Name & Role */}
-              <div className="flex flex-col items-center gap-1">
-                <span className={`text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+              <div className="flex flex-col items-center gap-1 w-full">
+                <span className={`text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                   producer.category === 'co-producer'
                     ? 'bg-amber-100 text-amber-900 border border-amber-200'
                     : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
                 }`}>
                   {producer.category === 'co-producer' ? 'Co-Producer' : 'Producer'}
                 </span>
-                <h3 className="font-editorial text-sm sm:text-base font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-tight">
+                <h3 className="font-editorial text-xs sm:text-sm md:text-base font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-tight break-words">
                   {producer.name}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-slate-500 font-medium leading-tight">
+                <p className="text-[10px] sm:text-xs text-slate-500 font-medium leading-tight line-clamp-2">
                   {producer.role}
                 </p>
               </div>

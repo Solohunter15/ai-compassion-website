@@ -24,7 +24,7 @@ export default function Navbar() {
     { href: isHome ? '#pillars' : '/#pillars', label: 'Pillars', id: 'pillars' },
     { href: isHome ? '#relay' : '/#relay', label: 'The Relay', id: 'relay' },
     { href: isHome ? '#schedule' : '/#schedule', label: 'Schedule', id: 'schedule' },
-    { href: isHome ? '#sponsors' : '/#sponsors', label: 'Sponsors', id: 'sponsors' },
+    { href: isHome ? '#partners-sponsors' : '/#partners-sponsors', label: 'Partners & Sponsors', id: 'partners-sponsors' },
     { href: isHome ? '#faq' : '/#faq', label: 'FAQ', id: 'faq' },
   ];
 
@@ -37,7 +37,7 @@ export default function Navbar() {
         return;
       }
 
-      const sections = ['faq', 'partners', 'sponsors', 'schedule', 'relay', 'pillars', 'why-now', 'about'];
+      const sections = ['faq', 'partners-sponsors', 'schedule', 'relay', 'pillars', 'why-now', 'about'];
       let found = '#';
 
       for (const id of sections) {

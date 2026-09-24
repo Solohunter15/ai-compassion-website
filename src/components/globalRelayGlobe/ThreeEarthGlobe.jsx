@@ -556,19 +556,19 @@ export default function ThreeEarthGlobe({
       )}
 
       {/* Floating Coordinate HUD Telemetry */}
-      <div className="absolute bottom-3 left-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E6E9E4] shadow-xs text-[11px] font-mono text-[#163B32] pointer-events-none">
-        <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-ping" />
-        <span className="font-bold uppercase tracking-wider">{activeRegion.code}</span>
-        <span className="text-[#5E625D]">
+      <div className="absolute bottom-1 sm:bottom-3 left-2 sm:left-4 z-20 flex items-center gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E6E9E4] shadow-xs text-[9px] sm:text-[11px] font-mono text-[#163B32] pointer-events-none max-w-[160px] sm:max-w-none truncate">
+        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#22C55E] animate-ping shrink-0" />
+        <span className="font-bold uppercase tracking-wider shrink-0">{activeRegion.code}</span>
+        <span className="text-[#5E625D] truncate">
           {activeRegion.lat > 0 ? `${activeRegion.lat.toFixed(1)}°N` : `${Math.abs(activeRegion.lat).toFixed(1)}°S`},{' '}
           {activeRegion.lng > 0 ? `${activeRegion.lng.toFixed(1)}°E` : `${Math.abs(activeRegion.lng).toFixed(1)}°W`}
         </span>
       </div>
 
       {/* Hub Tag */}
-      <div className="absolute top-3 right-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-[#163B32] text-[#F8F6F0] text-[10px] font-mono tracking-wider uppercase shadow-md pointer-events-none">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
-        <span>{activeRegion.hubs}</span>
+      <div className="absolute top-1 sm:top-3 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#163B32] text-[#F8F6F0] text-[9px] sm:text-[10px] font-mono tracking-wider uppercase shadow-md pointer-events-none max-w-[140px] sm:max-w-none truncate">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" />
+        <span className="truncate">{activeRegion.hubs}</span>
       </div>
     </div>
   );

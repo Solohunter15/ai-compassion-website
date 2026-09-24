@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
 import { FaDiscord, FaLinkedinIn, FaInstagram, FaYoutube, FaFacebookF } from 'react-icons/fa';
@@ -127,10 +128,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Legal & Archive Row */}
-        <div className="w-full pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] sm:text-xs text-slate-500 font-medium">
+        <div className="w-full pt-6 border-t border-slate-200/80 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] sm:text-xs text-slate-500 font-medium">
           <p>© 2026 AI+ Compassion Global Forum • All Rights Reserved</p>
 
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a
               href="https://2025.compassionai.io"
               target="_blank"
@@ -148,6 +149,29 @@ export default function Footer() {
             <Link href="#" className="hover:text-slate-900 transition-colors">
               Terms of Use
             </Link>
+          </div>
+
+          {/* Glassmorphic 'Powered by The Purple Movement' Badge */}
+          <div className="group relative flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl bg-white/80 backdrop-blur-xl border border-purple-200/90 shadow-md shadow-purple-950/5 hover:shadow-xl hover:shadow-purple-500/15 hover:border-purple-400 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer">
+            <div className="relative w-6 h-6 shrink-0 flex items-center justify-center">
+              <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-xs group-hover:bg-purple-500/40 transition-all" />
+              <Image
+                src="/purple.png"
+                alt="The Purple Movement"
+                width={22}
+                height={22}
+                className="relative z-10 object-contain"
+              />
+            </div>
+
+            <div className="flex flex-col text-left">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-purple-700/80 font-bold leading-none">
+                Powered by
+              </span>
+              <span className="text-xs font-editorial font-bold text-purple-950 group-hover:text-purple-700 transition-colors leading-tight">
+                The Purple Movement
+              </span>
+            </div>
           </div>
         </div>
 
