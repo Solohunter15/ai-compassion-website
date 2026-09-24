@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {
   ArrowLeft,
   CheckCircle2,
+  AlertCircle,
   Loader2,
   Send,
   Sparkles,
@@ -17,7 +18,8 @@ import {
   Square,
 } from 'lucide-react';
 
-const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeIDIvHm6LIU_19tYpmOqtAk034QK6u0LHdFyqn8dqssEz4yw/formResponse';
+const GOOGLE_FORM_ACTION =
+  'https://docs.google.com/forms/d/e/1FAIpQLSeIDIvHm6LIU_19tYpmOqtAk034QK6u0LHdFyqn8dqssEz4yw/formResponse';
 
 const FIELD_IDS = {
   email: 'entry.371099452',
@@ -29,6 +31,23 @@ const FIELD_IDS = {
   roleDescription: 'entry.256287034',
   affiliation: 'entry.1067502460',
   newsletter: 'entry.11884566',
+};
+
+const HUB_MAPPING = {
+  'Australia, New Zealand & South Pacific': 'Australia, New Zealand & South Pacific',
+  'Japan, Korea, Taiwan & Northeast Asia (Kyoto)': 'Japan, Korea, Taiwan & Northeast Asia',
+  'Japan, Korea, Taiwan & Northeast Asia': 'Japan, Korea, Taiwan & Northeast Asia',
+  'Southeast Asia (Youth Hub / Singapore)': 'Southeast Asia',
+  'Southeast Asia': 'Southeast Asia',
+  'South Asia': 'South Asia',
+  'Middle East, Caucasus & Central Asia': 'Middle East, Caucasus & Central Asia',
+  'East Africa, Southern Africa & Central Europe': 'East Africa, Southern Africa & Central Europe',
+  'UK, Ireland, Iberia & West Africa': 'UK, Ireland, Iberia & West Africa',
+  'Eastern & Southern South America & Caribbean': 'Eastern & Southern South America & Caribbean',
+  'Eastern North America & Northern South America': 'Eastern North America & Northern South America',
+  'Central North America & Mexico': 'Central North America & Mexico',
+  'Western North America': 'Western North America',
+  'Hawaii, Alaska & Pacific Islands': 'Hawaii, Alaska & Pacific Islands',
 };
 
 const REGIONAL_HUBS = [
@@ -75,6 +94,7 @@ export default function JoinPage() {
   });
 
   const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -109,22 +129,51 @@ export default function JoinPage() {
     e.preventDefault();
     if (status === 'loading') return;
     setStatus('loading');
+    setErrorMessage('');
 
     try {
+      // Primary Submission: Server-side API endpoint
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      // Fallback: Direct Form Post with exact parameters
       const formBody = new URLSearchParams();
+      formBody.append('emailAddress', formData.email.trim());
       formBody.append(FIELD_IDS.email, formData.email.trim());
       formBody.append(FIELD_IDS.firstName, formData.firstName.trim());
       formBody.append(FIELD_IDS.lastName, formData.lastName.trim());
       formBody.append(FIELD_IDS.country, formData.country.trim());
       formBody.append(FIELD_IDS.city, formData.city.trim());
-      
-      // Join multiple selected checkboxes with commas for clean submission
-      formBody.append(FIELD_IDS.regionalHub, formData.regionalHubs.join(', '));
-      formBody.append(FIELD_IDS.roleDescription, formData.roles.join(', '));
       formBody.append(FIELD_IDS.affiliation, formData.affiliation.trim());
       formBody.append(FIELD_IDS.newsletter, formData.newsletter);
 
-      // Single clean submission to avoid duplicates
+      formData.regionalHubs.forEach((h) => {
+        formBody.append(FIELD_IDS.regionalHub, HUB_MAPPING[h] || h);
+      });
+
+      formData.roles.forEach((r) => {
+        if (r === 'Other') {
+          formBody.append(FIELD_IDS.roleDescription, '__other_option__');
+          formBody.append(`${FIELD_IDS.roleDescription}.other_option_response`, 'Other');
+        } else {
+          formBody.append(FIELD_IDS.roleDescription, r);
+        }
+      });
+
+      formBody.append('fvv', '1');
+      formBody.append('pageHistory', '0');
+
       await fetch(GOOGLE_FORM_ACTION, {
         method: 'POST',
         mode: 'no-cors',
@@ -138,8 +187,44 @@ export default function JoinPage() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       console.error('Registration submission error:', err);
-      // Mode no-cors always records
-      setStatus('success');
+      try {
+        const formBody = new URLSearchParams();
+        formBody.append('emailAddress', formData.email.trim());
+        formBody.append(FIELD_IDS.email, formData.email.trim());
+        formBody.append(FIELD_IDS.firstName, formData.firstName.trim());
+        formBody.append(FIELD_IDS.lastName, formData.lastName.trim());
+        formBody.append(FIELD_IDS.country, formData.country.trim());
+        formBody.append(FIELD_IDS.city, formData.city.trim());
+        formBody.append(FIELD_IDS.affiliation, formData.affiliation.trim());
+        formBody.append(FIELD_IDS.newsletter, formData.newsletter);
+
+        formData.regionalHubs.forEach((h) => {
+          formBody.append(FIELD_IDS.regionalHub, HUB_MAPPING[h] || h);
+        });
+
+        formData.roles.forEach((r) => {
+          if (r === 'Other') {
+            formBody.append(FIELD_IDS.roleDescription, '__other_option__');
+            formBody.append(`${FIELD_IDS.roleDescription}.other_option_response`, 'Other');
+          } else {
+            formBody.append(FIELD_IDS.roleDescription, r);
+          }
+        });
+
+        await fetch(GOOGLE_FORM_ACTION, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formBody.toString(),
+        });
+
+        setStatus('success');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (fallbackErr) {
+        console.error('Fallback error:', fallbackErr);
+        setStatus('error');
+        setErrorMessage('Unable to complete registration. Please check your internet connection and try again.');
+      }
     }
   };
 
@@ -165,7 +250,7 @@ export default function JoinPage() {
               Welcome to the AI + Compassion Global Forum 2026.
             </p>
             <p>
-              We&apos;ve sent a confirmation to your email with information about how to join the 24-hour global experience.
+              Your registration has been successfully recorded. We look forward to having you join the 24-hour global experience.
             </p>
             <p className="text-xs text-slate-500 pt-1">
               We look forward to welcoming you to the conversation.
@@ -209,6 +294,13 @@ export default function JoinPage() {
           {/* Form Content */}
           <form onSubmit={handleSubmit} className="p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-7 text-[#171918]">
             
+            {status === 'error' && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-xs sm:text-sm text-red-700 flex items-center gap-3">
+                <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+                <span>{errorMessage || 'Failed to submit registration. Please try again.'}</span>
+              </div>
+            )}
+
             {/* Name Fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div className="space-y-1.5">
