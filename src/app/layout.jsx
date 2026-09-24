@@ -28,7 +28,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata = {
   metadataBase: new URL('https://aicompassion.world'),
-  title: "AI+Compassion Global Forum 2026 — Osaka & Global Relay",
+  title: "AI+Compassion Global Forum 2026 — Kyoto & Global Relay",
   description: "The Global Forum on AI + Compassion unites innovators, policymakers, and cultural leaders to explore how artificial intelligence can serve humanity and the planet.",
   openGraph: {
     title: "AI+Compassion Global Forum 2026",

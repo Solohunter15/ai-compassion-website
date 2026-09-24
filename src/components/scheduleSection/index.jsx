@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Calendar,
   Clock,
@@ -34,14 +34,18 @@ export default function ScheduleSection() {
   // Find active timezone object
   const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
 
-  // Filter schedule based on search query (declared before useEffect to avoid TDZ)
-  const filteredBlocks = SCHEDULE_MATRIX.filter((b) => {
-    if (!searchQuery.trim()) return true;
+  // Filter schedule based on search query memoized to prevent infinite re-renders
+  const filteredBlocks = useMemo(() => {
+    if (!searchQuery.trim()) return SCHEDULE_MATRIX;
     const q = searchQuery.toLowerCase();
-    const matchRegion = b.region?.toLowerCase().includes(q);
-    const matchHub = b.hub?.toLowerCase().includes(q);
-    return matchRegion || matchHub;
-  });
+    return SCHEDULE_MATRIX.filter((b) => {
+      const matchRegion = b.region?.toLowerCase().includes(q);
+      const matchHub = b.hub?.toLowerCase().includes(q);
+      const matchTheme = b.theme?.toLowerCase().includes(q);
+      const matchProducers = b.producers?.some((p) => p.toLowerCase().includes(q));
+      return matchRegion || matchHub || matchTheme || matchProducers;
+    });
+  }, [searchQuery]);
 
   // Dynamically calculate the precise center-to-center distance from Node 1 to Homecoming Node
   useEffect(() => {
@@ -55,26 +59,26 @@ export default function ScheduleSection() {
       const lastCenterY = lastRect.top + lastRect.height / 2 - containerRect.top;
       const totalHeight = Math.max(0, lastCenterY - firstCenterY);
 
-      setLineBounds({
-        top: firstCenterY,
-        height: totalHeight,
+      setLineBounds((prev) => {
+        if (Math.abs(prev.top - firstCenterY) < 1 && Math.abs(prev.height - totalHeight) < 1) {
+          return prev;
+        }
+        return {
+          top: firstCenterY,
+          height: totalHeight,
+        };
       });
     };
 
-    updateLineBounds();
+    // Calculate on next frame to ensure DOM layout has completed
+    const frameId = requestAnimationFrame(updateLineBounds);
     window.addEventListener('resize', updateLineBounds);
-    
-    let ro = null;
-    if (typeof ResizeObserver !== 'undefined' && itemsContainerRef.current) {
-      ro = new ResizeObserver(updateLineBounds);
-      ro.observe(itemsContainerRef.current);
-    }
 
     return () => {
+      cancelAnimationFrame(frameId);
       window.removeEventListener('resize', updateLineBounds);
-      if (ro) ro.disconnect();
     };
-  }, [filteredBlocks, selectedTz, activeView]);
+  }, [filteredBlocks.length, selectedTz, activeView]);
 
   // Scroll Progress Tracker for the Storytelling Timeline
   useEffect(() => {
@@ -346,19 +350,28 @@ export default function ScheduleSection() {
                             </span>
                           </div>
 
-                          {/* Speakers & Moderators Section if available */}
-                          {(block.moderators?.length > 0 || block.speakers?.length > 0) && (
-                            <div className="pt-3 border-t border-emerald-100/80 flex flex-col gap-1.5 mt-1 text-xs text-slate-600">
-                              {block.moderators?.length > 0 && (
-                                <p className="font-medium text-[#163B32]">
-                                  Moderator: {block.moderators.join(', ')}
-                                </p>
+                          {/* Producers & Tentative Theme Section */}
+                          {(block.producers?.length > 0 || block.theme) && (
+                            <div className="pt-3 border-t border-emerald-100/80 flex flex-col gap-2 mt-1 text-xs text-slate-600">
+                              {block.producers?.length > 0 && (
+                                <div className={`flex flex-wrap items-center gap-1 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
+                                  <span className="font-bold text-[#163B32]">
+                                    {block.producers.length > 1 ? 'Producers:' : 'Producer:'}
+                                  </span>
+                                  <span className="font-medium text-slate-700">
+                                    {block.producers.join(', ')}
+                                  </span>
+                                </div>
                               )}
-                              {block.speakers?.length > 0 && (
-                                <p className="text-slate-500 line-clamp-2">
-                                  Speakers: {block.speakers.slice(0, 4).join(', ')}
-                                  {block.speakers.length > 4 ? ` +${block.speakers.length - 4} more` : ''}
-                                </p>
+                              {block.theme && (
+                                <div className={`flex flex-col gap-0.5 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+                                  <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#C96F4A]">
+                                    Tentative Theme
+                                  </span>
+                                  <p className="text-slate-700 italic font-medium leading-relaxed">
+                                    &ldquo;{block.theme}&rdquo;
+                                  </p>
+                                </div>
                               )}
                             </div>
                           )}

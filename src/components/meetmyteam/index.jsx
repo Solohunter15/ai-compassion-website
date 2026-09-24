@@ -2,7 +2,7 @@ import React from "react";
 
 // Example team data (replace img with actual URLs or imports)
 const team = [
-  { name: "Jun Suto", role: "", img: "/jun.png" },
+  { name: "Jun Sato", role: "", img: "/jun.png" },
   { name: "Chris Ewald", role: "", img: "/chris.png" },
   { name: "Anuka Roinishvili", role: "", img: "/anuka.png" },
   { name: "Naomi Yamazaki", role: "", img: "/naomi.png" },
@@ -24,7 +24,7 @@ export default function MeetMyTeam() {
       <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
         {team.map((member, idx) => {
           const lowerImg =
-            ["Jun Suto", "Anuka Roinishvili", "Deepu Nath", "Akshaya Sita Rajesh"].includes(member.name);
+            ["Jun Sato", "Anuka Roinishvili", "Deepu Nath", "Akshaya Sita Rajesh"].includes(member.name);
           return (
             <div key={idx} className="bg-white rounded shadow p-4 flex flex-col items-center">
               <div className="w-24 h-24 rounded bg-gray-200 mb-3 flex items-center justify-center overflow-hidden relative">

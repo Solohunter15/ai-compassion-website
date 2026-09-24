@@ -59,7 +59,7 @@ export const faqColumns = [
         id: 'c2-4',
         question: 'What is the Kyoto closing ceremony?',
         answer:
-          "The Kyoto closing ceremony gathers global delegates for a reflective synthesis rooted in the traditional Japanese concepts of Ma (間, intentional pauses) and Wa (和, harmony), grounding the summit's commitments into actionable long-term projects.",
+          "The Kyoto closing ceremony gathers global delegates for a reflective synthesis rooted in the traditional Japanese concept of Wa (和, harmony) and planetary stewardship, grounding the summit's shared vision into actionable long-term projects.",
       },
     ],
   },
@@ -70,7 +70,7 @@ export const faqColumns = [
         id: 'c3-1',
         question: 'What topics will be covered?',
         answer:
-          "Topics vary by region, spanning Indigenous wisdom, human-centred AI, education and youth opportunity, governance and policy, peacebuilding, social impact, digital rights, and entrepreneurship. See the full regional schedule for each block's theme.",
+          "Topics vary by region, spanning Indigenous wisdom, planet-centered AI, education and youth opportunity, governance and policy, peacebuilding, social impact, digital rights, and ecological regeneration. See the full regional schedule for each block's theme.",
       },
       {
         id: 'c3-2',

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 
 const PRODUCERS = [
@@ -7,82 +8,150 @@ const PRODUCERS = [
     name: 'Christina Gerakiteys',
     role: 'Regional Producer — Oceania & Pacific',
     img: '/christina.jpg',
+    category: 'producer',
   },
   {
-    name: 'Jun Suto',
-    role: 'Regional Producer — Kyoto & Osaka',
+    name: 'Jun Sato',
+    role: 'Regional Producer — Kyoto',
     img: '/jun.png',
+    category: 'producer',
+  },
+  {
+    name: 'Aditi Singh',
+    role: 'Regional Producer — Southeast Asia (Youth Hub)',
+    img: '/aditi.jpg',
+    category: 'producer',
   },
   {
     name: 'Deepu S Nath',
     role: 'Regional Producer — South Asia',
     img: '/deepu.png',
+    category: 'producer',
   },
   {
     name: 'Walied Albasheer',
-    role: 'Regional Producer — GCC & Europe',
+    role: 'Regional Producer — GCC & Middle East',
     img: '/walied.jpg',
-  },
-  {
-    name: 'Fabrizio Gramuglio',
-    role: 'Regional Producer — Europe',
-    img: '/fabrizio.jpg',
+    category: 'producer',
   },
   {
     name: 'Dr. Lee Kironget',
     role: 'Regional Producer — Africa',
     img: '/lee.jpg',
+    category: 'producer',
   },
   {
-    name: 'Marques Anderson',
-    role: 'Regional Producer — Latin America',
-    img: '/marques.jpg',
+    name: 'Fabrizio Gramuglio',
+    role: 'Regional Producer — UK, Ireland, Iberia & West Africa',
+    img: '/fabrizio.jpg',
+    category: 'producer',
+  },
+  {
+    name: 'Julieta Reyes',
+    role: 'Regional Producer — Eastern & Southern South America, Caribbean',
+    img: '/julieta.jpg',
+    category: 'producer',
   },
   {
     name: 'Ani Chahal Honan',
-    role: 'Regional Producer — North America',
+    role: 'Regional Producer — Western North America',
     img: '/ani.jpg',
+    category: 'producer',
+  },
+  {
+    name: 'Edith Öller',
+    role: 'Co-Producer — UK, Ireland, Iberia & West Africa',
+    img: '/edith-oller.jpg',
+    category: 'co-producer',
   },
 ];
 
 export default function ProducersPage() {
+  const [activeTab, setActiveTab] = useState('all');
+
+  const filteredMembers = PRODUCERS.filter((p) => {
+    if (activeTab === 'producers') return p.category === 'producer';
+    if (activeTab === 'co-producers') return p.category === 'co-producer';
+    return true;
+  });
+
   return (
     <section
       id="producers"
-      className="relative z-10 w-full bg-[#FFFFFF] py-14 lg:py-18 px-4 sm:px-6 lg:px-8 border-t border-[#EAECE8] overflow-hidden"
+      className="relative z-10 w-full bg-[#FFFFFF] py-14 lg:py-20 px-4 sm:px-6 lg:px-8 border-t border-[#EAECE8] overflow-hidden"
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-8 sm:gap-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-2">
-          <h2 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#172554]">
-            Our Producers
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-bold text-[#163B32] uppercase tracking-wider mb-1">
+            <span>Global Conveners</span>
+          </div>
+          <h2 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#163B32]">
+            Our Producers &amp; Co-Producers
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-lg">
-            Meet the regional conveners and visionaries orchestrating the 24-hour global relay.
+          <p className="text-xs sm:text-sm text-slate-500 max-w-lg font-light">
+            Meet the regional conveners, producers, and visionaries orchestrating the 24-hour continuous global relay.
           </p>
+
+          {/* Filter Pills */}
+          <div className="flex items-center gap-2 mt-3 bg-emerald-50/70 p-1 rounded-full border border-emerald-200/70">
+            <button
+              type="button"
+              onClick={() => setActiveTab('all')}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                activeTab === 'all'
+                  ? 'bg-[#163B32] text-white shadow-xs'
+                  : 'text-[#163B32] hover:text-[#0F2620]'
+              }`}
+            >
+              All ({PRODUCERS.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('producers')}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                activeTab === 'producers'
+                  ? 'bg-[#163B32] text-white shadow-xs'
+                  : 'text-[#163B32] hover:text-[#0F2620]'
+              }`}
+            >
+              Producers ({PRODUCERS.filter((p) => p.category === 'producer').length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('co-producers')}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                activeTab === 'co-producers'
+                  ? 'bg-[#163B32] text-white shadow-xs'
+                  : 'text-[#163B32] hover:text-[#0F2620]'
+              }`}
+            >
+              Co-Producers ({PRODUCERS.filter((p) => p.category === 'co-producer').length})
+            </button>
+          </div>
         </div>
 
-        {/* Clean Balanced Centered Grid for All Regional Producers */}
-        <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-5 max-w-6xl mx-auto">
-          {PRODUCERS.map((producer, idx) => (
+        {/* Robust Responsive Grid - Zero Overlap on All Devices */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5 w-full max-w-6xl mx-auto">
+          {filteredMembers.map((producer, idx) => (
             <div
               key={idx}
-              className="w-[calc(50%-8px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-16px)] max-w-[250px] min-w-[145px] bg-white rounded-xl sm:rounded-2xl border border-slate-100 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 flex flex-col items-center text-center gap-3 group"
+              className="w-full bg-white rounded-2xl border border-emerald-100/90 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 p-3 sm:p-5 flex flex-col items-center text-center gap-2.5 group overflow-hidden"
             >
-              {/* Compact portrait image or initial monogram placeholder */}
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100 shadow-xs group-hover:scale-103 transition-transform duration-300">
+              {/* Portrait Image */}
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden bg-slate-100 shadow-xs group-hover:scale-103 transition-transform duration-300 border border-emerald-100 shrink-0">
                 {producer.img ? (
                   <Image
                     src={producer.img}
                     alt={producer.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 96px, 112px"
+                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 96px, 112px"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#163B32]/10 via-[#F8F6F0] to-[#C9A96A]/20 text-[#163B32] border border-[#163B32]/10">
-                    <span className="font-editorial text-2xl sm:text-3xl font-bold tracking-wider text-[#163B32]">
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#163B32]/10 via-[#F8F6F0] to-[#C9A96A]/20 text-[#163B32]">
+                    <span className="font-editorial text-xl sm:text-2xl font-bold tracking-wider text-[#163B32]">
                       {producer.name
                         .split(' ')
                         .map((n) => n[0])
@@ -95,11 +164,18 @@ export default function ProducersPage() {
               </div>
 
               {/* Producer Name & Role */}
-              <div className="flex flex-col items-center gap-0.5">
-                <h3 className="font-editorial text-sm sm:text-base font-bold text-[#1E293B] group-hover:text-[#172554] transition-colors">
+              <div className="flex flex-col items-center gap-1 w-full">
+                <span className={`text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                  producer.category === 'co-producer'
+                    ? 'bg-amber-100 text-amber-900 border border-amber-200'
+                    : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
+                }`}>
+                  {producer.category === 'co-producer' ? 'Co-Producer' : 'Producer'}
+                </span>
+                <h3 className="font-editorial text-xs sm:text-sm md:text-base font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-tight break-words">
                   {producer.name}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-slate-500 font-medium">
+                <p className="text-[10px] sm:text-xs text-slate-500 font-medium leading-tight line-clamp-2">
                   {producer.role}
                 </p>
               </div>

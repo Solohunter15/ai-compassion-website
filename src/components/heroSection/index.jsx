@@ -144,7 +144,7 @@ export default function HeroSection() {
 
             {/* Core Story Vision */}
             <p className="text-sm sm:text-base md:text-lg text-[#5E625D] leading-relaxed max-w-xl font-normal text-balance">
-              A 24-hour global conversation for a more human-centered future.
+              A 24-hour global conversation for a planet-centered future (nature, humanity, &amp; AI/technology).
             </p>
 
             {/* Action Buttons: REGISTER NOW, JOIN AS SPEAKER & WHY NOW */}

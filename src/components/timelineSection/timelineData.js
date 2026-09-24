@@ -1,5 +1,4 @@
 export const scheduleLeft = [
-  { time: "", title: "", subtitle: "", items: ["Jean Alfonso-Decena (Moderator)"] },
   { time: "", title: "", subtitle: "", items: ["Tamami Tono"] },
   { time: "", title: "", subtitle: "", items: ["Sister Jenna"] },
   { time: "", title: "", subtitle: "", items: ["Hiroshi Ishiguro & Edi Pyrek"] },
@@ -18,13 +17,13 @@ export const scheduleRight = [
 ];
 
 export const global = [
-  { subtitle: "", title: "South Asia", time: "08:00-11:00 UTC", items: ["Avkash Chauhan ( Moderator)","Sadhvi Bhagawati Saraswati","Prof. Prakash Singh Bisen","Anupam Trivedi","Devendra Kumar Jain","Saurabh Bhatt"]},
-  { subtitle: "", title: "GCC/Europe", time: "11:00-14:00 UTC", items: ["Walied Albasheer (Moderator)","Ahmed Khbeer","Anas Almarie","Waleed Akaeha","Mohamed Elyas","Manel Chada El Islam Benmahcene","Sara Hegazy","Aliaa Mohamed","Haytham El-Azaizy","Mohamed Osman","Raed Habbis","Dr. Anour F A DAFA-ALLA","Krishna Raj","Dr. Fady Ismaeel","Manal Rifki"] },
-  { subtitle: "", title: "Africa", time: "14:00-17:00 UTC", items: ["Dr. Lee Kironget (Moderator)", "Patrick McCullough (Moderator)", "Nell Watson", "Gary Bolles", "Alexis Stokes", "Sofia Couto da Rocha"] },
-  { subtitle: "", title: "Latin America", time: "17:00-20:00 UTC", items: ["Marques Anderson (Moderator)","Valeria Soler","WarīNkwī Flores","Pico Velásquez","Justin Breen"] },
-  { subtitle: "", title: "North America", time: "20:00-23:00 UTC", items: ["Ani Chahal Honan (Moderator)","Stephen Ibaraki", "Matthew Manos", "Douglas Thomas", "Jennifer Aaker","Stephen Butler","Nichol Bradford","DE KAI",] },
-  { subtitle: "", title: "Oceania", time: "23:00-02:00 UTC", items: ["Tim Moriarity","Olivera Tomic", "Ian Haycroft"] },
-  { subtitle: "", time: "02:00-03:00 UTC", title: "1 hour Ma Reflection", items: ["Jun Suto (Moderator)","Regional Producers"] },
+  { subtitle: "", title: "Southeast Asia", time: "05:00-08:00 UTC", items: ["Aditi Singh (Producer)", "Alexis Stokes", "Dr. Olaf Witkowski"] },
+  { subtitle: "", title: "South Asia", time: "08:00-11:00 UTC", items: ["Deepu S Nath (Producer)", "Sadhvi Bhagawati Saraswati", "Prof. Prakash Singh Bisen", "Anupam Trivedi", "Devendra Kumar Jain", "Saurabh Bhatt"] },
+  { subtitle: "", title: "GCC / Europe", time: "11:00-14:00 UTC", items: ["Walied Albasheer (Producer)", "Fabrizio Gramuglio (Producer)", "Edith Öller (Co-Producer)", "Ahmed Khbeer", "Anas Almarie", "Waleed Akaeha", "Mohamed Elyas", "Manel Chada El Islam Benmahcene", "Sara Hegazy", "Aliaa Mohamed", "Haytham El-Azaizy", "Mohamed Osman", "Raed Habbis", "Dr. Anour F A DAFA-ALLA", "Krishna Raj", "Dr. Fady Ismaeel", "Manal Rifki"] },
+  { subtitle: "", title: "Africa", time: "14:00-17:00 UTC", items: ["Dr. Lee Kironget (Producer)", "Nell Watson", "Gary Bolles", "Alexis Stokes", "Sofia Couto da Rocha"] },
+  { subtitle: "", title: "Latin America & Caribbean", time: "17:00-20:00 UTC", items: ["Julieta Reyes (Producer)", "WarīNkwī Flores", "Pico Velásquez", "Justin Breen"] },
+  { subtitle: "", title: "North America", time: "20:00-23:00 UTC", items: ["Ani Chahal Honan (Producer)", "Stephen Ibaraki", "Matthew Manos", "Douglas Thomas", "Jennifer Aaker", "Stephen Butler", "Nichol Bradford", "DE KAI"] },
+  { subtitle: "", title: "Oceania", time: "23:00-02:00 UTC", items: ["Christina Gerakiteys (Producer)", "Tim Moriarity", "Olivera Tomic", "Ian Haycroft"] },
 ];
 
 export const kyoto = [
@@ -33,8 +32,9 @@ export const kyoto = [
     title: "Kyoto",
     time: "03:00-05:00 UTC",
     items: [
-      "Jun Suto (Moderator)",
-      "Shoukei Matsumoto"],
+      "Jun Sato (Producer)",
+      "Shoukei Matsumoto",
+    ],
   },
 ];
 
@@ -46,7 +46,7 @@ export const preEvent = [
 export const locations = [
   { label: "UTC", key: "UTC", offset: 0 },
   { label: "San Francisco (PDT)", key: "PDT", offset: -7 },
-  { label: "Osaka (JST)", key: "JST", offset: 9 },
+  { label: "Kyoto (JST)", key: "JST", offset: 9 },
   { label: "Mumbai (IST)", key: "IST", offset: 5.5 },
   { label: "Abu Dhabi (GST)", key: "GST", offset: 4 },
   { label: "London (BST)", key: "BST", offset: 1 },

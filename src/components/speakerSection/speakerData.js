@@ -55,8 +55,6 @@ import ani from "@/../public/ani.png";
 import butler from "@/../public/butler.png";
 import nichol from "@/../public/nichol.png";
 import dekai from "@/../public/dekai.png";
-import part from "@/../public/patrick.png";
-import jean from "@/../public/jean.png";
 import gali from "@/../public/gali.png";
 import edith from "@/../public/edith.png";
 
@@ -396,18 +394,6 @@ export const speakers = [
     name: "DE KAI",
     title: "De Kai is a global leader in AI research, known for his work in machine translation and the social implications of AI. He is a Professor at HKUST and a Distinguished Research Scholar at ICSI Berkeley, advocating for AI that bridges cultural divides and promotes global understanding.",
     img: dekai
-  },
-  { 
-    slug: "patrick-mccullough",
-    name: "Patrick McCullough",
-    title: "Patrick McCullough is a technology executive and advisor with deep expertise in AI strategy and digital transformation. He has led several high-profile AI initiatives and is a frequent speaker on the potential of AI to reshape industries and societies.",
-    img: part
-  },
-  { 
-    slug: "jean-alfonso-decena",
-    name: "Jean Alfonso-Decena",
-    title: "Jean Alfonso-Decena is a leader in digital marketing and storytelling, focusing on how AI can be used to create more engaging and personalized user experiences. She works with organizations to develop AI-driven content strategies that resonate with global audiences.",
-    img: jean
   },
   { 
     slug: "dr-gali-einav",

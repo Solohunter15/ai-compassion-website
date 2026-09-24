@@ -10,10 +10,9 @@ const JOURNEY_STAGES = [
   { id: 'producers', label: '05', title: 'Producers' },
   { id: 'media', label: '06', title: '2025 Highlights' },
   { id: 'schedule', label: '07', title: 'Schedule' },
-  { id: 'sponsors', label: '08', title: 'Sponsors' },
-  { id: 'partners', label: '09', title: 'Partners' },
-  { id: 'faq', label: '10', title: 'FAQ' },
-  { id: 'join', label: '11', title: 'Commitment' },
+  { id: 'partners-sponsors', label: '08', title: 'Partners & Sponsors' },
+  { id: 'faq', label: '09', title: 'FAQ' },
+  { id: 'contact', label: '10', title: 'Contact' },
 ];
 
 export default function JourneyIndicator() {
