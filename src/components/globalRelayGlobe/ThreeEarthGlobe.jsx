@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import * as THREE from 'three';
 import { RELAY_REGIONS } from './relayData';
@@ -64,19 +64,12 @@ function createProceduralEarthTexture() {
 export default function ThreeEarthGlobe({
   activeIndex = 0,
   onSelectRegion,
-  scrollProgress = 0,
 }) {
   const mountRef = useRef(null);
   const [hoveredNode, setHoveredNode] = useState(null);
 
-  const scrollProgressRef = useRef(scrollProgress);
   const activeIndexRef = useRef(activeIndex);
   const onSelectRegionRef = useRef(onSelectRegion);
-
-  // Update refs without triggering re-mounts
-  useEffect(() => {
-    scrollProgressRef.current = scrollProgress;
-  }, [scrollProgress]);
 
   useEffect(() => {
     activeIndexRef.current = activeIndex;
@@ -87,7 +80,6 @@ export default function ThreeEarthGlobe({
   }, [onSelectRegion]);
 
   const globeGroupRef = useRef(null);
-  const targetRotationRef = useRef({ x: 0, y: 0 });
   const isDraggingRef = useRef(false);
   const isHoveringNodeRef = useRef(false);
   const mousePosRef = useRef({ x: 0, y: 0 });
@@ -130,7 +122,7 @@ export default function ThreeEarthGlobe({
 
     // Starfield Particles in background
     const starGeo = new THREE.BufferGeometry();
-    const starCount = 200;
+    const starCount = 180;
     const starPositions = new Float32Array(starCount * 3);
     for (let i = 0; i < starCount * 3; i += 3) {
       const u = Math.random();
@@ -192,8 +184,8 @@ export default function ThreeEarthGlobe({
         sphereMat.needsUpdate = true;
       },
       undefined,
-      (err) => {
-        console.warn('Fallback texture active');
+      () => {
+        // procedural fallback active
       }
     );
 
@@ -312,33 +304,14 @@ export default function ThreeEarthGlobe({
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       const time = clock.getElapsedTime();
-
-      // Read current scroll progress and active index smoothly from refs
-      const curProgress = scrollProgressRef.current;
       const curActiveIdx = activeIndexRef.current;
 
-      // Calculate Target Orientation based on scroll progress
-      const totalRegions = RELAY_REGIONS.length;
-      const floatIndex = Math.min(totalRegions - 1, Math.max(0, curProgress * (totalRegions - 1)));
-      const baseIndex = Math.floor(floatIndex);
-      const nextIndex = Math.min(totalRegions - 1, baseIndex + 1);
-      const fraction = floatIndex - baseIndex;
+      const currentRegion = RELAY_REGIONS[curActiveIdx] || RELAY_REGIONS[0];
+      const targetY = -(currentRegion.lng * Math.PI) / 180 - Math.PI / 2;
+      const targetX = (currentRegion.lat * Math.PI) / 180 * 0.45;
 
-      const r1 = RELAY_REGIONS[baseIndex] || RELAY_REGIONS[0];
-      const r2 = RELAY_REGIONS[nextIndex] || r1;
-
-      const currentLat = r1.lat + (r2.lat - r1.lat) * fraction;
-
-      let dLng = r2.lng - r1.lng;
-      while (dLng < -180) dLng += 360;
-      while (dLng > 180) dLng -= 360;
-      const currentLng = r1.lng + dLng * fraction;
-
-      const targetY = -(currentLng * Math.PI) / 180 - Math.PI / 2;
-      const targetX = (currentLat * Math.PI) / 180 * 0.45;
-
-      // Fast, crisp, clean green pulse for the active node
-      const fastPulse = Math.sin(time * 9.0) * 0.5 + 0.5;
+      // Fast, crisp pulse for active node
+      const fastPulse = Math.sin(time * 8.0) * 0.5 + 0.5;
 
       markerBeacons.forEach((ring, idx) => {
         const isActive = idx === curActiveIdx;
@@ -371,7 +344,7 @@ export default function ThreeEarthGlobe({
         tracerMesh.position.copy(tracerPos);
       }
 
-      // Smoothly interpolate globe rotation towards scroll-based target
+      // Smoothly rotate globe towards selected active region
       if (!isDraggingRef.current) {
         let dY = targetY - globeGroup.rotation.y;
         while (dY < -Math.PI) dY += Math.PI * 2;
@@ -381,7 +354,7 @@ export default function ThreeEarthGlobe({
         globeGroup.rotation.x += (targetX - globeGroup.rotation.x) * 0.08;
       }
 
-      // Raycasting for interactive marker hover & inspection
+      // Raycasting for interactive marker hover & click
       if (cameraRef.current && hitSpheres.length > 0) {
         raycasterRef.current.setFromCamera(mouseVecRef.current, cameraRef.current);
         const intersects = raycasterRef.current.intersectObjects(hitSpheres);
@@ -392,10 +365,6 @@ export default function ThreeEarthGlobe({
           setHoveredNode(regionObj);
           isHoveringNodeRef.current = true;
           container.style.cursor = 'pointer';
-
-          if (targetIndex !== curActiveIdx && onSelectRegionRef.current) {
-            onSelectRegionRef.current(targetIndex);
-          }
         } else {
           setHoveredNode(null);
           isHoveringNodeRef.current = false;
@@ -524,7 +493,7 @@ export default function ThreeEarthGlobe({
         container.removeChild(renderer.domElement);
       }
     };
-  }, []); // Run ONLY ONCE on mount - zero flickering on state changes
+  }, []);
 
   const activeRegion = RELAY_REGIONS[activeIndex] || RELAY_REGIONS[0];
 
@@ -535,14 +504,20 @@ export default function ThreeEarthGlobe({
 
       {/* Dynamic Hover Tooltip displaying Producer of that region */}
       {hoveredNode && hoveredNode.producer && (
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-30 pointer-events-none px-4 py-2 rounded-2xl bg-[#0F172A]/90 text-white shadow-2xl border border-white/20 backdrop-blur-md animate-in fade-in zoom-in-95 duration-150 flex items-center gap-3">
-          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/40 shrink-0 bg-slate-700">
-            <Image
-              src={hoveredNode.producer.img}
-              alt={hoveredNode.producer.name}
-              fill
-              className="object-cover"
-            />
+        <div className="absolute top-4 sm:top-8 left-1/2 -translate-x-1/2 z-30 pointer-events-none px-4 py-2 rounded-2xl bg-[#0F172A]/90 text-white shadow-2xl border border-white/20 backdrop-blur-md animate-in fade-in zoom-in-95 duration-150 flex items-center gap-3">
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-white/40 shrink-0 bg-slate-700">
+            {hoveredNode.producer.img ? (
+              <Image
+                src={hoveredNode.producer.img}
+                alt={hoveredNode.producer.name}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-xs font-bold text-white bg-emerald-800">
+                {hoveredNode.producer.name.slice(0, 2)}
+              </div>
+            )}
           </div>
           <div className="flex flex-col text-left">
             <span className="font-editorial text-xs font-bold text-white tracking-tight">
@@ -556,7 +531,7 @@ export default function ThreeEarthGlobe({
       )}
 
       {/* Floating Coordinate HUD Telemetry */}
-      <div className="absolute bottom-1 sm:bottom-3 left-2 sm:left-4 z-20 flex items-center gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E6E9E4] shadow-xs text-[9px] sm:text-[11px] font-mono text-[#163B32] pointer-events-none max-w-[160px] sm:max-w-none truncate">
+      <div className="absolute bottom-1 sm:bottom-3 left-2 sm:left-4 z-20 flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E6E9E4] shadow-xs text-[9px] sm:text-[11px] font-mono text-[#163B32] pointer-events-none max-w-[160px] sm:max-w-none truncate">
         <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#22C55E] animate-ping shrink-0" />
         <span className="font-bold uppercase tracking-wider shrink-0">{activeRegion.code}</span>
         <span className="text-[#5E625D] truncate">
@@ -566,7 +541,7 @@ export default function ThreeEarthGlobe({
       </div>
 
       {/* Hub Tag */}
-      <div className="absolute top-1 sm:top-3 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#163B32] text-[#F8F6F0] text-[9px] sm:text-[10px] font-mono tracking-wider uppercase shadow-md pointer-events-none max-w-[140px] sm:max-w-none truncate">
+      <div className="absolute top-1 sm:top-3 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#163B32] text-[#F8F6F0] text-[9px] sm:text-[10px] font-mono tracking-wider uppercase shadow-md pointer-events-none max-w-[140px] sm:max-w-none truncate">
         <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" />
         <span className="truncate">{activeRegion.hubs}</span>
       </div>

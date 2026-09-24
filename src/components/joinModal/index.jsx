@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import {
   X,
   CheckCircle2,
+  AlertCircle,
   Loader2,
   Send,
   Sparkles,
@@ -16,7 +17,8 @@ import {
   Square,
 } from 'lucide-react';
 
-const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeIDIvHm6LIU_19tYpmOqtAk034QK6u0LHdFyqn8dqssEz4yw/formResponse';
+const GOOGLE_FORM_ACTION =
+  'https://docs.google.com/forms/d/e/1FAIpQLSeIDIvHm6LIU_19tYpmOqtAk034QK6u0LHdFyqn8dqssEz4yw/formResponse';
 
 const FIELD_IDS = {
   email: 'entry.371099452',
@@ -28,6 +30,23 @@ const FIELD_IDS = {
   roleDescription: 'entry.256287034',
   affiliation: 'entry.1067502460',
   newsletter: 'entry.11884566',
+};
+
+const HUB_MAPPING = {
+  'Australia, New Zealand & South Pacific': 'Australia, New Zealand & South Pacific',
+  'Japan, Korea, Taiwan & Northeast Asia (Kyoto)': 'Japan, Korea, Taiwan & Northeast Asia',
+  'Japan, Korea, Taiwan & Northeast Asia': 'Japan, Korea, Taiwan & Northeast Asia',
+  'Southeast Asia (Youth Hub / Singapore)': 'Southeast Asia',
+  'Southeast Asia': 'Southeast Asia',
+  'South Asia': 'South Asia',
+  'Middle East, Caucasus & Central Asia': 'Middle East, Caucasus & Central Asia',
+  'East Africa, Southern Africa & Central Europe': 'East Africa, Southern Africa & Central Europe',
+  'UK, Ireland, Iberia & West Africa': 'UK, Ireland, Iberia & West Africa',
+  'Eastern & Southern South America & Caribbean': 'Eastern & Southern South America & Caribbean',
+  'Eastern North America & Northern South America': 'Eastern North America & Northern South America',
+  'Central North America & Mexico': 'Central North America & Mexico',
+  'Western North America': 'Western North America',
+  'Hawaii, Alaska & Pacific Islands': 'Hawaii, Alaska & Pacific Islands',
 };
 
 const REGIONAL_HUBS = [
@@ -73,7 +92,8 @@ export default function JoinModal({ isOpen, onClose }) {
     newsletter: 'Yes',
   });
 
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (isOpen) {
@@ -126,20 +146,52 @@ export default function JoinModal({ isOpen, onClose }) {
     e.preventDefault();
     if (status === 'loading') return;
     setStatus('loading');
+    setErrorMessage('');
 
     try {
+      // Primary Submission: Server-side API endpoint with verified status
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        return;
+      }
+
+      // Fallback: Direct Form Post with exact parameters
       const formBody = new URLSearchParams();
+      formBody.append('emailAddress', formData.email.trim());
       formBody.append(FIELD_IDS.email, formData.email.trim());
       formBody.append(FIELD_IDS.firstName, formData.firstName.trim());
       formBody.append(FIELD_IDS.lastName, formData.lastName.trim());
       formBody.append(FIELD_IDS.country, formData.country.trim());
       formBody.append(FIELD_IDS.city, formData.city.trim());
-      formBody.append(FIELD_IDS.regionalHub, formData.regionalHubs.join(', '));
-      formBody.append(FIELD_IDS.roleDescription, formData.roles.join(', '));
       formBody.append(FIELD_IDS.affiliation, formData.affiliation.trim());
       formBody.append(FIELD_IDS.newsletter, formData.newsletter);
 
-      // Single clean submission to avoid duplicates
+      // Append each hub individually with mapped name
+      formData.regionalHubs.forEach((h) => {
+        formBody.append(FIELD_IDS.regionalHub, HUB_MAPPING[h] || h);
+      });
+
+      // Append each role individually
+      formData.roles.forEach((r) => {
+        if (r === 'Other') {
+          formBody.append(FIELD_IDS.roleDescription, '__other_option__');
+          formBody.append(`${FIELD_IDS.roleDescription}.other_option_response`, 'Other');
+        } else {
+          formBody.append(FIELD_IDS.roleDescription, r);
+        }
+      });
+
+      formBody.append('fvv', '1');
+      formBody.append('pageHistory', '0');
+
       await fetch(GOOGLE_FORM_ACTION, {
         method: 'POST',
         mode: 'no-cors',
@@ -149,8 +201,44 @@ export default function JoinModal({ isOpen, onClose }) {
 
       setStatus('success');
     } catch (err) {
-      console.error(err);
-      setStatus('success');
+      console.error('Registration submission error:', err);
+      // Try fallback direct submission
+      try {
+        const formBody = new URLSearchParams();
+        formBody.append('emailAddress', formData.email.trim());
+        formBody.append(FIELD_IDS.email, formData.email.trim());
+        formBody.append(FIELD_IDS.firstName, formData.firstName.trim());
+        formBody.append(FIELD_IDS.lastName, formData.lastName.trim());
+        formBody.append(FIELD_IDS.country, formData.country.trim());
+        formBody.append(FIELD_IDS.city, formData.city.trim());
+        formBody.append(FIELD_IDS.affiliation, formData.affiliation.trim());
+        formBody.append(FIELD_IDS.newsletter, formData.newsletter);
+
+        formData.regionalHubs.forEach((h) => {
+          formBody.append(FIELD_IDS.regionalHub, HUB_MAPPING[h] || h);
+        });
+
+        formData.roles.forEach((r) => {
+          if (r === 'Other') {
+            formBody.append(FIELD_IDS.roleDescription, '__other_option__');
+            formBody.append(`${FIELD_IDS.roleDescription}.other_option_response`, 'Other');
+          } else {
+            formBody.append(FIELD_IDS.roleDescription, r);
+          }
+        });
+
+        await fetch(GOOGLE_FORM_ACTION, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formBody.toString(),
+        });
+        setStatus('success');
+      } catch (fallbackErr) {
+        console.error('Fallback error:', fallbackErr);
+        setStatus('error');
+        setErrorMessage('Unable to complete registration. Please check your internet connection and try again.');
+      }
     }
   };
 
@@ -187,7 +275,7 @@ export default function JoinModal({ isOpen, onClose }) {
                 Welcome to the AI + Compassion Global Forum 2026.
               </p>
               <p>
-                We&apos;ve sent a confirmation to your email with information about how to join the 24-hour global experience.
+                Your registration has been successfully recorded. We look forward to having you join the 24-hour global experience.
               </p>
             </div>
 
@@ -216,6 +304,13 @@ export default function JoinModal({ isOpen, onClose }) {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-4 sm:p-7 space-y-4 sm:space-y-5">
+              {status === 'error' && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                  <span>{errorMessage || 'Failed to submit registration. Please try again.'}</span>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-1">
                   <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#163B32] flex items-center gap-1.5">
@@ -383,6 +478,32 @@ export default function JoinModal({ isOpen, onClose }) {
                 />
               </div>
 
+              {/* Newsletter Opt-in */}
+              <div className="space-y-1.5 pt-1 border-t border-[#D9DDD6]/70">
+                <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#163B32]">
+                  Subscribe to our newsletter? *
+                </label>
+                <div className="flex items-center gap-4">
+                  {['Yes', 'No'].map((opt) => (
+                    <button
+                      key={opt}
+                      type="button"
+                      onClick={() => setFormData((p) => ({ ...p, newsletter: opt }))}
+                      className={`flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+                        formData.newsletter === opt
+                          ? 'bg-[#163B32] text-white border-[#163B32]'
+                          : 'bg-[#F8F6F0] text-slate-700 border-[#D9DDD6] hover:bg-slate-100'
+                      }`}
+                    >
+                      <div className={`w-3 h-3 rounded-full border flex items-center justify-center ${formData.newsletter === opt ? 'border-white' : 'border-slate-400'}`}>
+                        {formData.newsletter === opt && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
+                      </div>
+                      <span>{opt}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <button
                 disabled={status === 'loading'}
                 type="submit"
@@ -408,4 +529,3 @@ export default function JoinModal({ isOpen, onClose }) {
     </div>
   );
 }
-
