@@ -52,7 +52,7 @@ export const SCHEDULE_MATRIX = [
       BRT: '04:00–06:00',
       AEST: '17:00–19:00',
     },
-    producers: ['Christina Gerakiteys (Producer)'],
+    producers: ['Producer Spot Available'],
     coordinator: 'Jeniffer Jerald JN',
     theme: 'Indigenous wisdom, planetary stewardship and compassionate futures',
   },
@@ -73,7 +73,7 @@ export const SCHEDULE_MATRIX = [
       BRT: '06:00–08:00',
       AEST: '19:00–21:00',
     },
-    producers: ['Jun Suto (Producer)', 'Taikyo Murakami (Co-Producer)'],
+    producers: ['Jun Suto (Producer)'],
     coordinator: 'Kavya',
     theme: 'Planet-centered AI, education, robotics and intergenerational responsibility (Prof. Tomohiro Ishizu)',
   },
@@ -206,7 +206,7 @@ export const SCHEDULE_MATRIX = [
   {
     id: 'block-9',
     blockNumber: 'Block 9',
-    region: 'Block 9 — Eastern North America & Northern South America',
+    region: 'Block 9 — Eastern United States and Southern United States',
     hub: 'New York Hub',
     times: {
       UTC: '23:00–01:00 (Oct 2→3)',
@@ -227,7 +227,7 @@ export const SCHEDULE_MATRIX = [
   {
     id: 'block-10',
     blockNumber: 'Block 10',
-    region: 'Block 10 — Central North America & Mexico',
+    region: 'Block 10 — Midwestern United States & Mexico',
     hub: 'Chicago & Mexico City Hubs',
     times: {
       UTC: '01:00–03:00 (Oct 3)',
@@ -283,7 +283,7 @@ export const SCHEDULE_MATRIX = [
       BRT: '02:00–04:00 (Oct 3)',
       AEST: '15:00–17:00 (Oct 3)',
     },
-    producers: ['Stephin Kalani (Regional Lead)'],
+    producers: ['Producer Spot Available'],
     coordinator: 'Niya',
     theme: 'Ocean consciousness, Indigenous navigation, ecological responsibility and the future of island communities',
   },
