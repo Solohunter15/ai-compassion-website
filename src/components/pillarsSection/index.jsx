@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Globe,
   BookOpen,
@@ -110,6 +112,10 @@ function describeArc(cx, cy, rInner, rOuter, startAngleDeg, endAngleDeg) {
 
 export default function PillarsSection() {
   const [hoveredIdx, setHoveredIdx] = useState(null);
+  const sectionRef = useRef(null);
+  const mandalaRef = useRef(null);
+  const leftColRef = useRef(null);
+  const rightColRef = useRef(null);
 
   const leftPillars = PILLARS_DATA.filter((p) => p.side === 'left');
   const rightPillars = PILLARS_DATA.filter((p) => p.side === 'right');
@@ -120,12 +126,85 @@ export default function PillarsSection() {
   const rInner = 82;
   const rIcon = (rOuter + rInner) / 2;
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      // 1. Center Mandala Continuous Parallax Rotation on Scroll
+      if (mandalaRef.current) {
+        gsap.fromTo(
+          mandalaRef.current,
+          { rotate: -25, scale: 0.9 },
+          {
+            rotate: 25,
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.5,
+            },
+          }
+        );
+      }
+
+      // 2. Left Column Pillars Staggered Entrance Reveal
+      if (leftColRef.current) {
+        gsap.fromTo(
+          leftColRef.current.children,
+          { opacity: 0, x: -30, y: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: leftColRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      // 3. Right Column Pillars Staggered Entrance Reveal
+      if (rightColRef.current) {
+        gsap.fromTo(
+          rightColRef.current.children,
+          { opacity: 0, x: 30, y: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: rightColRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="pillars"
-      className="relative z-10 w-full bg-[#FFFFFF] py-14 lg:py-18 px-4 sm:px-6 lg:px-8 border-t border-[#EAECE8] overflow-hidden"
+      ref={sectionRef}
+      className="relative z-10 w-full bg-[#FFFFFF] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-[#EAECE8] overflow-hidden"
     >
-      <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-8 lg:gap-10">
+      <div className="w-full max-w-5xl mx-auto flex flex-col items-center gap-8 lg:gap-12">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center gap-2.5 max-w-2xl mx-auto">
@@ -138,11 +217,14 @@ export default function PillarsSection() {
           </p>
         </div>
 
-        {/* Circular Donut Mandala & Flanking Pillars Layout (Scaled / Zoomed out) */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-3 items-center">
+        {/* Circular Donut Mandala & Flanking Pillars Layout */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center">
           
           {/* Left Column: 3 Pillars */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-4 sm:gap-5 lg:text-right order-2 lg:order-1">
+          <div
+            ref={leftColRef}
+            className="lg:col-span-4 flex flex-col justify-between gap-4 sm:gap-5 lg:text-right order-2 lg:order-1"
+          >
             {leftPillars.map((pillar) => {
               const isHovered = hoveredIdx === pillar.id;
               return (
@@ -150,10 +232,10 @@ export default function PillarsSection() {
                   key={pillar.id}
                   onMouseEnter={() => setHoveredIdx(pillar.id)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`cursor-pointer transition-all duration-300 p-2.5 sm:p-3 rounded-xl ${
+                  className={`cursor-pointer transition-all duration-300 p-3 sm:p-3.5 rounded-2xl border ${
                     isHovered
-                      ? 'bg-[#F8FAFC] lg:translate-x-1 shadow-xs'
-                      : 'hover:bg-[#FAFAFA]'
+                      ? 'bg-[#F8FAFC] border-slate-200 lg:translate-x-1 shadow-md'
+                      : 'border-transparent hover:bg-[#FAFAFA]'
                   }`}
                 >
                   <h3
@@ -171,10 +253,12 @@ export default function PillarsSection() {
             })}
           </div>
 
-          {/* Center Column: 6-Segment Circular Donut SVG (Zoomed out) */}
+          {/* Center Column: 6-Segment Circular Donut SVG with Parallax Rotation */}
           <div className="lg:col-span-4 flex items-center justify-center order-1 lg:order-2 py-1">
-            <div className="relative w-[230px] h-[230px] sm:w-[270px] sm:h-[270px] select-none">
-              
+            <div
+              ref={mandalaRef}
+              className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] select-none will-change-transform"
+            >
               <svg
                 viewBox="0 0 400 400"
                 className="w-full h-full filter drop-shadow-md"
@@ -265,7 +349,10 @@ export default function PillarsSection() {
           </div>
 
           {/* Right Column: 3 Pillars */}
-          <div className="lg:col-span-4 flex flex-col justify-between gap-4 sm:gap-5 lg:text-left order-3">
+          <div
+            ref={rightColRef}
+            className="lg:col-span-4 flex flex-col justify-between gap-4 sm:gap-5 lg:text-left order-3"
+          >
             {rightPillars.map((pillar) => {
               const isHovered = hoveredIdx === pillar.id;
               return (
@@ -273,10 +360,10 @@ export default function PillarsSection() {
                   key={pillar.id}
                   onMouseEnter={() => setHoveredIdx(pillar.id)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`cursor-pointer transition-all duration-300 p-2.5 sm:p-3 rounded-xl ${
+                  className={`cursor-pointer transition-all duration-300 p-3 sm:p-3.5 rounded-2xl border ${
                     isHovered
-                      ? 'bg-[#F8FAFC] lg:-translate-x-1 shadow-xs'
-                      : 'hover:bg-[#FAFAFA]'
+                      ? 'bg-[#F8FAFC] border-slate-200 lg:-translate-x-1 shadow-md'
+                      : 'border-transparent hover:bg-[#FAFAFA]'
                   }`}
                 >
                   <h3

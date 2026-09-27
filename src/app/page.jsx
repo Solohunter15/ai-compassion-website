@@ -1,7 +1,6 @@
 import HeroSection from "@/components/heroSection";
 import ContinuousMarquee from "@/components/continuousMarquee";
 import AboutSection from "@/components/aboutSection";
-import WhyNowSection from "@/components/whyNowSection";
 import PillarsSection from "@/components/pillarsSection";
 import GlobalRelayGlobeSection from "@/components/globalRelayGlobe";
 import ProducersSection from "@/components/producers";
@@ -20,7 +19,6 @@ export default function Home() {
       {/* Moving Bar 1: After Hero */}
       <ContinuousMarquee variant="dark" />
       <AboutSection />
-      <WhyNowSection />
       <PillarsSection />
       {/* Moving Bar 2: Between Pillars & Global Relay */}
       <ContinuousMarquee reverse={true} variant="dark" />

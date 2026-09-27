@@ -1,17 +1,56 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, X, Sparkles, UserCheck } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowLeft, ExternalLink, X, UserCheck } from 'lucide-react';
 import { CONFIRMED_SPEAKERS } from '@/data/peopleData';
 
 export default function SpeakerSection() {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
+  const sectionRef = useRef(null);
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      if (gridRef.current) {
+        gsap.fromTo(
+          gridRef.current.children,
+          { opacity: 0, y: 30, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: {
+              each: 0.05,
+              grid: 'auto',
+            },
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
       id="speakers"
+      ref={sectionRef}
       className="relative z-10 w-full bg-[#F8F6F0] py-16 lg:py-24 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8] overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-10 sm:gap-14">
@@ -28,7 +67,10 @@ export default function SpeakerSection() {
         </div>
 
         {/* Speakers Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 w-full">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 w-full"
+        >
           {CONFIRMED_SPEAKERS.map((speaker) => (
             <Link
               key={speaker.slug}

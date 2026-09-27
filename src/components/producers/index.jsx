@@ -1,14 +1,55 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, MapPin, ArrowRight } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight } from 'lucide-react';
 import { PRODUCERS_AND_COPRODUCERS } from '@/data/peopleData';
 
 export default function ProducersSection() {
+  const sectionRef = useRef(null);
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      if (gridRef.current) {
+        gsap.fromTo(
+          gridRef.current.children,
+          { opacity: 0, y: 35, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: {
+              each: 0.08,
+              grid: 'auto',
+            },
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="producers"
+      ref={sectionRef}
       className="relative z-10 w-full bg-[#FFFFFF] py-16 lg:py-24 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8] overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-10 sm:gap-14">
@@ -25,7 +66,10 @@ export default function ProducersSection() {
         </div>
 
         {/* Unified Producers & Co-Producers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7 w-full">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7 w-full"
+        >
           {PRODUCERS_AND_COPRODUCERS.map((person) => (
             <Link
               key={person.slug}
