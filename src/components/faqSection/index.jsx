@@ -1,11 +1,45 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { faqColumns } from './faqData';
 import { ChevronDown } from 'lucide-react';
 
 export default function FaqSection() {
   const [openIds, setOpenIds] = useState({});
+  const sectionRef = useRef(null);
+  const cardContainerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      if (cardContainerRef.current) {
+        gsap.fromTo(
+          cardContainerRef.current,
+          { opacity: 0, y: 40, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: cardContainerRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const toggleItem = (id) => {
     setOpenIds((prev) => ({
@@ -17,12 +51,15 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="relative z-10 w-full bg-white py-20 sm:py-28 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8]"
+      ref={sectionRef}
+      className="relative z-10 w-full bg-white py-20 sm:py-28 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8] overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto">
-        {/* Large Rounded Off-White Card Container Matching User Design */}
-        <div className="w-full bg-[#FAF9F5] rounded-3xl sm:rounded-[40px] border border-[#ECE9E0] py-16 sm:py-20 px-6 sm:px-10 lg:px-14 shadow-xs">
-          
+        {/* Large Rounded Off-White Card Container */}
+        <div
+          ref={cardContainerRef}
+          className="w-full bg-[#FAF9F5] rounded-3xl sm:rounded-[40px] border border-[#ECE9E0] py-16 sm:py-20 px-6 sm:px-10 lg:px-14 shadow-xs"
+        >
           {/* Centered Heading */}
           <div className="text-center flex flex-col items-center gap-3 mb-14 sm:mb-16">
             <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#163B32]">

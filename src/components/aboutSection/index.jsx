@@ -6,30 +6,50 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ab1 from '@/../public/ab1.webp';
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 export default function AboutSection() {
   const containerRef = useRef(null);
   const textColRef = useRef(null);
   const imageWrapperRef = useRef(null);
+  const imageInnerRef = useRef(null);
+  const kanjiRefs = useRef([]);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const ctx = gsap.context(() => {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReducedMotion) return;
 
-      // Smooth reveal on the image with subtle parallax
-      if (imageWrapperRef.current) {
+      // 1. Text Column Staggered Scroll Reveal
+      if (textColRef.current) {
+        gsap.fromTo(
+          textColRef.current.children,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: textColRef.current,
+              start: 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      // 2. Editorial Image Smooth Parallax & Scale Scrub
+      if (imageWrapperRef.current && imageInnerRef.current) {
         gsap.fromTo(
           imageWrapperRef.current,
-          { opacity: 0, scale: 0.95, y: 30 },
+          { opacity: 0, scale: 0.94, y: 40 },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 1,
+            duration: 1.1,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: imageWrapperRef.current,
@@ -38,14 +58,56 @@ export default function AboutSection() {
             },
           }
         );
+
+        // Continuous subtle parallax on image content during scroll
+        gsap.fromTo(
+          imageInnerRef.current,
+          { yPercent: -8, scale: 1.08 },
+          {
+            yPercent: 8,
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: imageWrapperRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.2,
+            },
+          }
+        );
       }
+
+      // 3. Floating Kanji Watermarks Parallax Scrub
+      kanjiRefs.current.forEach((el) => {
+        if (el) {
+          gsap.fromTo(
+            el,
+            { y: 15, rotate: -2 },
+            {
+              y: -25,
+              rotate: 2,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.5,
+              },
+            }
+          );
+        }
+      });
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="about" ref={containerRef} className="relative z-10 w-full bg-[#F8F6F0] py-20 lg:py-28 overflow-hidden">
+    <section
+      id="about"
+      ref={containerRef}
+      className="relative z-10 w-full bg-[#F8F6F0] py-20 lg:py-28 overflow-hidden"
+    >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col gap-14">
         
         {/* Section Header */}
@@ -82,10 +144,11 @@ export default function AboutSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Wa (和) Card */}
-              <div className="relative p-6 rounded-2xl bg-white border border-[#E6E9E4] shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col gap-2 overflow-hidden group">
+              <div className="relative p-6 rounded-2xl bg-white border border-[#E6E9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col gap-2 overflow-hidden group">
                 <div
+                  ref={(el) => (kanjiRefs.current[0] = el)}
                   aria-hidden="true"
-                  className="absolute -right-2 -bottom-4 text-7xl font-serif text-[#163B32]/10 select-none pointer-events-none group-hover:text-[#C96F4A]/15 transition-colors"
+                  className="absolute -right-2 -bottom-4 text-7xl font-serif text-[#163B32]/10 select-none pointer-events-none group-hover:text-[#C96F4A]/20 transition-colors will-change-transform"
                 >
                   和
                 </div>
@@ -103,10 +166,11 @@ export default function AboutSection() {
               </div>
 
               {/* Ma (間) Card */}
-              <div className="relative p-6 rounded-2xl bg-white border border-[#E6E9E4] shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col gap-2 overflow-hidden group">
+              <div className="relative p-6 rounded-2xl bg-white border border-[#E6E9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col gap-2 overflow-hidden group">
                 <div
+                  ref={(el) => (kanjiRefs.current[1] = el)}
                   aria-hidden="true"
-                  className="absolute -right-2 -bottom-4 text-7xl font-serif text-[#163B32]/10 select-none pointer-events-none group-hover:text-[#C96F4A]/15 transition-colors"
+                  className="absolute -right-2 -bottom-4 text-7xl font-serif text-[#163B32]/10 select-none pointer-events-none group-hover:text-[#C96F4A]/20 transition-colors will-change-transform"
                 >
                   間
                 </div>
@@ -125,10 +189,11 @@ export default function AboutSection() {
             </div>
 
             {/* Futokoro 2026 Theme Box */}
-            <div className="relative p-6 sm:p-7 rounded-3xl bg-white border border-[#E6E9E4] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col gap-2.5 overflow-hidden group">
+            <div className="relative p-6 sm:p-7 rounded-3xl bg-white border border-[#E6E9E4] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col gap-2.5 overflow-hidden group">
               <div
+                ref={(el) => (kanjiRefs.current[2] = el)}
                 aria-hidden="true"
-                className="absolute -right-3 -bottom-5 text-8xl font-serif text-[#163B32]/10 select-none pointer-events-none group-hover:text-[#C96F4A]/15 transition-colors"
+                className="absolute -right-3 -bottom-5 text-8xl font-serif text-[#163B32]/10 select-none pointer-events-none group-hover:text-[#C96F4A]/20 transition-colors will-change-transform"
               >
                 懐
               </div>
@@ -153,16 +218,18 @@ export default function AboutSection() {
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div
               ref={imageWrapperRef}
-              className="relative rounded-3xl overflow-hidden shadow-xl border border-[#E6E9E4] bg-white aspect-[4/3] sm:aspect-[4/3] group"
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E6E9E4] bg-white aspect-[4/3] group will-change-transform"
             >
-              <Image
-                src={ab1}
-                alt="AI + Compassion vision and community"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
+              <div ref={imageInnerRef} className="relative w-full h-full will-change-transform">
+                <Image
+                  src={ab1}
+                  alt="AI + Compassion vision and community"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
