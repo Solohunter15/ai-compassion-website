@@ -117,9 +117,6 @@ export default function WhyNowSection() {
               <span className="font-editorial text-7xl sm:text-8xl md:text-9xl font-extrabold text-[#163B32] tracking-tighter leading-none group-hover:scale-105 transition-transform duration-300">
                 90%
               </span>
-              <span className="font-mono text-xs text-[#163B32] uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-[#163B32]/10">
-                ISACA 2026
-              </span>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -141,9 +138,6 @@ export default function WhyNowSection() {
             <div className="flex items-baseline justify-between border-b border-[#D9DDD6]/60 pb-6">
               <span className="font-editorial text-7xl sm:text-8xl md:text-9xl font-extrabold text-[#C96F4A] tracking-tighter leading-none group-hover:scale-105 transition-transform duration-300">
                 52%
-              </span>
-              <span className="font-mono text-xs text-[#C96F4A] uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-[#C96F4A]/10">
-                Stanford 2026
               </span>
             </div>
 
@@ -170,7 +164,7 @@ export default function WhyNowSection() {
           <p className="text-sm sm:text-base text-[#171918] leading-relaxed font-normal">
             AI capability is accelerating. Adoption is accelerating. Trust, governance and public
             understanding must evolve with them. The question is no longer simply what AI can do. It is what we choose to do
-            with it and how we keep humanity at the centre.
+            with it and how we ensure a planet-centered future where nature, humanity, and technology thrive together.
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Compass,
   MapPin,
@@ -10,7 +11,8 @@ import {
   Clock,
   Radio,
   User,
-  Users,
+  ExternalLink,
+  Layers,
 } from 'lucide-react';
 import ThreeEarthGlobe from './ThreeEarthGlobe';
 import { RELAY_REGIONS } from './relayData';
@@ -69,20 +71,8 @@ export default function GlobalRelayGlobeSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col gap-6 sm:gap-8">
         
-        {/* Top Header & Navigation Bar */}
-        <div className="w-full flex items-center justify-between gap-2 border-b border-[#D9DDD6]/80 pb-3">
-          <div className="flex items-center gap-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#D9DDD6] text-[10px] sm:text-xs font-mono tracking-widest text-[#163B32] uppercase font-bold shadow-xs">
-              <Compass className="w-3.5 h-3.5 text-[#C96F4A] animate-spin" style={{ animationDuration: '20s' }} />
-              <span>04 / Global Relay</span>
-            </div>
-
-            <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-[#163B32]/5 border border-[#163B32]/15 text-xs font-mono text-[#163B32]">
-              <Radio className="w-3 h-3 text-[#22C55E] animate-pulse" />
-              <span>12 Regions • 24-Hour Continuous Relay</span>
-            </div>
-          </div>
-
+        {/* Top Header & Stepper Navigation Bar */}
+        <div className="w-full flex items-center justify-end gap-2 border-b border-[#D9DDD6]/80 pb-3">
           {/* Stepper Controls & Stage Indicator */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             <button
@@ -98,7 +88,7 @@ export default function GlobalRelayGlobeSection() {
             <div className="font-mono text-xs sm:text-sm font-bold text-[#163B32] bg-white px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-[#D9DDD6] shadow-xs select-none flex items-center gap-1">
               <span>{String(activeRegion.id).padStart(2, '0')}</span>
               <span className="text-[#5E625D]/50">/</span>
-              <span className="text-[#5E625D]">12</span>
+              <span className="text-[#5E625D]">{String(RELAY_REGIONS.length).padStart(2, '0')}</span>
             </div>
 
             <button
@@ -151,7 +141,25 @@ export default function GlobalRelayGlobeSection() {
               </div>
             )}
 
-            {/* Producer / Featured Speakers Profile */}
+            {/* Operational Coverage (Multi-Block Overview if applicable) */}
+            {activeRegion.coverage && (
+              <div className="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-100/90 flex flex-col gap-1.5">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#163B32] flex items-center gap-1.5">
+                  <Layers className="w-3.5 h-3.5 text-[#22C55E]" />
+                  <span>Coverage &amp; Relay Blocks</span>
+                </span>
+                <ul className="space-y-1 text-xs text-slate-700 font-medium">
+                  {activeRegion.coverage.map((cov, cIdx) => (
+                    <li key={cIdx} className="flex items-start gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C96F4A] mt-1.5 shrink-0" />
+                      <span>{cov}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Producer / Convener Profile Card */}
             <div className="p-4 rounded-2xl bg-[#F8F6F0] border border-[#E6E9E4] flex flex-row items-start gap-4">
               
               {/* Portrait Image or Monogram */}
@@ -189,24 +197,28 @@ export default function GlobalRelayGlobeSection() {
                     <span className={`text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                       producer.available || producer.name.toLowerCase().includes('available')
                         ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                        : producer.role.toLowerCase().includes('featured speaker') || producer.role.toLowerCase().includes('speakers')
-                        ? 'bg-amber-100 text-amber-900 border border-amber-200'
-                        : producer.role.toLowerCase().includes('regional lead')
+                        : producer.role.toLowerCase().includes('lead')
                         ? 'bg-blue-50 text-blue-900 border border-blue-200'
                         : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
                     }`}>
-                      {producer.available || producer.name.toLowerCase().includes('available')
-                        ? 'Producer Spot Available'
-                        : producer.role.toLowerCase().includes('featured speaker') || producer.role.toLowerCase().includes('speakers')
-                        ? 'Featured Regional Speakers'
-                        : producer.role.toLowerCase().includes('regional lead')
-                        ? 'Regional Lead'
-                        : 'Regional Producer'}
+                      {producer.role}
                     </span>
                   </div>
-                  <h4 className="font-editorial text-sm sm:text-base font-bold text-[#163B32] leading-tight">
-                    {producer.name}
-                  </h4>
+                  
+                  {producer.slug ? (
+                    <Link
+                      href={`/${producer.slug}`}
+                      className="font-editorial text-sm sm:text-base font-bold text-[#163B32] hover:text-[#C96F4A] transition-colors leading-tight inline-flex items-center gap-1"
+                    >
+                      <span>{producer.name}</span>
+                      <ExternalLink className="w-3 h-3 opacity-60" />
+                    </Link>
+                  ) : (
+                    <h4 className="font-editorial text-sm sm:text-base font-bold text-[#163B32] leading-tight">
+                      {producer.name}
+                    </h4>
+                  )}
+                  
                   <p className="text-[10px] sm:text-xs font-mono text-[#C96F4A] font-semibold uppercase tracking-wider">
                     {producer.role}
                   </p>
@@ -215,14 +227,6 @@ export default function GlobalRelayGlobeSection() {
                 <p className="text-xs text-[#5E625D] leading-relaxed">
                   {producer.bio}
                 </p>
-
-                {/* Regional Coordinator */}
-                {activeRegion.coordinator && (
-                  <div className="flex items-center gap-1.5 pt-1 text-[11px] text-slate-600 font-mono">
-                    <Users className="w-3 h-3 text-[#163B32]" />
-                    <span>Regional Coordinator: <strong>{activeRegion.coordinator}</strong></span>
-                  </div>
-                )}
 
                 {/* Thematic Tags */}
                 <div className="flex flex-wrap items-center gap-1.5 pt-1">
@@ -238,10 +242,10 @@ export default function GlobalRelayGlobeSection() {
               </div>
             </div>
 
-            {/* Hub Details & Next Hub Action */}
+            {/* Segment & Operational Details & Next Segment Action */}
             <div className="flex items-center justify-between pt-1 border-t border-[#E6E9E4]">
               <span className="text-xs font-mono text-[#5E625D]">
-                Global Hub: <strong className="text-[#163B32]">{activeRegion.hubs}</strong>
+                Segment: <strong className="text-[#163B32]">{activeRegion.segment}</strong>
               </span>
 
               <button
@@ -249,14 +253,14 @@ export default function GlobalRelayGlobeSection() {
                 onClick={nextRegion}
                 className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#163B32] hover:bg-[#0F2620] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-xs hover:shadow-md cursor-pointer group"
               >
-                <span>Next Hub</span>
+                <span>Next Segment</span>
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* 12 Region Selector Pills */}
+        {/* 10 Planetary Segment Selector Pills */}
         <div className="w-full flex items-center justify-between gap-1.5 overflow-x-auto py-2 scrollbar-none select-none">
           {RELAY_REGIONS.map((r, idx) => {
             const isCurrent = activeIndex === idx;
@@ -269,10 +273,10 @@ export default function GlobalRelayGlobeSection() {
                     ? 'bg-[#163B32] text-[#F8F6F0] border-[#163B32] shadow-sm font-bold scale-105'
                     : 'bg-white text-[#5E625D] border-[#D9DDD6] hover:text-[#171918] hover:border-[#163B32]/40'
                 }`}
-                title={`${r.code} — ${r.hubs}`}
+                title={`Segment ${r.id} — ${r.segment} (${r.region})`}
               >
                 <span>{String(r.id).padStart(2, '0')}</span>
-                <span className="hidden md:inline ml-1.5 opacity-90">{r.shortName || r.hubs.replace(/\s+Hubs?/i, '')}</span>
+                <span className="hidden md:inline ml-1.5 opacity-90">{r.segment}</span>
               </button>
             );
           })}

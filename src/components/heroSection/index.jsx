@@ -160,9 +160,9 @@ export default function HeroSection() {
                 <ArrowUpRight className="w-4 h-4" />
               </button>
 
-              {/* 2. JOIN AS SPEAKER Button (Links to Speaker Form) */}
+              {/* 2. JOIN AS SPEAKER Button (Links to MakeMyPass Speaker Application) */}
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLScITmFQEc6adbfZ87EFldr5xMaZFGpKH5WzSigYQa9k1H-UMw/viewform"
+                href="https://makemypass.com/event/ai-compassion-sp-fac-app?utm_source=chatgpt.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#163B32] hover:text-white bg-emerald-50/90 hover:bg-[#163B32] border border-[#163B32]/30 hover:border-[#163B32] rounded-full shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
@@ -192,11 +192,11 @@ export default function HeroSection() {
               </div>
               <div className="flex flex-col sm:border-l sm:border-[#D9DDD6] sm:pl-4">
                 <span className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#163B32]">12</span>
-                <span className="text-[10px] sm:text-[11px] font-mono text-[#5E625D] uppercase tracking-wider font-semibold">World Regions</span>
+                <span className="text-[10px] sm:text-[11px] font-mono text-[#5E625D] uppercase tracking-wider font-semibold">World Segments</span>
               </div>
               <div className="flex flex-col sm:border-l sm:border-[#D9DDD6] sm:pl-4">
                 <span className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#163B32]">28+</span>
-                <span className="text-[10px] sm:text-[11px] font-mono text-[#5E625D] uppercase tracking-wider font-semibold">Flagship Hubs</span>
+                <span className="text-[10px] sm:text-[11px] font-mono text-[#5E625D] uppercase tracking-wider font-semibold">Global Leaders</span>
               </div>
               <div className="flex flex-col sm:border-l sm:border-[#D9DDD6] sm:pl-4">
                 <span className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#163B32]">1</span>

@@ -17,12 +17,13 @@ export default function Navbar() {
 
   const isHome = pathname === '/' || pathname === '';
 
-  // Exact links as requested
+  // Navigation links
   const navLinks = [
     { href: isHome ? '#' : '/#', label: 'Info', id: 'info' },
     { href: isHome ? '#about' : '/#about', label: 'About', id: 'about' },
-    { href: isHome ? '#pillars' : '/#pillars', label: 'Pillars', id: 'pillars' },
     { href: isHome ? '#relay' : '/#relay', label: 'The Relay', id: 'relay' },
+    { href: isHome ? '#producers' : '/#producers', label: 'Producers', id: 'producers' },
+    { href: isHome ? '#speakers' : '/#speakers', label: 'Speakers', id: 'speakers' },
     { href: isHome ? '#schedule' : '/#schedule', label: 'Schedule', id: 'schedule' },
     { href: isHome ? '#partners-sponsors' : '/#partners-sponsors', label: 'Partners & Sponsors', id: 'partners-sponsors' },
     { href: isHome ? '#faq' : '/#faq', label: 'FAQ', id: 'faq' },
@@ -37,7 +38,17 @@ export default function Navbar() {
         return;
       }
 
-      const sections = ['faq', 'partners-sponsors', 'schedule', 'relay', 'pillars', 'why-now', 'about'];
+      const sections = [
+        'faq',
+        'partners-sponsors',
+        'schedule',
+        'speakers',
+        'producers',
+        'relay',
+        'pillars',
+        'why-now',
+        'about',
+      ];
       let found = '#';
 
       for (const id of sections) {

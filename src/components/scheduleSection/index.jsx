@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo } from 'react';
+import Link from 'next/link';
 import {
   Calendar,
   Clock,
@@ -12,6 +13,8 @@ import {
   Sparkles,
   ChevronRight,
   Radio,
+  User,
+  Users,
 } from 'lucide-react';
 import {
   TIMEZONES,
@@ -21,9 +24,9 @@ import {
 export default function ScheduleSection() {
   const [selectedTz, setSelectedTz] = useState('UTC');
   const [activeView, setActiveView] = useState('timeline'); // 'timeline' | 'matrix'
-  const [searchQuery, setSearchQuery] = useState('');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeNodeIdx, setActiveNodeIdx] = useState(0);
+  const [northAmericaExpanded, setNorthAmericaExpanded] = useState(true);
 
   const timelineContainerRef = useRef(null);
   const itemsContainerRef = useRef(null);
@@ -34,18 +37,45 @@ export default function ScheduleSection() {
   // Find active timezone object
   const activeTzObj = TIMEZONES.find((t) => t.key === selectedTz) || TIMEZONES[0];
 
-  // Filter schedule based on search query memoized to prevent infinite re-renders
-  const filteredBlocks = useMemo(() => {
-    if (!searchQuery.trim()) return SCHEDULE_MATRIX;
-    const q = searchQuery.toLowerCase();
-    return SCHEDULE_MATRIX.filter((b) => {
-      const matchRegion = b.region?.toLowerCase().includes(q);
-      const matchHub = b.hub?.toLowerCase().includes(q);
-      const matchTheme = b.theme?.toLowerCase().includes(q);
-      const matchProducers = b.producers?.some((p) => p.toLowerCase().includes(q));
-      return matchRegion || matchHub || matchTheme || matchProducers;
+  // Group Blocks 9, 10, and 11 into a single North America node for the storytelling timeline
+  const groupedTimelineItems = useMemo(() => {
+    const items = [];
+    const naBlocks = [];
+
+    SCHEDULE_MATRIX.forEach((block) => {
+      if (block.id === 'block-9' || block.id === 'block-10' || block.id === 'block-11') {
+        naBlocks.push(block);
+      } else {
+        if (naBlocks.length > 0) {
+          items.push({
+            id: 'group-north-america',
+            isGroup: true,
+            segment: 'North America',
+            lead: 'Ani Chahal Honan',
+            blocks: [...naBlocks],
+          });
+          naBlocks.length = 0;
+        }
+        items.push({
+          id: block.id,
+          isGroup: false,
+          block,
+        });
+      }
     });
-  }, [searchQuery]);
+
+    if (naBlocks.length > 0) {
+      items.push({
+        id: 'group-north-america',
+        isGroup: true,
+        segment: 'North America',
+        lead: 'Ani Chahal Honan',
+        blocks: [...naBlocks],
+      });
+    }
+
+    return items;
+  }, []);
 
   // Dynamically calculate the precise center-to-center distance from Node 1 to Homecoming Node
   useEffect(() => {
@@ -70,7 +100,6 @@ export default function ScheduleSection() {
       });
     };
 
-    // Calculate on next frame to ensure DOM layout has completed
     const frameId = requestAnimationFrame(updateLineBounds);
     window.addEventListener('resize', updateLineBounds);
 
@@ -78,7 +107,7 @@ export default function ScheduleSection() {
       cancelAnimationFrame(frameId);
       window.removeEventListener('resize', updateLineBounds);
     };
-  }, [filteredBlocks.length, selectedTz, activeView]);
+  }, [groupedTimelineItems.length, northAmericaExpanded, selectedTz, activeView]);
 
   // Scroll Progress Tracker for the Storytelling Timeline
   useEffect(() => {
@@ -91,7 +120,6 @@ export default function ScheduleSection() {
       const rect = container.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Start filling when container enters middle of viewport
       const startOffset = windowHeight * 0.75;
       const totalScrollable = rect.height - windowHeight * 0.5;
 
@@ -100,10 +128,9 @@ export default function ScheduleSection() {
       
       setScrollProgress(progress);
 
-      // Determine active block index based on progress
-      if (filteredBlocks.length > 0) {
-        const rawIdx = Math.floor(progress * filteredBlocks.length);
-        const clampedIdx = Math.min(filteredBlocks.length - 1, Math.max(0, rawIdx));
+      if (groupedTimelineItems.length > 0) {
+        const rawIdx = Math.floor(progress * groupedTimelineItems.length);
+        const clampedIdx = Math.min(groupedTimelineItems.length - 1, Math.max(0, rawIdx));
         setActiveNodeIdx(clampedIdx);
       }
     };
@@ -126,7 +153,7 @@ export default function ScheduleSection() {
       window.removeEventListener('scroll', throttledScroll);
       window.removeEventListener('resize', throttledScroll);
     };
-  }, [filteredBlocks.length]);
+  }, [groupedTimelineItems.length, northAmericaExpanded]);
 
   return (
     <section
@@ -137,17 +164,12 @@ export default function ScheduleSection() {
         
         {/* Top Header in Dark Green Palette */}
         <div className="flex flex-col items-center text-center gap-3 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-bold text-[#163B32] uppercase tracking-widest shadow-2xs">
-            <Radio className="w-3.5 h-3.5 text-[#22C55E] animate-pulse" />
-            <span>24-Hour Continuous Journey</span>
-          </div>
-
           <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#163B32] leading-tight">
             Complete 24-Hour Schedule
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl font-light">
-            AI + Compassion Global Forum (24-Hour Relay, Oct 2–3, 2026). Times update automatically with your chosen timezone.
+            AI + Compassion Global Forum (24-Hour Relay, Oct 2–3, 2026). Continuous journey across 14 relay stages (Opening, 12 regional blocks, and Kyoto Homecoming). Times update automatically with your chosen timezone.
           </p>
         </div>
 
@@ -175,8 +197,8 @@ export default function ScheduleSection() {
             </div>
           </div>
 
-          {/* Control Bar: View Mode Switcher & Search Bar */}
-          <div className="w-full max-w-5xl flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-emerald-100 pb-4">
+          {/* Control Bar: View Mode Switcher */}
+          <div className="w-full max-w-5xl flex items-center justify-center pt-2 border-b border-emerald-100 pb-4">
             <div className="flex items-center gap-2 bg-emerald-50/70 p-1 rounded-xl border border-emerald-200/70">
               <button
                 type="button"
@@ -204,23 +226,11 @@ export default function ScheduleSection() {
                 <span>Master Matrix</span>
               </button>
             </div>
-
-            {/* Search Input */}
-            <div className="relative w-full sm:w-80">
-              <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Search region, hub..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-xl border border-emerald-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#163B32]/30"
-              />
-            </div>
           </div>
         </div>
 
         {/* ========================================================================= */}
-        {/* VIEW 1: STORYTELLING TIMELINE VIEW (Dark Green Theme & Perfectly Terminating Line) */}
+        {/* VIEW 1: STORYTELLING TIMELINE VIEW */}
         {/* ========================================================================= */}
         {activeView === 'timeline' && (
           <div
@@ -232,10 +242,10 @@ export default function ScheduleSection() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#163B32] animate-ping" />
                 <span className="font-mono text-xs font-bold text-[#163B32] uppercase tracking-wider">
-                  Stage {String(activeNodeIdx + 1).padStart(2, '0')} of {filteredBlocks.length}
+                  Stage {String(activeNodeIdx + 1).padStart(2, '0')} of {groupedTimelineItems.length}
                 </span>
                 <span className="hidden sm:inline text-xs text-slate-600 font-medium">
-                  {filteredBlocks[activeNodeIdx]?.region ? `• ${filteredBlocks[activeNodeIdx].region.replace(/Block \d+ — /, '')}` : ''}
+                  • 14 Relay Stages (Blocks 0–13)
                 </span>
               </div>
 
@@ -255,10 +265,10 @@ export default function ScheduleSection() {
             {/* Vertical Timeline Structure */}
             <div className="relative w-full max-w-4xl mx-auto pt-2 pb-2">
               
-              {/* Timeline Items Container with Exact Start & End Anchors */}
+              {/* Timeline Items Container */}
               <div ref={itemsContainerRef} className="relative flex flex-col gap-10 sm:gap-14">
                 
-                {/* Central Bounded Track: strictly from first milestone node to Homecoming closing node */}
+                {/* Central Bounded Track */}
                 <div
                   className="absolute left-5 md:left-1/2 w-1 -translate-x-1/2 z-0 pointer-events-none"
                   style={{
@@ -266,29 +276,150 @@ export default function ScheduleSection() {
                     height: `${lineBounds.height}px`,
                   }}
                 >
-                  {/* Background Track Guide Line */}
                   <div className="w-full h-full bg-emerald-100 rounded-full" />
-
-                  {/* Dynamic Animated Scroll Progress Line */}
                   <div
                     className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#163B32] via-[#22C55E] to-[#C9A96A] rounded-full transition-all duration-75 shadow-sm shadow-emerald-700/20"
                     style={{ height: `${scrollProgress * 100}%` }}
                   >
-                    {/* Glowing Leading Orb at Tip of Progress Line */}
                     {scrollProgress > 0.01 && (
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#22C55E] ring-4 ring-emerald-300/40 shadow-lg shadow-emerald-500/50 animate-pulse" />
                     )}
                   </div>
                 </div>
 
-                {filteredBlocks.map((block, idx) => {
+                {groupedTimelineItems.map((item, idx) => {
                   const isEven = idx % 2 === 0;
-                  const timeVal = block.times[selectedTz] || block.times.UTC;
-                  const isSpecial = block.isSpecial;
                   const isPassed = idx <= activeNodeIdx;
                   const isCurrent = idx === activeNodeIdx;
                   const isFirst = idx === 0;
-                  const isLast = idx === filteredBlocks.length - 1;
+                  const isLast = idx === groupedTimelineItems.length - 1;
+                  const isGroup = item.isGroup;
+
+                  if (isGroup) {
+                    // Unified North America Node containing Blocks 9, 10, and 11
+                    return (
+                      <div
+                        key={item.id}
+                        className={`relative flex items-start gap-6 md:gap-0 transition-all duration-500 ${
+                          isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                        } ${isPassed ? 'opacity-100' : 'opacity-70'}`}
+                      >
+                        {/* Content Box */}
+                        <div
+                          className={`w-full md:w-1/2 pl-14 md:pl-0 ${
+                            isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
+                          }`}
+                        >
+                          <div
+                            className={`flex flex-col gap-4 rounded-3xl p-5 sm:p-7 transition-all duration-300 border ${
+                              isCurrent
+                                ? 'bg-white border-[#163B32] shadow-xl shadow-emerald-950/10 scale-[1.02] ring-2 ring-emerald-200'
+                                : 'bg-[#FAFCFA] hover:bg-white border-emerald-200 shadow-sm hover:shadow-lg'
+                            }`}
+                          >
+                            {/* Group Header */}
+                            <div className={`flex flex-wrap items-center gap-2 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
+                              <span className="font-mono text-xs font-bold uppercase tracking-wider text-white bg-[#163B32] px-3.5 py-1 rounded-full shadow-xs">
+                                BLOCKS 09, 10 &amp; 11 • NORTH AMERICA
+                              </span>
+                              
+                              <button
+                                type="button"
+                                onClick={() => setNorthAmericaExpanded(!northAmericaExpanded)}
+                                className="inline-flex items-center gap-1 font-mono text-xs font-bold text-[#163B32] bg-emerald-100/90 hover:bg-emerald-200 px-3 py-1 rounded-full transition-colors cursor-pointer"
+                              >
+                                <span>{northAmericaExpanded ? '− Collapse Blocks' : '＋ Expand 3 Blocks'}</span>
+                              </button>
+                            </div>
+
+                            {/* Lead Information */}
+                            <div className={`flex flex-col gap-1 ${isEven ? 'md:items-end' : 'md:items-start'}`}>
+                              <h4 className="font-editorial text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                                North America Segment
+                              </h4>
+                              <div className="flex items-center gap-2 text-xs font-medium text-slate-700">
+                                <span className="font-bold text-[#163B32]">Lead:</span>
+                                <Link
+                                  href="/ani-chahal-honan"
+                                  className="text-[#163B32] font-semibold hover:text-[#C96F4A] transition-colors underline underline-offset-2"
+                                >
+                                  Ani Chahal Honan (North America Lead / Producer)
+                                </Link>
+                              </div>
+                            </div>
+
+                            {/* Sub-Blocks List (Blocks 9, 10, 11) */}
+                            {northAmericaExpanded && (
+                              <div className="flex flex-col gap-3 pt-2 text-left">
+                                {item.blocks.map((subBlock) => {
+                                  const subTime = subBlock.times[selectedTz] || subBlock.times.UTC;
+                                  return (
+                                    <div
+                                      key={subBlock.id}
+                                      className="p-4 rounded-2xl bg-white border border-emerald-100/90 shadow-2xs hover:border-emerald-300 transition-all flex flex-col gap-2"
+                                    >
+                                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                                        <span className="font-mono text-xs font-bold text-[#163B32] bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                                          {subBlock.blockLabel}
+                                        </span>
+                                        <span className="font-mono text-xs font-bold text-[#C96F4A]">
+                                          {subTime} {selectedTz}
+                                        </span>
+                                      </div>
+
+                                      <div className="flex flex-col gap-1">
+                                        <h5 className="font-editorial text-sm font-bold text-slate-900">
+                                          {subBlock.region}
+                                        </h5>
+                                        {subBlock.speakers?.length > 0 && (
+                                          <div className="flex flex-wrap items-center gap-1 text-xs pt-1">
+                                            <span className="font-bold text-[#163B32]">Speakers:</span>
+                                            <span className="text-slate-800 font-medium">
+                                              {subBlock.speakers.join(', ')}
+                                            </span>
+                                          </div>
+                                        )}
+                                        {subBlock.theme && (
+                                          <p className="text-xs text-slate-600 italic">
+                                            &ldquo;{subBlock.theme}&rdquo;
+                                          </p>
+                                        )}
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Center Milestone Node */}
+                        <div
+                          className="absolute left-5 md:left-1/2 top-6 -translate-x-1/2 z-10 flex items-center justify-center"
+                        >
+                          <div
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold transition-all duration-300 shadow-sm ${
+                              isCurrent
+                                ? 'bg-[#163B32] text-white ring-4 ring-emerald-200 scale-125 shadow-lg shadow-emerald-900/30'
+                                : isPassed
+                                ? 'bg-[#2D6A4F] text-white ring-4 ring-emerald-100 scale-105'
+                                : 'bg-white text-emerald-900 border-2 border-emerald-200 scale-95'
+                            }`}
+                          >
+                            <span>09</span>
+                          </div>
+                        </div>
+
+                        {/* Spacing column on opposite side */}
+                        <div className="hidden md:block w-1/2" />
+                      </div>
+                    );
+                  }
+
+                  // Single Standard Block Node
+                  const block = item.block;
+                  const timeVal = block.times[selectedTz] || block.times.UTC;
+                  const isSpecial = block.isSpecial;
 
                   return (
                     <div
@@ -316,56 +447,56 @@ export default function ScheduleSection() {
                               : 'bg-[#F9FAF8] hover:bg-white border-emerald-100/90 shadow-2xs hover:shadow-md'
                           }`}
                         >
-                          {/* Time & Stage Header Pill */}
+                          {/* Segment Label & Time Header */}
                           <div
                             className={`flex flex-wrap items-center gap-2 ${
                               isEven ? 'md:justify-end' : 'md:justify-start'
                             }`}
                           >
-                            <span className="font-mono text-xs font-bold text-[#163B32] bg-emerald-100/80 px-2.5 py-0.5 rounded-full">
+                            <span className="font-mono text-xs font-bold uppercase tracking-wider text-white bg-[#163B32] px-3 py-1 rounded-full shadow-xs">
+                              {block.blockLabel || block.blockNumber} • {block.segment}
+                            </span>
+
+                            <span className="font-mono text-xs font-bold text-[#163B32] bg-emerald-100/80 px-2.5 py-1 rounded-full">
                               {timeVal} {selectedTz}
                             </span>
 
                             {isSpecial && (
-                              <span className="font-mono text-[10px] font-bold text-amber-800 bg-amber-200/80 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                                Special Block
+                              <span className="font-mono text-[10px] font-bold text-amber-900 bg-amber-200/80 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                Ceremony
                               </span>
                             )}
                           </div>
 
-                          {/* Block Title / Region */}
+                          {/* Regional Geography / Coverage (Secondary Text) */}
                           <h4 className="font-editorial text-base sm:text-lg md:text-xl font-bold text-slate-900 leading-snug">
-                            {block.region ? block.region.replace(/Block \d+ — /, '') : ''}
+                            {block.region}
                           </h4>
 
-                          {/* Hub Tag */}
-                          <div
-                            className={`flex items-center gap-1.5 ${
-                              isEven ? 'md:justify-end' : 'md:justify-start'
-                            }`}
-                          >
-                            <span className="text-xs font-semibold text-[#163B32] flex items-center gap-1">
-                              <Globe className="w-3 h-3 text-[#22C55E]" />
-                              <span>{block.hub}</span>
-                            </span>
-                          </div>
-
-                          {/* Producers & Tentative Theme Section */}
-                          {(block.producers?.length > 0 || block.theme) && (
+                          {/* Producers, Speakers & Tentative Theme Section */}
+                          {(block.producers?.length > 0 || block.speakers?.length > 0 || block.theme) && (
                             <div className="pt-3 border-t border-emerald-100/80 flex flex-col gap-2 mt-1 text-xs text-slate-600">
                               {block.producers?.length > 0 && (
                                 <div className={`flex flex-wrap items-center gap-1 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
                                   <span className="font-bold text-[#163B32]">
-                                    {block.producers.some(p => p.toLowerCase().includes('featured speaker') || p.toLowerCase().includes('speaker'))
-                                      ? 'Featured Speakers:'
-                                      : block.producers.some(p => p.toLowerCase().includes('regional lead'))
-                                      ? 'Regional Lead:'
+                                    {block.producers.some(p => p.toLowerCase().includes('lead'))
+                                      ? 'Lead / Producer:'
                                       : block.producers.length > 1
                                       ? 'Producers & Co-Producers:'
                                       : 'Producer:'}
                                   </span>
-                                  <span className="font-medium text-slate-700">
+                                  <span className="font-medium text-slate-800 font-sans">
                                     {block.producers.join(', ')}
+                                  </span>
+                                </div>
+                              )}
+                              {block.speakers?.length > 0 && (
+                                <div className={`flex flex-wrap items-center gap-1 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
+                                  <span className="font-bold text-[#163B32]">
+                                    Speakers:
+                                  </span>
+                                  <span className="font-medium text-slate-800 font-sans">
+                                    {block.speakers.join(', ')}
                                   </span>
                                 </div>
                               )}
@@ -384,7 +515,7 @@ export default function ScheduleSection() {
                         </div>
                       </div>
 
-                      {/* Center Milestone Node (Illuminates & Scales on Scroll) */}
+                      {/* Center Milestone Node */}
                       <div
                         ref={isFirst ? firstNodeRef : isLast ? lastNodeRef : null}
                         className="absolute left-5 md:left-1/2 top-6 -translate-x-1/2 z-10 flex items-center justify-center"
@@ -401,39 +532,32 @@ export default function ScheduleSection() {
                           {isSpecial ? (
                             <Sparkles className="w-3.5 h-3.5 text-amber-200" />
                           ) : (
-                            <span>{String(idx + 1).padStart(2, '0')}</span>
+                            <span>{block.blockLabel?.replace('BLOCK ', '') || String(idx).padStart(2, '0')}</span>
                           )}
                         </div>
                       </div>
 
-                      {/* Empty Spacing column on opposite side for desktop alternation */}
+                      {/* Spacing column on opposite side */}
                       <div className="hidden md:block w-1/2" />
                     </div>
                   );
                 })}
               </div>
             </div>
-
-            {filteredBlocks.length === 0 && (
-              <div className="w-full p-12 text-center text-slate-500 bg-emerald-50/50 rounded-2xl border border-emerald-200">
-                No sessions found matching &ldquo;{searchQuery}&rdquo;.
-              </div>
-            )}
           </div>
         )}
 
         {/* ========================================================================= */}
-        {/* VIEW 2: MASTER MATRIX TABLE (Dark Green Header Grid) */}
+        {/* VIEW 2: MASTER MATRIX TABLE */}
         {/* ========================================================================= */}
         {activeView === 'matrix' && (
           <div className="w-full flex flex-col gap-4">
             <div className="w-full overflow-x-auto rounded-2xl border border-emerald-200 shadow-md bg-white">
               <table className="w-full text-left text-xs border-collapse min-w-[1100px]">
-                {/* Dark Green Table Header */}
                 <thead>
                   <tr className="bg-[#163B32] text-white font-bold tracking-wide">
-                    <th className="py-3.5 px-4 sticky left-0 bg-[#163B32] z-10 min-w-[240px] border-r border-emerald-800">
-                      Region
+                    <th className="py-3.5 px-4 sticky left-0 bg-[#163B32] z-10 min-w-[260px] border-r border-emerald-800">
+                      Segment &amp; Region
                     </th>
                     {TIMEZONES.map((tz) => (
                       <th
@@ -452,7 +576,6 @@ export default function ScheduleSection() {
                   </tr>
                 </thead>
 
-                {/* Table Body */}
                 <tbody className="divide-y divide-emerald-100">
                   {SCHEDULE_MATRIX.map((row, idx) => {
                     const isSpecial = row.isSpecial;
@@ -468,7 +591,6 @@ export default function ScheduleSection() {
                             : 'bg-white hover:bg-[#F9FAF8]'
                         }`}
                       >
-                        {/* Region Name */}
                         <td
                           className={`py-3 px-4 font-semibold text-slate-900 border-r border-slate-200 sticky left-0 z-10 ${
                             isSpecial
@@ -478,15 +600,14 @@ export default function ScheduleSection() {
                               : 'bg-white'
                           }`}
                         >
-                          <div className="flex items-center gap-2">
-                            {isSpecial && (
-                              <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
-                            )}
-                            <span>{row.region}</span>
+                          <div className="flex flex-col gap-0.5">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#163B32]">
+                              {row.blockLabel || row.blockNumber} • {row.segment}
+                            </span>
+                            <span className="text-xs font-medium text-slate-800">{row.region}</span>
                           </div>
                         </td>
 
-                        {/* Timezone Columns */}
                         {TIMEZONES.map((tz) => {
                           const timeVal = row.times[tz.key] || '—';
                           const isHighlightedCol = selectedTz === tz.key;

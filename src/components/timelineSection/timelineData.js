@@ -23,7 +23,7 @@ export const global = [
   { subtitle: "", title: "Africa", time: "14:00-17:00 UTC", items: ["Dr. Lee Kironget (Producer)", "Nell Watson", "Gary Bolles", "Alexis Stokes", "Sofia Couto da Rocha"] },
   { subtitle: "", title: "Latin America & Caribbean", time: "17:00-20:00 UTC", items: ["Julieta Reyes (Producer)", "WarīNkwī Flores", "Pico Velásquez", "Justin Breen"] },
   { subtitle: "", title: "North America", time: "20:00-23:00 UTC", items: ["Ani Chahal Honan (Producer)", "Stephen Ibaraki", "Matthew Manos", "Douglas Thomas", "Jennifer Aaker", "Stephen Butler", "Nichol Bradford", "DE KAI"] },
-  { subtitle: "", title: "Oceania", time: "23:00-02:00 UTC", items: ["Producer Spot Available", "Tim Moriarity", "Olivera Tomic", "Ian Haycroft"] },
+  { subtitle: "", title: "Oceania", time: "23:00-02:00 UTC", items: ["Christina Gerakiteys (Producer)", "Joshua Castle"] },
 ];
 
 export const kyoto = [
@@ -32,8 +32,8 @@ export const kyoto = [
     title: "Kyoto",
     time: "03:00-05:00 UTC",
     items: [
-      "Jun Sato (Producer)",
-      "Shoukei Matsumoto",
+      "Jun Suto (Producer)",
+      "Dr. Olaf Witkowski",
     ],
   },
 ];

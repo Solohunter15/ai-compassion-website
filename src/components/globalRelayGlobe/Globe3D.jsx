@@ -156,10 +156,10 @@ export default function Globe3D({ activeIndex = 0, onSelectRegion }) {
         </span>
       </div>
 
-      {/* Hub Status Tooltip */}
+      {/* Segment Status Tooltip */}
       <div className="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#163B32] text-[#F8F6F0] text-[10px] font-mono tracking-wider uppercase shadow-md">
         <span className="w-1.5 h-1.5 rounded-full bg-[#D8B56A]" />
-        <span>{activeRegion.hubs}</span>
+        <span>{activeRegion.segment}</span>
       </div>
     </div>
   );

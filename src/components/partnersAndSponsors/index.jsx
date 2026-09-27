@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+
 import s1 from '@/../public/usa.webp';
 import s2 from '@/../public/ai.webp';
 import s3 from '@/../public/lm.webp';
@@ -35,15 +36,15 @@ const PARTNERS = [
 ];
 
 export default function PartnersAndSponsors() {
-  const sponsorsMarquee = [...SPONSORS, ...SPONSORS, ...SPONSORS, ...SPONSORS];
-  const partnersMarquee = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS];
+  const sponsorsMarquee = [...SPONSORS, ...SPONSORS, ...SPONSORS];
+  const partnersMarquee = [...PARTNERS, ...PARTNERS, ...PARTNERS];
 
   return (
     <section
       id="partners-sponsors"
       className="relative z-10 w-full bg-[#FFFFFF] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 border-t border-[#EAECE8] overflow-hidden"
     >
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-10 sm:gap-14">
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-12 sm:gap-16">
         
         {/* Centered Main Header */}
         <div className="flex flex-col items-center text-center gap-3 max-w-3xl mx-auto">
@@ -52,70 +53,60 @@ export default function PartnersAndSponsors() {
           </h2>
 
           <p className="text-xs sm:text-sm md:text-base text-slate-600 font-light max-w-xl leading-relaxed">
-            Co-creating the 24-hour global dialogue with visionary foundations, academic institutions, and transformative ecosystem partners.
+            Co-creating the 24-hour continuous global dialogue with visionary foundations, academic institutions, and transformative ecosystem partners.
           </p>
         </div>
 
-        {/* Seamless Dual Marquee with 3D Depth */}
-        <div className="w-full flex flex-col gap-8 sm:gap-12 [perspective:1200px]">
+        {/* Dual Marquee Showcase (Restored Original Moving Animation) */}
+        <div className="w-full flex flex-col gap-6 sm:gap-8">
           
-          {/* Row 1: Partners Marquee (Moving Left) - Blended directly into background */}
-          <div className="relative w-full overflow-hidden py-4 group">
-            {/* Left & Right Edge Fades blending smoothly with section white background */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          {/* Row 1: Partners (Moving Left) */}
+          <div className="relative w-full overflow-hidden py-3 bg-[#F9FAF8] rounded-2xl border border-emerald-100/80 group">
+            {/* Left & Right Edge Fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[#F9FAF8] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[#F9FAF8] to-transparent z-10 pointer-events-none" />
 
             {/* Infinite Marquee Track (Left) */}
-            <div className="flex items-center gap-12 sm:gap-20 w-max animate-marquee-left group-hover:[animation-play-state:paused] py-2">
+            <div className="flex items-center gap-10 sm:gap-16 w-max animate-marquee-left group-hover:[animation-play-state:paused]">
               {partnersMarquee.map((partner, idx) => (
                 <div
                   key={`partner-${idx}`}
-                  className="flex items-center justify-center p-2.5 transition-all duration-500 hover:scale-110 hover:-translate-y-1.5 shrink-0 [transform-style:preserve-3d] hover:[transform:perspective(600px)_rotateY(-6deg)_rotateX(4deg)_scale(1.12)] cursor-pointer drop-shadow-[0_8px_16px_rgba(0,0,0,0.06)] hover:drop-shadow-[0_16px_24px_rgba(22,59,50,0.14)]"
+                  className="flex items-center justify-center p-2 transition-transform duration-300 hover:scale-110 shrink-0"
                 >
-                  <div className="relative h-12 sm:h-16 w-32 sm:w-44 flex items-center justify-center">
-                    {partner.isCustom ? (
-                      <Image
-                        src={partner.img}
-                        alt={partner.name}
-                        fill
-                        className="object-contain transition-all duration-300"
-                        sizes="(max-width: 640px) 128px, 176px"
-                      />
-                    ) : (
-                      <Image
-                        src={partner.img}
-                        alt={partner.name}
-                        fill
-                        className="object-contain transition-all duration-300"
-                        sizes="(max-width: 640px) 128px, 176px"
-                      />
-                    )}
+                  <div className="relative h-11 sm:h-14 w-28 sm:w-36 flex items-center justify-center">
+                    <Image
+                      src={partner.img}
+                      alt={partner.name}
+                      fill
+                      className="object-contain transition-opacity duration-300"
+                      sizes="(max-width: 640px) 112px, 144px"
+                    />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Row 2: Sponsors Marquee (Moving Right) - Blended directly into background */}
-          <div className="relative w-full overflow-hidden py-4 group">
-            {/* Left & Right Edge Fades blending smoothly with section white background */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          {/* Row 2: Sponsors (Moving Right) */}
+          <div className="relative w-full overflow-hidden py-3 bg-[#F9FAF8] rounded-2xl border border-emerald-100/80 group">
+            {/* Left & Right Edge Fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[#F9FAF8] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[#F9FAF8] to-transparent z-10 pointer-events-none" />
 
             {/* Infinite Marquee Track (Right) */}
-            <div className="flex items-center gap-14 sm:gap-24 w-max animate-marquee-right group-hover:[animation-play-state:paused] py-2">
+            <div className="flex items-center gap-12 sm:gap-18 w-max animate-marquee-right group-hover:[animation-play-state:paused]">
               {sponsorsMarquee.map((sponsor, idx) => (
                 <div
                   key={`sponsor-${idx}`}
-                  className="flex items-center justify-center p-2.5 transition-all duration-500 hover:scale-110 hover:-translate-y-1.5 shrink-0 [transform-style:preserve-3d] hover:[transform:perspective(600px)_rotateY(6deg)_rotateX(4deg)_scale(1.12)] cursor-pointer drop-shadow-[0_8px_16px_rgba(0,0,0,0.06)] hover:drop-shadow-[0_16px_24px_rgba(201,111,74,0.14)]"
+                  className="flex items-center justify-center p-2 transition-transform duration-300 hover:scale-110 shrink-0"
                 >
-                  <div className="relative h-14 sm:h-18 w-36 sm:w-52 flex items-center justify-center">
+                  <div className="relative h-12 sm:h-16 w-32 sm:w-44 flex items-center justify-center">
                     <Image
                       src={sponsor.img}
                       alt={sponsor.name}
                       fill
-                      className="object-contain transition-all duration-300"
-                      sizes="(max-width: 640px) 144px, 208px"
+                      className="object-contain transition-opacity duration-300"
+                      sizes="(max-width: 640px) 128px, 176px"
                     />
                   </div>
                 </div>

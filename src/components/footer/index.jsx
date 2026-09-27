@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { Check, Copy, ArrowUpRight } from 'lucide-react';
 import { FaDiscord, FaLinkedinIn, FaInstagram, FaYoutube, FaFacebookF } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
@@ -64,11 +64,6 @@ export default function Footer() {
         
         {/* Compact Contact Layout */}
         <div className="flex flex-col items-center gap-4 max-w-xl">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-[11px] font-mono font-semibold text-[#163B32] border border-[#163B32]/20 tracking-wider uppercase">
-            <Mail className="w-3 h-3 text-[#163B32]" />
-            Connect
-          </span>
-
           <h2 className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#172554]">
             Join the Global Dialogue
           </h2>
