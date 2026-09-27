@@ -524,7 +524,7 @@ export default function ThreeEarthGlobe({
               {hoveredNode.producer.name}
             </span>
             <span className="text-[10px] text-emerald-300 font-mono">
-              {hoveredNode.hubs}
+              {hoveredNode.segment}
             </span>
           </div>
         </div>
@@ -540,10 +540,10 @@ export default function ThreeEarthGlobe({
         </span>
       </div>
 
-      {/* Hub Tag */}
+      {/* Segment Tag */}
       <div className="absolute top-1 sm:top-3 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#163B32] text-[#F8F6F0] text-[9px] sm:text-[10px] font-mono tracking-wider uppercase shadow-md pointer-events-none max-w-[140px] sm:max-w-none truncate">
         <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" />
-        <span className="truncate">{activeRegion.hubs}</span>
+        <span className="truncate">{activeRegion.segment}</span>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ export const faqColumns = [
         id: 'c1-1',
         question: 'What is the AI+Compassion Global Forum?',
         answer:
-          'A continuous 24-hour worldwide relay connecting innovators, researchers, policymakers, and cultural leaders across 12 global regions to center empathy, human dignity, and wisdom traditions in artificial intelligence.',
+          'A continuous 24-hour worldwide relay connecting innovators, researchers, policymakers, and cultural leaders across 12 global regions to center empathy, compassion, human dignity, and ecological wisdom in artificial intelligence.',
       },
       {
         id: 'c1-2',
@@ -47,13 +47,13 @@ export const faqColumns = [
         id: 'c2-2',
         question: 'What is the complete schedule?',
         answer:
-          'The summit runs for 24 continuous hours across 12 regional blocks, beginning with the Kyoto Kickoff and concluding with the Kyoto Closing Ceremony. View the complete interactive schedule to see times in your local timezone.',
+          'The summit runs for 24 continuous hours across 12 operational blocks, beginning with the Kyoto Kickoff and concluding with the Kyoto Closing Ceremony. View the complete interactive schedule to see times in your local timezone.',
       },
       {
         id: 'c2-3',
         question: 'How does the global relay work?',
         answer:
-          'The relay operates like an Olympic torch: each regional hub hosts a dedicated 2-hour block featuring localized case studies, discussions, and cultural reflections before ceremonially passing the broadcast baton westward to the next timezone.',
+          'The relay operates like an Olympic torch: each of the 12 operational regional blocks hosts a dedicated 2-hour session featuring localized case studies, discussions, and cultural reflections before ceremonially passing the broadcast baton westward to the next timezone.',
       },
       {
         id: 'c2-4',

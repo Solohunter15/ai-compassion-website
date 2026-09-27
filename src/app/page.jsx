@@ -1,13 +1,15 @@
 import HeroSection from "@/components/heroSection";
 import ContinuousMarquee from "@/components/continuousMarquee";
 import AboutSection from "@/components/aboutSection";
+import WhyNowSection from "@/components/whyNowSection";
 import PillarsSection from "@/components/pillarsSection";
 import GlobalRelayGlobeSection from "@/components/globalRelayGlobe";
-import ProducersPage from "@/components/producers";
+import ProducersSection from "@/components/producers";
+import SpeakerSection from "@/components/speakerSection";
+import ScheduleSection from "@/components/scheduleSection";
 import MediaSection from "@/components/mediaSection";
 import PartnersAndSponsors from "@/components/partnersAndSponsors";
 import FaqSection from "@/components/faqSection";
-import ScheduleSection from "@/components/scheduleSection";
 import JourneyIndicator from "@/components/journeyIndicator";
 
 export default function Home() {
@@ -18,13 +20,15 @@ export default function Home() {
       {/* Moving Bar 1: After Hero */}
       <ContinuousMarquee variant="dark" />
       <AboutSection />
+      <WhyNowSection />
       <PillarsSection />
-      {/* Moving Bar 2: Between Pillars & 12 Regions Relay */}
+      {/* Moving Bar 2: Between Pillars & Global Relay */}
       <ContinuousMarquee reverse={true} variant="dark" />
       <GlobalRelayGlobeSection />
-      <ProducersPage />
-      <MediaSection />
+      <ProducersSection />
+      <SpeakerSection />
       <ScheduleSection />
+      <MediaSection />
       <PartnersAndSponsors />
       <FaqSection />
     </>

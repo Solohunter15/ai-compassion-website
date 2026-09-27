@@ -81,10 +81,6 @@ export default function MediaSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-5 border-b border-[#163B32]/10 pb-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#163B32]/20 bg-[#E5EBE5]/70 text-[10px] sm:text-[11px] font-mono tracking-widest text-[#163B32] uppercase mb-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C96F4A] animate-pulse" />
-              2025 Edition Highlights
-            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light tracking-tight text-[#163B32] leading-tight">
               2025 Highlights: Relay Dialogues &amp; Keynotes
             </h2>

@@ -35,36 +35,32 @@ const FIELD_IDS = {
 
 const HUB_MAPPING = {
   'Australia, New Zealand & South Pacific': 'Australia, New Zealand & South Pacific',
-  'Japan, Korea, Taiwan & Northeast Asia (Kyoto)': 'Japan, Korea, Taiwan & Northeast Asia',
   'Japan, Korea, Taiwan & Northeast Asia': 'Japan, Korea, Taiwan & Northeast Asia',
-  'Southeast Asia (Youth Hub / Singapore)': 'Southeast Asia',
   'Southeast Asia': 'Southeast Asia',
   'South Asia': 'South Asia',
   'Middle East, Caucasus & Central Asia': 'Middle East, Caucasus & Central Asia',
   'East Africa, Southern Africa & Central Europe': 'East Africa, Southern Africa & Central Europe',
   'UK, Ireland, Iberia & West Africa': 'UK, Ireland, Iberia & West Africa',
   'Eastern & Southern South America & Caribbean': 'Eastern & Southern South America & Caribbean',
-  'Eastern United States and Southern United States': 'Eastern United States and Southern United States',
   'Eastern North America & Northern South America': 'Eastern United States and Southern United States',
-  'Midwestern United States & Mexico': 'Midwestern United States & Mexico',
   'Central North America & Mexico': 'Midwestern United States & Mexico',
-  'Western North America': 'Western North America',
-  'Hawaii, Alaska & Pacific Islands': 'Hawaii, Alaska & Pacific Islands',
+  'North America': 'Western North America',
+  'Hawaiʻi, Alaska & Pacific Islands': 'Hawaii, Alaska & Pacific Islands',
 };
 
 const REGIONAL_HUBS = [
   'Australia, New Zealand & South Pacific',
-  'Japan, Korea, Taiwan & Northeast Asia (Kyoto)',
-  'Southeast Asia (Youth Hub / Singapore)',
+  'Japan, Korea, Taiwan & Northeast Asia',
+  'Southeast Asia',
   'South Asia',
   'Middle East, Caucasus & Central Asia',
   'East Africa, Southern Africa & Central Europe',
   'UK, Ireland, Iberia & West Africa',
   'Eastern & Southern South America & Caribbean',
-  'Eastern United States and Southern United States',
-  'Midwestern United States & Mexico',
-  'Western North America',
-  'Hawaii, Alaska & Pacific Islands',
+  'Eastern North America & Northern South America',
+  'Central North America & Mexico',
+  'North America',
+  'Hawaiʻi, Alaska & Pacific Islands',
 ];
 
 const ROLE_OPTIONS = [
@@ -89,7 +85,7 @@ export default function JoinPage() {
     lastName: '',
     country: '',
     city: '',
-    regionalHubs: ['Japan, Korea, Taiwan & Northeast Asia (Kyoto)'],
+    regionalHubs: ['Japan, Korea, Taiwan & Northeast Asia'],
     roles: ['Working professional'],
     affiliation: '',
     newsletter: 'Yes',
@@ -394,7 +390,7 @@ export default function JoinPage() {
             <div className="space-y-2.5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#163B32]">
-                  Which regional hub(s) would you like to join? *
+                  Which regional session(s) would you like to join? *
                 </label>
                 <span className="text-[11px] text-slate-500 font-medium">Select one or more</span>
               </div>
