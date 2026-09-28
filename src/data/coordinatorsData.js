@@ -58,13 +58,13 @@ export const COORDINATORS = [
     role: 'Regional Coordinator',
     regions: [
       'UK, Ireland, Iberia & West Africa (Europe)',
-      'Eastern & Southern South America & Caribbean (Caribbean & LATAM)',
+      'Caribbean & South America',
     ],
     producers: ['Fabrizio Gramuglio', 'Dr. Edith Öller', 'Julieta Reyes'],
     img: '/akshat.png',
     description:
-      'Oversees European, West African, and Latin America / Caribbean regional coordination, fostering cross-cultural trust, D&I, and the Compassion Economy.',
-    tags: ['Europe', 'Caribbean & LATAM', 'Compassion Economy'],
+      'Oversees European, West African, and Caribbean & South America regional coordination, fostering cross-cultural trust, D&I, and the Compassion Economy.',
+    tags: ['Caribbean resilience', 'Latin American AI', 'Curacao Hub'],
   },
   {
     name: 'Niya',
