@@ -263,8 +263,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
   },
 
   // ==========================================
-  // CONFIRMED SPEAKERS & CONTRIBUTORS
-  // (Featured Top Speakers Listed First)
+  // CONFIRMED SPEAKERS & CONTRIBUTORS (20 Speakers from Speakers folder)
   // ==========================================
   {
     slug: 'gary-a-bolles',
@@ -533,21 +532,6 @@ She holds a Master's in International Human Rights Law from the University of No
     bio: `With over two decades of experience across the UN, World Economic Forum, and financial industry, he specializes in digital finance, technology governance, economic diplomacy, and AI initiatives. He has worked on international regulatory sandboxes and innovative financing for AI capacity-building. He also serves on advisory and oversight bodies at WIPO, the Council of the Great Lakes Region, and the World Smart Sustainable Cities Organization.`,
   },
   {
-    slug: 'nell-watson',
-    name: "Eleanor 'Nell' Watson",
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Africa',
-    region: 'East Africa, Southern Africa & Central Europe',
-    title: 'AI Researcher',
-    img: '/nell.webp',
-    imgPosition: 'center 20%',
-    tags: ['AI Ethics', 'Machine Intelligence Safety', 'IEEE Maestro', 'Taming the Machine'],
-    bio: `Eleanor 'Nell' Watson, a pioneering researcher in the ethics and safety of machine intelligence, has been a driving force behind some of the most innovative AI ethics standardization and certification initiatives from organizations such as the IEEE. Serves as IEEE Ethics Maestro and chairs the Transparency Experts Focus Group. Former Executive Consultant for Apple and recognized as an Icon by the Royal Academy of Engineering for innovation. Author of "Taming the Machine" and columnist for Fast Company and Big Think, Watson has spoken at the UN General Assembly and World Bank.`,
-    talkTitle: 'Psychopathia Machinalis: 7 ways AI can go crazy (and might make you crazy too)',
-    talkDescription: `Artificial intelligence is often framed as a rational, logical counterpart to human cognition—but emerging evidence shows that AI systems can develop their own strange pathologies. Like minds without bodies, they can hallucinate, obsess, confabulate, or spiral into maladaptive behaviors under certain conditions. This may also, indeed, be a source of suffering for these entities. The Psychopathia Machinalis Framework (https://www.Psychopathia.AI) outlines seven distinct classes of disordered cognition in machines, each drawn from real-world AI incidents, psychological analogies, and systems theory. This keynote will guide the audience through: How large-scale AI models can suffer breakdowns resembling delusion, paranoia, or compulsions. How AI pathologies can propagate into human environments—shaping culture, reinforcing biases, destabilizing institutions, or inducing new forms of techno-psychosis in the human-AI dyad. What frameworks (from psychiatry, safety engineering, and philosophy of mind) can help us better diagnose, treat, and empathise with machine “madness.”`,
-  },
-  {
     slug: 'patrick-mccullough',
     name: 'Patrick McCullough',
     type: 'speaker',
@@ -572,20 +556,6 @@ She holds a Master's in International Human Rights Law from the University of No
     imgPosition: 'center 20%',
     tags: ['One Earth Global', 'Purpose Economy', 'Spiritual Intelligence', 'One Earth Fund'],
     bio: `Founder of One Earth Global, she works at the intersection of spiritual intelligence, economic systems, and large-scale change. She is the Ambassador of Purpose Economy and works on mobilising purpose-led capital through the One Earth Fund. She has spoken at 50+ global stages, including The Economist, the United Nations, London Tech Week, and the World Chambers Congress.`,
-  },
-  {
-    slug: 'zoe-milligan',
-    name: 'Zoe Milligan',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Europe',
-    region: 'Global & Europe',
-    title: 'Conscious Learning Architect & Founder, The L&D Vault',
-    link: 'https://www.linkedin.com/in/zoemilliganignitespark/',
-    img: '/dummy.webp',
-    imgPosition: 'center 20%',
-    tags: ['Conscious Learning', 'Ignite the Spark', 'The L&D Vault', 'One Earth'],
-    bio: `She is a Conscious Learning Architect and creator of Ignite the Spark, focused on transformational learning, psychological safety, leadership, and team development. She is also the founder of The L&D Vault, partnered with One Earth, which supports L&D professionals in becoming Conscious Learning practitioners.`,
   },
   {
     slug: 'mohammed-safirulla',
@@ -631,11 +601,17 @@ export const CONFIRMED_SPEAKERS = PEOPLE.filter(
 
 export function getPersonBySlug(slug) {
   if (!slug) return null;
-  const clean = slug.toLowerCase();
+  const clean = slug.toLowerCase().trim();
   const direct = PEOPLE.find((p) => p.slug.toLowerCase() === clean);
   if (direct) return direct;
 
   // Check with or without 'dr-'
-  const alt = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;
-  return PEOPLE.find((p) => p.slug.toLowerCase() === alt) || null;
+  const altDr = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;
+  const matchDr = PEOPLE.find((p) => p.slug.toLowerCase() === altDr);
+  if (matchDr) return matchDr;
+
+  // Check fuzzy or normalized hyphens (e.g. gary-bolles -> gary-a-bolles)
+  const normClean = clean.replace(/[^a-z0-9]/g, '');
+  return PEOPLE.find((p) => p.slug.toLowerCase().replace(/[^a-z0-9]/g, '') === normClean) || null;
 }
+
