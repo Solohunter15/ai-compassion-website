@@ -71,6 +71,26 @@ export default async function SpeakerBioPage({ params }) {
             </div>
           </div>
 
+          {/* Talk / Keynote Presentation (if available) */}
+          {speaker.talkTitle && (
+            <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#C96F4A] uppercase tracking-wider">
+                <Sparkles className="w-4 h-4" />
+                <span>Featured Talk / Keynote</span>
+              </div>
+              <h3 className="font-editorial text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                {speaker.talkTitle}
+              </h3>
+              {speaker.talkDescription && (
+                <div className="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed pt-1">
+                  {speaker.talkDescription.split('\n\n').map((para, pIdx) => (
+                    <p key={pIdx}>{para}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Bio Body */}
           <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
             <h2 className="font-mono text-xs uppercase font-bold text-[#163B32] tracking-wider border-b border-emerald-100 pb-2 flex items-center gap-2">

@@ -177,6 +177,26 @@ export default function SpeakersListPage() {
                 </div>
               </div>
 
+              {/* Talk / Keynote Presentation (if available) */}
+              {selectedSpeaker.talkTitle && (
+                <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#C96F4A] uppercase tracking-wider">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Featured Keynote Talk</span>
+                  </div>
+                  <h4 className="font-editorial text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    {selectedSpeaker.talkTitle}
+                  </h4>
+                  {selectedSpeaker.talkDescription && (
+                    <div className="text-xs text-slate-700 space-y-1.5 leading-relaxed pt-1">
+                      {selectedSpeaker.talkDescription.split('\n\n').map((para, pIdx) => (
+                        <p key={pIdx}>{para}</p>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
                 <h4 className="font-mono text-xs uppercase font-bold text-[#163B32] tracking-wider border-b border-emerald-100 pb-1 flex items-center gap-2">
                   <UserCheck className="w-4 h-4 text-[#22C55E]" />

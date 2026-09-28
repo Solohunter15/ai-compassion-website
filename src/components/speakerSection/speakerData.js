@@ -67,7 +67,7 @@ export const speakers = [
   { 
     slug: "gary-a-bolles",
     name: "Gary A. Bolles",
-    title: "Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored The Next Rules of Work and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.",
+    title: "Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored \"The Next Rules of Work\" and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.",
     img: gary
   },
   { 
@@ -133,7 +133,7 @@ export const speakers = [
   { 
     slug: "nell-watson",
     name: "Eleanor 'Nell' Watson",
-    title: "Eleanor 'Nell' Watson, a pioneering researcher in the ethics and safety of machine intelligence, has been a driving force behind some of the most innovative AI ethics standardization and certification initiatives from organizations such as the IEEE. Serves as IEEE Ethics Maestro and chairs the Transparency Experts Focus Group. Former Executive Consultant for Apple and recognized as an Icon by the Royal Academy of Engineering for innovation. Author of Taming the Machine and columnist for Fast Company and Big Think, Watson has spoken at the UN General Assembly and World Bank.",
+    title: "Eleanor 'Nell' Watson, a pioneering researcher in the ethics and safety of machine intelligence, has been a driving force behind some of the most innovative AI ethics standardization and certification initiatives from organizations such as the IEEE. Serves as IEEE Ethics Maestro and chairs the Transparency Experts Focus Group. Former Executive Consultant for Apple and recognized as an Icon by the Royal Academy of Engineering for innovation. Author of \"Taming the Machine\" and columnist for Fast Company and Big Think, Watson has spoken at the UN General Assembly and World Bank.",
     img: nell
   },
   { 
