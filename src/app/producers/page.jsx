@@ -78,6 +78,7 @@ export default function ProducersListPage() {
                     alt={producer.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: producer.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 140px, 160px"
                   />
                 </div>
@@ -159,6 +160,7 @@ export default function ProducersListPage() {
                     alt={selectedProducer.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: selectedProducer.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 112px, 144px"
                   />
                 </div>

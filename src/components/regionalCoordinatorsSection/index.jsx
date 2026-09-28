@@ -89,6 +89,7 @@ export default function RegionalCoordinatorsSection() {
                     alt={coordinator.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: coordinator.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 170px, 200px"
                   />
                 </div>

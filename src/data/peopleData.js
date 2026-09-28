@@ -14,6 +14,7 @@ export const PEOPLE = [
     region: 'Australia, New Zealand & South Pacific',
     title: 'CEO of UtopiaX | Author & Moonshot Innovation Strategist',
     img: '/christina.jpg',
+    imgPosition: 'center 20%',
     tags: ['Moonshot Thinking', 'Purpose & Play', 'Design Thinking', 'Oceanlovers Global'],
     bio: `Christina Gerakiteys is CEO of UtopiaX, author of Celebrating Success One Failure at a Time, and Founder of IdeaSparx, an innovation platform. A sought-after international keynote speaker, facilitator, and program designer, she creates interactive experiences driven by design thinking, purpose, and play — disrupting current mindsets toward Moonshot thinking, exploring what's possible rather than what's acceptable or limited.
 
@@ -30,6 +31,7 @@ She is an ambassador for Stone & Chalk Tech Central and Oceanlovers Global, and 
     region: 'East Asia, Hawaiʻi & Pacific Islands',
     title: 'Founder, AI+Compassion, S-Cubed',
     img: '/jun.png',
+    imgPosition: 'center 20%',
     tags: ['Avatar XPRIZE', 'Planetary Co-Flourishing', 'Medical Intelligence', 'Futokoro'],
     bio: `Jun Suto stands as a visionary architect of co-flourishing futures where nature, humanity, and artificial intelligence thrive together. As a founding member of the AI+Compassion Alliance and Global Forum, he champions the transformative potential of compassionate technology that honors all forms of intelligence and life. With over 30 years of guiding Fortune 500 companies, SMEs, and startups toward breakthrough growth, Jun brings unparalleled expertise in translating holistic visions into reality.
 
@@ -46,6 +48,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     region: 'Southeast Asia',
     title: 'Youth Segment Producer | Digital Agency & Inclusion Lead',
     img: '/aditi.jpg',
+    imgPosition: 'center 20%',
     tags: ['Youth Leadership', 'Grassroots AI Literacy', 'Digital Agency', 'Southeast Asia'],
     bio: `Aditi Singh leads youth-empowered initiatives across Southeast Asia, fostering grassroots AI literacy, digital agency, and compassionate planet-centered technologies for the next generation. She connects youth leaders, students, and young technologists across ASEAN to build inclusive, future-ready communities.`,
   },
@@ -58,6 +61,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     region: 'South Asia',
     title: 'Producer — South Asia',
     img: '/deepu.png',
+    imgPosition: 'center 20%',
     tags: ['Grassroots Tech', 'Community Education', 'Youth Ecosystems', 'South Asia'],
     bio: `Deepu S Nath leads grassroots technology and community education initiatives across South Asia, connecting youth ecosystems with compassionate, planet-centered AI architectures and empowering thousands of emerging technologists.`,
   },
@@ -70,6 +74,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC',
     img: '/walied.jpg',
+    imgPosition: 'center 18%',
     tags: ['Edge AI', 'Autonomous Systems', 'Impactful Innovator', 'Sustainable CEO'],
     bio: `Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC, whose edge AI platform runs across more than one hundred enterprise deployments in the GCC.
 
@@ -86,6 +91,7 @@ Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sust
     region: 'East Africa, Southern Africa & Central Europe',
     title: 'Producer — Africa',
     img: '/lee.jpg',
+    imgPosition: 'center 20%',
     tags: ['Public Health AI', 'African NLP', 'Decentralized Diagnostics', 'Regional Support: Brainy'],
     bio: `Dr. Lee Kironget champions public health innovation, deploying localized diagnostic AI models and planetary governance frameworks across East/Southern Africa and Central Europe (with Brainy providing regional support), bridging grassroots healthcare with ethical artificial intelligence.`,
   },
@@ -98,6 +104,7 @@ Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sust
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'AI Strategy Advisor | ITU AI for Good Steering Committee',
     img: '/fabrizio.jpg',
+    imgPosition: 'center 20%',
     tags: ['Compassion Economy', 'ITU AI for Good', 'Data Sovereignty', 'Applied AI'],
     bio: `Fabrizio Gramuglio has spent twenty years where AI meets human behaviour, and the last three formalising the Compassion Economy, a framework in which contribution is the dominant strategy rather than a sacrifice. It emerged from a 2024 project for Kogenji, a Shingon Buddhist temple, that stalled for lack of a way to turn community care into economic return. Drawing on Mauss, Schumacher, and Ostrom, its first book volume is written.
 
@@ -113,6 +120,7 @@ His evidence base is a published 2018 pilot in three Italian and Swiss schools: 
     title: 'Founder and Strategy Consultant at IDEAZ Business Innovation',
     link: 'https://www.ideaz.at/',
     img: '/edith-oller.jpg',
+    imgPosition: 'center 18%',
     tags: ['Co-Creation', 'Design Thinking', 'Sustainable Innovation', 'Theory U', '@edith.ideaz'],
     bio: `Dr. Edith Öller is an innovation consultant, facilitator, and founder of IDEAZ Business Innovation, based in Upper Austria. For over five years, she has guided organizations, founders, and regions through co-creation and design thinking, turning complex challenges into practical, implementable solutions.
 
@@ -132,6 +140,7 @@ Instagram: @edith.ideaz`,
     region: 'Eastern & Southern South America, Caribbean',
     title: 'Strategic Advisor | Diversity & Inclusion Lead | Global Operations',
     img: '/julieta.jpg',
+    imgPosition: 'center 12%',
     tags: ['Caribbean resilience', 'Latin American AI', 'Curacao Hub', 'Diversity & Inclusion'],
     bio: `Julieta Reyes is a strategic advisor, organizational consultant, and founder of The Reyes Group, specializing in diplomatic operations, public diplomacy, and strategic communications. Based in Curaçao, she advises regional bodies, leads strategic workshops, and advocates for Caribbean representation in global AI and tech policy forums.
 
@@ -148,6 +157,7 @@ Anticipating AI's impact on public engagement, she completed executive AI strate
     region: 'East Africa, Southern Africa & Central Europe',
     title: 'Spectrum XLabs Alliance',
     img: '/brainy-swaibu.jpg',
+    imgPosition: 'center 20%',
     tags: ['Spectrum XLabs Alliance', 'Grassroots AI', 'Self-Directed Learning', 'Uganda'],
     bio: `Brainy Swaibu is the founder of Spectrum XLabs Alliance (SXLA), an education system built in Hoima, Uganda, around a simple question: how many young people are we underestimating, simply because no one has ever shown them what is possible?
 
@@ -164,6 +174,7 @@ In 2020 he registered SXLA and opened Spectrum Secondary School in a church. The
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Founder & Managing Partner Imagine Global | North America Lead',
     img: '/ani.jpg',
+    imgPosition: 'center 20%',
     tags: ['Deep Tech', 'Beneficial AGI', 'Sovereign AI', 'Regenerative Systems'],
     bio: `Ani Chahal Honan is the Founder and Managing Partner of IMAGINE, a global deep tech and emerging science ecosystem uniting capital, venture studios, frontier labs, and innovation hubs to advance intelligence, biological, and planetary systems.
 
@@ -186,6 +197,7 @@ Ani has been honored by the U.S. Congress and United Nations, named a UNGA 100 D
     region: 'UK, Ireland, Iberia & West Africa | Eastern North America, Caribbean & Northern South America',
     title: 'Regional Coordinator — UK, Ireland, Iberia & West Africa | Eastern North America, Caribbean & Northern South America',
     img: '/coordinators/adithya-baiju.jpeg',
+    imgPosition: 'center 20%',
     tags: ['Regional Coordinator', 'UK & Europe', 'West Africa', 'Caribbean', 'Global Relay'],
     bio: `Adithya Baiju is Regional Coordinator overseeing UK, Ireland, Iberia & West Africa, as well as Eastern North America, Caribbean & Northern South America for the AI + Compassion Global Forum 2026.
 
@@ -200,6 +212,7 @@ Adithya works closely with regional producers, grassroots conveners, and youth l
     region: 'Middle East, Caucasus & Central Asia | Western North America',
     title: 'Regional Coordinator — Middle East, Caucasus & Central Asia | Western North America',
     img: '/coordinators/ann-rose-mathew.png',
+    imgPosition: 'center 20%',
     tags: ['Regional Coordinator', 'Middle East', 'GCC', 'Central Asia', 'Western North America'],
     bio: `Ann Rose Mathew is Regional Coordinator for Middle East, Caucasus & Central Asia, and Western North America for the AI + Compassion Global Forum 2026.
 
@@ -214,6 +227,7 @@ She coordinates regional synchronization, panel curation, and community ambassad
     region: 'Australia, New Zealand, South Pacific & Southeast Asia',
     title: 'Regional Coordinator — Australia, New Zealand, South Pacific & Southeast Asia',
     img: '/coordinators/jeniffer-jerald.jpg',
+    imgPosition: 'center 20%',
     tags: ['Regional Coordinator', 'Oceania', 'Australia & NZ', 'Southeast Asia', 'Youth Segment'],
     bio: `Jeniffer Jerald JN is Regional Coordinator of Australia, New Zealand, South Pacific and Southeast Asia for the AI + Compassion Global Forum 2026.
 
@@ -228,6 +242,7 @@ Jeniffer champions regional alignment between indigenous knowledge holders, yout
     region: 'South Asia | Japan, Korea, Taiwan & Northeast Asia',
     title: 'Regional Coordinator — South Asia & Northeast Asia',
     img: '/coordinators/kavya.jpg',
+    imgPosition: 'center 20%',
     tags: ['Regional Coordinator', 'South Asia', 'East Asia', 'Northeast Asia', 'Global Relay'],
     bio: `Kavya is Regional Coordinator for South Asia and Japan, Korea, Taiwan & Northeast Asia for the AI + Compassion Global Forum 2026.
 
@@ -246,6 +261,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Co-founder at alongside | Building the AI capability layer for mission-driven organisations',
     img: '/speakers/neil-nassar.png',
+    imgPosition: 'center 20%',
     tags: ['Mission-Driven AI', 'Social Impact', 'Entrepreneurship', 'Vienna'],
     bio: `Neil Nassar, 24, is an Austrian-Egyptian entrepreneur, born and raised in Vienna. He is completing his business degree at the Vienna University of Business and Economics (WU), where he has been part of one of Europe's leading entrepreneurship programs.
 
@@ -264,6 +280,7 @@ Today, he puts that conviction into practice by using entrepreneurship and AI to
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'AI Domestic Robotics Researcher | Bringing the conversations of tomorrow to the table today',
     img: '/speakers/emily-kate-genatowski.jpg',
+    imgPosition: 'center 15%',
     tags: ['Humanoid Robotics', 'Domestic AI', 'PSL Founder', 'Harvard & Columbia Alumna'],
     bio: `Emily Kate Genatowski is an immersive AI researcher and historian who gained global recognition for living full-time with a humanoid robot in Vienna. Her work explores what happens when advanced technology moves out of the lab and into the most personal space of all: the home.
 
@@ -282,6 +299,7 @@ Today, she is the founder of PSL, an insurtech startup focused on standardizing 
     region: 'Eastern & Southern South America, Caribbean',
     title: 'e-Government Steering Committee Chair | Digital Transformation Leader',
     img: '/speakers/jeremy-erasmus.jpeg',
+    imgPosition: 'center 15%',
     tags: ['Digital Government', 'Public Sector Modernization', 'SIDS', 'Responsible AI'],
     bio: `Jeremy Erasmus is a public-sector professional from Aruba with a background in finance, marketing, and strategy, working at the intersection of digital government, innovation, and public-sector modernization. He chairs Aruba's e-Government Steering Committee for Digitization, Innovation and Automation (SDIA) and is closely involved in advancing the Government of Aruba's wider digital transformation agenda.
 
@@ -300,6 +318,7 @@ He is especially interested in the realities of Small Island Developing States a
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Social FinTech & AI Ethics Researcher | Plastic Bank',
     img: '/speakers/julie-hellmann.png',
+    imgPosition: 'center 20%',
     tags: ['AI Ethics & Law', 'Human-AI Collaboration', 'Plastic Bank', 'Participation in AI'],
     bio: `Julie Hellmann has a background in business law and has lived and worked across Europe and the Middle East. Her path has taken her from banking to work that feels deeply personal to her: sustainability, AI ethics and law. These are the fields in which she wants to make her contribution, bringing together her professional experience and her concern for people and the environment.
 
@@ -318,6 +337,7 @@ Having lived and worked between different places and professional worlds, Julie 
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Lawyer | Adj. Prof. Innov. | AI & Legal Tech | Mindfulness',
     img: '/speakers/valerie-saintot.png',
+    imgPosition: 'center 18%',
     tags: ['LegalTech & AI', 'Mindfulness', 'Organizational Performance', 'Life-Centric Pathways'],
     bio: `Dr. Valérie M. Saintot, LL.M., is a lawyer, adjunct professor in innovation and a mindfulness teacher.
 
@@ -336,6 +356,7 @@ Her teaching covers Organisational Performance, Leadership, Legal Technology, Ar
     region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Founding Director, Cross Labs & President, International Society for Artificial Life',
     img: '/speakers/olaf-witkowski.avif',
+    imgPosition: 'center 20%',
     tags: ['Artificial Life', 'Cross Labs Kyoto', 'Consciousness', 'Diverse Intelligences'],
     bio: `Dr. Olaf Witkowski is a pioneering leader exploring artificial minds and compassionate AI technology. Founding Director of Cross Labs AI research institute in Kyoto and President of the International Society for Artificial Life, he serves as Board Director at Cross Compass AI. With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski has co-founded research ventures across three continents including YHouse Inc. in New York and centers in Kathmandu and Kyoto, focusing on diverse intelligences and consciousness.`,
   },
@@ -348,6 +369,7 @@ Her teaching covers Organisational Performance, Leadership, Legal Technology, Ar
     region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Professor, Kansai University & Neuroaesthetics Researcher',
     img: '/speakers/tomohiro-ishizu.png',
+    imgPosition: 'center 20%',
     tags: ['Neuroaesthetics', 'Brain Theory of Beauty', 'Cognitive Neuroscience', 'Sad Beauty'],
     bio: `Tomohiro Ishizu is Professor of Psychology in the Dep. Psychology at Kansai University, Japan, and Visiting Professor at the Hiroshima University. He works in neuroaesthetics. After research positions at University College London and at the University of Vienna, he joined Kansai University in 2020. His research uses psychological experiments and brain imaging to study sad beauty, mixed emotions, the sublime and awe, aesthetic afterglow, silence, and the links between aesthetic experience and moral and prosocial behaviour.`,
   },
@@ -360,6 +382,7 @@ Her teaching covers Organisational Performance, Leadership, Legal Technology, Ar
     region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Consultant, Researcher, Author, Educator & Professional Artist',
     img: '/speakers/junko-hosomi.png',
+    imgPosition: 'center 15%',
     tags: ['SDQ Cube', 'Quality Management', 'Urasenke Tea Ceremony', 'Sumi-e & Ma'],
     bio: `Junko Hosomi is a consultant, researcher, author, educator, and professional artist whose work bridges quality management, value creation, artificial intelligence, human sensibility, and Japanese cultural philosophy.
 
@@ -382,6 +405,7 @@ Her cultural practice is not separate from her research, but forms an essential 
     region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Researcher, ZERO INSTITUTE & PhD Researcher, Carnegie Mellon University',
     img: '/dummy.webp',
+    imgPosition: 'center 20%',
     tags: ['ZERO INSTITUTE', 'Carnegie Mellon University', 'Neuroscience', 'Deep-Tech'],
     bio: `Hiroo Miyata is a researcher at ZERO INSTITUTE whose work connects neuroscience, entrepreneurship, and deep-tech investment. Born in 1999, he began neuroscience research while studying at the University of Tokyo, where he also co-founded a startup and served as its Chief Technology Officer. His experience spans both the development of emerging technologies and the practical challenges of bringing them into industry.
 
@@ -402,6 +426,7 @@ At ZERO INSTITUTE, he brings these experiences together around a central interes
     region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Founder, Althea Project & Originator of Absolute Reductionism',
     img: '/speakers/christopher-currell.png',
+    imgPosition: 'center 18%',
     tags: ['Althea Project', 'Absolute Reductionism', 'Sound Research', 'Complex Systems'],
     bio: `Christopher Currell is the founder of the Althea Project and the originator of Absolute Reductionism.
 
@@ -420,6 +445,7 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
     region: 'Australia, New Zealand & South Pacific',
     title: 'PhD Candidate at The Australian National University School of Cybernetics and XPRIZE Carbon Removal award winner',
     img: '/speakers/joshua-castle.png',
+    imgPosition: 'center 20%',
     tags: ['ANU Cybernetics', 'Net Abundance', 'XPRIZE Carbon Removal', 'Science Fiction'],
     bio: `Joshua Castle is a PhD student at the Australian National University's School of Cybernetics, where his research is developing a system for reimagining societies in the age of intelligence. His work centres on his concept of net abundance, exploring what it is, what it means, and how it can be envisioned and co-created at a civilisational level.
 
@@ -436,6 +462,7 @@ He writes ocean-based science-fiction as he believes its the best ways to see be
     region: 'South Asia',
     title: 'Executive Director, NAAMII | Human Rights Lawyer & AI Governance Lead',
     img: '/speakers/sandhya-sitoula.jpg',
+    imgPosition: 'center 18%',
     tags: ['NAAMII', 'AI Governance', 'Human Rights Law', 'South Asia AI Policy'],
     bio: `Sandhya Basini Sitoula is the Executive Director of NAAMII (Nepal Applied Mathematics and Informatics Institute for research), a non-profit Multidisciplinary AI Center of Excellence in Nepal. She is a lawyer and development professional with more than 15 years of experience leading programmes across South Asia.
 
@@ -454,6 +481,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Pacific Rim & Japan',
     title: 'Financial Services Technology & Risk Management Specialist',
     img: '/speakers/carl-sunberg.jpeg',
+    imgPosition: 'center 20%',
     tags: ['Financial Tech', 'Risk Management', 'Disaster Recovery', 'Edge Computing'],
     bio: `With 45+ years of experience in financial services-related technology, he specializes in the Pacific Rim, particularly Japan. His expertise spans disaster recovery and business continuity, risk management, cloud computing, cluster and grid computing, smart grids, and edge computing. He has also worked across education, rural community development, nonprofit ventures, and volunteer initiatives.`,
   },
@@ -466,6 +494,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Global Forum Speaker & Contributor',
     img: '/speakers/mitch-hammer.jpeg',
+    imgPosition: 'center 20%',
     tags: ['Compassionate Systems', 'Ethical Tech', 'Planetary Co-Flourishing'],
     bio: `Mitch Hammer contributes to the AI + Compassion Global Forum 2026, exploring compassionate systems, ethical technology, and interdisciplinary collaboration for planetary co-flourishing.`,
   },
@@ -478,6 +507,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Global Technology Governance & Economic Diplomacy',
     title: 'Technology Executive & Policy Strategist',
     img: '/speakers/danil-kerimi.jpeg',
+    imgPosition: 'center 20%',
     tags: ['Tech Governance', 'Economic Diplomacy', 'AI Capacity-Building', 'UN & WEF'],
     bio: `With over two decades of experience across the UN, World Economic Forum, and financial industry, he specializes in digital finance, technology governance, economic diplomacy, and AI initiatives. He has worked on international regulatory sandboxes and innovative financing for AI capacity-building. He also serves on advisory and oversight bodies at WIPO, the Council of the Great Lakes Region, and the World Smart Sustainable Cities Organization.`,
   },
@@ -490,6 +520,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'East Africa, Southern Africa & Central Europe',
     title: 'Co-Founder, SoCap Global & Partner, Charrette LLC',
     img: '/speakers/gary-bolles.jpg',
+    imgPosition: 'center 18%',
     tags: ['Future of Work', 'SoCap Global', 'Singularity University', 'The Next Rules of Work'],
     bio: `Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored The Next Rules of Work and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.`,
     talkTitle: '',
@@ -504,6 +535,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'East Africa, Southern Africa & Central Europe',
     title: 'AI Researcher',
     img: '/nell.webp',
+    imgPosition: 'center 20%',
     tags: ['AI Ethics', 'Machine Intelligence Safety', 'IEEE Maestro', 'Taming the Machine'],
     bio: `Eleanor 'Nell' Watson, a pioneering researcher in the ethics and safety of machine intelligence, has been a driving force behind some of the most innovative AI ethics standardization and certification initiatives from organizations such as the IEEE. Serves as IEEE Ethics Maestro and chairs the Transparency Experts Focus Group. Former Executive Consultant for Apple and recognized as an Icon by the Royal Academy of Engineering for innovation. Author of "Taming the Machine" and columnist for Fast Company and Big Think, Watson has spoken at the UN General Assembly and World Bank.`,
     talkTitle: 'Psychopathia Machinalis: 7 ways AI can go crazy (and might make you crazy too)',
@@ -518,6 +550,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Founder, Audacity AI, We The Planet & X Impact Group',
     img: '/speakers/kunal-sood.jpg',
+    imgPosition: 'center 18%',
     tags: ['Audacity AI', 'Chopra Foundation', 'Stanford CCARE', 'TED Resident'],
     bio: `Kunal Sood is founder of Audacity AI, We The Planet, and X Impact Group, serving as Chief Impact Officer at the Chopra Foundation and Director of Social Impact at Stanford University's CCARE. A TED Resident and Tribeca Fellow, he holds an MBA from Kellogg, masters from UCSF and UPenn in positive psychology, and is completing his doctorate at ISB focused on developing the theory of audacity.`,
   },
@@ -530,6 +563,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Exponential Tech Pitch Coach & Presentation Strategist',
     img: '/speakers/patrick-mccullough.jpg',
+    imgPosition: 'center 18%',
     tags: ['Pitch Strategy', 'Exponential Tech', 'Founder Institute', 'GENIA'],
     bio: `Patrick McCullough is an Exponential Tech Pitch Coach and Presentation Strategist, helping startups raise funding globally. As Founding Producer of Seán Óg Productions for 24+ years, he produced four award-winning indie films and served as actor coach on "Atomic Blonde" and "Houdini." An angel investor, startup mentor at Founder Institute, and founding advisor to GENIA Latinoamérica, McCullough specializes in pitch strategy, messaging, and sprint facilitation for entrepreneurs addressing global challenges, helping exponential entrepreneurs define their strategic trajectory globally.`,
   },
@@ -542,6 +576,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Founder & Director, World Design Organization | Olympian & Urban Innovation Specialist',
     img: '/speakers/marques-anderson.jpg',
+    imgPosition: 'center 20%',
     tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
     bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
   },
@@ -554,6 +589,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Global & Europe',
     title: 'Founder, One Earth Global & Ambassador of Purpose',
     img: '/speakers/linzi-boyd.png',
+    imgPosition: 'center 20%',
     tags: ['One Earth Global', 'Purpose Economy', 'Spiritual Intelligence', 'One Earth Fund'],
     bio: `Founder of One Earth Global, she works at the intersection of spiritual intelligence, economic systems, and large-scale change. She is the Ambassador of Purpose Economy and works on mobilising purpose-led capital through the One Earth Fund. She has spoken at 50+ global stages, including The Economist, the United Nations, London Tech Week, and the World Chambers Congress.`,
   },
@@ -567,6 +603,7 @@ She holds a Master's in International Human Rights Law from the University of No
     title: 'Conscious Learning Architect & Founder, The L&D Vault',
     link: 'https://www.linkedin.com/in/zoemilliganignitespark/',
     img: '/dummy.webp',
+    imgPosition: 'center 20%',
     tags: ['Conscious Learning', 'Ignite the Spark', 'The L&D Vault', 'One Earth'],
     bio: `She is a Conscious Learning Architect and creator of Ignite the Spark, focused on transformational learning, psychological safety, leadership, and team development. She is also the founder of The L&D Vault, partnered with One Earth, which supports L&D professionals in becoming Conscious Learning practitioners.`,
   },
@@ -580,6 +617,7 @@ She holds a Master's in International Human Rights Law from the University of No
     title: 'Director, Ministry of Electronics and Information Technology (MeitY), Government of India',
     link: 'https://www.linkedin.com/in/mohammed-y-safirulla-k-7b531346/',
     img: '/speakers/mohammed-safirulla.jpeg',
+    imgPosition: 'center 18%',
     tags: ['MeitY', 'Government of India', 'IAS', 'Digital Governance'],
     bio: `Mohammed Y. Safirulla.K is a 2010-batch Indian Administrative Service officer of the Kerala cadre and currently serves as Director at the Ministry of Electronics and Information Technology, New Delhi. He holds an MBA in Finance, a B.E. from PSG College of Technology, and a PPM from Carnegie Mellon University. His previous roles include District Collector and Magistrate, Managing Director, and Special Secretary to the Government. He has received the State Award for Best District Collector (2017–18) and the P Keshavadev Special Award (2019).`,
   },
@@ -592,6 +630,7 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'South Asia & Global',
     title: 'Co-Founder, Citizen Digital Foundation & Tech/AI Governance Strategist',
     img: '/speakers/nidhi-sudhan.jpg',
+    imgPosition: 'center 18%',
     tags: ['Citizen Digital Foundation', 'AI Governance', 'Child Safety', '100 Brilliant Women in AI'],
     bio: `Nidhi Sudhan is a media and technology strategist with 25+ years of experience across advertising, television, radio, digital, and football in India, the UAE, and the UK. She is Co-Founder of Citizen Digital Foundation and advises public and private stakeholders on AI and data governance, media and information literacy, online child safety, and inclusive technology design. She was recognised among the 100 Brilliant Women in AI Ethics™ 2024.`,
   },

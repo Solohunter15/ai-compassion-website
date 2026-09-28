@@ -85,6 +85,7 @@ export default function SpeakerSection() {
                     alt={speaker.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: speaker.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 120px"
                   />
                 </div>
@@ -173,6 +174,7 @@ export default function SpeakerSection() {
                     alt={selectedSpeaker.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: selectedSpeaker.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 112px, 144px"
                   />
                 </div>

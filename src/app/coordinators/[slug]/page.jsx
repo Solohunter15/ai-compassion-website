@@ -71,6 +71,7 @@ export default async function CoordinatorDetailPage({ params }) {
                 fill
                 priority
                 className="object-cover"
+                style={{ objectPosition: coordinator.imgPosition || 'center 20%' }}
                 sizes="(max-width: 640px) 144px, 176px"
               />
             </div>
