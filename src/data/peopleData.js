@@ -1,5 +1,5 @@
 // Central Unified People Registry for AI + Compassion Global Forum 2026
-// Single source of truth for Producers, Co-Producers, and Confirmed Speakers
+// Single source of truth for Producers, Co-Producers, Regional Coordinators, and Confirmed Speakers
 
 export const PEOPLE = [
   // ==========================================
@@ -28,12 +28,10 @@ She is an ambassador for Stone & Chalk Tech Central and Oceanlovers Global, and 
     role: 'Producer',
     segment: 'East Asia & Pacific Islands',
     region: 'East Asia, Hawaiʻi & Pacific Islands',
-    title: 'Founder, AI+Compassion, S-Cubed | Producer (East Asia & Pacific Islands)',
+    title: 'Founder, AI+Compassion, S-Cubed',
     img: '/jun.png',
     tags: ['Avatar XPRIZE', 'Planetary Co-Flourishing', 'Medical Intelligence', 'Futokoro'],
-    bio: `Catalyzing Compassionate Innovation for Planetary Co-Flourishing.
-
-Jun Suto stands as a visionary architect of co-flourishing futures where nature, humanity, and artificial intelligence thrive together. As a founding member of the AI+Compassion Alliance and Global Forum, he champions the transformative potential of compassionate technology that honors all forms of intelligence and life. With over 30 years of guiding Fortune 500 companies, SMEs, and startups toward breakthrough growth, Jun brings unparalleled expertise in translating holistic visions into reality.
+    bio: `Jun Suto stands as a visionary architect of co-flourishing futures where nature, humanity, and artificial intelligence thrive together. As a founding member of the AI+Compassion Alliance and Global Forum, he champions the transformative potential of compassionate technology that honors all forms of intelligence and life. With over 30 years of guiding Fortune 500 companies, SMEs, and startups toward breakthrough growth, Jun brings unparalleled expertise in translating holistic visions into reality.
 
 A 2016 XPRIZE Visioneer and winner of Singularity University's 2018 Global Impact Challenge, Jun produced the groundbreaking $10 million Avatar XPRIZE, catalyzing the telepresence industry that the World Economic Forum recognized as a Top 10 Emerging Technology of 2019. His work demonstrates how compassionate innovation can eliminate the waste of talents while listening to the cry of the voiceless—his personal Massively Transformative Purpose that extends beyond humanity to all sentient beings.
 
@@ -95,7 +93,7 @@ Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sust
     slug: 'fabrizio-gramuglio',
     name: 'Fabrizio Gramuglio',
     type: 'producer',
-    role: 'Producer',
+    role: 'Producer (UK, Ireland, Iberia & West Africa)',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'AI Strategy Advisor | ITU AI for Good Steering Committee',
@@ -103,46 +101,43 @@ Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sust
     tags: ['Compassion Economy', 'ITU AI for Good', 'Data Sovereignty', 'Applied AI'],
     bio: `Fabrizio Gramuglio has spent twenty years where AI meets human behaviour, and the last three formalising the Compassion Economy, a framework in which contribution is the dominant strategy rather than a sacrifice. It emerged from a 2024 project for Kogenji, a Shingon Buddhist temple, that stalled for lack of a way to turn community care into economic return. Drawing on Mauss, Schumacher, and Ostrom, its first book volume is written.
 
-His evidence base is a published 2018 pilot in three Italian and Swiss schools: children cared for an interactive character designed to need help, studied harder to teach it, and improved academically. He serves on the Steering Committee of the ITU AI for Good Impact Initiative, coordinating AI capacity-building frameworks across 40+ organisations, including AWS, Microsoft, and Cognizant.
-
-A former European Commission Expert Evaluator, he assessed 100+ projects, allocated over €100 million, and contributed to W3C and IEEE standards. He advises BK, a Rwandan financial institution, on credit assessment for 3.3 million farmers, and convened a 2024 UN roundtable on data sovereignty and poverty. He has given 100+ keynotes, including TEDxLugano and the European Central Bank, and trained 500+ executives and ministers in applied AI.`,
+His evidence base is a published 2018 pilot in three Italian and Swiss schools: children cared for an interactive character designed to need help, studied harder to teach it, and improved academically. He serves on the Steering Committee of the ITU AI for Good Impact Initiative, coordinating AI capacity-building frameworks across 40+ organisations, including AWS, Microsoft, and Cognizant. A former European Commission Expert Evaluator, he assessed 100+ projects, allocated over €100 million, and contributed to W3C and IEEE standards. He advises BK, a Rwandan financial institution, on credit assessment for 3.3 million farmers, and convened a 2024 UN roundtable on data sovereignty and poverty. He has given 100+ keynotes, including TEDxLugano and the European Central Bank, and trained 500+ executives and ministers in applied AI.`,
   },
   {
     slug: 'edith-oller',
     name: 'Dr. Edith Öller',
     type: 'co-producer',
-    role: 'Co-Producer',
+    role: 'Co-Producer (UK, Ireland, Iberia & West Africa)',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Founder and Strategy Consultant at IDEAZ Business Innovation',
     link: 'https://www.ideaz.at/',
     img: '/edith-oller.jpg',
-    tags: ['Co-Creation', 'Design Thinking', 'Sustainable Innovation', 'Theory U'],
+    tags: ['Co-Creation', 'Design Thinking', 'Sustainable Innovation', 'Theory U', '@edith.ideaz'],
     bio: `Dr. Edith Öller is an innovation consultant, facilitator, and founder of IDEAZ Business Innovation, based in Upper Austria. For over five years, she has guided organizations, founders, and regions through co-creation and design thinking, turning complex challenges into practical, implementable solutions.
 
 Her work sits at the intersection of innovation and impact. Alongside consulting for established companies and start-ups, she supports mission-driven ventures, including a UK non-profit providing comfort items to families in neonatal intensive care units. She believes compassion and kindness are not soft add-ons, but powerful drivers of sustainable innovation and organizational change.
 
 Her focus spans sustainability, circular economy, societal transformation, and the future of organizations and regions. She holds a doctorate in social and economic sciences (Johannes Kepler University Linz), plus degrees in international economics and fine arts education. She lectures at JKU Linz and FH Oberösterreich, and mentors founders through tech2b and youth entrepreneurship programs.
 
-A certified Professional Scrum Master, she has trained in Theory U, circular economy, and sustainable business models (Copenhagen Business School, TU Delft, Ellen MacArthur Foundation, UNDP).`,
+A certified Professional Scrum Master, she has trained in Theory U, circular economy, and sustainable business models (Copenhagen Business School, TU Delft, Ellen MacArthur Foundation, UNDP).
+Instagram: @edith.ideaz`,
   },
   {
     slug: 'julieta-reyes',
     name: 'Julieta Reyes',
     type: 'producer',
-    role: 'Regional Producer - Caribbean & South America',
+    role: 'Producer (Eastern & Southern South America, Caribbean)',
     segment: 'Caribbean & LATAM',
-    region: 'Caribbean & South America',
+    region: 'Eastern & Southern South America, Caribbean',
     title: 'Strategic Advisor | Diversity & Inclusion Lead | Global Operations',
     img: '/julieta.jpg',
-    tags: ['Caribbean resilience', 'Latin American AI', 'Curacao Hub'],
-    bio: `Julieta intentionally amplifies voices across South America and the Caribbean to connect high-level policy with localized impact.
-
-Julieta Reyes is a strategic advisor, organizational consultant, and founder of The Reyes Group, specializing in diplomatic operations, public diplomacy, and strategic communications. Based in Curaçao, she advises regional bodies, leads strategic workshops, and advocates for Caribbean representation in global AI and tech policy forums.
+    tags: ['Caribbean resilience', 'Latin American AI', 'Curacao Hub', 'Diversity & Inclusion'],
+    bio: `Julieta Reyes is a strategic advisor, organizational consultant, and founder of The Reyes Group, specializing in diplomatic operations, public diplomacy, and strategic communications. Based in Curaçao, she advises regional bodies, leads strategic workshops, and advocates for Caribbean representation in global AI and tech policy forums.
 
 Over 19 years with the Kingdom of the Netherlands, she served as Chief Support Officer for the Netherlands Defense Department in Washington, D.C., working alongside defense attachés, military leadership, and foreign ministries. In 2009, she pioneered the Netherlands Consulate's digital diplomacy strategy in Miami, becoming the first in the mission network in the U.S. to livestream a government workshop and launch dedicated digital channels. She also founded and chaired the Embassy's first Diversity & Inclusion Council, authoring the network's pioneering D&I strategy and policy protocol.
 
-Anticipating AI's impact on public engagement, she completed executive AI strategy training at MIT Sloan in 2024. She now focuses on AI ethics, Answer Engine Optimization, AI leadership, and digital governance. Fluent in English, Dutch, Spanish, and Papiamento, she builds cross-cultural trust through adaptive communication, grounded leadership, and planet-centered ethics.`,
+Anticipating AI's impact on public engagement, she completed executive AI strategy training at MIT Sloan in 2024. She now focuses on AI ethics, Answer Engine Optimization, AI leadership, and digital governance. Fluent in English, Dutch, Spanish, and Papiamento, she builds cross-cultural trust through adaptive communication, grounded leadership, and human-centered ethics.`,
   },
   {
     slug: 'brainy-swaibu',
@@ -240,7 +235,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
   },
 
   // ==========================================
-  // CONFIRMED SPEAKERS
+  // CONFIRMED SPEAKERS & CONTRIBUTORS
   // ==========================================
   {
     slug: 'neil-nassar',
@@ -268,7 +263,7 @@ Today, he puts that conviction into practice by using entrepreneurship and AI to
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'AI Domestic Robotics Researcher | Bringing the conversations of tomorrow to the table today',
-    img: '/speakers/emily-kate-genatowski.png',
+    img: '/speakers/emily-kate-genatowski.jpg',
     tags: ['Humanoid Robotics', 'Domestic AI', 'PSL Founder', 'Harvard & Columbia Alumna'],
     bio: `Emily Kate Genatowski is an immersive AI researcher and historian who gained global recognition for living full-time with a humanoid robot in Vienna. Her work explores what happens when advanced technology moves out of the lab and into the most personal space of all: the home.
 
@@ -277,6 +272,24 @@ A Harvard and Columbia alumna, she is a PhD candidate at the University of Vienn
 Her career spans culture and technology. She previously served as North American coordinator for Google Arts & Culture.
 
 Today, she is the founder of PSL, an insurtech startup focused on standardizing risk for autonomous machinery. As robots and autonomous systems enter homes, workplaces, and public spaces, PSL addresses a critical question: how do we measure and insure the risks they introduce? Her research and entrepreneurship share one mission: building the trust and structures society needs to live safely alongside autonomous technology.`,
+  },
+  {
+    slug: 'jeremy-erasmus',
+    name: 'Jeremy Erasmus',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Caribbean & LATAM',
+    region: 'Eastern & Southern South America, Caribbean',
+    title: 'e-Government Steering Committee Chair | Digital Transformation Leader',
+    img: '/speakers/jeremy-erasmus.jpeg',
+    tags: ['Digital Government', 'Public Sector Modernization', 'SIDS', 'Responsible AI'],
+    bio: `Jeremy Erasmus is a public-sector professional from Aruba with a background in finance, marketing, and strategy, working at the intersection of digital government, innovation, and public-sector modernization. He chairs Aruba's e-Government Steering Committee for Digitization, Innovation and Automation (SDIA) and is closely involved in advancing the Government of Aruba's wider digital transformation agenda.
+
+His focus is translating strategy into implementation: turning ambitions into practical roadmaps, programmes, and coordinated initiatives delivered across government. His work spans interoperability, digital identity and trust, data, cybersecurity, shared digital infrastructure, and the responsible adoption of emerging technologies such as artificial intelligence.
+
+Combining a strategic outlook with a pragmatic, citizen-centered approach, Jeremy sees communication, collaboration, and consensus-building as essential to transformation. He builds bridges between technical specialists, decision-makers, and the communities affected by digital change, creating the conditions to implement strategies sustainably.
+
+He is especially interested in the realities of Small Island Developing States and small jurisdictions, balancing limited resources and institutional capacity with ambitious digital transformation, responsible AI adoption, and digital resilience. His work increasingly involves regional and international cooperation on these challenges.`,
   },
   {
     slug: 'julie-hellmann',
@@ -295,24 +308,6 @@ Julie works at Plastic Bank, a social FinTech, and is also developing an initiat
 She has previously co-authored a paper on human–AI collaboration and is now working on a related paper about human participation in AI evaluation. Her current work explores how different perspectives can shape AI, including concerns that do not fit the majority view. She is still working through what meaningful participation requires, and how to ensure that asking people for their input gives them a real opportunity to influence decisions.
 
 Having lived and worked between different places and professional worlds, Julie values the opportunity to listen across differences and question her own assumptions. She joins the AI Compassion Global Forum to share what she is learning, hear what others see differently, and explore how care for people and the living world can guide the everyday choices we make about technology.`,
-  },
-  {
-    slug: 'jeremy-erasmus',
-    name: 'Jeremy Erasmus',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Caribbean & LATAM',
-    region: 'Eastern & Southern South America & Caribbean',
-    title: 'e-Government Steering Committee Chair | Digital Transformation Leader',
-    img: '/speakers/jeremy-erasmus.jpeg',
-    tags: ['Digital Government', 'Public Sector Modernization', 'SIDS', 'Responsible AI'],
-    bio: `Jeremy Erasmus is a public-sector professional from Aruba with a background in finance, marketing, and strategy, working at the intersection of digital government, innovation, and public-sector modernization. He chairs Aruba's e-Government Steering Committee for Digitization, Innovation and Automation (SDIA) and is closely involved in advancing the Government of Aruba's wider digital transformation agenda.
-
-His focus is translating strategy into implementation: turning ambitions into practical roadmaps, programmes, and coordinated initiatives delivered across government. His work spans interoperability, digital identity and trust, data, cybersecurity, shared digital infrastructure, and the responsible adoption of emerging technologies such as artificial intelligence.
-
-Combining a strategic outlook with a pragmatic, citizen-centered approach, Jeremy sees communication, collaboration, and consensus-building as essential to transformation. He builds bridges between technical specialists, decision-makers, and the communities affected by digital change, creating the conditions to implement strategies sustainably.
-
-He is especially interested in the realities of Small Island Developing States and small jurisdictions, balancing limited resources and institutional capacity with ambitious digital transformation, responsible AI adoption, and digital resilience. His work increasingly involves regional and international cooperation on these challenges.`,
   },
   {
     slug: 'valerie-m-saintot',
@@ -342,9 +337,7 @@ Her teaching covers Organisational Performance, Leadership, Legal Technology, Ar
     title: 'Founding Director, Cross Labs & President, International Society for Artificial Life',
     img: '/speakers/olaf-witkowski.avif',
     tags: ['Artificial Life', 'Cross Labs Kyoto', 'Consciousness', 'Diverse Intelligences'],
-    bio: `Dr. Olaf Witkowski is a pioneering leader exploring artificial minds and compassionate AI technology. Founding Director of Cross Labs AI research institute in Kyoto and President of the International Society for Artificial Life, he serves as Board Director at Cross Compass AI.
-
-With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski has co-founded research ventures across three continents including YHouse Inc. in New York and centers in Kathmandu and Kyoto, focusing on diverse intelligences and consciousness.`,
+    bio: `Dr. Olaf Witkowski is a pioneering leader exploring artificial minds and compassionate AI technology. Founding Director of Cross Labs AI research institute in Kyoto and President of the International Society for Artificial Life, he serves as Board Director at Cross Compass AI. With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski has co-founded research ventures across three continents including YHouse Inc. in New York and centers in Kathmandu and Kyoto, focusing on diverse intelligences and consciousness.`,
   },
   {
     slug: 'tomohiro-ishizu',
@@ -355,7 +348,7 @@ With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski h
     region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Professor, Kansai University & Neuroaesthetics Researcher',
     img: '/speakers/tomohiro-ishizu.png',
-    tags: ['Neuroaesthetics', 'Brain Theory of Beauty', 'Cognitive Neuroscience', 'Empathy & Art'],
+    tags: ['Neuroaesthetics', 'Brain Theory of Beauty', 'Cognitive Neuroscience', 'Sad Beauty'],
     bio: `Tomohiro Ishizu is Professor of Psychology in the Dep. Psychology at Kansai University, Japan, and Visiting Professor at the Hiroshima University. He works in neuroaesthetics. After research positions at University College London and at the University of Vienna, he joined Kansai University in 2020. His research uses psychological experiments and brain imaging to study sad beauty, mixed emotions, the sublime and awe, aesthetic afterglow, silence, and the links between aesthetic experience and moral and prosocial behaviour.`,
   },
   {
@@ -365,7 +358,7 @@ With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski h
     role: 'Speaker',
     segment: 'East Asia',
     region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Author, Quality Management Researcher & Cultural Artist',
+    title: 'Consultant, Researcher, Author, Educator & Professional Artist',
     img: '/speakers/junko-hosomi.png',
     tags: ['SDQ Cube', 'Quality Management', 'Urasenke Tea Ceremony', 'Sumi-e & Ma'],
     bio: `Junko Hosomi is a consultant, researcher, author, educator, and professional artist whose work bridges quality management, value creation, artificial intelligence, human sensibility, and Japanese cultural philosophy.
@@ -381,15 +374,35 @@ As a Japanese cultural artist, she has been invited internationally to give lect
 Her cultural practice is not separate from her research, but forms an essential foundation for her thinking about perception, creativity, relationships, and value. Across business, research, and artistic practice, Hosomi explores how analytical intelligence and human sensitivity can complement one another, and how humans, AI, nature, and culture can co-create a more sustainable, humane, and compassionate future.`,
   },
   {
+    slug: 'hiroo-miyata',
+    name: 'Hiroo Miyata',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Researcher, ZERO INSTITUTE & PhD Researcher, Carnegie Mellon University',
+    img: '/dummy.webp',
+    tags: ['ZERO INSTITUTE', 'Carnegie Mellon University', 'Neuroscience', 'Deep-Tech'],
+    bio: `Hiroo Miyata is a researcher at ZERO INSTITUTE whose work connects neuroscience, entrepreneurship, and deep-tech investment. Born in 1999, he began neuroscience research while studying at the University of Tokyo, where he also co-founded a startup and served as its Chief Technology Officer. His experience spans both the development of emerging technologies and the practical challenges of bringing them into industry.
+
+At Carnegie Mellon University, Miyata is pursuing doctoral research focused on motor control and internal states. His work examines how motivation, reward, and task demands influence the brain’s preparation and execution of movement, contributing to a deeper understanding of the relationship between neural activity and behaviour.
+
+He co-authored the 2024 Neuron paper “A neural basis of choking under pressure,” investigating why exceptionally large incentives can undermine performance. The study explored how reward-related changes in neural activity can disrupt movement preparation, offering insight into the brain mechanisms underlying performance under pressure.
+
+Alongside his academic work, Miyata gained investment experience at DEEPCORE, the SoftBank Group’s deep-tech incubator, assessing early-stage technologies and supporting their path towards commercialisation. This background gives him a perspective on scientific opportunity from the viewpoints of a researcher, startup operator, and investor.
+
+At ZERO INSTITUTE, he brings these experiences together around a central interest: how discoveries in neuroscience can reach industry. As a speaker, Miyata offers an interdisciplinary perspective on neurotechnology, the assessment of emerging research, and the connections between scientific discovery and commercial application.`,
+  },
+  {
     slug: 'christopher-currell',
     name: 'Christopher Currell',
     type: 'speaker',
     role: 'Speaker',
     segment: 'East Asia',
     region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Founder, The Althea Project & Originator of Absolute Reductionism',
+    title: 'Founder, Althea Project & Originator of Absolute Reductionism',
     img: '/speakers/christopher-currell.png',
-    tags: ['Althea Project', 'Absolute Reductionism', 'Digital Synthesis', 'Music Tech'],
+    tags: ['Althea Project', 'Absolute Reductionism', 'Sound Research', 'Complex Systems'],
     bio: `Christopher Currell is the founder of the Althea Project and the originator of Absolute Reductionism.
 
 With a career spanning more than four decades, his work bridges advanced music technology, sound research, systems design, and long-term inquiry into physics, computation, and complex system behavior.
@@ -407,7 +420,7 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
     region: 'Australia, New Zealand & South Pacific',
     title: 'PhD Candidate at The Australian National University School of Cybernetics and XPRIZE Carbon Removal award winner',
     img: '/speakers/joshua-castle.png',
-    tags: ['XPRIZE Winner', 'ANU School of Cybernetics', 'Net Abundance', 'Ecological Design'],
+    tags: ['ANU Cybernetics', 'Net Abundance', 'XPRIZE Carbon Removal', 'Science Fiction'],
     bio: `Joshua Castle is a PhD student at the Australian National University's School of Cybernetics, where his research is developing a system for reimagining societies in the age of intelligence. His work centres on his concept of net abundance, exploring what it is, what it means, and how it can be envisioned and co-created at a civilisational level.
 
 His research sits at the intersection of cybernetics, political philosophy, cognitive science, ecology, and AI. An XPRIZE Award-winning innovator, he has worked across multiple startups on challenges from knowledge management to carbon removal, and his marine policy research has informed Australian policy. He is also a research affiliate at the Centre for Digital Law, SMU.
@@ -428,35 +441,57 @@ He writes ocean-based science-fiction as he believes its the best ways to see be
 
 At NAAMII, she leads the AI & Society Research Group, which works on transparency, accountability and responsible AI governance. She also leads NAAMII's AI adoption pilots with Nepal's Judiciary and Federal Parliament. She represented NAAMII as an expert member of the Ministry of Communication and Information Technology's national committee developing standards for safe, inclusive and responsible AI in Nepal. She contributed to the consultations on Nepal's first national AI Policy and serves as an invited expert on the drafting committee for the Science, Technology and Innovation Act.
 
-Before this, she worked with the International Labour Organization (ILO), where she led the Work in Freedom Programme that was implemented in countries in South Asia and the Middle East. She also coordinates the Asia Regional Migration Programme at Terre des homes.
+Before this, she worked with the International Labour Organization (ILO), where she led the Work in Freedom Programme that was implemented in countries in South Asia and the Middle East. She also coordinates the Asia Regional Migration Programme at Terre des hommes.
 
 She holds a Master's in International Human Rights Law from the University of Notre Dame and an LL.M. in Human Rights and Gender Justice from Kathmandu School of Law. She was also a Hubert H. Humphrey Fellow (Fulbright Program) at the University of Minnesota Law School.`,
   },
   {
-    slug: 'gary-a-bolles',
-    name: 'Gary A. Bolles',
+    slug: 'carl-sunberg',
+    name: 'Carl Sunberg',
     type: 'speaker',
     role: 'Speaker',
-    segment: 'Africa',
-    region: 'East Africa, Southern Africa & Central Europe',
-    title: 'Global Fellow for Transformation @ Singularity University',
-    img: '/speakers/gary-bolles.jpg',
-    tags: ['Future of Work', 'SoCap Global', 'Singularity University', 'The Next Rules of Work'],
-    bio: `Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored "The Next Rules of Work" and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.`,
-    talkTitle: '',
-    talkDescription: '',
+    segment: 'East Asia & Pacific Islands',
+    region: 'Pacific Rim & Japan',
+    title: 'Financial Services Technology & Risk Management Specialist',
+    img: '/speakers/carl-sunberg.jpeg',
+    tags: ['Financial Tech', 'Risk Management', 'Disaster Recovery', 'Edge Computing'],
+    bio: `With 45+ years of experience in financial services-related technology, he specializes in the Pacific Rim, particularly Japan. His expertise spans disaster recovery and business continuity, risk management, cloud computing, cluster and grid computing, smart grids, and edge computing. He has also worked across education, rural community development, nonprofit ventures, and volunteer initiatives.`,
   },
   {
-    slug: 'dr-alexis-j-stokes-burks',
-    name: 'Dr. Alexis J. Stokes-Burks',
+    slug: 'mitch-hammer',
+    name: 'Mitch Hammer',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Global Forum Speaker & Contributor',
+    img: '/speakers/mitch-hammer.jpeg',
+    tags: ['Compassionate Systems', 'Ethical Tech', 'Planetary Co-Flourishing'],
+    bio: `Mitch Hammer contributes to the AI + Compassion Global Forum 2026, exploring compassionate systems, ethical technology, and interdisciplinary collaboration for planetary co-flourishing.`,
+  },
+  {
+    slug: 'danil-kerimi',
+    name: 'Danil Kerimi',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC & Europe',
+    region: 'Global Technology Governance & Economic Diplomacy',
+    title: 'Technology Executive & Policy Strategist',
+    img: '/speakers/danil-kerimi.jpeg',
+    tags: ['Tech Governance', 'Economic Diplomacy', 'AI Capacity-Building', 'UN & WEF'],
+    bio: `With over two decades of experience across the UN, World Economic Forum, and financial industry, he specializes in digital finance, technology governance, economic diplomacy, and AI initiatives. He has worked on international regulatory sandboxes and innovative financing for AI capacity-building. He also serves on advisory and oversight bodies at WIPO, the Council of the Great Lakes Region, and the World Smart Sustainable Cities Organization.`,
+  },
+  {
+    slug: 'gary-a-bolles',
+    name: 'Gary Bolles',
     type: 'speaker',
     role: 'Speaker',
     segment: 'Africa',
     region: 'East Africa, Southern Africa & Central Europe',
-    title: 'Founder, Stokes Strategy & Consulting',
-    img: '/alexis.png',
-    tags: ['Equity & Inclusion', 'Stokes Strategy', 'Leadership Development', 'Harvard Diversity'],
-    bio: `Dr. Alexis J. Stokes-Burks is an accomplished equity and inclusion strategist, keynote speaker, and leadership development facilitator with over 15 years of experience. She is the Founder and Chief Strategist of Stokes Strategy & Consulting, partnering with universities, nonprofit, and corporate organizations to build policies, practices and a culture where everyone can thrive. She previously served as Associate Chief Diversity and Inclusion Officer at Harvard University and Assistant Dean at Harvard School of Engineering.`,
+    title: 'Co-Founder, SoCap Global & Partner, Charrette LLC',
+    img: '/speakers/gary-bolles.jpg',
+    tags: ['Future of Work', 'SoCap Global', 'Singularity University', 'The Next Rules of Work'],
+    bio: `Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored The Next Rules of Work and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.`,
     talkTitle: '',
     talkDescription: '',
   },
@@ -481,7 +516,7 @@ She holds a Master's in International Human Rights Law from the University of No
     role: 'Speaker',
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder, Audacity AI & We The Planet | Chief Impact Officer, Chopra Foundation',
+    title: 'Founder, Audacity AI, We The Planet & X Impact Group',
     img: '/speakers/kunal-sood.jpg',
     tags: ['Audacity AI', 'Chopra Foundation', 'Stanford CCARE', 'TED Resident'],
     bio: `Kunal Sood is founder of Audacity AI, We The Planet, and X Impact Group, serving as Chief Impact Officer at the Chopra Foundation and Director of Social Impact at Stanford University's CCARE. A TED Resident and Tribeca Fellow, he holds an MBA from Kellogg, masters from UCSF and UPenn in positive psychology, and is completing his doctorate at ISB focused on developing the theory of audacity.`,
@@ -493,22 +528,10 @@ She holds a Master's in International Human Rights Law from the University of No
     role: 'Speaker',
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Exponential Tech Pitch Coach | Presentation Strategist | GENIA Advisor',
+    title: 'Exponential Tech Pitch Coach & Presentation Strategist',
     img: '/speakers/patrick-mccullough.jpg',
     tags: ['Pitch Strategy', 'Exponential Tech', 'Founder Institute', 'GENIA'],
     bio: `Patrick McCullough is an Exponential Tech Pitch Coach and Presentation Strategist, helping startups raise funding globally. As Founding Producer of Seán Óg Productions for 24+ years, he produced four award-winning indie films and served as actor coach on "Atomic Blonde" and "Houdini." An angel investor, startup mentor at Founder Institute, and founding advisor to GENIA Latinoamérica, McCullough specializes in pitch strategy, messaging, and sprint facilitation for entrepreneurs addressing global challenges, helping exponential entrepreneurs define their strategic trajectory globally.`,
-  },
-  {
-    slug: 'mitch-hammer',
-    name: 'Mitch Hammer',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Global Forum Speaker & Contributor',
-    img: '/speakers/mitch-hammer.jpeg',
-    tags: ['AI Innovation', 'Global Dialogue', 'Compassionate Tech'],
-    bio: `Mitch Hammer contributes to the AI + Compassion Global Forum 2026, exploring compassionate systems, ethical technology, and interdisciplinary collaboration for planetary co-flourishing.`,
   },
   {
     slug: 'marques-anderson',
@@ -519,8 +542,58 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Founder & Director, World Design Organization | Olympian & Urban Innovation Specialist',
     img: '/speakers/marques-anderson.jpg',
-    tags: ['Indigenous Systems', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
+    tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
     bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
+  },
+  {
+    slug: 'linzi-boyd',
+    name: 'Linzi Boyd',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'Global & Europe',
+    title: 'Founder, One Earth Global & Ambassador of Purpose',
+    img: '/speakers/linzi-boyd.png',
+    tags: ['One Earth Global', 'Purpose Economy', 'Spiritual Intelligence', 'One Earth Fund'],
+    bio: `Founder of One Earth Global, she works at the intersection of spiritual intelligence, economic systems, and large-scale change. She is the Ambassador of Purpose Economy and works on mobilising purpose-led capital through the One Earth Fund. She has spoken at 50+ global stages, including The Economist, the United Nations, London Tech Week, and the World Chambers Congress.`,
+  },
+  {
+    slug: 'zoe-milligan',
+    name: 'Zoe Milligan',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'Global & Europe',
+    title: 'Conscious Learning Architect & Founder, The L&D Vault',
+    link: 'https://www.linkedin.com/in/zoemilliganignitespark/',
+    img: '/dummy.webp',
+    tags: ['Conscious Learning', 'Ignite the Spark', 'The L&D Vault', 'One Earth'],
+    bio: `She is a Conscious Learning Architect and creator of Ignite the Spark, focused on transformational learning, psychological safety, leadership, and team development. She is also the founder of The L&D Vault, partnered with One Earth, which supports L&D professionals in becoming Conscious Learning practitioners.`,
+  },
+  {
+    slug: 'mohammed-safirulla',
+    name: 'Mohammed Y Safirulla K',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'Director, Ministry of Electronics and Information Technology (MeitY), Government of India',
+    link: 'https://www.linkedin.com/in/mohammed-y-safirulla-k-7b531346/',
+    img: '/speakers/mohammed-safirulla.jpeg',
+    tags: ['MeitY', 'Government of India', 'IAS', 'Digital Governance'],
+    bio: `Mohammed Y. Safirulla.K is a 2010-batch Indian Administrative Service officer of the Kerala cadre and currently serves as Director at the Ministry of Electronics and Information Technology, New Delhi. He holds an MBA in Finance, a B.E. from PSG College of Technology, and a PPM from Carnegie Mellon University. His previous roles include District Collector and Magistrate, Managing Director, and Special Secretary to the Government. He has received the State Award for Best District Collector (2017–18) and the P Keshavadev Special Award (2019).`,
+  },
+  {
+    slug: 'nidhi-sudhan',
+    name: 'Nidhi Sudhan',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia & Global',
+    title: 'Co-Founder, Citizen Digital Foundation & Tech/AI Governance Strategist',
+    img: '/speakers/nidhi-sudhan.jpg',
+    tags: ['Citizen Digital Foundation', 'AI Governance', 'Child Safety', '100 Brilliant Women in AI'],
+    bio: `Nidhi Sudhan is a media and technology strategist with 25+ years of experience across advertising, television, radio, digital, and football in India, the UAE, and the UK. She is Co-Founder of Citizen Digital Foundation and advises public and private stakeholders on AI and data governance, media and information literacy, online child safety, and inclusive technology design. She was recognised among the 100 Brilliant Women in AI Ethics™ 2024.`,
   },
 ];
 

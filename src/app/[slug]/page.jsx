@@ -148,22 +148,20 @@ export default async function PersonProfilePage({ params }) {
           )}
 
           {/* Bio Content */}
-          <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
-            <h2 className="font-mono text-xs uppercase font-bold text-[#163B32] tracking-wider border-b border-emerald-100 pb-2 flex items-center gap-2">
-              <UserCheck className="w-4 h-4 text-[#22C55E]" />
-              <span>Biography &amp; Leadership Impact</span>
-            </h2>
+          {person.bio && person.bio.trim() && (
+            <div className="space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
+              <h2 className="font-mono text-xs uppercase font-bold text-[#163B32] tracking-wider border-b border-emerald-100 pb-2 flex items-center gap-2">
+                <UserCheck className="w-4 h-4 text-[#22C55E]" />
+                <span>Biography &amp; Leadership Impact</span>
+              </h2>
 
-            {person.bio ? (
-              person.bio.split('\n\n').map((paragraph, idx) => (
+              {person.bio.split('\n\n').map((paragraph, idx) => (
                 <p key={idx} className="leading-relaxed">
                   {paragraph}
                 </p>
-              ))
-            ) : (
-              <p className="text-slate-500 italic">Biography details to be announced.</p>
-            )}
-          </div>
+              ))}
+            </div>
+          )}
 
           {/* Tags */}
           {person.tags && person.tags.length > 0 && (

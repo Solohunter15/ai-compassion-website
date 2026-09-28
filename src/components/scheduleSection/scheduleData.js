@@ -166,7 +166,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '03:00–05:00 (Oct 3)',
     },
     producers: ['Dr. Lee Kironget (Producer)', 'Brainy Swaibu (Co-Producer)'],
-    speakers: ['Gary A. Bolles', 'Dr. Alexis J. Stokes-Burks', "Eleanor 'Nell' Watson", 'Sofia Couto da Rocha'],
+    speakers: ['Gary A. Bolles', "Eleanor 'Nell' Watson", 'Sofia Couto da Rocha'],
     theme: 'Global justice, climate resilience, peace, democracy and ethical governance',
   },
   {

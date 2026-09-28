@@ -25,7 +25,6 @@ import toshie from "@/../public/toshie.webp";
 import matsumoto from "@/../public/matsumoto.webp";
 import saionji from "@/../public/saionji.webp";
 import tahara from "@/../public/tahara.webp";
-import alexis from "@/../public/alexis.png";
 import prakash from "@/../public/prakash.png";
 import anupam from "@/../public/anupam.png";
 import dev from "@/../public/dev.png";
@@ -219,12 +218,6 @@ export const speakers = [
     name: "Masato Tahara",
     title: "Masato Tahara pursued graduate studies in physics, focusing on complex systems, quantum mechanics, and phase transitions to explore principles of life. Through learning facilitation, he discovered deep connections between facilitation principles and physics concepts. With generative AI emergence, he recognized structural similarities between AI's mathematical foundations and quantum mechanics, expanding into Physics × AI × Facilitation. He develops AI applications and digital facilitation methods, working to transcend language, cognitive, diversity, and task barriers for a more diverse and inclusive society.",
     img: tahara
-  },
-  { 
-    slug: "dr-alexis-j-stokes-burks",
-    name: "Dr. Alexis J. Stokes-Burks",
-    title: "Dr. Alexis J. Stokes-Burks is an accomplished equity and inclusion strategist, keynote speaker, and leadership development facilitator with over 15 years of experience. She is the Founder and Chief Strategist of Stokes Strategy & Consulting, partnering with universities, nonprofit, and corporate organizations to build policies, practices and a culture where everyone can thrive. She previously served as Associate Chief Diversity and Inclusion Officer at Harvard University and Assistant Dean at Harvard School of Engineering.",
-    img: alexis
   },
   { 
     slug: "prakash-singh-bisen",
