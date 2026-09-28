@@ -166,7 +166,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '03:00–05:00 (Oct 3)',
     },
     producers: ['Dr. Lee Kironget (Producer, Regional Support: Brainy)'],
-    speakers: ['Public Health & Climate Resilience Panel'],
+    speakers: ['Gary A. Bolles', 'Dr. Alexis J. Stokes-Burks', "Eleanor 'Nell' Watson", 'Sofia Couto da Rocha'],
     theme: 'Global justice, climate resilience, peace, democracy and ethical governance',
   },
   {
@@ -196,7 +196,7 @@ export const SCHEDULE_MATRIX = [
     blockNumber: 'Block 8',
     blockLabel: 'BLOCK 8',
     segment: 'Caribbean & LATAM',
-    region: 'Eastern & Southern South America & Caribbean',
+    region: 'Caribbean & South America',
     times: {
       UTC: '21:00–23:00',
       PDT: '14:00–16:00',
@@ -211,7 +211,7 @@ export const SCHEDULE_MATRIX = [
     },
     producers: ['Julieta Reyes (Producer)'],
     speakers: ['Jeremy Erasmus', 'Julie Hellmann'],
-    theme: 'Biodiversity, Indigenous communities, social innovation and regenerative economies',
+    theme: 'Civil rights, democratic participation, global health and youth-led social movements',
   },
   {
     id: 'block-9',
@@ -233,7 +233,7 @@ export const SCHEDULE_MATRIX = [
     },
     producers: ['Ani Chahal Honan (North America Lead / Producer)'],
     speakers: ['Mitch Hammer'],
-    theme: 'Civil rights, democratic participation, global health and youth-led social movements',
+    theme: 'Biodiversity, Indigenous communities, social innovation and regenerative economies',
   },
   {
     id: 'block-10',
@@ -276,7 +276,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '13:00–15:00 (Oct 3)',
     },
     producers: ['Ani Chahal Honan (North America Lead / Producer)'],
-    speakers: ['Gary A. Bolles', 'Kunal Sood', 'Patrick McCullough', 'Marques Anderson', 'Mitch Hammer'],
+    speakers: ['Kunal Sood', 'Patrick McCullough', 'Marques Anderson', 'Mitch Hammer'],
     theme: 'Frontier AI, creativity, entertainment, entrepreneurship and technology with compassion',
   },
   {
