@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ShieldCheck, MapPin, Users, Globe, CheckCircle2, UserCheck, Sparkles } from 'lucide-react';
 import { COORDINATORS } from '@/data/coordinatorsData';
 
@@ -35,11 +36,12 @@ export default function CoordinatorsSection() {
         </div>
 
         {/* Coordinators Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 w-full">
           {COORDINATORS.map((coordinator, idx) => (
-            <div
-              key={idx}
-              className="w-full bg-[#FAFCFA] rounded-3xl border border-emerald-100/90 shadow-2xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between group text-left relative overflow-hidden"
+            <Link
+              key={coordinator.slug || idx}
+              href={`/${coordinator.slug}`}
+              className="w-full bg-[#FAFCFA] hover:bg-white rounded-3xl border border-emerald-100/90 hover:border-[#163B32]/40 shadow-2xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 p-5 sm:p-6 flex flex-col justify-between group cursor-pointer text-left relative overflow-hidden"
             >
               <div className="flex flex-col gap-4">
                 
@@ -54,31 +56,24 @@ export default function CoordinatorsSection() {
                 </div>
 
                 {/* Headshot Portrait */}
-                <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-emerald-50 shadow-xs border-2 border-emerald-200 shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <Image
-                      src={coordinator.img}
-                      alt={coordinator.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 64px, 80px"
-                    />
-                  </div>
-
-                  <div className="flex flex-col">
-                    <h3 className="font-editorial text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-tight">
-                      {coordinator.name}
-                    </h3>
-                    <span className="text-[11px] font-mono text-[#C96F4A] font-semibold mt-0.5">
-                      {coordinator.role}
-                    </span>
-                  </div>
+                <div className="relative w-full aspect-square max-w-[150px] mx-auto rounded-2xl overflow-hidden bg-slate-100 shadow-xs border border-emerald-100 group-hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src={coordinator.img}
+                    alt={coordinator.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 150px, 160px"
+                  />
                 </div>
 
-                {/* Description */}
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                  {coordinator.description}
-                </p>
+                <div className="flex flex-col text-center">
+                  <h3 className="font-editorial text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-tight">
+                    {coordinator.name}
+                  </h3>
+                  <span className="text-[11px] font-mono text-[#C96F4A] font-semibold mt-0.5">
+                    {coordinator.role}
+                  </span>
+                </div>
 
                 {/* Assigned Regions */}
                 <div className="p-3 bg-emerald-50/60 rounded-2xl border border-emerald-100/80 flex flex-col gap-1">
@@ -86,43 +81,18 @@ export default function CoordinatorsSection() {
                     <Globe className="w-3 h-3 text-[#163B32]" />
                     <span>Assigned Regions / Scope:</span>
                   </span>
-                  <div className="flex flex-col gap-0.5">
-                    {coordinator.regions.map((reg, rIdx) => (
-                      <span key={rIdx} className="text-xs font-semibold text-slate-800 leading-tight">
-                        • {reg}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-xs text-slate-700 font-medium leading-snug">
+                    {coordinator.region}
+                  </p>
                 </div>
-
-                {/* Connected Producers */}
-                {coordinator.producers && coordinator.producers.length > 0 && (
-                  <div className="p-3 bg-white rounded-2xl border border-slate-200/80 flex flex-col gap-1">
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#C96F4A] flex items-center gap-1">
-                      <Users className="w-3 h-3 text-[#C96F4A]" />
-                      <span>Coordinating Producers:</span>
-                    </span>
-                    <span className="text-xs font-medium text-slate-700 leading-tight">
-                      {coordinator.producers.join(', ')}
-                    </span>
-                  </div>
-                )}
               </div>
 
-              {/* Tag Pills */}
-              {coordinator.tags && (
-                <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5">
-                  {coordinator.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-0.5 rounded-full bg-[#F8F6F0] border border-[#D9DDD6] text-[10px] font-mono text-slate-600"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
+              {/* View Profile Action Link */}
+              <div className="mt-4 pt-3 border-t border-emerald-100/80 flex items-center justify-between text-xs font-mono font-bold text-[#163B32] group-hover:text-[#C96F4A] transition-colors">
+                <span>View Full Profile</span>
+                <span className="text-sm group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </div>
+            </Link>
           ))}
         </div>
 

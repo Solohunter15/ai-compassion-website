@@ -5,6 +5,7 @@ import PillarsSection from "@/components/pillarsSection";
 import GlobalRelayGlobeSection from "@/components/globalRelayGlobe";
 import ProducersSection from "@/components/producers";
 import SpeakerSection from "@/components/speakerSection";
+import RegionalCoordinatorsSection from "@/components/regionalCoordinatorsSection";
 import ScheduleSection from "@/components/scheduleSection";
 import MediaSection from "@/components/mediaSection";
 import PartnersAndSponsors from "@/components/partnersAndSponsors";
@@ -25,6 +26,7 @@ export default function Home() {
       <GlobalRelayGlobeSection />
       <ProducersSection />
       <SpeakerSection />
+      <RegionalCoordinatorsSection />
       <ScheduleSection />
       <MediaSection />
       <PartnersAndSponsors />

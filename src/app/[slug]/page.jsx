@@ -40,8 +40,9 @@ export default async function PersonProfilePage({ params }) {
   }
 
   const isProducerGroup = person.type === 'producer' || person.type === 'co-producer';
-  const returnHash = isProducerGroup ? '/#producers' : '/#speakers';
-  const returnLabel = isProducerGroup ? 'Back to Producers & Co-Producers' : 'Back to Confirmed Speakers';
+  const isCoordinator = person.type === 'coordinator' || person.type === 'regional-coordinator';
+  const returnHash = isCoordinator ? '/#regional-coordinators' : isProducerGroup ? '/#producers' : '/#speakers';
+  const returnLabel = isCoordinator ? 'Back to Regional Coordinators' : isProducerGroup ? 'Back to Producers & Co-Producers' : 'Back to Confirmed Speakers';
 
   return (
     <div className="min-h-screen bg-[#F8F6F0] pt-28 pb-20 px-4 sm:px-6 lg:px-12 text-[#171918]">
@@ -89,6 +90,8 @@ export default async function PersonProfilePage({ params }) {
                   className={`text-[11px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full ${
                     person.type === 'co-producer'
                       ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                      : isCoordinator
+                      ? 'bg-emerald-100 text-[#163B32] border border-emerald-300'
                       : person.type === 'producer'
                       ? 'bg-emerald-100 text-[#163B32] border border-emerald-300'
                       : 'bg-emerald-50 text-[#163B32] border border-emerald-200'

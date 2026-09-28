@@ -145,6 +145,22 @@ Over 19 years with the Kingdom of the Netherlands, she served as Chief Support O
 Anticipating AI's impact on public engagement, she completed executive AI strategy training at MIT Sloan in 2024. She now focuses on AI ethics, Answer Engine Optimization, AI leadership, and digital governance. Fluent in English, Dutch, Spanish, and Papiamento, she builds cross-cultural trust through adaptive communication, grounded leadership, and planet-centered ethics.`,
   },
   {
+    slug: 'brainy-swaibu',
+    name: 'Brainy Swaibu',
+    type: 'co-producer',
+    role: 'Co-Producer',
+    segment: 'Africa',
+    region: 'East Africa, Southern Africa & Central Europe',
+    title: 'Spectrum XLabs Alliance',
+    img: '/brainy-swaibu.jpg',
+    tags: ['Spectrum XLabs Alliance', 'Grassroots AI', 'Self-Directed Learning', 'Uganda'],
+    bio: `Brainy Swaibu is the founder of Spectrum XLabs Alliance (SXLA), an education system built in Hoima, Uganda, around a simple question: how many young people are we underestimating, simply because no one has ever shown them what is possible?
+
+Brainy was born and raised in Uganda and lives in Hoima. He did his own schooling at Kyangwali Secondary School, inside Kyangwali refugee settlement, sitting in classrooms beside South Sudanese and Congolese students. In 2007 he returned to that same school as an assistant teacher and later spent five years as a qualified teacher in Hoima's host community after completing his bachelor's degree in education in 2012. In 2017 he resigned to teach himself, from the ground up, the tools a changing economy was already demanding: AI, digital infrastructure, and the habits of self-directed learning, drawing on Peter Diamandis's Abundance and the Singularity University community.
+
+In 2020 he registered SXLA and opened Spectrum Secondary School in a church. The school survived COVID-19 and a 2022 storm that destroyed its shelter, rebuilt with his own resources. Two of its students went on to win an international design competition using AI, the moment that convinced him the model could work anywhere in Uganda.`,
+  },
+  {
     slug: 'ani-chahal-honan',
     name: 'Ani Chahal Honan',
     type: 'producer',
@@ -161,6 +177,66 @@ Ani has built and scaled companies alongside pioneers in AI, robotics, biotechno
 Through IMAGINE, Ani leads a global compassion project alongside a whole-person health initiative, bringing mind, body, and heart to innovation. A certified meditation teacher, she advocates for mental health, societal empowerment, and regenerative systems.
 
 Ani has been honored by the U.S. Congress and United Nations, named a UNGA 100 Disruptor, a Kate Spade World Changing Woman, and invited to the XPRIZE Foundation Board of Trustees. A contributor to the Milken Institute's Power of Ideas, she champions innovation guided by compassion, play, and purpose.`,
+  },
+
+  // ==========================================
+  // REGIONAL COORDINATORS
+  // ==========================================
+  {
+    slug: 'adithya-baiju',
+    name: 'Adithya Baiju',
+    type: 'coordinator',
+    role: 'Regional Coordinator',
+    segment: 'Europe, North America & Caribbean',
+    region: 'UK, Ireland, Iberia & West Africa | Eastern North America, Caribbean & Northern South America',
+    title: 'Regional Coordinator — UK, Ireland, Iberia & West Africa | Eastern North America, Caribbean & Northern South America',
+    img: '/coordinators/adithya-baiju.jpeg',
+    tags: ['Regional Coordinator', 'UK & Europe', 'West Africa', 'Caribbean', 'Global Relay'],
+    bio: `Adithya Baiju is Regional Coordinator overseeing UK, Ireland, Iberia & West Africa, as well as Eastern North America, Caribbean & Northern South America for the AI + Compassion Global Forum 2026.
+
+Adithya works closely with regional producers, grassroots conveners, and youth leaders to facilitate cross-cultural collaboration, ethical AI alignment, and community participation across the Atlantic and European corridors.`,
+  },
+  {
+    slug: 'ann-rose-mathew',
+    name: 'Ann Rose Mathew',
+    type: 'coordinator',
+    role: 'Regional Coordinator',
+    segment: 'GCC & North America',
+    region: 'Middle East, Caucasus & Central Asia | Western North America',
+    title: 'Regional Coordinator — Middle East, Caucasus & Central Asia | Western North America',
+    img: '/coordinators/ann-rose-mathew.png',
+    tags: ['Regional Coordinator', 'Middle East', 'GCC', 'Central Asia', 'Western North America'],
+    bio: `Ann Rose Mathew is Regional Coordinator for Middle East, Caucasus & Central Asia, and Western North America for the AI + Compassion Global Forum 2026.
+
+She coordinates regional synchronization, panel curation, and community ambassador onboarding across the GCC and West Coast tech hubs, linking emerging AI governance frameworks with compassionate societal transformation.`,
+  },
+  {
+    slug: 'jeniffer-jerald',
+    name: 'Jeniffer Jerald JN',
+    type: 'coordinator',
+    role: 'Regional Coordinator',
+    segment: 'Oceania & Southeast Asia',
+    region: 'Australia, New Zealand, South Pacific & Southeast Asia',
+    title: 'Regional Coordinator — Australia, New Zealand, South Pacific & Southeast Asia',
+    img: '/coordinators/jeniffer-jerald.jpg',
+    tags: ['Regional Coordinator', 'Oceania', 'Australia & NZ', 'Southeast Asia', 'Youth Segment'],
+    bio: `Jeniffer Jerald JN is Regional Coordinator of Australia, New Zealand, South Pacific and Southeast Asia for the AI + Compassion Global Forum 2026.
+
+Jeniffer champions regional alignment between indigenous knowledge holders, youth innovators, and technology researchers across Oceania and Southeast Asia for the unbroken 24-hour planetary relay.`,
+  },
+  {
+    slug: 'kavya',
+    name: 'Kavya',
+    type: 'coordinator',
+    role: 'Regional Coordinator',
+    segment: 'South Asia & East Asia',
+    region: 'South Asia | Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Regional Coordinator — South Asia & Northeast Asia',
+    img: '/coordinators/kavya.jpg',
+    tags: ['Regional Coordinator', 'South Asia', 'East Asia', 'Northeast Asia', 'Global Relay'],
+    bio: `Kavya is Regional Coordinator for South Asia and Japan, Korea, Taiwan & Northeast Asia for the AI + Compassion Global Forum 2026.
+
+Kavya aligns regional producers, ancient contemplative traditions, and frontier AI research clusters across India, Japan, Korea, and Taiwan, connecting cultural wisdom with technological innovation.`,
   },
 
   // ==========================================
@@ -203,6 +279,24 @@ Her career spans culture and technology. She previously served as North American
 Today, she is the founder of PSL, an insurtech startup focused on standardizing risk for autonomous machinery. As robots and autonomous systems enter homes, workplaces, and public spaces, PSL addresses a critical question: how do we measure and insure the risks they introduce? Her research and entrepreneurship share one mission: building the trust and structures society needs to live safely alongside autonomous technology.`,
   },
   {
+    slug: 'julie-hellmann',
+    name: 'Julie Hellmann',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'UK, Ireland, Iberia & West Africa',
+    title: 'Social FinTech & AI Ethics Researcher | Plastic Bank',
+    img: '/speakers/julie-hellmann.png',
+    tags: ['AI Ethics & Law', 'Human-AI Collaboration', 'Plastic Bank', 'Participation in AI'],
+    bio: `Julie Hellmann has a background in business law and has lived and worked across Europe and the Middle East. Her path has taken her from banking to work that feels deeply personal to her: sustainability, AI ethics and law. These are the fields in which she wants to make her contribution, bringing together her professional experience and her concern for people and the environment.
+
+Julie works at Plastic Bank, a social FinTech, and is also developing an initiative that explores how people can have a meaningful say in the way AI is evaluated and developed. When we decide what makes AI “good,” whose experiences do we listen to and who might we be missing?
+
+She has previously co-authored a paper on human–AI collaboration and is now working on a related paper about human participation in AI evaluation. Her current work explores how different perspectives can shape AI, including concerns that do not fit the majority view. She is still working through what meaningful participation requires, and how to ensure that asking people for their input gives them a real opportunity to influence decisions.
+
+Having lived and worked between different places and professional worlds, Julie values the opportunity to listen across differences and question her own assumptions. She joins the AI Compassion Global Forum to share what she is learning, hear what others see differently, and explore how care for people and the living world can guide the everyday choices we make about technology.`,
+  },
+  {
     slug: 'jeremy-erasmus',
     name: 'Jeremy Erasmus',
     type: 'speaker',
@@ -219,24 +313,6 @@ His focus is translating strategy into implementation: turning ambitions into pr
 Combining a strategic outlook with a pragmatic, citizen-centered approach, Jeremy sees communication, collaboration, and consensus-building as essential to transformation. He builds bridges between technical specialists, decision-makers, and the communities affected by digital change, creating the conditions to implement strategies sustainably.
 
 He is especially interested in the realities of Small Island Developing States and small jurisdictions, balancing limited resources and institutional capacity with ambitious digital transformation, responsible AI adoption, and digital resilience. His work increasingly involves regional and international cooperation on these challenges.`,
-  },
-  {
-    slug: 'julie-hellmann',
-    name: 'Julie Hellmann',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Caribbean & LATAM',
-    region: 'Eastern & Southern South America & Caribbean',
-    title: 'Social FinTech & AI Ethics Researcher | Plastic Bank',
-    img: '/speakers/julie-hellmann.png',
-    tags: ['AI Ethics & Law', 'Human-AI Collaboration', 'Plastic Bank', 'Participation in AI'],
-    bio: `Julie Hellmann has a background in business law and has lived and worked across Europe and the Middle East. Her path has taken her from banking to work that feels deeply personal to her: sustainability, AI ethics and law. These are the fields in which she wants to make her contribution, bringing together her professional experience and her concern for people and the environment.
-
-Julie works at Plastic Bank, a social FinTech, and is also developing an initiative that explores how people can have a meaningful say in the way AI is evaluated and developed. When we decide what makes AI “good,” whose experiences do we listen to and who might we be missing?
-
-She has previously co-authored a paper on human–AI collaboration and is now working on a related paper about human participation in AI evaluation. Her current work explores how different perspectives can shape AI, including concerns that do not fit the majority view. She is still working through what meaningful participation requires, and how to ensure that asking people for their input gives them a real opportunity to influence decisions.
-
-Having lived and worked between different places and professional worlds, Julie values the opportunity to listen across differences and question her own assumptions. She joins the AI Compassion Global Forum to share what she is learning, hear what others see differently, and explore how care for people and the living world can guide the everyday choices we make about technology.`,
   },
   {
     slug: 'valerie-m-saintot',
@@ -277,16 +353,10 @@ With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski h
     role: 'Speaker',
     segment: 'East Asia',
     region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Professor, Faculty of Letters at Kansai University | Neuroaesthetics Pioneer',
+    title: 'Professor, Kansai University & Neuroaesthetics Researcher',
     img: '/speakers/tomohiro-ishizu.png',
     tags: ['Neuroaesthetics', 'Brain Theory of Beauty', 'Cognitive Neuroscience', 'Empathy & Art'],
-    bio: `Tomohiro Ishizu is a professor in the Faculty of Letters at Kansai University, specialising in neuroaesthetics, experimental psychology, and cognitive neuroscience. Combining psychological experiments with brain imaging, he investigates what happens in the mind and brain when people encounter beauty, ugliness, art, and emotionally moving experiences. His research explores how we perceive, evaluate, and create art—and how these experiences connect with everyday life.
-
-Ishizu earned his PhD in psychology from Keio University in 2009. His international research career includes appointments at University College London and the University of Vienna, before joining Kansai University in 2020 and becoming a professor in 2022.
-
-Among his published contributions is “Toward a Brain-Based Theory of Beauty,” co-authored with neuroscientist Semir Zeki. Published in ‘PLOS ONE’ in 2011, the study found that experiences of beauty in both paintings and music were associated with activity in a shared region of the brain’s medial orbitofrontal cortex, helping illuminate connections between aesthetic experience and the brain.
-
-His current interests extend beyond beauty to awe, the sublime, empathy, and sorrow, including how social context shapes artistic value. He also explores potential clinical and social applications of aesthetic science, from body-image concerns to older adults’ wellbeing and the design of public environments.`,
+    bio: `Tomohiro Ishizu is Professor of Psychology in the Dep. Psychology at Kansai University, Japan, and Visiting Professor at the Hiroshima University. He works in neuroaesthetics. After research positions at University College London and at the University of Vienna, he joined Kansai University in 2020. His research uses psychological experiments and brain imaging to study sad beauty, mixed emotions, the sublime and awe, aesthetic afterglow, silence, and the links between aesthetic experience and moral and prosocial behaviour.`,
   },
   {
     slug: 'junko-hosomi',
@@ -335,14 +405,14 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
     role: 'Speaker',
     segment: 'Oceania',
     region: 'Australia, New Zealand & South Pacific',
-    title: 'PhD Candidate at ANU School of Cybernetics | XPRIZE Winner',
+    title: 'PhD Candidate at The Australian National University School of Cybernetics and XPRIZE Carbon Removal award winner',
     img: '/speakers/joshua-castle.png',
-    tags: ['XPRIZE Winner', 'ANU School of Cybernetics', 'Governance & AI', 'Ecological Design'],
-    bio: `Joshua Castle is an XPRIZE award-winning systems thinker whose work sits at the intersection of governance, emerging technology and complex systems. He is currently a PhD candidate at the Australian National University's School of Cybernetics, where his research asks how societies can steer towards abundance in the age of AI while preserving human freedom, imagination and adaptability. His wider interests span political philosophy, environmental governance and decision-making under uncertainty.
+    tags: ['XPRIZE Winner', 'ANU School of Cybernetics', 'Net Abundance', 'Ecological Design'],
+    bio: `Joshua Castle is a PhD student at the Australian National University's School of Cybernetics, where his research is developing a system for reimagining societies in the age of intelligence. His work centres on his concept of net abundance, exploring what it is, what it means, and how it can be envisioned and co-created at a civilisational level.
 
-Joshua holds a Bachelor of Marine and Antarctic Science (Governance) and Honours from the University of Tasmania. His Honours research on decommissioning oil and gas infrastructure, spanning law, policy, risk and biology, contributed to Australian government policy, was recognised as a UN Ocean Decade Action, and informed an XPRIZE-winning project. In 2021 he was named the XPRIZE Student Carbon Removal Winner.
+His research sits at the intersection of cybernetics, political philosophy, cognitive science, ecology, and AI. An XPRIZE Award-winning innovator, he has worked across multiple startups on challenges from knowledge management to carbon removal, and his marine policy research has informed Australian policy. He is also a research affiliate at the Centre for Digital Law, SMU.
 
-Since 2023, Joshua has advised organisations including Alma Blue, PocketSeed, Meeting Zen and NEXVOX on innovation strategy, AI knowledge management, biodiversity investment and product development. He has spoken at SXSW Sydney and the Inside Network Super Fund Manager ESG Retreat, taught short courses at UTS and UTAS on ecological design, scaling and innovation, and delivered the 2023 Alumni Speech to graduates of the University of Tasmania's College of Science and Engineering.`,
+He writes ocean-based science-fiction as he believes its the best ways to see beyond boundaries.`,
   },
   {
     slug: 'sandhya-sitoula',
@@ -455,12 +525,16 @@ She holds a Master's in International Human Rights Law from the University of No
 ];
 
 // Helper selectors
+export const REGIONAL_COORDINATORS = PEOPLE.filter(
+  (p) => p.type === 'coordinator' || p.type === 'regional-coordinator'
+);
+
 export const PRODUCERS_AND_COPRODUCERS = PEOPLE.filter(
   (p) => p.type === 'producer' || p.type === 'co-producer'
 );
 
 export const CONFIRMED_SPEAKERS = PEOPLE.filter(
-  (p) => p.type === 'speaker'
+  (p) => p.type === 'speaker' || p.slug === 'brainy-swaibu'
 );
 
 export function getPersonBySlug(slug) {
