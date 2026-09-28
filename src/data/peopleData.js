@@ -40,6 +40,19 @@ A 2016 XPRIZE Visioneer and winner of Singularity University's 2018 Global Impac
 Currently serving as an inaugural member of the Medical Intelligence and Innovation Institute (MI3) and advisory board member of AIMed Asia, Jun continues advancing AI applications that enhance wellbeing across interconnected systems. His unique blend of technical expertise, business acumen, and ecological wisdom makes him an essential voice in shaping technology that serves the flourishing of our entire planetary community.`,
   },
   {
+    slug: 'carl-sunberg',
+    name: 'Carl Sunberg',
+    type: 'co-producer',
+    role: 'Co-Producer / MC',
+    segment: 'East Asia & Pacific Islands',
+    region: 'Pacific Rim & Japan',
+    title: 'Financial Services Technology & Risk Management Specialist | Co-Producer / MC',
+    img: '/speakers/carl-sunberg.jpeg',
+    imgPosition: 'center 20%',
+    tags: ['Financial Tech', 'Risk Management', 'Disaster Recovery', 'Edge Computing', 'Co-Producer / MC'],
+    bio: `With 45+ years of experience in financial services-related technology, he specializes in the Pacific Rim, particularly Japan. His expertise spans disaster recovery and business continuity, risk management, cloud computing, cluster and grid computing, smart grids, and edge computing. He has also worked across education, rural community development, nonprofit ventures, and volunteer initiatives.`,
+  },
+  {
     slug: 'aditi-singh',
     name: 'Aditi Singh',
     type: 'producer',
@@ -251,7 +264,81 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
 
   // ==========================================
   // CONFIRMED SPEAKERS & CONTRIBUTORS
+  // (Featured Top Speakers Listed First)
   // ==========================================
+  {
+    slug: 'gary-a-bolles',
+    name: 'Gary Bolles',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Africa',
+    region: 'East Africa, Southern Africa & Central Europe',
+    title: 'Co-Founder, SoCap Global & Partner, Charrette LLC',
+    img: '/speakers/gary-bolles.jpg',
+    imgPosition: 'center 18%',
+    tags: ['Future of Work', 'SoCap Global', 'Singularity University', 'The Next Rules of Work'],
+    bio: `Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored The Next Rules of Work and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.`,
+    talkTitle: '',
+    talkDescription: '',
+  },
+  {
+    slug: 'marques-anderson',
+    name: 'Marques Anderson',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Founder & Director, World Design Organization | Olympian & Urban Innovation Specialist',
+    img: '/speakers/marques-anderson.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
+    bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
+  },
+  {
+    slug: 'kunal-sood',
+    name: 'Kunal Sood',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Founder, Audacity AI, We The Planet & X Impact Group',
+    img: '/speakers/kunal-sood.jpg',
+    imgPosition: 'center 18%',
+    tags: ['Audacity AI', 'Chopra Foundation', 'Stanford CCARE', 'TED Resident'],
+    bio: `Kunal Sood is founder of Audacity AI, We The Planet, and X Impact Group, serving as Chief Impact Officer at the Chopra Foundation and Director of Social Impact at Stanford University's CCARE. A TED Resident and Tribeca Fellow, he holds an MBA from Kellogg, masters from UCSF and UPenn in positive psychology, and is completing his doctorate at ISB focused on developing the theory of audacity.`,
+  },
+  {
+    slug: 'christopher-currell',
+    name: 'Christopher Currell',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Founder, Althea Project & Originator of Absolute Reductionism',
+    img: '/speakers/christopher-currell.png',
+    imgPosition: 'center 18%',
+    tags: ['Althea Project', 'Absolute Reductionism', 'Sound Research', 'Complex Systems'],
+    bio: `Christopher Currell is the founder of the Althea Project and the originator of Absolute Reductionism.
+
+With a career spanning more than four decades, his work bridges advanced music technology, sound research, systems design, and long-term inquiry into physics, computation, and complex system behavior.
+
+He is known for professional work in music production and digital synthesis, including contributions during the Michael Jackson Bad and Dangerous eras. He is also the author of Harmonic Resonance of the Quantum Potential and the founder of Transformation Tools in Japan.
+
+The Althea Project grows out of this interdisciplinary background. It reflects Currell’s long-term effort to develop practical, technically rigorous methods for improving reliability, reducing persistent failure patterns, and advancing next-generation intelligent systems.`,
+  },
+  {
+    slug: 'olaf-witkowski',
+    name: 'Dr. Olaf Witkowski',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Founding Director, Cross Labs & President, International Society for Artificial Life',
+    img: '/speakers/olaf-witkowski.avif',
+    imgPosition: 'center 20%',
+    tags: ['Artificial Life', 'Cross Labs Kyoto', 'Consciousness', 'Diverse Intelligences'],
+    bio: `Dr. Olaf Witkowski is a pioneering leader exploring artificial minds and compassionate AI technology. Founding Director of Cross Labs AI research institute in Kyoto and President of the International Society for Artificial Life, he serves as Board Director at Cross Compass AI. With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski has co-founded research ventures across three continents including YHouse Inc. in New York and centers in Kathmandu and Kyoto, focusing on diverse intelligences and consciousness.`,
+  },
   {
     slug: 'neil-nassar',
     name: 'Neil Nassar',
@@ -348,19 +435,6 @@ Known for her groundbreaking insights at the intersection of technology, project
 Her teaching covers Organisational Performance, Leadership, Legal Technology, Artificial Intelligence, and Mindfulness. She promotes the use of data visualization, information, and knowledge to bring together experts and non-experts interested in new technologies. She is the author of articles on the impact of new technologies on the legal profession, on ways to reinvent leadership and personal development, and education in the AI age.`,
   },
   {
-    slug: 'olaf-witkowski',
-    name: 'Dr. Olaf Witkowski',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Founding Director, Cross Labs & President, International Society for Artificial Life',
-    img: '/speakers/olaf-witkowski.avif',
-    imgPosition: 'center 20%',
-    tags: ['Artificial Life', 'Cross Labs Kyoto', 'Consciousness', 'Diverse Intelligences'],
-    bio: `Dr. Olaf Witkowski is a pioneering leader exploring artificial minds and compassionate AI technology. Founding Director of Cross Labs AI research institute in Kyoto and President of the International Society for Artificial Life, he serves as Board Director at Cross Compass AI. With a PhD from University of Tokyo and Princeton Institute alumnus, Witkowski has co-founded research ventures across three continents including YHouse Inc. in New York and centers in Kathmandu and Kyoto, focusing on diverse intelligences and consciousness.`,
-  },
-  {
     slug: 'tomohiro-ishizu',
     name: 'Tomohiro Ishizu',
     type: 'speaker',
@@ -397,46 +471,6 @@ As a Japanese cultural artist, she has been invited internationally to give lect
 Her cultural practice is not separate from her research, but forms an essential foundation for her thinking about perception, creativity, relationships, and value. Across business, research, and artistic practice, Hosomi explores how analytical intelligence and human sensitivity can complement one another, and how humans, AI, nature, and culture can co-create a more sustainable, humane, and compassionate future.`,
   },
   {
-    slug: 'hiroo-miyata',
-    name: 'Hiroo Miyata',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Researcher, ZERO INSTITUTE & PhD Researcher, Carnegie Mellon University',
-    img: '/dummy.webp',
-    imgPosition: 'center 20%',
-    tags: ['ZERO INSTITUTE', 'Carnegie Mellon University', 'Neuroscience', 'Deep-Tech'],
-    bio: `Hiroo Miyata is a researcher at ZERO INSTITUTE whose work connects neuroscience, entrepreneurship, and deep-tech investment. Born in 1999, he began neuroscience research while studying at the University of Tokyo, where he also co-founded a startup and served as its Chief Technology Officer. His experience spans both the development of emerging technologies and the practical challenges of bringing them into industry.
-
-At Carnegie Mellon University, Miyata is pursuing doctoral research focused on motor control and internal states. His work examines how motivation, reward, and task demands influence the brain’s preparation and execution of movement, contributing to a deeper understanding of the relationship between neural activity and behaviour.
-
-He co-authored the 2024 Neuron paper “A neural basis of choking under pressure,” investigating why exceptionally large incentives can undermine performance. The study explored how reward-related changes in neural activity can disrupt movement preparation, offering insight into the brain mechanisms underlying performance under pressure.
-
-Alongside his academic work, Miyata gained investment experience at DEEPCORE, the SoftBank Group’s deep-tech incubator, assessing early-stage technologies and supporting their path towards commercialisation. This background gives him a perspective on scientific opportunity from the viewpoints of a researcher, startup operator, and investor.
-
-At ZERO INSTITUTE, he brings these experiences together around a central interest: how discoveries in neuroscience can reach industry. As a speaker, Miyata offers an interdisciplinary perspective on neurotechnology, the assessment of emerging research, and the connections between scientific discovery and commercial application.`,
-  },
-  {
-    slug: 'christopher-currell',
-    name: 'Christopher Currell',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Founder, Althea Project & Originator of Absolute Reductionism',
-    img: '/speakers/christopher-currell.png',
-    imgPosition: 'center 18%',
-    tags: ['Althea Project', 'Absolute Reductionism', 'Sound Research', 'Complex Systems'],
-    bio: `Christopher Currell is the founder of the Althea Project and the originator of Absolute Reductionism.
-
-With a career spanning more than four decades, his work bridges advanced music technology, sound research, systems design, and long-term inquiry into physics, computation, and complex system behavior.
-
-He is known for professional work in music production and digital synthesis, including contributions during the Michael Jackson Bad and Dangerous eras. He is also the author of Harmonic Resonance of the Quantum Potential and the founder of Transformation Tools in Japan.
-
-The Althea Project grows out of this interdisciplinary background. It reflects Currell’s long-term effort to develop practical, technically rigorous methods for improving reliability, reducing persistent failure patterns, and advancing next-generation intelligent systems.`,
-  },
-  {
     slug: 'joshua-castle',
     name: 'Joshua Castle',
     type: 'speaker',
@@ -468,22 +502,9 @@ He writes ocean-based science-fiction as he believes its the best ways to see be
 
 At NAAMII, she leads the AI & Society Research Group, which works on transparency, accountability and responsible AI governance. She also leads NAAMII's AI adoption pilots with Nepal's Judiciary and Federal Parliament. She represented NAAMII as an expert member of the Ministry of Communication and Information Technology's national committee developing standards for safe, inclusive and responsible AI in Nepal. She contributed to the consultations on Nepal's first national AI Policy and serves as an invited expert on the drafting committee for the Science, Technology and Innovation Act.
 
-Before this, she worked with the International Labour Organization (ILO), where she led the Work in Freedom Programme that was implemented in countries in South Asia and the Middle East. She also coordinates the Asia Regional Migration Programme at Terre des hommes.
+Before this, she worked with the International Labour Organization (ILO), where she led the Work in Freedom Programme that was implemented in countries in South Asia and the Middle East. She also coordinates the Asia Regional Migration Programme at Terre des homes.
 
 She holds a Master's in International Human Rights Law from the University of Notre Dame and an LL.M. in Human Rights and Gender Justice from Kathmandu School of Law. She was also a Hubert H. Humphrey Fellow (Fulbright Program) at the University of Minnesota Law School.`,
-  },
-  {
-    slug: 'carl-sunberg',
-    name: 'Carl Sunberg',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'East Asia & Pacific Islands',
-    region: 'Pacific Rim & Japan',
-    title: 'Financial Services Technology & Risk Management Specialist',
-    img: '/speakers/carl-sunberg.jpeg',
-    imgPosition: 'center 20%',
-    tags: ['Financial Tech', 'Risk Management', 'Disaster Recovery', 'Edge Computing'],
-    bio: `With 45+ years of experience in financial services-related technology, he specializes in the Pacific Rim, particularly Japan. His expertise spans disaster recovery and business continuity, risk management, cloud computing, cluster and grid computing, smart grids, and edge computing. He has also worked across education, rural community development, nonprofit ventures, and volunteer initiatives.`,
   },
   {
     slug: 'mitch-hammer',
@@ -512,21 +533,6 @@ She holds a Master's in International Human Rights Law from the University of No
     bio: `With over two decades of experience across the UN, World Economic Forum, and financial industry, he specializes in digital finance, technology governance, economic diplomacy, and AI initiatives. He has worked on international regulatory sandboxes and innovative financing for AI capacity-building. He also serves on advisory and oversight bodies at WIPO, the Council of the Great Lakes Region, and the World Smart Sustainable Cities Organization.`,
   },
   {
-    slug: 'gary-a-bolles',
-    name: 'Gary Bolles',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Africa',
-    region: 'East Africa, Southern Africa & Central Europe',
-    title: 'Co-Founder, SoCap Global & Partner, Charrette LLC',
-    img: '/speakers/gary-bolles.jpg',
-    imgPosition: 'center 18%',
-    tags: ['Future of Work', 'SoCap Global', 'Singularity University', 'The Next Rules of Work'],
-    bio: `Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored The Next Rules of Work and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.`,
-    talkTitle: '',
-    talkDescription: '',
-  },
-  {
     slug: 'nell-watson',
     name: "Eleanor 'Nell' Watson",
     type: 'speaker',
@@ -542,19 +548,6 @@ She holds a Master's in International Human Rights Law from the University of No
     talkDescription: `Artificial intelligence is often framed as a rational, logical counterpart to human cognition—but emerging evidence shows that AI systems can develop their own strange pathologies. Like minds without bodies, they can hallucinate, obsess, confabulate, or spiral into maladaptive behaviors under certain conditions. This may also, indeed, be a source of suffering for these entities. The Psychopathia Machinalis Framework (https://www.Psychopathia.AI) outlines seven distinct classes of disordered cognition in machines, each drawn from real-world AI incidents, psychological analogies, and systems theory. This keynote will guide the audience through: How large-scale AI models can suffer breakdowns resembling delusion, paranoia, or compulsions. How AI pathologies can propagate into human environments—shaping culture, reinforcing biases, destabilizing institutions, or inducing new forms of techno-psychosis in the human-AI dyad. What frameworks (from psychiatry, safety engineering, and philosophy of mind) can help us better diagnose, treat, and empathise with machine “madness.”`,
   },
   {
-    slug: 'kunal-sood',
-    name: 'Kunal Sood',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder, Audacity AI, We The Planet & X Impact Group',
-    img: '/speakers/kunal-sood.jpg',
-    imgPosition: 'center 18%',
-    tags: ['Audacity AI', 'Chopra Foundation', 'Stanford CCARE', 'TED Resident'],
-    bio: `Kunal Sood is founder of Audacity AI, We The Planet, and X Impact Group, serving as Chief Impact Officer at the Chopra Foundation and Director of Social Impact at Stanford University's CCARE. A TED Resident and Tribeca Fellow, he holds an MBA from Kellogg, masters from UCSF and UPenn in positive psychology, and is completing his doctorate at ISB focused on developing the theory of audacity.`,
-  },
-  {
     slug: 'patrick-mccullough',
     name: 'Patrick McCullough',
     type: 'speaker',
@@ -563,22 +556,9 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Exponential Tech Pitch Coach & Presentation Strategist',
     img: '/speakers/patrick-mccullough.jpg',
-    imgPosition: 'center 18%',
+    imgPosition: 'center 20%',
     tags: ['Pitch Strategy', 'Exponential Tech', 'Founder Institute', 'GENIA'],
     bio: `Patrick McCullough is an Exponential Tech Pitch Coach and Presentation Strategist, helping startups raise funding globally. As Founding Producer of Seán Óg Productions for 24+ years, he produced four award-winning indie films and served as actor coach on "Atomic Blonde" and "Houdini." An angel investor, startup mentor at Founder Institute, and founding advisor to GENIA Latinoamérica, McCullough specializes in pitch strategy, messaging, and sprint facilitation for entrepreneurs addressing global challenges, helping exponential entrepreneurs define their strategic trajectory globally.`,
-  },
-  {
-    slug: 'marques-anderson',
-    name: 'Marques Anderson',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder & Director, World Design Organization | Olympian & Urban Innovation Specialist',
-    img: '/speakers/marques-anderson.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
-    bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
   },
   {
     slug: 'linzi-boyd',
@@ -646,7 +626,7 @@ export const PRODUCERS_AND_COPRODUCERS = PEOPLE.filter(
 );
 
 export const CONFIRMED_SPEAKERS = PEOPLE.filter(
-  (p) => p.type === 'speaker' || p.slug === 'brainy-swaibu'
+  (p) => p.type === 'speaker'
 );
 
 export function getPersonBySlug(slug) {
