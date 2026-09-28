@@ -81,6 +81,7 @@ export default function SpeakersListPage() {
                     alt={speaker.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: speaker.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 120px"
                   />
                 </div>
@@ -156,6 +157,7 @@ export default function SpeakersListPage() {
                     alt={selectedSpeaker.name}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: selectedSpeaker.imgPosition || 'center 20%' }}
                     sizes="(max-width: 640px) 112px, 144px"
                   />
                 </div>
@@ -197,22 +199,20 @@ export default function SpeakersListPage() {
                 </div>
               )}
 
-              <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                <h4 className="font-mono text-xs uppercase font-bold text-[#163B32] tracking-wider border-b border-emerald-100 pb-1 flex items-center gap-2">
-                  <UserCheck className="w-4 h-4 text-[#22C55E]" />
-                  <span>Biography &amp; Insights</span>
-                </h4>
-                
-                {selectedSpeaker.bio ? (
-                  selectedSpeaker.bio.split('\n\n').map((paragraph, idx) => (
+              {selectedSpeaker.bio && selectedSpeaker.bio.trim() && (
+                <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <h4 className="font-mono text-xs uppercase font-bold text-[#163B32] tracking-wider border-b border-emerald-100 pb-1 flex items-center gap-2">
+                    <UserCheck className="w-4 h-4 text-[#22C55E]" />
+                    <span>Biography &amp; Insights</span>
+                  </h4>
+                  
+                  {selectedSpeaker.bio.split('\n\n').map((paragraph, idx) => (
                     <p key={idx} className="leading-relaxed">
                       {paragraph}
                     </p>
-                  ))
-                ) : (
-                  <p className="text-slate-500 italic">Biography details to be announced.</p>
-                )}
-              </div>
+                  ))}
+                </div>
+              )}
 
               {selectedSpeaker.tags && (
                 <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-100">

@@ -10,6 +10,8 @@ import p6 from '@/../public/intuitio.jpg';
 import p7 from '@/../public/ism.jpg';
 
 const PARTNERS = [
+  { img: '/compassion-economy-logo.png', name: 'Compassion Economy' },
+  { img: '/ideaz-logo.svg', name: 'IDEAZ Business Innovation' },
   { img: p1, name: 'PDIE Group' },
   { img: p2, name: 'μLearn' },
   { img: p3, name: 'The Purple Movement' },

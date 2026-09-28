@@ -165,8 +165,8 @@ export const SCHEDULE_MATRIX = [
       BRT: '14:00–16:00',
       AEST: '03:00–05:00 (Oct 3)',
     },
-    producers: ['Dr. Lee Kironget (Producer, Regional Support: Brainy)'],
-    speakers: ['Gary A. Bolles', 'Dr. Alexis J. Stokes-Burks', "Eleanor 'Nell' Watson", 'Sofia Couto da Rocha'],
+    producers: ['Dr. Lee Kironget (Producer)', 'Brainy Swaibu (Co-Producer)'],
+    speakers: ['Gary A. Bolles', "Eleanor 'Nell' Watson", 'Sofia Couto da Rocha'],
     theme: 'Global justice, climate resilience, peace, democracy and ethical governance',
   },
   {
@@ -188,7 +188,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '05:00–07:00 (Oct 3)',
     },
     producers: ['Fabrizio Gramuglio (Producer)', 'Dr. Edith Öller (Co-Producer)'],
-    speakers: ['Neil Nassar', 'Emily Kate Genatowski', 'Dr. Valérie M. Saintot'],
+    speakers: ['Neil Nassar', 'Emily Kate Genatowski', 'Dr. Valérie M. Saintot', 'Julie Hellmann'],
     theme: 'Compassionate leadership, responsible innovation, migration and global citizenship',
   },
   {
@@ -210,7 +210,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '07:00–09:00 (Oct 3)',
     },
     producers: ['Julieta Reyes (Producer)'],
-    speakers: ['Jeremy Erasmus', 'Julie Hellmann'],
+    speakers: ['Jeremy Erasmus'],
     theme: 'Civil rights, democratic participation, global health and youth-led social movements',
   },
   {

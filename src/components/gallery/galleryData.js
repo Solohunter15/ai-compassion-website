@@ -15,7 +15,6 @@ export const galleryVideos = [
   // AFRICA
   { id: 8, title: "Africa Segment", speaker: "Full Segment", segment: "Africa", youtubeId: "Mjf4_hHT8dY" },
   { id: 9, title: "Gary Bolles", speaker: "Gary Bolles", segment: "Africa", youtubeId: "_pjoy1XQhyg" },
-  { id: 10, title: "Dr. Alexis Stokes", speaker: "Dr. Alexis Stokes", segment: "Africa", youtubeId: "mPfxXwyiZLY" },
   { id: 11, title: "Nell Watson", speaker: "Nell Watson", segment: "Africa", youtubeId: "k0JmlHKoLRo" },
   { id: 12, title: "Sofia Couto da Rocha", speaker: "Sofia Couto da Rocha", segment: "Africa", youtubeId: "_2Y8MQ9atpo" },
 

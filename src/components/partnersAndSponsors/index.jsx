@@ -31,6 +31,8 @@ const SPONSORS = [
 
 const PARTNERS = [
   { img: '/imagine-logo.png', name: 'IMAGINE', isCustom: true },
+  { img: '/compassion-economy-logo.png', name: 'Compassion Economy', isCustom: true },
+  { img: '/ideaz-logo.svg', name: 'IDEAZ Business Innovation', isCustom: true },
   { img: p1, name: 'PDIE Group' },
   { img: p2, name: 'μLearn' },
   { img: '/purple-logo-darktext.png', name: 'The Purple Movement', isCustom: true },

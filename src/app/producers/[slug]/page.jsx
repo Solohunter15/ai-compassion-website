@@ -50,6 +50,7 @@ export default async function ProducerBioPage({ params }) {
                 fill
                 priority
                 className="object-cover"
+                style={{ objectPosition: producer.imgPosition || 'center 20%' }}
                 sizes="(max-width: 640px) 144px, 176px"
               />
             </div>
