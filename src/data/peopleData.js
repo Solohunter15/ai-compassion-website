@@ -87,7 +87,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC',
     img: '/walied.jpg',
-    imgPosition: 'center 18%',
+    imgPosition: 'center',
     tags: ['Edge AI', 'Autonomous Systems', 'Impactful Innovator', 'Sustainable CEO'],
     bio: `Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC, whose edge AI platform runs across more than one hundred enterprise deployments in the GCC.
 

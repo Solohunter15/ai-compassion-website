@@ -128,12 +128,15 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          {/* Date with Terracotta Orange Accent Line */}
-          <div className="flex items-center gap-3">
+          {/* Date & Starting Time with Terracotta Orange Accent Line */}
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             <span className="h-[2.5px] w-8 bg-[#C96F4A] rounded-full" />
             <p className="font-editorial text-xl sm:text-2xl md:text-3xl font-bold text-[#163B32]">
               October 2–3, 2026
             </p>
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100/80 border border-emerald-300 text-[#163B32] font-mono text-xs sm:text-sm font-bold tracking-tight shadow-2xs">
+              Starts 06:00 UTC
+            </span>
           </div>
 
           {/* Core Story Vision */}

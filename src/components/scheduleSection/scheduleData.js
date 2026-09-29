@@ -122,7 +122,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '23:00–01:00 (Oct 2→3)',
     },
     producers: ['Deepu S Nath (Producer)'],
-    speakers: ['Sadhvi Bhagawati Saraswati', 'Prof. Prakash Singh Bisen', 'Anupam Trivedi', 'Devendra Kumar Jain', 'Saurabh Bhatt', 'Sandhya Sitoula', 'Mohammed Y Safirulla K', 'Nidhi Sudhan'],
+    speakers: ['Sandhya Sitoula', 'Mohammed Y Safirulla K', 'Nidhi Sudhan'],
     theme: 'AI for social impact, youth opportunity, health & responsible governance',
   },
   {
@@ -144,7 +144,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '01:00–03:00 (Oct 3)',
     },
     producers: ['Walied Albasheer (Producer)'],
-    speakers: ['Ahmed Khbeer', 'Anas Almarie', 'Waleed Akaeha', 'Mohamed Elyas', 'Manel Chada El Islam Benmahcene', 'Sara Hegazy', 'Aliaa Mohamed', 'Haytham El-Azaizy', 'Mohamed Osman', 'Raed Habbis', 'Dr. Anour F A DAFA-ALLA', 'Krishna Raj', 'Dr. Fady Ismaeel', 'Manal Rifki', 'Danil Kerimi'],
+    speakers: ['Danil Kerimi'],
     theme: 'Long-horizon governance, coexistence, peacebuilding and future cities',
   },
   {
@@ -210,7 +210,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '07:00–09:00 (Oct 3)',
     },
     producers: ['Julieta Reyes (Producer)'],
-    speakers: ['WarīNkwī Flores', 'Pico Velásquez', 'Justin Breen', 'Jeremy Erasmus'],
+    speakers: ['Jeremy Erasmus'],
     theme: 'Civil rights, democratic participation, global health and youth-led social movements',
   },
   {
@@ -232,7 +232,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '09:00–11:00 (Oct 3)',
     },
     producers: ['Ani Chahal Honan (North America Lead / Producer)'],
-    speakers: ['Stephen Ibaraki', 'Matthew Manos', 'Douglas Thomas', 'Jennifer Aaker', 'Stephen Butler', 'Nichol Bradford', 'DE KAI', 'Mitch Hammer'],
+    speakers: ['Mitch Hammer'],
     theme: 'Biodiversity, Indigenous communities, social innovation and regenerative economies',
   },
   {

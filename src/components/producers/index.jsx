@@ -84,7 +84,7 @@ export default function ProducersSection() {
                     alt={person.name}
                     fill
                     className="object-cover"
-                    style={{ objectPosition: person.imgPosition || 'center 20%' }}
+                    style={{ objectPosition: person.imgPosition || 'center' }}
                     sizes="(max-width: 640px) 150px, 160px"
                   />
                 </div>

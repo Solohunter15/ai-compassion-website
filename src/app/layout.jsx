@@ -30,6 +30,11 @@ export const metadata = {
   metadataBase: new URL('https://aicompassion.world'),
   title: "AI+Compassion Global Forum 2026 — Kyoto & Global Relay",
   description: "The Global Forum on AI + Compassion unites innovators, policymakers, and cultural leaders to explore how artificial intelligence can serve humanity and the planet.",
+  icons: {
+    icon: '/og-image.jpg',
+    shortcut: '/og-image.jpg',
+    apple: '/og-image.jpg',
+  },
   openGraph: {
     title: "AI+Compassion Global Forum 2026",
     description: "The Global Forum on AI + Compassion unites innovators, policymakers, and cultural leaders to explore how artificial intelligence can serve humanity and the planet.",
@@ -37,9 +42,17 @@ export const metadata = {
     siteName: 'AI + Compassion',
     images: [
       {
+        url: 'https://aicompassion.world/og-image.jpg',
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
+        alt: "AI + Compassion Global Forum 2026",
+      },
+      {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
+        type: 'image/jpeg',
         alt: "AI + Compassion Global Forum 2026",
       },
     ],
@@ -50,7 +63,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "AI+Compassion Global Forum 2026",
     description: "The Global Forum on AI + Compassion unites innovators, policymakers, and cultural leaders to explore how artificial intelligence can serve humanity and the planet.",
-    images: ['/og-image.jpg'],
+    images: ['https://aicompassion.world/og-image.jpg'],
   },
 };
 
@@ -59,6 +72,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="apple-mobile-web-app-title" content="AI + Compassion" />
+        <meta property="og:image" content="https://aicompassion.world/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://aicompassion.world/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://aicompassion.world/og-image.jpg" />
+        <link rel="image_src" href="https://aicompassion.world/og-image.jpg" />
       </head>
       <body
         className={`${libre.variable} ${sen.variable} ${jakarta.variable} font-sans antialiased text-[#171918] bg-[#F8F6F0] selection:bg-[#163B32] selection:text-[#F8F6F0]`}

@@ -77,7 +77,7 @@ export default function ScheduleSection() {
     return items;
   }, []);
 
-  // Dynamically calculate the precise center-to-center distance from Node 1 to Homecoming Node
+  // Dynamically calculate the precise center-to-center distance from Node 0 to Homecoming Node
   useEffect(() => {
     const updateLineBounds = () => {
       if (!itemsContainerRef.current || !firstNodeRef.current || !lastNodeRef.current) return;
@@ -89,22 +89,29 @@ export default function ScheduleSection() {
       const lastCenterY = lastRect.top + lastRect.height / 2 - containerRect.top;
       const totalHeight = Math.max(0, lastCenterY - firstCenterY);
 
-      setLineBounds((prev) => {
-        if (Math.abs(prev.top - firstCenterY) < 1 && Math.abs(prev.height - totalHeight) < 1) {
-          return prev;
-        }
-        return {
-          top: firstCenterY,
-          height: totalHeight,
-        };
+      setLineBounds({
+        top: Math.round(firstCenterY),
+        height: Math.round(totalHeight),
       });
     };
 
+    updateLineBounds();
     const frameId = requestAnimationFrame(updateLineBounds);
+    const timeoutId = setTimeout(updateLineBounds, 300);
+
+    let resizeObserver;
+    if (typeof ResizeObserver !== 'undefined' && itemsContainerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        updateLineBounds();
+      });
+      resizeObserver.observe(itemsContainerRef.current);
+    }
     window.addEventListener('resize', updateLineBounds);
 
     return () => {
       cancelAnimationFrame(frameId);
+      clearTimeout(timeoutId);
+      if (resizeObserver) resizeObserver.disconnect();
       window.removeEventListener('resize', updateLineBounds);
     };
   }, [groupedTimelineItems.length, northAmericaExpanded, selectedTz, activeView]);
@@ -268,9 +275,9 @@ export default function ScheduleSection() {
               {/* Timeline Items Container */}
               <div ref={itemsContainerRef} className="relative flex flex-col gap-10 sm:gap-14">
                 
-                {/* Central Bounded Track */}
+                {/* Central Bounded Track (Terminates precisely at Homecoming Node) */}
                 <div
-                  className="absolute left-5 md:left-1/2 w-1 -translate-x-1/2 z-0 pointer-events-none"
+                  className="absolute left-5 md:left-1/2 w-1 -translate-x-1/2 z-0 pointer-events-none overflow-hidden rounded-full"
                   style={{
                     top: `${lineBounds.top}px`,
                     height: `${lineBounds.height}px`,
@@ -279,12 +286,8 @@ export default function ScheduleSection() {
                   <div className="w-full h-full bg-emerald-100 rounded-full" />
                   <div
                     className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#163B32] via-[#22C55E] to-[#C9A96A] rounded-full transition-all duration-75 shadow-sm shadow-emerald-700/20"
-                    style={{ height: `${scrollProgress * 100}%` }}
-                  >
-                    {scrollProgress > 0.01 && (
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 rounded-full bg-[#22C55E] ring-4 ring-emerald-300/40 shadow-lg shadow-emerald-500/50 animate-pulse" />
-                    )}
-                  </div>
+                    style={{ height: `${Math.min(1, Math.max(0, scrollProgress)) * 100}%` }}
+                  />
                 </div>
 
                 {groupedTimelineItems.map((item, idx) => {
