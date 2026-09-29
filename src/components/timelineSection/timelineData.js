@@ -18,11 +18,11 @@ export const scheduleRight = [
 
 export const global = [
   { subtitle: "", title: "Southeast Asia", time: "05:00-08:00 UTC", items: ["Aditi Singh (Producer)", "Youth Community Delegates & Technologists"] },
-  { subtitle: "", title: "South Asia", time: "08:00-11:00 UTC", items: ["Deepu S Nath (Producer)", "Sadhvi Bhagawati Saraswati", "Prof. Prakash Singh Bisen", "Anupam Trivedi", "Devendra Kumar Jain", "Saurabh Bhatt", "Sandhya Sitoula", "Mohammed Y Safirulla K", "Nidhi Sudhan"] },
-  { subtitle: "", title: "GCC / Europe", time: "11:00-14:00 UTC", items: ["Walied Albasheer (Moderator)", "Ahmed Khbeer", "Anas Almarie", "Waleed Akaeha", "Mohamed Elyas", "Manel Chada El Islam Benmahcene", "Sara Hegazy", "Aliaa Mohamed", "Haytham El-Azaizy", "Mohamed Osman", "Raed Habbis", "Dr. Anour F A DAFA-ALLA", "Krishna Raj", "Dr. Fady Ismaeel", "Manal Rifki"] },
+  { subtitle: "", title: "South Asia", time: "08:00-11:00 UTC", items: ["Deepu S Nath (Producer)", "Sandhya Sitoula", "Mohammed Y Safirulla K", "Nidhi Sudhan"] },
+  { subtitle: "", title: "GCC / Europe", time: "11:00-14:00 UTC", items: ["Walied Albasheer (Producer)", "Danil Kerimi"] },
   { subtitle: "", title: "Africa", time: "14:00-17:00 UTC", items: ["Dr. Lee Kironget (Producer)", "Brainy Swaibu (Co-Producer)", "Eleanor 'Nell' Watson", "Gary A. Bolles", "Sofia Couto da Rocha"] },
-  { subtitle: "", title: "Latin America & Caribbean", time: "17:00-20:00 UTC", items: ["Julieta Reyes (Producer)", "WarīNkwī Flores", "Pico Velásquez", "Justin Breen", "Jeremy Erasmus"] },
-  { subtitle: "", title: "North America", time: "20:00-23:00 UTC", items: ["Ani Chahal Honan (Producer)", "Stephen Ibaraki", "Matthew Manos", "Douglas Thomas", "Jennifer Aaker", "Stephen Butler", "Nichol Bradford", "DE KAI", "Mitch Hammer", "Marques Anderson", "Kunal Sood", "Patrick McCullough"] },
+  { subtitle: "", title: "Latin America & Caribbean", time: "17:00-20:00 UTC", items: ["Julieta Reyes (Producer)", "Jeremy Erasmus"] },
+  { subtitle: "", title: "North America", time: "20:00-23:00 UTC", items: ["Ani Chahal Honan (Producer)", "Mitch Hammer", "Marques Anderson", "Kunal Sood", "Patrick McCullough"] },
   { subtitle: "", title: "Oceania", time: "23:00-02:00 UTC", items: ["Christina Gerakiteys (Producer)", "Joshua Castle"] },
 ];
 
