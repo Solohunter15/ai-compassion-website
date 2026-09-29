@@ -473,7 +473,7 @@ export default function ScheduleSection() {
                             {block.region}
                           </h4>
 
-                          {/* Producers, Speakers & Tentative Theme Section */}
+                          {/* Producers, Speakers & Theme Section */}
                           {(block.producers?.length > 0 || block.speakers?.length > 0 || block.theme) && (
                             <div className="pt-3 border-t border-emerald-100/80 flex flex-col gap-2 mt-1 text-xs text-slate-600">
                               {block.producers?.length > 0 && (
@@ -503,7 +503,7 @@ export default function ScheduleSection() {
                               {block.theme && (
                                 <div className={`flex flex-col gap-0.5 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
                                   <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-[#C96F4A]">
-                                    Tentative Theme
+                                    Theme
                                   </span>
                                   <p className="text-slate-700 italic font-medium leading-relaxed">
                                     &ldquo;{block.theme}&rdquo;

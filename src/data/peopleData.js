@@ -14,7 +14,7 @@ export const PEOPLE = [
     region: 'Australia, New Zealand & South Pacific',
     title: 'CEO of UtopiaX | Author & Moonshot Innovation Strategist',
     img: '/christina.jpg',
-    imgPosition: 'center 20%',
+    imgPosition: 'center',
     tags: ['Moonshot Thinking', 'Purpose & Play', 'Design Thinking', 'Oceanlovers Global'],
     bio: `Christina Gerakiteys is CEO of UtopiaX, author of Celebrating Success One Failure at a Time, and Founder of IdeaSparx, an innovation platform. A sought-after international keynote speaker, facilitator, and program designer, she creates interactive experiences driven by design thinking, purpose, and play — disrupting current mindsets toward Moonshot thinking, exploring what's possible rather than what's acceptable or limited.
 
@@ -153,7 +153,7 @@ Instagram: @edith.ideaz`,
     region: 'Eastern & Southern South America, Caribbean',
     title: 'Strategic Advisor | Diversity & Inclusion Lead | Global Operations',
     img: '/julieta.jpg',
-    imgPosition: 'center 12%',
+    imgPosition: 'center',
     tags: ['Caribbean resilience', 'Latin American AI', 'Curacao Hub', 'Diversity & Inclusion'],
     bio: `Julieta Reyes is a strategic advisor, organizational consultant, and founder of The Reyes Group, specializing in diplomatic operations, public diplomacy, and strategic communications. Based in Curaçao, she advises regional bodies, leads strategic workshops, and advocates for Caribbean representation in global AI and tech policy forums.
 
@@ -514,9 +514,28 @@ She holds a Master's in International Human Rights Law from the University of No
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Global Forum Speaker & Contributor',
     img: '/speakers/mitch-hammer.jpeg',
-    imgPosition: 'center 20%',
-    tags: ['Compassionate Systems', 'Ethical Tech', 'Planetary Co-Flourishing'],
-    bio: `Mitch Hammer contributes to the AI + Compassion Global Forum 2026, exploring compassionate systems, ethical technology, and interdisciplinary collaboration for planetary co-flourishing.`,
+    imgPosition: 'center',
+    tags: ['PocketSeed', 'Sustainability', 'Trust Platform', 'Blockchain & AI'],
+    bio: `Mitch Hammer — Co-Founder, PocketSeed
+
+Mitch Hammer builds technology that helps people trust what companies tell them. He is co-founder of PocketSeed, an AI- and blockchain-powered trust platform that creates structure, verification and accountability for corporate sustainability reporting. Consumers can scan a QR code to see the evidence behind a company's claim, which turns "trust us" into proof anyone can check.
+
+Originally from Sydney, Mitch earned his master's in international business in Australia. He worked with the Trade Commission at the Australian Consulate in Dubai before moving to Japan, drawn by the differences between Western and Japanese business styles. At sustainability consultancy DGI, he was among the first to bring environmental commodities onto blockchains that track CO2 emissions. He also helped major Japanese companies measure their impact and meet international frameworks, and he represented DGI at the United Nations General Assembly.
+
+Mitch treats ethics as a design principle, not an afterthought. Initiatives facilitated by PocketSeed have helped remove 500,000 plastic bottles from the ocean, offset 13.3 million kilograms of carbon emissions, and deploy 14,424 kelp plants. He is an alumnus of the Antler Japan (JPN4) founder program. His message to audiences is simple: dig a bit deeper into why things are being said.`,
+  },
+  {
+    slug: 'hiroo-miyata',
+    name: 'Hiroo Miyata',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Global Forum Speaker & Contributor',
+    img: '/dummy.webp',
+    imgPosition: 'center',
+    tags: ['Health Data', 'Data Co-Design', 'East Asia', 'Systems Innovation'],
+    bio: `Hiroo Miyata contributes to the AI + Compassion Global Forum 2026, exploring compassionate systems, data co-design, health architecture, and ethical technology.`,
   },
   {
     slug: 'danil-kerimi',

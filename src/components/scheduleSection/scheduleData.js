@@ -34,7 +34,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '16:00–17:00',
     },
     producers: ['Jun Suto (Producer)'],
-    speakers: ['Maki Kawamura', 'Dr. Olaf Witkowski'],
+    speakers: ['Dr. Olaf Witkowski'],
     theme: 'Opening Ceremony, AI+C Overview, Reflect on 2025, Meditation & Global Vision',
   },
   {
@@ -78,7 +78,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '19:00–21:00',
     },
     producers: ['Jun Suto (Producer)'],
-    speakers: ['Prof. Tomohiro Ishizu', 'Junko Hosomi', 'Christopher Currell', 'Dr. Olaf Witkowski'],
+    speakers: ['Tomohiro Ishizu', 'Junko Hosomi', 'Hiroo Miyata', 'Christopher Currell', 'Patrick McCullough'],
     theme: 'Planet-centered AI, education, robotics and intergenerational responsibility',
   },
   {
@@ -122,7 +122,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '23:00–01:00 (Oct 2→3)',
     },
     producers: ['Deepu S Nath (Producer)'],
-    speakers: ['Sandhya Sitoula'],
+    speakers: ['Sadhvi Bhagawati Saraswati', 'Prof. Prakash Singh Bisen', 'Anupam Trivedi', 'Devendra Kumar Jain', 'Saurabh Bhatt', 'Sandhya Sitoula', 'Mohammed Y Safirulla K', 'Nidhi Sudhan'],
     theme: 'AI for social impact, youth opportunity, health & responsible governance',
   },
   {
@@ -144,7 +144,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '01:00–03:00 (Oct 3)',
     },
     producers: ['Walied Albasheer (Producer)'],
-    speakers: ['Future Cities & Governance Innovators'],
+    speakers: ['Ahmed Khbeer', 'Anas Almarie', 'Waleed Akaeha', 'Mohamed Elyas', 'Manel Chada El Islam Benmahcene', 'Sara Hegazy', 'Aliaa Mohamed', 'Haytham El-Azaizy', 'Mohamed Osman', 'Raed Habbis', 'Dr. Anour F A DAFA-ALLA', 'Krishna Raj', 'Dr. Fady Ismaeel', 'Manal Rifki', 'Danil Kerimi'],
     theme: 'Long-horizon governance, coexistence, peacebuilding and future cities',
   },
   {
@@ -188,7 +188,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '05:00–07:00 (Oct 3)',
     },
     producers: ['Fabrizio Gramuglio (Producer)', 'Dr. Edith Öller (Co-Producer)'],
-    speakers: ['Neil Nassar', 'Emily Kate Genatowski', 'Dr. Valérie M. Saintot', 'Julie Hellmann'],
+    speakers: ['Neil Nassar', 'Emily Kate Genatowski', 'Dr. Valérie M. Saintot', 'Julie Hellmann', 'Linzi Boyd'],
     theme: 'Compassionate leadership, responsible innovation, migration and global citizenship',
   },
   {
@@ -210,7 +210,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '07:00–09:00 (Oct 3)',
     },
     producers: ['Julieta Reyes (Producer)'],
-    speakers: ['Jeremy Erasmus'],
+    speakers: ['WarīNkwī Flores', 'Pico Velásquez', 'Justin Breen', 'Jeremy Erasmus'],
     theme: 'Civil rights, democratic participation, global health and youth-led social movements',
   },
   {
@@ -232,7 +232,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '09:00–11:00 (Oct 3)',
     },
     producers: ['Ani Chahal Honan (North America Lead / Producer)'],
-    speakers: ['Mitch Hammer'],
+    speakers: ['Stephen Ibaraki', 'Matthew Manos', 'Douglas Thomas', 'Jennifer Aaker', 'Stephen Butler', 'Nichol Bradford', 'DE KAI', 'Mitch Hammer'],
     theme: 'Biodiversity, Indigenous communities, social innovation and regenerative economies',
   },
   {
@@ -298,7 +298,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '15:00–17:00 (Oct 3)',
     },
     producers: ['Jun Suto (Producer)'],
-    speakers: ['Island Leadership & Indigenous Navigation Guardians'],
+    speakers: ['Carl Sunberg', 'Island Leadership & Indigenous Navigation Guardians'],
     theme: 'Ocean consciousness, Indigenous navigation, ecological responsibility and the future of island communities',
   },
   {

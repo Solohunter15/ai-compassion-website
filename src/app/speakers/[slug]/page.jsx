@@ -50,7 +50,7 @@ export default async function SpeakerBioPage({ params }) {
                 fill
                 priority
                 className="object-cover"
-                style={{ objectPosition: speaker.imgPosition || 'center 20%' }}
+                style={{ objectPosition: speaker.imgPosition || 'center' }}
                 sizes="(max-width: 640px) 144px, 176px"
               />
             </div>
