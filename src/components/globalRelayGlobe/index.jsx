@@ -118,22 +118,30 @@ export default function GlobalRelayGlobeSection() {
 
           {/* Right: Dynamic Producer & Inquiry Information Card (6 Cols) */}
           <div className="lg:col-span-6 bg-white rounded-3xl p-5 sm:p-7 border border-[#D9DDD6] shadow-xl flex flex-col gap-4 backdrop-blur-md transition-all duration-300">
-            {/* Region Title & City */}
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#5E625D]">
-                <MapPin className="w-3.5 h-3.5 text-[#C96F4A]" />
-                <span>{activeRegion.city}</span>
+            {/* Region Title, City & UTC Timing */}
+            <div className="flex flex-col gap-1.5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-[#5E625D]">
+                  <MapPin className="w-3.5 h-3.5 text-[#C96F4A]" />
+                  <span>{activeRegion.city}</span>
+                </div>
+                {activeRegion.utcTiming && (
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#163B32]/10 border border-[#163B32]/20 text-[#163B32] text-xs font-mono font-bold tracking-tight">
+                    <Clock className="w-3.5 h-3.5 text-[#163B32]" />
+                    <span>{activeRegion.utcTiming}</span>
+                  </div>
+                )}
               </div>
               <h3 className="font-editorial text-lg sm:text-xl md:text-2xl font-bold text-[#171918] leading-snug tracking-tight">
                 {activeRegion.region}
               </h3>
             </div>
 
-            {/* Tentative Theme */}
+            {/* Theme */}
             {activeRegion.theme && (
               <div className="p-3 rounded-xl bg-amber-50/70 border border-amber-200/80 flex flex-col gap-0.5">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#C96F4A]">
-                  Tentative Theme
+                  Theme
                 </span>
                 <p className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
                   {activeRegion.theme}

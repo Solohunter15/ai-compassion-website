@@ -79,7 +79,7 @@ export default async function PersonProfilePage({ params }) {
                 fill
                 priority
                 className="object-cover"
-                style={{ objectPosition: person.imgPosition || 'center 20%' }}
+                style={{ objectPosition: person.imgPosition || 'center' }}
                 sizes="(max-width: 640px) 144px, 176px"
               />
             </div>
