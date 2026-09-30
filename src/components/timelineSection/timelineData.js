@@ -35,7 +35,6 @@ export const kyoto = [
       "Jun Suto (Producer)",
       "Tomohiro Ishizu",
       "Junko Hosomi",
-      "Hiroo Miyata",
       "Christopher Currell",
       "Patrick McCullough",
       "Dr. Olaf Witkowski",

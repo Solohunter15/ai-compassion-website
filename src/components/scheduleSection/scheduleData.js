@@ -78,7 +78,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '19:00–21:00',
     },
     producers: ['Jun Suto (Producer)'],
-    speakers: ['Tomohiro Ishizu', 'Junko Hosomi', 'Hiroo Miyata', 'Christopher Currell', 'Patrick McCullough'],
+    speakers: ['Tomohiro Ishizu', 'Junko Hosomi', 'Christopher Currell', 'Patrick McCullough'],
     theme: 'Planet-centered AI, education, robotics and intergenerational responsibility',
   },
   {
