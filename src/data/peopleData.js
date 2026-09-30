@@ -33,7 +33,8 @@ She is an ambassador for Stone & Chalk Tech Central and Oceanlovers Global, and 
     img: '/jun.png',
     imgPosition: 'center 20%',
     tags: ['Avatar XPRIZE', 'Planetary Co-Flourishing', 'Medical Intelligence', 'Futokoro'],
-    bio: `Jun Suto stands as a visionary architect of co-flourishing futures where nature, humanity, and artificial intelligence thrive together. As a founding member of the AI+Compassion Alliance and Global Forum, he champions the transformative potential of compassionate technology that honors all forms of intelligence and life. With over 30 years of guiding Fortune 500 companies, SMEs, and startups toward breakthrough growth, Jun brings unparalleled expertise in translating holistic visions into reality.
+    bio: `Catalyzing Compassionate Innovation for Planetary Co-Flourishing
+Jun Suto stands as a visionary architect of co-flourishing futures where nature, humanity, and artificial intelligence thrive together. As a founding member of the AI+Compassion Alliance and Global Forum, he champions the transformative potential of compassionate technology that honors all forms of intelligence and life. With over 30 years of guiding Fortune 500 companies, SMEs, and startups toward breakthrough growth, Jun brings unparalleled expertise in translating holistic visions into reality.
 
 A 2016 XPRIZE Visioneer and winner of Singularity University's 2018 Global Impact Challenge, Jun produced the groundbreaking $10 million Avatar XPRIZE, catalyzing the telepresence industry that the World Economic Forum recognized as a Top 10 Emerging Technology of 2019. His work demonstrates how compassionate innovation can eliminate the waste of talents while listening to the cry of the voiceless—his personal Massively Transformative Purpose that extends beyond humanity to all sentient beings.
 
@@ -46,7 +47,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     role: 'Co-Producer / MC',
     segment: 'East Asia & Pacific Islands',
     region: 'Pacific Rim & Japan',
-    title: 'Financial Services Technology & Risk Management Specialist | Co-Producer / MC',
+    title: 'Financial Services Technology & Risk Management Specialist',
     img: '/speakers/carl-sunberg.jpeg',
     imgPosition: 'center 20%',
     tags: ['Financial Tech', 'Risk Management', 'Disaster Recovery', 'Edge Computing', 'Co-Producer / MC'],
@@ -89,11 +90,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     img: '/walied.jpg',
     imgPosition: 'center',
     tags: ['Edge AI', 'Autonomous Systems', 'Impactful Innovator', 'Sustainable CEO'],
-    bio: `Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC, whose edge AI platform runs across more than one hundred enterprise deployments in the GCC.
-
-Registered delegate across eight ITU-T Focus Group meetings on AI for Autonomous and Assisted Driving, and a member of the UAE side of the UAE-Estonia and UAE-Finland business councils.
-
-Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sustainable CEOs.`,
+    bio: `Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC, whose edge AI platform runs across more than one hundred enterprise deployments in the GCC. Registered delegate across eight ITU-T Focus Group meetings on AI for Autonomous and Assisted Driving, and a member of the UAE side of the UAE-Estonia and UAE-Finland business councils. Recognized among the Global 50 Most Impactful Social Innovators and Top 10 Sustainable CEOs.`,
   },
   {
     slug: 'dr-lee-kironget',
@@ -119,9 +116,7 @@ Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sust
     img: '/fabrizio.jpg',
     imgPosition: 'center 20%',
     tags: ['Compassion Economy', 'ITU AI for Good', 'Data Sovereignty', 'Applied AI'],
-    bio: `Fabrizio Gramuglio has spent twenty years where AI meets human behaviour, and the last three formalising the Compassion Economy, a framework in which contribution is the dominant strategy rather than a sacrifice. It emerged from a 2024 project for Kogenji, a Shingon Buddhist temple, that stalled for lack of a way to turn community care into economic return. Drawing on Mauss, Schumacher, and Ostrom, its first book volume is written.
-
-His evidence base is a published 2018 pilot in three Italian and Swiss schools: children cared for an interactive character designed to need help, studied harder to teach it, and improved academically. He serves on the Steering Committee of the ITU AI for Good Impact Initiative, coordinating AI capacity-building frameworks across 40+ organisations, including AWS, Microsoft, and Cognizant. A former European Commission Expert Evaluator, he assessed 100+ projects, allocated over €100 million, and contributed to W3C and IEEE standards. He advises BK, a Rwandan financial institution, on credit assessment for 3.3 million farmers, and convened a 2024 UN roundtable on data sovereignty and poverty. He has given 100+ keynotes, including TEDxLugano and the European Central Bank, and trained 500+ executives and ministers in applied AI.`,
+    bio: `Fabrizio Gramuglio has spent twenty years where AI meets human behaviour, and the last three formalising the Compassion Economy, a framework in which contribution is the dominant strategy rather than a sacrifice. It emerged from a 2024 project for Kogenji, a Shingon Buddhist temple, that stalled for lack of a way to turn community care into economic return. Drawing on Mauss, Schumacher, and Ostrom, its first book volume is written.His evidence base is a published 2018 pilot in three Italian and Swiss schools: children cared for an interactive character designed to need help, studied harder to teach it, and improved academically. He serves on the Steering Committee of the ITU AI for Good Impact Initiative, coordinating AI capacity-building frameworks across 40+ organisations, including AWS, Microsoft, and Cognizant. A former European Commission Expert Evaluator, he assessed 100+ projects, allocated over €100 million, and contributed to W3C and IEEE standards. He advises BK, a Rwandan financial institution, on credit assessment for 3.3 million farmers, and convened a 2024 UN roundtable on data sovereignty and poverty. He has given 100+ keynotes, including TEDxLugano and the European Central Bank, and trained 500+ executives and ministers in applied AI.`,
   },
   {
     slug: 'edith-oller',
@@ -142,7 +137,7 @@ Her work sits at the intersection of innovation and impact. Alongside consulting
 Her focus spans sustainability, circular economy, societal transformation, and the future of organizations and regions. She holds a doctorate in social and economic sciences (Johannes Kepler University Linz), plus degrees in international economics and fine arts education. She lectures at JKU Linz and FH Oberösterreich, and mentors founders through tech2b and youth entrepreneurship programs.
 
 A certified Professional Scrum Master, she has trained in Theory U, circular economy, and sustainable business models (Copenhagen Business School, TU Delft, Ellen MacArthur Foundation, UNDP).
-Instagram: @edith.ideaz`,
+Instagram -@edith.ideaz`,
   },
   {
     slug: 'julieta-reyes',
@@ -185,7 +180,7 @@ In 2020 he registered SXLA and opened Spectrum Secondary School in a church. The
     role: 'North America Lead / Producer',
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder & Managing Partner Imagine Global | North America Lead',
+    title: 'Founder & Managing Partner Imagine Global',
     img: '/ani.jpg',
     imgPosition: 'center 20%',
     tags: ['Deep Tech', 'Beneficial AGI', 'Sovereign AI', 'Regenerative Systems'],
@@ -263,7 +258,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
   },
 
   // ==========================================
-  // CONFIRMED SPEAKERS & CONTRIBUTORS (20 Speakers from Speakers folder)
+  // CONFIRMED SPEAKERS & CONTRIBUTORS
   // ==========================================
   {
     slug: 'linzi-boyd',
@@ -290,8 +285,6 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     imgPosition: 'center 18%',
     tags: ['Future of Work', 'SoCap Global', 'Singularity University', 'The Next Rules of Work'],
     bio: `Gary A. Bolles is co-founder of SoCap Global and partner at Charrette LLC, specializing in impact, innovation, and capital strategies. A leading expert on the future of work, he authored The Next Rules of Work and created LinkedIn courses with 1.7 million learners. As Global Fellow for Transformation at Singularity University, he guides organizations on leveraging AI and exponential technologies. Previously led major technology companies and directed six technology magazines including Yahoo! Internet Life.`,
-    talkTitle: '',
-    talkDescription: '',
   },
   {
     slug: 'marques-anderson',
@@ -590,6 +583,119 @@ Mitch treats ethics as a design principle, not an afterthought. Initiatives faci
     tags: ['Citizen Digital Foundation', 'AI Governance', 'Child Safety', '100 Brilliant Women in AI'],
     bio: `Nidhi Sudhan is a media and technology strategist with 25+ years of experience across advertising, television, radio, digital, and football in India, the UAE, and the UK. She is Co-Founder of Citizen Digital Foundation and advises public and private stakeholders on AI and data governance, media and information literacy, online child safety, and inclusive technology design. She was recognised among the 100 Brilliant Women in AI Ethics™ 2024.`,
   },
+  {
+    slug: 'paolo-cervari',
+    name: 'Paolo Cervari',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'Europe & Italy',
+    title: 'Chief Evolution Philosopher, Founder of the School of Wisdom',
+    img: '/speakers/paolo-cervari.jpeg',
+    imgPosition: 'center 20%',
+    tags: ['Philosophical Counseling', 'Systemic Problem Solving', 'School of Wisdom', 'Sherpa42'],
+    bio: `Paolo Cervari è consulente organizzativo, filosofo e coach. Cofondatore e Chief Evolution Philosopher di Sherpa42 Società Benefit e CPO (Chief Philosophy Officer) in Guanxi, è consulente filosofico Phronesis, Problem Solver and Strategic Coach formato al Mental Research Institute di Palo Alto e formatore certificato del Centro di Terapia Strategica. Lavora sulla cultura decisionale delle organizzazioni nella linea che da Bateson e Watzlawick arriva al Problem Solving Enattivo Sistemico.`,
+  },
+  {
+    slug: 'satesh-sookhai',
+    name: 'Satesh Sookhai',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Caribbean & LATAM',
+    region: 'Caribbean & South America',
+    title: 'PhD Candidate in Business Administration (Management Studies), The University of the West Indies, St. Augustine',
+    img: '/dummy.webp',
+    imgPosition: 'center 20%',
+    tags: ['SMEs', 'AI Adoption', 'Caribbean Management', 'UWI St. Augustine'],
+    bio: `Satesh Sookhai is a PhD candidate in Business Administration (Management Studies) at The University of the West Indies, St. Augustine, Trinidad and Tobago. His research interests include small and medium-sized enterprises (SMEs), entrepreneurship, employee motivation, artificial intelligence, and management within Caribbean and small-island contexts.
+
+His academic work focuses on understanding how organizations and entrepreneurs can respond to resource constraints, technological change, and evolving workforce expectations. He has contributed to research examining the use of artificial intelligence among SMEs, including how AI can support business growth, productivity, decision-making, and internationalization within the Caribbean. His broader research has also addressed workplace behaviour, sustainability, entrepreneurship education, and employee reward systems.
+
+Alongside his academic work, Satesh brings practical experience from working within a small family business, giving him first-hand exposure to the operational realities, opportunities, and challenges faced by entrepreneurs and SMEs. This combination of research and lived business experience shapes his interest in making management research more practical and accessible to entrepreneurs and policymakers.
+
+Satesh is also actively involved in teaching, student development, research dissemination, and academic engagement at The University of the West Indies. He is particularly interested in how emerging technologies such as AI can be adapted responsibly to the realities of Caribbean businesses, helping entrepreneurs compete, innovate, and access opportunities beyond their local markets.`,
+  },
+  {
+    slug: 'guido-rojer',
+    name: 'Guido Rojer',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Caribbean & LATAM',
+    region: 'Caribbean & South America',
+    title: 'Advisor | Associate Professor of International Entrepreneurship',
+    img: '/dummy.webp',
+    imgPosition: 'center 20%',
+    tags: ['Island Economies', 'Evolutionary Economics', 'Entrepreneurship', 'Caribbean Policy'],
+    bio: `Guido Rojer, Jr. is a Curaçaoan author, scholar, advisor, founder, pundit, tech advocate, and all around professional troublemaker. Dr. Rojer is an Associate Professor of International Entrepreneurship and researches Emerging, Frontier and Island Economies through a broad Evolutionary Economics lens. He holds a doctorate in Economics & Business from UNED Madrid (cum laude), and is an alumnus of the Maastricht Graduate School of Governance (now UNU MERIT) at Maastricht University.
+
+He draws his contributions from executive, supervisory, and advisory experience in both profit and not for profit sectors, and has fulfilled roles as advisor to governments, and consultant for multilateral organizations in and around the Caribbean. He has been the (principal) investigator of research projects and grants totaling a monetary value of 1 million Euro. He is regularly moving around the globe to understand the world, one trip at a time.`,
+  },
+  {
+    slug: 'dr-suresh-namboothiri',
+    name: 'Dr. Suresh Namboothiri',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'Founder & Managing Director, Espoir Technologies | Innovation Strategist',
+    img: '/speakers/dr-suresh-namboothiri.jpeg',
+    imgPosition: 'center 20%',
+    tags: ['Espoir Technologies', 'Innovation & R&D', 'Design Thinking', 'South Asia Tech'],
+    bio: `Dr. Suresh Namboothiri is an innovation strategist, design thinking expert, and Founder & Managing Director of Espoir Technologies. With decades of leadership in research, industrial design, and technology-driven education, he specializes in building transformative engineering and product development methodologies that empower young technologists and innovators across South Asia.`,
+  },
+  {
+    slug: 'seeram-sambasiva-rao',
+    name: 'Seeram Sambasiva Rao',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'IAS | Special Secretary & Digital Governance Leader',
+    img: '/dummy.webp',
+    imgPosition: 'center 20%',
+    tags: ['Civil Service', 'Digital Governance', 'Public Administration', 'Citizen Services'],
+    bio: `Seeram Sambasiva Rao is an Indian Administrative Service (IAS) officer and digital transformation leader recognized for pioneering citizen-centric digital platforms and transparent e-governance solutions. Throughout his public administration career as District Collector and Special Secretary, he has championed compassionate technology deployments that connect marginalized communities with essential public welfare and healthcare resources.`,
+  },
+  {
+    slug: 'zoe-milligan',
+    name: 'Zoe Milligan',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'Global & UK',
+    title: 'Conscious Learning Architect & Founder, The L&D Vault',
+    link: 'https://www.linkedin.com/in/zoemilliganignitespark/',
+    img: '/dummy.webp',
+    imgPosition: 'center 20%',
+    tags: ['Conscious Learning', 'The L&D Vault', 'Psychological Safety', 'Ignite the Spark'],
+    bio: `She is a Conscious Learning Architect and creator of Ignite the Spark, focused on transformational learning, psychological safety, leadership, and team development. She is also the founder of The L&D Vault, partnered with One Earth, which supports L&D professionals in becoming Conscious Learning practitioners.`,
+  },
+  {
+    slug: 'mahtab-farid',
+    name: 'Mahtab Farid',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC & Europe',
+    region: 'Global Media & Public Diplomacy',
+    title: 'International Journalist, Media Strategist & Public Diplomacy Specialist',
+    img: '/speakers/mahtab-farid.jpeg',
+    imgPosition: 'center 20%',
+    tags: ['Public Diplomacy', 'Media Literacy', 'International Journalism', 'Cultural Dialogue'],
+    bio: `Mahtab Farid is an award-winning international journalist, educator, and public diplomacy strategist with over two decades of experience reporting from global conflict zones and advising international institutions on communication, media literacy, and cultural diplomacy.`,
+  },
+  {
+    slug: 'mariane-power',
+    name: 'Mariane Power',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Oceania',
+    region: 'Australia, New Zealand & South Pacific',
+    title: 'Clinical Psychologist & Co-Founder of The Posify Group | Compassionate Leadership Specialist',
+    img: '/speakers/mariane-power.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Positive Psychology', 'Compassionate Leadership', 'The Posify Group', 'Youth Wellbeing'],
+    bio: `Mariane Power is a clinical psychologist, social entrepreneur, and co-founder of The Posify Group. She specializes in integrating positive psychology, compassion-focused frameworks, and purpose-driven leadership to empower youth, educators, and organizations to thrive in an era of rapid technological change.`,
+  },
 ];
 
 // Helper selectors
@@ -620,4 +726,3 @@ export function getPersonBySlug(slug) {
   const normClean = clean.replace(/[^a-z0-9]/g, '');
   return PEOPLE.find((p) => p.slug.toLowerCase().replace(/[^a-z0-9]/g, '') === normClean) || null;
 }
-

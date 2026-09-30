@@ -122,7 +122,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '23:00–01:00 (Oct 2→3)',
     },
     producers: ['Deepu S Nath (Producer)'],
-    speakers: ['Sandhya Sitoula', 'Mohammed Y Safirulla K', 'Nidhi Sudhan'],
+    speakers: ['Sandhya Sitoula', 'Nidhi Sudhan', 'Mohammed Y Safirulla K', 'Dr. Suresh Namboothiri', 'Seeram Sambasiva Rao'],
     theme: 'AI for social impact, youth opportunity, health & responsible governance',
   },
   {
@@ -210,7 +210,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '07:00–09:00 (Oct 3)',
     },
     producers: ['Julieta Reyes (Producer)'],
-    speakers: ['Jeremy Erasmus'],
+    speakers: ['Jeremy Erasmus', 'Guido Rojer', 'Satesh Sookhai'],
     theme: 'Civil rights, democratic participation, global health and youth-led social movements',
   },
   {
