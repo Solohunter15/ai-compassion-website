@@ -599,8 +599,8 @@ Mitch treats ethics as a design principle, not an afterthought. Initiatives faci
   {
     slug: 'satesh-sookhai',
     name: 'Satesh Sookhai',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'session-contributor',
+    role: 'Session Contributor',
     segment: 'Caribbean & LATAM',
     region: 'Caribbean & South America',
     title: 'PhD Candidate in Business Administration (Management Studies), The University of the West Indies, St. Augustine',
@@ -618,8 +618,8 @@ Satesh is also actively involved in teaching, student development, research diss
   {
     slug: 'guido-rojer',
     name: 'Guido Rojer',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'session-contributor',
+    role: 'Session Contributor',
     segment: 'Caribbean & LATAM',
     region: 'Caribbean & South America',
     title: 'Advisor | Associate Professor of International Entrepreneurship',
@@ -646,8 +646,8 @@ He draws his contributions from executive, supervisory, and advisory experience 
   {
     slug: 'seeram-sambasiva-rao',
     name: 'Seeram Sambasiva Rao',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'session-contributor',
+    role: 'Session Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'IAS | Special Secretary & Digital Governance Leader',
@@ -659,8 +659,8 @@ He draws his contributions from executive, supervisory, and advisory experience 
   {
     slug: 'zoe-milligan',
     name: 'Zoe Milligan',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'session-contributor',
+    role: 'Session Contributor',
     segment: 'Europe',
     region: 'Global & UK',
     title: 'Conscious Learning Architect & Founder, The L&D Vault',
