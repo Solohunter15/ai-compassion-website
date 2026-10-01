@@ -72,9 +72,8 @@ export const global = [
       "Dr. Suresh Namboothiri",
       "Sobhana Jaya Madhavan",
       "Seeram Sambasiva Rao",
-      "Nandakishore Laya",
+      "Nandakishore M",
       "AFM Yusuf Haider",
-      "Deepak Gupta",
       "Prof. Roshan G. Ragel",
       "Pervez Hoodbhoy",
       "Achuth Sankar",
@@ -145,7 +144,7 @@ export const global = [
   {
     subtitle: "Block 9, 10, 11",
     title: "North America Segment",
-    time: "23:00-01:00 UTC",
+    time: "23:00-05:00 UTC",
     items: [
       "Ani Chahal Honan (Producer)",
       "Kunal Sood",
@@ -164,7 +163,6 @@ export const global = [
       "Joshua Castle",
       "Linzi Boyd",
       "Mitch Hammer",
-      "Zoe Milligan",
     ],
   },
   {
@@ -173,6 +171,7 @@ export const global = [
     time: "07:00-08:00 UTC",
     items: [
       "Jun Suto (Producer)",
+      "Carl Sundberg (Co-Producer)",
       "Fabrizio Gramuglio",
       "Dr. Edith Öller",
       "Julieta Reyes",
@@ -183,7 +182,6 @@ export const global = [
       "Dr. Lee Kironget",
       "Walied Albasheer",
       "Christina Gerakiteys",
-      "Carl Sundberg",
     ],
   },
 ];

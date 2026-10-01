@@ -270,10 +270,23 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     segment: 'Oceania',
     region: 'Australia, New Zealand & South Pacific',
     title: 'Founder & CEO, Bright Coast AI',
-    img: '/speakers/rob-lee.jpg',
+    img: null,
     imgPosition: 'center 20%',
     tags: ['Applied AI', 'Financial Markets', 'Chicago Booth', 'Sydney'],
     bio: `Rob Lee is the founder and CEO of Bright Coast AI, a Sydney firm that builds AI strategy, automation and intelligent systems for businesses of every size. He spent 20+ years in financial markets, technology and operations, leading business intelligence and corporate development at high-frequency trading firms Jump Trading, IMC and Akuna Capital. Earlier roles include program and portfolio management at ABN AMRO Clearing and exchange-traded derivatives sales at Eurex. He holds an engineering degree from the University of Illinois and an MBA from Chicago Booth.`,
+  },
+  {
+    slug: 'jake-bal',
+    name: 'Jake Bal',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Oceania',
+    region: 'Australia, New Zealand & South Pacific',
+    title: 'Healthcare & Strategic Innovation Leader',
+    img: '/speakers/jake-bal.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Healthcare Innovation', 'Strategic Leadership', 'Emerging Tech', 'Oceania'],
+    bio: `Jake Bal is a healthcare and strategic innovation leader exploring compassionate systems, organizational transformation, and the ethical integration of emerging technologies across interconnected global communities.`,
   },
   {
     slug: 'marianne-power',
@@ -545,8 +558,8 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
     bio: `Seeram Sambasiva Rao is an Indian Administrative Service (IAS) officer and digital transformation leader recognized for pioneering citizen-centric digital platforms and transparent e-governance solutions. Throughout his public administration career as District Collector and Special Secretary, he has championed compassionate technology deployments that connect marginalized communities with essential public welfare and healthcare resources.`,
   },
   {
-    slug: 'nandakishore-laya',
-    name: 'Nandakishore Laya',
+    slug: 'nandakishore-m',
+    name: 'Nandakishore M',
     type: 'speaker',
     role: 'Speaker',
     segment: 'South Asia',
@@ -555,7 +568,7 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
     img: null,
     imgPosition: 'center 20%',
     tags: ['Engineering Leadership', 'Tech Education', 'South Asia', 'Innovation'],
-    bio: `Nandakishore Laya is a senior engineering leader and educator dedicated to fostering technological capacity and practical AI literacy among young engineers and software developers across South Asia.`,
+    bio: `Nandakishore M is a senior engineering leader and educator dedicated to fostering technological capacity and practical AI literacy among young engineers and software developers across South Asia.`,
   },
   {
     slug: 'afm-yusuf-haider',
@@ -1189,7 +1202,7 @@ export const PRODUCERS_AND_COPRODUCERS = PEOPLE.filter(
 );
 
 export const CONFIRMED_SPEAKERS = PEOPLE.filter(
-  (p) => (p.type === 'speaker' || p.isSpeaker) && p.type !== 'contributor' && Boolean(p.img)
+  (p) => (p.type === 'speaker' || p.isSpeaker) && p.type !== 'contributor'
 );
 
 export function getPersonBySlug(slug) {
@@ -1198,7 +1211,7 @@ export function getPersonBySlug(slug) {
   const direct = PEOPLE.find((p) => p.slug.toLowerCase() === clean);
   if (direct) return direct;
 
-  // Check aliases (e.g. carl-sundberg vs carl-sunberg, gary-bolles vs gary-a-bolles)
+  // Check aliases
   if (clean === 'carl-sundberg' || clean === 'carl-sunberg') return PEOPLE.find((p) => p.slug === 'carl-sunberg');
   if (clean === 'gary-bolles' || clean === 'gary-a-bolles') return PEOPLE.find((p) => p.slug === 'gary-a-bolles');
   if (clean === 'marianne-power' || clean === 'mariane-power') return PEOPLE.find((p) => p.slug === 'marianne-power');
@@ -1207,13 +1220,26 @@ export function getPersonBySlug(slug) {
   if (clean === 'ruslan' || clean === 'ruslan-tleubayev') return PEOPLE.find((p) => p.slug === 'ruslan');
   if (clean === 'dr-suresh-namboothiri' || clean === 'suresh-namboothiri') return PEOPLE.find((p) => p.slug === 'dr-suresh-namboothiri');
   if (clean === 'valerie-saintot' || clean === 'valerie-m-saintot') return PEOPLE.find((p) => p.slug === 'valerie-m-saintot');
+  if (clean === 'nandakishore-m' || clean === 'nandakishor-m' || clean === 'nandakishore-laya' || clean === 'nandakishor-laya') return PEOPLE.find((p) => p.slug === 'nandakishore-m');
+  if (clean === 'sambasiva-rao-ias' || clean === 'seeram-sambasiva-rao' || clean === 'sambasiva-rao') return PEOPLE.find((p) => p.slug === 'seeram-sambasiva-rao');
+  if (clean === 'pj-narayan' || clean === 'p-j-narayan' || clean === 'pj-narayanan' || clean === 'p-j-narayanan') return PEOPLE.find((p) => p.slug === 'p-j-narayan');
+  if (clean === 'prof-roshan-g-ragel' || clean === 'roshan-g-ragel' || clean === 'roshan-ragel') return PEOPLE.find((p) => p.slug === 'prof-roshan-g-ragel');
+  if (clean === 'jayashankar-prasad' || clean === 'jayasankar-prasad') return PEOPLE.find((p) => p.slug === 'jayashankar-prasad');
+  if (clean === 'arun-surendran' || clean === 'dr-arun-surendran') return PEOPLE.find((p) => p.slug === 'arun-surendran');
+  if (clean === 'achuth-sankar' || clean === 'dr-achuth-sankar-s-nair') return PEOPLE.find((p) => p.slug === 'achuth-sankar');
+  if (clean === 'rob-lee' || clean === 'roblee') return PEOPLE.find((p) => p.slug === 'rob-lee');
+  if (clean === 'jake-bal' || clean === 'jakebal') return PEOPLE.find((p) => p.slug === 'jake-bal');
 
-  // Check with or without 'dr-'
+  // Check with or without 'dr-' or 'prof-'
   const altDr = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;
   const matchDr = PEOPLE.find((p) => p.slug.toLowerCase() === altDr);
   if (matchDr) return matchDr;
 
-  // Check fuzzy or normalized hyphens (e.g. gary-bolles -> gary-a-bolles)
+  const altProf = clean.startsWith('prof-') ? clean.replace(/^prof-/, '') : `prof-${clean}`;
+  const matchProf = PEOPLE.find((p) => p.slug.toLowerCase() === altProf);
+  if (matchProf) return matchProf;
+
+  // Check fuzzy or normalized hyphens
   const normClean = clean.replace(/[^a-z0-9]/g, '');
   return PEOPLE.find((p) => p.slug.toLowerCase().replace(/[^a-z0-9]/g, '') === normClean) || null;
 }
