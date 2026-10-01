@@ -269,7 +269,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     segment: 'Oceania',
     region: 'Australia, New Zealand & South Pacific',
     title: 'Founder & CEO, Bright Coast AI',
-    img: null,
+    img: '/speakers/rob-lee.jpg',
     imgPosition: 'center 20%',
     tags: ['Applied AI', 'Financial Markets', 'Chicago Booth', 'Sydney'],
     bio: `Rob Lee is the founder and CEO of Bright Coast AI, a Sydney firm that builds AI strategy, automation and intelligent systems for businesses of every size. He spent 20+ years in financial markets, technology and operations, leading business intelligence and corporate development at high-frequency trading firms Jump Trading, IMC and Akuna Capital. Earlier roles include program and portfolio management at ABN AMRO Clearing and exchange-traded derivatives sales at Eurex. He holds an engineering degree from the University of Illinois and an MBA from Chicago Booth.`,
