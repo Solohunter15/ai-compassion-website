@@ -272,7 +272,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     segment: 'Oceania',
     region: 'Australia, New Zealand & South Pacific',
     title: 'Founder & CEO, Bright Coast AI',
-    img: '/speakers/rob-lee.jpg',
+    img: '/speakers/jake-bal.jpg',
     imgPosition: 'center 20%',
     tags: ['Applied AI', 'Financial Markets', 'Chicago Booth', 'Sydney'],
     bio: `Rob Lee is the founder and CEO of Bright Coast AI, a Sydney firm that builds AI strategy, automation and intelligent systems for businesses of every size. He spent 20+ years in financial markets, technology and operations, leading business intelligence and corporate development at high-frequency trading firms Jump Trading, IMC and Akuna Capital. Earlier roles include program and portfolio management at ABN AMRO Clearing and exchange-traded derivatives sales at Eurex. He holds an engineering degree from the University of Illinois and an MBA from Chicago Booth.`,
@@ -285,7 +285,7 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     segment: 'Oceania',
     region: 'Australia, New Zealand & South Pacific',
     title: 'Healthcare & Strategic Innovation Leader',
-    img: '/speakers/jake-bal.jpg',
+    img: '/speakers/rob-lee.jpg',
     imgPosition: 'center 20%',
     tags: ['Healthcare Innovation', 'Strategic Leadership', 'Emerging Tech', 'Oceania'],
     bio: `Jake Bal is a healthcare and strategic innovation leader exploring compassionate systems, organizational transformation, and the ethical integration of emerging technologies across interconnected global communities.`,
@@ -404,27 +404,6 @@ He is known for professional work in music production and digital synthesis, inc
 The Althea Project grows out of this interdisciplinary background. It reflects Currell’s long-term effort to develop practical, technically rigorous methods for improving reliability, reducing persistent failure patterns, and advancing next-generation intelligent systems.`,
   },
   {
-    slug: 'hiroo-miyata',
-    name: 'Hiroo Miyata',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & Northeast Asia',
-    title: 'Researcher, ZERO INSTITUTE | Neuroscience, Motor Control & Deep-Tech',
-    img: null,
-    imgPosition: 'center 20%',
-    tags: ['ZERO INSTITUTE', 'Neuroscience', 'CMU', 'University of Tokyo', 'Deep-Tech'],
-    bio: `Hiroo Miyata is a researcher at ZERO INSTITUTE whose work connects neuroscience, entrepreneurship, and deep-tech investment.
-
-Born in 1999, he began neuroscience research while studying at the University of Tokyo, where he also co-founded a startup and served as its Chief Technology Officer.
-
-At Carnegie Mellon University, Miyata is pursuing doctoral research focused on motor control and internal states. His work examines how motivation, reward, and task demands influence the brain's preparation and execution of movement.
-
-He co-authored the 2024 Neuron paper “A neural basis of choking under pressure,” investigating why exceptionally large incentives can undermine performance.
-
-Alongside his academic work, Miyata gained investment experience at DEEPCORE, the SoftBank Group's deep-tech incubator, assessing early-stage technologies and supporting their path towards commercialisation.`,
-  },
-  {
     slug: 'sami-seghers',
     name: 'Sami Seghers',
     type: 'speaker',
@@ -440,6 +419,19 @@ Alongside his academic work, Miyata gained investment experience at DEEPCORE, th
 At the heart of this approach is wa, the harmony that comes from sensing yourself as part of something larger. Paired with ma, the pause between one breath and the next, treating the stillness, the silence as something alive rather than empty. We’ll be invited to meet ourselves through wabi-sabi, softening into our imperfections and the passing nature of each moment instead of trying to hold onto or fix them.
 
 From the shelter of our open hearts, the practice widens from the self to those around us. Woven throughout are elements of Japan's traditional arts and its spiritual and mindful disciplines, offered with gentleness and care. The result is a practice rooted in compassion, aware of the connections around us, however far - while we feel into our capacity to walk each other home, one breath at a time.`,
+  },
+  {
+    slug: 'suuvi',
+    name: 'Suuvi',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Global',
+    title: 'Multidisciplinary Artist, Composer, Creative Technologist & Speaker',
+    img: '/speakers/suuvi.png',
+    imgPosition: 'center 20%',
+    tags: ['Creative Technologist', 'Avant-Garde Cello', 'AI & Art', 'Sonic Innovation'],
+    bio: `Suuvi (Sophia Bacelar) is a multidisciplinary artist, composer, producer, creative technologist, and speaker working at the frontier of music, emerging technology, and human emotion. A former prodigy cellist from Juilliard, she pioneers avant-garde electronic-classical fusion, exploring how artificial intelligence, sonic architecture, and compassionate human expression interconnect to shape the future of creative culture.`,
   },
 
   // --- SOUTHEAST ASIA ---
@@ -554,6 +546,20 @@ She holds a Master's in International Human Rights Law from the University of No
 He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architected AI-based platforms including Bloom's OBE Lab, Vigyana, and AI-charya. He has also co-developed 50+ AI prompt engineering techniques and co-authored five books on applied AI.`,
   },
   {
+    slug: 'tony-thomas',
+    name: 'Tony Thomas',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia & Global',
+    title: 'Global Digital & Technology Leader, Senior Advisor to EQT Group, & Chairman of ICT Academy of Kerala',
+    link: 'https://www.linkedin.com/in/anthonythomasa/',
+    img: '/speakers/tony-thomas.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Digital Transformation', 'Enterprise AI', 'Global Leadership', 'Tech Governance'],
+    bio: `Tony Thomas is an internationally recognized technology executive and board advisor who previously served as Chief Information Officer at Nissan Motor Corporation, GE, and Vodafone India. With extensive experience leading global digital transformation and enterprise technology strategies, he advises organizations on building resilient, ethical, and compassionate tech ecosystems.`,
+  },
+  {
     slug: 'sobhana-jaya-madhavan',
     name: 'Sobhana Jaya Madhavan',
     type: 'speaker',
@@ -627,7 +633,7 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Professor of Computer Engineering, University of Peradeniya & Consultant CEO, LEARN',
-    img: '/speakers/prof-roshan-g-ragel.jpg',
+    img: '/speakers/roshan-g-ragel.png',
     imgPosition: 'center 20%',
     tags: ['Computer Engineering', 'Embedded Systems', 'Cybersecurity', 'Sri Lanka', 'LEARN'],
     bio: `Prof. Roshan G. Ragel is Professor and Head of Computer Engineering at the University of Peradeniya, Sri Lanka, and Consultant CEO of LEARN. His research spans embedded AI systems, cybersecurity, and accelerating digital transformation in higher education across South Asia.`,
@@ -672,17 +678,56 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
     bio: `Dr. Arun Surendran is an aerospace engineer, educator, and Principal of Trinity College of Engineering, spearheading youth innovation ecosystems, robotics labs, and AI incubation initiatives in South Asia.`,
   },
   {
-    slug: 'p-j-narayan',
+    slug: 'binish-moulana',
+    name: 'Binish Moulana',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'Technology & Innovation Leader',
+    img: '/speakers/binish-moulana.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Technology Innovation', 'Enterprise Systems', 'Digital Transformation', 'South Asia'],
+    bio: `Binish Moulana is a technology and innovation leader active across enterprise ecosystems, community-driven technology initiatives, and compassionate digital transformation programs.`,
+  },
+  {
+    slug: 'nagabhushana-rao',
+    name: 'Nagabhushana Rao',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'Global Technology Leader & Enterprise Transformation Specialist',
+    img: '/speakers/nagabhushana-rao.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Enterprise Architecture', 'Tech Leadership', 'Digital Strategy', 'South Asia'],
+    bio: `Nagabhushana Rao is a global technology executive and enterprise transformation leader with extensive expertise in architecting resilient digital platforms, driving large-scale engineering strategy, and fostering human-centric tech governance.`,
+  },
+  {
+    slug: 'pj-narayanan',
     name: 'Prof. P. J. Narayanan',
     type: 'speaker',
     role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Director & Professor, IIIT Hyderabad',
-    img: '/speakers/p-j-narayan.jpg',
+    img: '/speakers/pj-narayanan.jpg',
     imgPosition: 'center 20%',
     tags: ['Computer Vision', 'IIIT Hyderabad', 'AI Research', 'National Policy'],
     bio: `Prof. P. J. Narayanan is the Director of IIIT Hyderabad and a pioneering researcher in computer vision, parallel computing, and artificial intelligence, steering national AI research hubs and compassionate technology translation.`,
+  },
+  {
+    slug: 'rashika-narain',
+    name: 'Rashika Narain',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'Curator, Agami & Lead, OpenNyAI | Digital Justice & ODR Specialist',
+    img: '/speakers/rashika-narain.jpg',
+    imgPosition: 'center 20%',
+    tags: ['OpenNyAI', 'Agami', 'Digital Justice', 'ODR', 'Legal Innovation', 'South Asia'],
+    bio: `Rashika Narain is a legal researcher, curator at Agami, and lead for OpenNyAI, advancing accessible, community-driven AI and dispute resolution ecosystems across India and South Asia. Her work bridges judicial reform, technology governance, and public-interest legal design.`,
   },
   {
     slug: 'jayashankar-prasad',
@@ -753,17 +798,56 @@ Ruslan is particularly interested in the physical side of artificial intelligenc
 His perspective also focuses on the human and economic transition created by AI. Just as previous technological revolutions transformed physical labor and created entirely new professions and industries, he believes AI will reshape cognitive work and require people, companies and countries to find new areas where they can create value. At AI + Compassion, Ruslan brings a Central Asian perspective on how technological progress can create broader participation — not only in using AI, but also in building the infrastructure and economies that support it.`,
   },
   {
-    slug: 'mohamed-ezzaldinn',
-    name: 'Mohamed Ezzaldinn',
+    slug: 'mohamed-ezzaldeen',
+    name: 'Mohamed Ezzaldeen',
     type: 'speaker',
     role: 'Speaker',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Enterprise AI & Emerging Technologies Architect',
-    img: '/speakers/mohamed-ezzaldinn.jpg',
+    img: '/speakers/mohamed-ezzaldeen.jpg',
     imgPosition: 'center 20%',
     tags: ['Enterprise AI', 'Cloud & Edge', 'MENA', 'Future Cities'],
-    bio: `Mohamed Ezzaldinn is a senior technology architect and consultant focusing on AI deployment, cloud infrastructure, and intelligent city modernization across the MENA region and Central Asia.`,
+    bio: `Mohamed Ezzaldeen is a senior technology architect and consultant focusing on AI deployment, cloud infrastructure, and intelligent city modernization across the MENA region and Central Asia.`,
+  },
+  {
+    slug: 'mohamed-osman',
+    name: 'Mohamed Osman',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC',
+    region: 'Middle East, Caucasus & Central Asia',
+    title: 'AI Researcher & NLP Specialist | Cultural AI Advocate',
+    img: '/speakers/mohamed-osman.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Natural Language Processing', 'Cultural AI', 'Linguistic Diversity', 'MENA'],
+    bio: `Mohamed Osman is a researcher and practitioner in the field of artificial intelligence, specializing in natural language processing and its applications in diverse cultural contexts. He explores how AI can be designed to respect and enhance linguistic diversity, compassionate interaction, and cultural heritage.`,
+  },
+  {
+    slug: 'anas-almarie',
+    name: 'Anas Almarie',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC',
+    region: 'Middle East, Caucasus & Central Asia',
+    title: 'Founder & Managing Director, Social Station | Digital Growth & AI Advisor',
+    img: '/speakers/anas-almarie.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Digital Growth', 'Social Station', 'AI Branding', 'MENA Innovation'],
+    bio: `Anas Almarie is an award-winning digital growth consultant and engineer with 17 years of experience, leading Social Station Branding & Marketing Agency in Dubai. He advises enterprise leaders and institutions across the MENA region on AI-driven growth, responsible branding, and digital transformation.`,
+  },
+  {
+    slug: 'dea-bakashvili',
+    name: 'Dea Bakashvili',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC',
+    region: 'Middle East, Caucasus & Central Asia',
+    title: 'Global Keynote Speaker & Leadership Strategist',
+    img: '/speakers/dea-bakashvili.png',
+    imgPosition: 'center 20%',
+    tags: ['Keynote Speaker', 'Leadership Strategy', 'Human-Centric Tech', 'Caucasus & Global'],
+    bio: `Dea Bakashvili is an international keynote speaker, communications architect, and leadership strategist exploring human-centric innovation, public narrative, and compassionate leadership across cross-cultural ecosystems.`,
   },
   {
     slug: 'aigerim-zhangozina',
@@ -779,17 +863,17 @@ His perspective also focuses on the human and economic transition created by AI.
     bio: `Aigerim Zhangozina is a Central Asian tech leader and education innovator advancing AI literacy, youth entrepreneurship, and inclusive technology policy across Kazakhstan, the Caucasus, and Central Asia.`,
   },
   {
-    slug: 'omar-aloyoun',
-    name: 'Omar Aloyoun',
+    slug: 'dr-anour-f-a-dafa-alla',
+    name: 'Dr. Anour F A Dafa-Alla',
     type: 'speaker',
     role: 'Speaker',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
-    title: 'Civic Technology Strategist & Digital Policy Specialist',
-    img: null,
+    title: 'Scholar, Researcher & Ethical AI Strategist',
+    img: '/speakers/dr-anour-f-a-dafa-alla.jpg',
     imgPosition: 'center 20%',
-    tags: ['Civic Tech', 'Digital Policy', 'Smart Governance', 'Middle East'],
-    bio: `Omar Aloyoun is a civic technology strategist and policy advisor guiding government and enterprise initiatives on ethical AI deployment, smart city governance, and compassionate digital transformation in the Middle East.`,
+    tags: ['AI Ethics', 'Social Justice', 'Human Flourishing', 'Middle East & Africa'],
+    bio: `Dr. Anour F A Dafa-Alla is a scholar and researcher focusing on the social and ethical implications of artificial intelligence. His work investigates how AI technologies can be designed and deployed to promote social justice, equity, and human flourishing.`,
   },
 
   // --- AFRICA ---
@@ -958,19 +1042,6 @@ Having lived and worked between different places and professional worlds, Julie 
     bio: `Anand Mahurkar is the Founder and CEO of Findability Sciences, a global enterprise AI firm. Recognized as an innovative technology entrepreneur, he leads initiatives applying predictive AI, big data, and machine learning to drive compassionate and sustainable industrial transformation.`,
   },
   {
-    slug: 'paola-cervari',
-    name: 'Paola Cervari',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Europe',
-    region: 'UK, Ireland, Iberia & West Africa',
-    title: 'Psychologist & Systemic Communication Consultant',
-    img: null,
-    imgPosition: 'center 20%',
-    tags: ['Humanistic Psychology', 'Systemic Communication', 'Organizational Wellbeing'],
-    bio: `Paola Cervari is a psychologist and communication consultant specializing in humanistic organizational wellbeing, empathetic interpersonal dynamics, and systemic coaching for leaders navigating digital transformation.`,
-  },
-  {
     slug: 'massimo-camplone',
     name: 'Massimo Camplone',
     type: 'speaker',
@@ -1075,19 +1146,6 @@ Satesh is also actively involved in teaching, student development, research diss
     bio: `Ugo Blanco is the Resident Representative for the United Nations Development Programme (UNDP) in Trinidad and Tobago, Suriname, Aruba, Curaçao, and Sint Maarten. With over two decades of leadership in international development, crisis prevention, and sustainable governance across Latin America, the Caribbean, and Africa, he spearheads initiatives uniting climate resilience, digital governance, and community prosperity.`,
   },
   {
-    slug: 'violette-ayala',
-    name: 'Violette Ayala',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Caribbean & LATAM',
-    region: 'Eastern & Southern South America, Caribbean',
-    title: 'Filmmaker, Artist & Indigenous Technologist',
-    img: null,
-    imgPosition: 'center 20%',
-    tags: ['Indigenous Cinema', 'XR & AI', 'Latin America', 'Cultural Sovereignty'],
-    bio: `Violette Ayala is an acclaimed Quechua filmmaker, artist, and technologist who creates immersive XR and multimedia experiences defending Indigenous land rights, biodiversity, and cultural sovereignty across the Americas.`,
-  },
-  {
     slug: 'valeria-soler',
     name: 'Valeria Soler',
     type: 'speaker',
@@ -1102,6 +1160,19 @@ Satesh is also actively involved in teaching, student development, research diss
   },
 
   // --- NORTH AMERICA ---
+  {
+    slug: 'dr-ben-goertzel',
+    name: 'Dr. Ben Goertzel',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Founder & CEO, SingularityNET | Pioneer of Artificial General Intelligence (AGI)',
+    img: '/speakers/dr-ben-goertzel.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Artificial General Intelligence', 'SingularityNET', 'Decentralized AI', 'Cognitive Science'],
+    bio: `Dr. Ben Goertzel is the founder and CEO of SingularityNET, chief scientist of Singularity Studio and Cogito Machine, and leader of the OpenCog Foundation. Widely recognized as the pioneer who popularized the term Artificial General Intelligence (AGI), he is an author, cognitive scientist, and visionary exploring benevolent, decentralized, and compassionate open-source AGI systems.`,
+  },
   {
     slug: 'kunal-sood',
     name: 'Kunal Sood',
@@ -1199,20 +1270,6 @@ Originally from Sydney, Mitch earned his master's in international business in A
 
 Mitch treats ethics as a design principle, not an afterthought. Initiatives facilitated by PocketSeed have helped remove 500,000 plastic bottles from the ocean, offset 13.3 million kilograms of carbon emissions, and deploy 14,424 kelp plants. He is an alumnus of the Antler Japan (JPN4) founder program. His message to audiences is simple: dig a bit deeper into why things are being said.`,
   },
-  {
-    slug: 'zoe-milligan',
-    name: 'Zoe Milligan',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Pacific Islands / Ocean',
-    region: 'Hawaiʻi, Alaska & Pacific Islands',
-    title: 'Conscious Learning Architect & Founder, The L&D Vault',
-    link: 'https://www.linkedin.com/in/zoemilliganignitespark/',
-    img: null,
-    imgPosition: 'center 20%',
-    tags: ['Conscious Learning', 'The L&D Vault', 'Psychological Safety', 'Ignite the Spark'],
-    bio: `She is a Conscious Learning Architect and creator of Ignite the Spark, focused on transformational learning, psychological safety, leadership, and team development. She is also the founder of The L&D Vault, partnered with One Earth, which supports L&D professionals in becoming Conscious Learning practitioners.`,
-  },
 ];
 
 // Helper selectors
@@ -1245,14 +1302,25 @@ export function getPersonBySlug(slug) {
   if (clean === 'valerie-saintot' || clean === 'valerie-m-saintot') return PEOPLE.find((p) => p.slug === 'valerie-m-saintot');
   if (clean === 'nandakishore-m' || clean === 'nandakishor-m' || clean === 'nandakishore-laya' || clean === 'nandakishor-laya') return PEOPLE.find((p) => p.slug === 'nandakishore-m');
   if (clean === 'sambasiva-rao-ias' || clean === 'seeram-sambasiva-rao' || clean === 'sambasiva-rao') return PEOPLE.find((p) => p.slug === 'seeram-sambasiva-rao');
-  if (clean === 'pj-narayan' || clean === 'p-j-narayan' || clean === 'pj-narayanan' || clean === 'p-j-narayanan') return PEOPLE.find((p) => p.slug === 'p-j-narayan');
   if (clean === 'prof-roshan-g-ragel' || clean === 'roshan-g-ragel' || clean === 'roshan-ragel') return PEOPLE.find((p) => p.slug === 'prof-roshan-g-ragel');
   if (clean === 'jayashankar-prasad' || clean === 'jayasankar-prasad') return PEOPLE.find((p) => p.slug === 'jayashankar-prasad');
   if (clean === 'arun-surendran' || clean === 'dr-arun-surendran') return PEOPLE.find((p) => p.slug === 'arun-surendran');
   if (clean === 'achuth-sankar' || clean === 'dr-achuth-sankar-s-nair') return PEOPLE.find((p) => p.slug === 'achuth-sankar');
   if (clean === 'rob-lee' || clean === 'roblee') return PEOPLE.find((p) => p.slug === 'rob-lee');
   if (clean === 'jake-bal' || clean === 'jakebal') return PEOPLE.find((p) => p.slug === 'jake-bal');
-  if (clean === 'hiroo-miyata' || clean === 'hiroomiyata') return PEOPLE.find((p) => p.slug === 'hiroo-miyata');
+  if (clean === 'tony-thomas' || clean === 'tonythomas') return PEOPLE.find((p) => p.slug === 'tony-thomas');
+  if (clean === 'dr-ben-goertzel' || clean === 'ben-goertzel' || clean === 'dr-ben' || clean === 'ben-g') return PEOPLE.find((p) => p.slug === 'dr-ben-goertzel');
+  if (clean === 'dr-anour-f-a-dafa-alla' || clean === 'dr-anour' || clean === 'anour' || clean === 'dafa-alla') return PEOPLE.find((p) => p.slug === 'dr-anour-f-a-dafa-alla');
+  if (clean === 'binish-moulana' || clean === 'binishmoulana' || clean === 'binish' || clean === 'dr-binish') return PEOPLE.find((p) => p.slug === 'binish-moulana');
+  if (clean === 'nagabhushana-rao' || clean === 'nagabhushanarao' || clean === 'nagab') return PEOPLE.find((p) => p.slug === 'nagabhushana-rao');
+  if (clean === 'mohamed-ezzaldeen' || clean === 'mohamed-ezzaldinn' || clean === 'ezzaldeen' || clean === 'ezzaldin') return PEOPLE.find((p) => p.slug === 'mohamed-ezzaldeen');
+  if (clean === 'mohamed-osman' || clean === 'mohamedosman' || clean === 'osman') return PEOPLE.find((p) => p.slug === 'mohamed-osman');
+  if (clean === 'anas-almarie' || clean === 'anasalmarie' || clean === 'anas') return PEOPLE.find((p) => p.slug === 'anas-almarie');
+  if (clean === 'dea-bakashvili' || clean === 'deabakashvili' || clean === 'dea') return PEOPLE.find((p) => p.slug === 'dea-bakashvili');
+  if (clean === 'pj-narayanan' || clean === 'pj-narayan' || clean === 'p-j-narayan' || clean === 'p-j-narayanan' || clean === 'pjnarayanan') return PEOPLE.find((p) => p.slug === 'pj-narayanan');
+  if (clean === 'rashika-narain' || clean === 'rashikanarain' || clean === 'rashika') return PEOPLE.find((p) => p.slug === 'rashika-narain');
+  if (clean === 'suuvi' || clean === 'sophia-bacelar' || clean === 'suvi') return PEOPLE.find((p) => p.slug === 'suuvi');
+  if (clean === 'afm-yusuf-haider' || clean === 'yusuf-haider' || clean === 'yusufhaider' || clean === 'prof-yusuf-haider') return PEOPLE.find((p) => p.slug === 'afm-yusuf-haider');
 
   // Check with or without 'dr-' or 'prof-'
   const altDr = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;
