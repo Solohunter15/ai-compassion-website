@@ -78,7 +78,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '19:00–21:00',
     },
     producers: ['Jun Suto (Producer)'],
-    speakers: ['Ishizu Tomohiro', 'Junko Hosomi', 'Christopher Currell', 'Sami Seghers'],
+    speakers: ['Ishizu Tomohiro', 'Junko Hosomi', 'Christopher Currell', 'Sami Seghers', 'Hiroo Miyata'],
     theme: 'Planet-centered AI, education, robotics, neuroaesthetics, and intergenerational responsibility',
   },
   {

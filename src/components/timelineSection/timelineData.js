@@ -47,6 +47,7 @@ export const global = [
       "Junko Hosomi",
       "Christopher Currell",
       "Sami Seghers",
+      "Hiroo Miyata",
     ],
   },
   {

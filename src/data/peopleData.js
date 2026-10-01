@@ -402,6 +402,27 @@ He is known for professional work in music production and digital synthesis, inc
 The Althea Project grows out of this interdisciplinary background. It reflects Currell’s long-term effort to develop practical, technically rigorous methods for improving reliability, reducing persistent failure patterns, and advancing next-generation intelligent systems.`,
   },
   {
+    slug: 'hiroo-miyata',
+    name: 'Hiroo Miyata',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Researcher, ZERO INSTITUTE | Neuroscience, Motor Control & Deep-Tech',
+    img: null,
+    imgPosition: 'center 20%',
+    tags: ['ZERO INSTITUTE', 'Neuroscience', 'CMU', 'University of Tokyo', 'Deep-Tech'],
+    bio: `Hiroo Miyata is a researcher at ZERO INSTITUTE whose work connects neuroscience, entrepreneurship, and deep-tech investment.
+
+Born in 1999, he began neuroscience research while studying at the University of Tokyo, where he also co-founded a startup and served as its Chief Technology Officer.
+
+At Carnegie Mellon University, Miyata is pursuing doctoral research focused on motor control and internal states. His work examines how motivation, reward, and task demands influence the brain's preparation and execution of movement.
+
+He co-authored the 2024 Neuron paper “A neural basis of choking under pressure,” investigating why exceptionally large incentives can undermine performance.
+
+Alongside his academic work, Miyata gained investment experience at DEEPCORE, the SoftBank Group's deep-tech incubator, assessing early-stage technologies and supporting their path towards commercialisation.`,
+  },
+  {
     slug: 'sami-seghers',
     name: 'Sami Seghers',
     type: 'speaker',
@@ -1229,6 +1250,7 @@ export function getPersonBySlug(slug) {
   if (clean === 'achuth-sankar' || clean === 'dr-achuth-sankar-s-nair') return PEOPLE.find((p) => p.slug === 'achuth-sankar');
   if (clean === 'rob-lee' || clean === 'roblee') return PEOPLE.find((p) => p.slug === 'rob-lee');
   if (clean === 'jake-bal' || clean === 'jakebal') return PEOPLE.find((p) => p.slug === 'jake-bal');
+  if (clean === 'hiroo-miyata' || clean === 'hiroomiyata') return PEOPLE.find((p) => p.slug === 'hiroo-miyata');
 
   // Check with or without 'dr-' or 'prof-'
   const altDr = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;
