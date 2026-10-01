@@ -58,9 +58,9 @@ export default function ProducersListPage() {
                 <div className="flex items-center justify-between gap-2">
                   <span
                     className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                      producer.category === 'co-producer'
-                        ? 'bg-amber-100 text-amber-900 border border-amber-200'
-                        : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
+                      producer.type === 'co-producer' || producer.role?.toLowerCase().includes('co-producer') || producer.role?.toLowerCase().includes('mc')
+                        ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                        : 'bg-[#163B32] text-white border border-[#163B32]'
                     }`}
                   >
                     {producer.role} • {producer.segment}

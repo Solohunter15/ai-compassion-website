@@ -34,7 +34,7 @@ const FIELD_IDS = {
 
 const HUB_MAPPING = {
   'Australia, New Zealand & South Pacific': 'Australia, New Zealand & South Pacific',
-  'Japan, Korea, Taiwan & Northeast Asia': 'Japan, Korea, Taiwan & Northeast Asia',
+  'Japan, Korea, Taiwan & East Asia': 'Japan, Korea, Taiwan & East Asia',
   'Southeast Asia': 'Southeast Asia',
   'South Asia': 'South Asia',
   'Middle East, Caucasus & Central Asia': 'Middle East, Caucasus & Central Asia',
@@ -49,7 +49,7 @@ const HUB_MAPPING = {
 
 const REGIONAL_HUBS = [
   'Australia, New Zealand & South Pacific',
-  'Japan, Korea, Taiwan & Northeast Asia',
+  'Japan, Korea, Taiwan & East Asia',
   'Southeast Asia',
   'South Asia',
   'Middle East, Caucasus & Central Asia',
@@ -84,7 +84,7 @@ export default function JoinModal({ isOpen, onClose }) {
     lastName: '',
     country: '',
     city: '',
-    regionalHubs: ['Japan, Korea, Taiwan & Northeast Asia'],
+    regionalHubs: ['Japan, Korea, Taiwan & East Asia'],
     roles: ['Working professional'],
     affiliation: '',
     newsletter: 'Yes',
