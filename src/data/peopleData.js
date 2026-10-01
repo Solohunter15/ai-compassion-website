@@ -765,7 +765,7 @@ His perspective also focuses on the human and economic transition created by AI.
     segment: 'Africa',
     region: 'East Africa, Southern Africa & Central',
     title: 'Team Leader and Disaster Risk Management (DRM) Expert',
-    img: null,
+    img: '/speakers/marko-lesukat.png',
     imgPosition: 'center 20%',
     tags: ['Disaster Risk Management', 'Climate Resilience', 'Early Warning Systems', 'Sendai Framework', 'Kenya & Horn of Africa'],
     bio: `Marko Lesukat is a Kenyan disaster risk management and climate-resilience specialist with over 25 years of experience advising governments, regional bodies, UN agencies, the World Bank, the European Union and bilateral donors across the Horn, Eastern and Southern Africa. A civil, water and environmental engineer by training (M.Sc. Civil Engineering, B.Sc. Agricultural Engineering and a Postgraduate Diploma in Disaster Management), he has led teams of up to 28 experts and programmes of up to USD 65+ million, including as Chief of Party of the USAID Ethiopia Disaster Risk Management Activity and Team Leader of the EU-funded DRM Decentralisation Programme in Ethiopia.
@@ -780,7 +780,7 @@ His early warning and anticipatory action work includes Somaliland's National Di
     segment: 'Africa',
     region: 'East Africa, Southern Africa & Central',
     title: 'Digital Inclusion Advocate & Healthcare Technologist',
-    img: null,
+    img: '/speakers/evelyn-lusenaka.jpg',
     imgPosition: 'center 20%',
     tags: ['Digital Inclusion', 'Public Health AI', 'African Innovation', 'Youth Empowerment'],
     bio: `Evelyn Lusenaka is a digital inclusion advocate and researcher focusing on ethical healthcare technologies, youth tech education, and community-centered artificial intelligence solutions in East and Central Africa.`,
