@@ -73,15 +73,25 @@ export default async function PersonProfilePage({ params }) {
             
             {/* Portrait Image */}
             <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden bg-slate-100 shadow-md border-2 border-emerald-200 shrink-0">
-              <Image
-                src={person.img}
-                alt={person.name}
-                fill
-                priority
-                className="object-cover"
-                style={{ objectPosition: person.imgPosition || 'center' }}
-                sizes="(max-width: 640px) 144px, 176px"
-              />
+              {person.img ? (
+                <Image
+                  src={person.img}
+                  alt={person.name}
+                  fill
+                  priority
+                  className="object-cover"
+                  style={{ objectPosition: person.imgPosition || 'center' }}
+                  sizes="(max-width: 640px) 144px, 176px"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[#163B32] to-[#245D50] flex items-center justify-center text-white font-editorial text-3xl sm:text-4xl font-bold tracking-wider">
+                  {person.name
+                    .split(' ')
+                    .map((n) => n[0])
+                    .filter((_, i, a) => i === 0 || i === a.length - 1)
+                    .join('')}
+                </div>
+              )}
             </div>
 
             {/* Meta Information */}
