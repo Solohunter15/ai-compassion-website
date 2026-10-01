@@ -46,6 +46,7 @@ export const global = [
       "Ishizu Tomohiro",
       "Junko Hosomi",
       "Christopher Currell",
+      "Sami Seghers",
     ],
   },
   {
@@ -55,6 +56,7 @@ export const global = [
     items: [
       "Aditi Singh (Producer)",
       "Hikari Kii",
+      "Parv Sharma",
       "Soofiya S",
     ],
   },
@@ -67,12 +69,12 @@ export const global = [
       "Sandhya Sitoula",
       "Nidhi Sudhan",
       "Mohammed Y Safirulla",
+      "Dr. Suresh Namboothiri",
+      "Sobhana Jaya Madhavan",
       "Seeram Sambasiva Rao",
       "Nandakishore Laya",
       "AFM Yusuf Haider",
       "Deepak Gupta",
-      "Dr. Suresh Namboothiri",
-      "Tony Thomas",
       "Prof. Roshan G. Ragel",
       "Pervez Hoodbhoy",
       "Achuth Sankar",
@@ -102,8 +104,10 @@ export const global = [
     items: [
       "Dr. Lee Kironget (Producer)",
       "Brainy Swaibu (Producer)",
-      "Marco Lesukat",
+      "Marko Lesukat",
       "Evelyn Lusenaka",
+      "Patrick McCullough",
+      "Dr. Ken West",
     ],
   },
   {
@@ -121,6 +125,7 @@ export const global = [
       "Anand Mahurkar",
       "Paola Cervari",
       "Massimo Camplone",
+      "Mike Warwick",
     ],
   },
   {
@@ -168,6 +173,17 @@ export const global = [
     time: "07:00-08:00 UTC",
     items: [
       "Jun Suto (Producer)",
+      "Fabrizio Gramuglio",
+      "Dr. Edith Öller",
+      "Julieta Reyes",
+      "Aditi Singh",
+      "Deepu S Nath",
+      "Ani Chahal Honan",
+      "Brainy Swaibu",
+      "Dr. Lee Kironget",
+      "Walied Albasheer",
+      "Christina Gerakiteys",
+      "Carl Sundberg",
     ],
   },
 ];

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#163B32" />
+      <stop offset="50%" stop-color="#1F4D42" />
+      <stop offset="100%" stop-color="#0F2822" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#C9A96A" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#C9A96A" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#C9A96A" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C96F4A" />
+      <stop offset="100%" stop-color="#C9A96A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGrad)" />
+  <circle cx="200" cy="160" r="150" fill="url(#glowGrad)" />
+
+  <!-- Sacred Geometry / Compass Ring Accents -->
+  <circle cx="200" cy="170" r="130" stroke="#C9A96A" stroke-width="1" stroke-opacity="0.2" fill="none" stroke-dasharray="4 6" />
+  <circle cx="200" cy="170" r="100" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.1" fill="none" />
+  <circle cx="200" cy="170" r="70" stroke="#C9A96A" stroke-width="1.5" stroke-opacity="0.25" fill="none" />
+
+  <!-- Silhouette Icon -->
+  <!-- Head -->
+  <circle cx="200" cy="140" r="46" fill="#F8F6F0" fill-opacity="0.92" />
+  <!-- Body / Shoulders -->
+  <path d="M 110 290 C 110 220, 150 205, 200 205 C 250 205, 290 220, 290 290 Z" fill="#F8F6F0" fill-opacity="0.88" />
+
+  <!-- Subtle Emblem Badge -->
+  <rect x="110" y="325" width="180" height="28" rx="14" fill="#0D241E" stroke="url(#accentGrad)" stroke-width="1.5" />
+  <text x="200" y="343" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="2" fill="#EAECE8" text-anchor="middle">AI + COMPASSION</text>
+</svg>
