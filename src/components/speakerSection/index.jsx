@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft, ExternalLink, X, UserCheck } from 'lucide-react';
 import { CONFIRMED_SPEAKERS } from '@/data/peopleData';
+import SpeakerAvatar from '@/components/speakerAvatar';
 
 export default function SpeakerSection() {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -80,24 +81,12 @@ export default function SpeakerSection() {
               {/* Speaker Portrait */}
               <div className="flex flex-col items-center gap-3">
                 <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden bg-slate-100 shadow-xs border border-emerald-100 group-hover:scale-105 transition-transform duration-300 shrink-0">
-                  {speaker.img ? (
-                    <Image
-                      src={speaker.img}
-                      alt={speaker.name}
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: speaker.imgPosition || 'center 20%' }}
-                      sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 120px"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-[#163B32] to-[#245D50] flex items-center justify-center text-white font-editorial text-lg sm:text-xl md:text-2xl font-bold tracking-wider">
-                      {speaker.name
-                        .split(' ')
-                        .map((n) => n[0])
-                        .filter((_, i, a) => i === 0 || i === a.length - 1)
-                        .join('')}
-                    </div>
-                  )}
+                  <SpeakerAvatar
+                    src={speaker.img}
+                    name={speaker.name}
+                    imgPosition={speaker.imgPosition}
+                    sizes="(max-width: 640px) 80px, (max-width: 1024px) 112px, 120px"
+                  />
                 </div>
 
                 {/* Name & Title */}
@@ -179,24 +168,12 @@ export default function SpeakerSection() {
                 
                 {/* High-Res Portrait */}
                 <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden bg-slate-100 shadow-md border-2 border-emerald-200">
-                  {selectedSpeaker.img ? (
-                    <Image
-                      src={selectedSpeaker.img}
-                      alt={selectedSpeaker.name}
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: selectedSpeaker.imgPosition || 'center 20%' }}
-                      sizes="(max-width: 640px) 112px, 144px"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-[#163B32] to-[#245D50] flex items-center justify-center text-white font-editorial text-2xl sm:text-3xl font-bold tracking-wider">
-                      {selectedSpeaker.name
-                        .split(' ')
-                        .map((n) => n[0])
-                        .filter((_, i, a) => i === 0 || i === a.length - 1)
-                        .join('')}
-                    </div>
-                  )}
+                  <SpeakerAvatar
+                    src={selectedSpeaker.img}
+                    name={selectedSpeaker.name}
+                    imgPosition={selectedSpeaker.imgPosition}
+                    sizes="(max-width: 640px) 112px, 144px"
+                  />
                 </div>
 
                 {/* Details */}

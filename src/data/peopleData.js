@@ -1,5 +1,5 @@
 // Central Unified People Registry for AI + Compassion Global Forum 2026
-// Single source of truth for Producers, Co-Producers, Regional Coordinators, and Confirmed Speakers
+// Single source of truth for Producers, Co-Producers, Regional Coordinators, and Confirmed & Pending Speakers
 
 export const PEOPLE = [
   // ==========================================
@@ -259,8 +259,9 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
   },
 
   // ==========================================
-  // CONFIRMED SPEAKERS & CONTRIBUTORS
+  // CONFIRMED & RE-ATTACHED SPEAKERS
   // ==========================================
+  // --- OCEANIA ---
   {
     slug: 'rob-lee',
     name: 'Rob Lee',
@@ -305,8 +306,8 @@ Kavya aligns regional producers, ancient contemplative traditions, and frontier 
     name: 'Joshua Castle',
     type: 'speaker',
     role: 'Speaker',
-    segment: 'Oceania',
-    region: 'Australia, New Zealand & South Pacific',
+    segment: 'Hawaiʻi, Alaska & Pacific Islands',
+    region: 'Hawaiʻi, Alaska & Pacific Islands',
     title: 'PhD Candidate at The Australian National University School of Cybernetics and XPRIZE Carbon Removal award winner',
     img: '/speakers/joshua-castle.png',
     imgPosition: 'center 20%',
@@ -317,13 +318,15 @@ His research sits at the intersection of cybernetics, political philosophy, cogn
 
 He writes ocean-based science-fiction as he believes its the best ways to see beyond boundaries.`,
   },
+
+  // --- EAST ASIA ---
   {
     slug: 'olaf-witkowski',
     name: 'Dr. Olaf Witkowski',
     type: 'speaker',
     role: 'Speaker',
     segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Founding Director, Cross Labs & President, International Society for Artificial Life',
     img: '/speakers/olaf-witkowski.avif',
     imgPosition: 'center 20%',
@@ -336,7 +339,7 @@ He writes ocean-based science-fiction as he believes its the best ways to see be
     type: 'speaker',
     role: 'Speaker',
     segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
     title: 'Professor, Kansai University & Neuroaesthetics Researcher',
     img: '/speakers/tomohiro-ishizu.png',
     imgPosition: 'center 20%',
@@ -349,8 +352,8 @@ He writes ocean-based science-fiction as he believes its the best ways to see be
     type: 'speaker',
     role: 'Speaker',
     segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & East Asia',
-    title: 'Consultant, Researcher, Author, Educator & Professional Artist',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Consultant, Researcher, Author, Educator & Professional Artist | Junshin DOJO',
     img: '/speakers/junko-hosomi.png',
     imgPosition: 'center 15%',
     tags: ['SDQ Cube', 'Quality Management', 'Urasenke Tea Ceremony', 'Sumi-e & Ma'],
@@ -372,8 +375,8 @@ Her cultural practice is not separate from her research, but forms an essential 
     type: 'speaker',
     role: 'Speaker',
     segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & East Asia',
-    title: 'Founder, Althea Project & Originator of Absolute Reductionism',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'CEO & Chief Architect, Althea Project | Originator of Absolute Reductionism',
     img: '/speakers/christopher-currell.png',
     imgPosition: 'center 18%',
     tags: ['Althea Project', 'Absolute Reductionism', 'Sound Research', 'Complex Systems'],
@@ -386,23 +389,63 @@ He is known for professional work in music production and digital synthesis, inc
 The Althea Project grows out of this interdisciplinary background. It reflects Currell’s long-term effort to develop practical, technically rigorous methods for improving reliability, reducing persistent failure patterns, and advancing next-generation intelligent systems.`,
   },
   {
+    slug: 'sami-seghers',
+    name: 'Sami Seghers',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'East Asia',
+    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    title: 'Yoga & Meditation Guide | Contemplative Arts & Mindfulness Practitioner',
+    img: '/speakers/sami-seghers.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Mindfulness', 'Contemplative Arts', 'Wabi-Sabi', 'Wa & Ma', 'East Asia'],
+    bio: `Sami's teaching begins with a simple belief: stillness isn't something you force, it's something you make room for. Over more than 16 years living in Japan, and over 12 of guiding yoga and meditation, Sami has drawn on a deep love of Japanese culture to shape a practice that feels less like technique and more like coming home to yourself, to the earth.
+
+At the heart of this approach is wa, the harmony that comes from sensing yourself as part of something larger. Paired with ma, the pause between one breath and the next, treating the stillness, the silence as something alive rather than empty. We’ll be invited to meet ourselves through wabi-sabi, softening into our imperfections and the passing nature of each moment instead of trying to hold onto or fix them.
+
+From the shelter of our open hearts, the practice widens from the self to those around us. Woven throughout are elements of Japan's traditional arts and its spiritual and mindful disciplines, offered with gentleness and care. The result is a practice rooted in compassion, aware of the connections around us, however far - while we feel into our capacity to walk each other home, one breath at a time.`,
+  },
+
+  // --- SOUTHEAST ASIA ---
+  {
     slug: 'hikari-kii',
     name: 'Hikari Kii',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'Southeast Asia',
     region: 'Southeast Asia',
-    title: 'Creative Technologist & AI Ethics Researcher',
+    title: 'Youth Media Founder & Recommender Systems Researcher | Founder, BEE log',
     img: null,
     imgPosition: 'center 20%',
-    tags: ['Creative Tech', 'AI Aesthetics', 'Youth Innovation', 'Southeast Asia'],
-    bio: `Hikari Kii is a creative technologist and AI researcher bridging Southeast Asian youth communities, interactive media, and cross-cultural aesthetics to explore compassionate interaction models between humans and autonomous systems.`,
+    tags: ['BEE log', 'Recommender Systems', 'Nioshi-Sanoshi', 'Youth Media', 'Kyushu University QFC-SP'],
+    bio: `I'm a high school student and youth media founder from Kitakyushu, Japan, working at the intersection of education access and recommendation system design. At 16, I founded BEE log, a media platform for teens in my hometown, after noticing how few local students knew about national programs, scholarships, and career paths that peers in bigger cities took for granted. By applying the concept of "vicarious learning" to my editorial strategy, I grew BEE log to 80,000 monthly pageviews and helped local students' applications to national extracurricular programs increase 2.5x.
+
+That experience led me to a bigger question: why do the recommendation algorithms shaping what billions of people see every day — on YouTube, Amazon, social feeds — optimize for clicks rather than for expanding what someone believes is possible for themselves? I'm now developing a research framework I call "Nioshi-Sanoshi," aimed at designing recommendation systems around opportunity, self-efficacy, and trust rather than engagement alone. I've reached out to and corresponded with researchers across the US and Europe working on recommender systems and filter bubbles to stress-test the idea.
+
+I'm a participant in Kyushu University's QFC-SP program for early-stage researchers and have spoken at youth and innovation events across Japan, including IVS Youth and First Step. I'm currently applying to study computer science and human-computer interaction at universities in the US, with the goal of continuing this work at the intersection of technology, equity, and opportunity.
+
+I write and speak in both Japanese and English, and I'm especially drawn to conversations that connect lived, local experience to global questions about how technology should be designed.`,
+  },
+  {
+    slug: 'parv-sharma',
+    name: 'Parv Sharma',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Southeast Asia',
+    region: 'Southeast Asia',
+    title: 'Youth Speaker | Student Perspective on AI & Technology',
+    img: '/speakers/parv-sharma.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Youth Speaker', 'MAIT', 'Responsible AI', 'Student Perspective', 'Southeast Asia'],
+    bio: `I’m a Computer Science (Data Science) student at Maharaja Agrasen Institute of Technology (MAIT), with a strong interest in AI, technology, and innovation. I enjoy exploring how technology can solve real-world problems and create meaningful social impact. I’m particularly interested in learning, building, and contributing to conversations around the responsible and inclusive use of AI.
+
+As part of a generation growing up alongside AI, I am curious about how it is changing the way we learn, think, work, and connect with one another. Through this talk, I want to explore how we can use AI effectively while still protecting the human qualities that cannot simply be outsourced—judgement, curiosity, creativity, responsibility, and human connection. I hope to bring a young person's perspective to the conversation about how AI can become more intelligent without humanity becoming less human.`,
   },
   {
     slug: 'soofiya-s',
     name: 'Soofiya S',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'Southeast Asia',
     region: 'Southeast Asia',
     title: 'Youth Technologist & Digital Agency Advocate',
@@ -411,6 +454,8 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
     tags: ['Digital Agency', 'Grassroots Tech', 'Youth Empowerment', 'Southeast Asia'],
     bio: `Soofiya S is a youth tech activist and educator across Southeast Asia, championing digital literacy, ethical AI access, and youth-led solutions to regional social and environmental challenges.`,
   },
+
+  // --- SOUTH ASIA ---
   {
     slug: 'sandhya-sitoula',
     name: 'Sandhya Sitoula',
@@ -426,7 +471,7 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
 
 At NAAMII, she leads the AI & Society Research Group, which works on transparency, accountability and responsible AI governance. She also leads NAAMII's AI adoption pilots with Nepal's Judiciary and Federal Parliament. She represented NAAMII as an expert member of the Ministry of Communication and Information Technology's national committee developing standards for safe, inclusive and responsible AI in Nepal. She contributed to the consultations on Nepal's first national AI Policy and serves as an invited expert on the drafting committee for the Science, Technology and Innovation Act.
 
-Before this, she worked with the International Labour Organization (ILO), where she led the Work in Freedom Programme that was implemented in countries in South Asia and the Middle East. She also coordinates the Asia Regional Migration Programme at Terre des homes.
+Before this, she worked with the International Labour Organization (ILO), where she led the Work in Freedom Programme that was implemented in countries in South Asia and the Middle East. She also coordinates the Asia Regional Migration Programme at Terre des hommes.
 
 She holds a Master's in International Human Rights Law from the University of Notre Dame and an LL.M. in Human Rights and Gender Justice from Kathmandu School of Law. She was also a Hubert H. Humphrey Fellow (Fulbright Program) at the University of Minnesota Law School.`,
   },
@@ -458,30 +503,19 @@ She holds a Master's in International Human Rights Law from the University of No
     bio: `Mohammed Y. Safirulla.K is a 2010-batch Indian Administrative Service officer of the Kerala cadre and currently serves as Director at the Ministry of Electronics and Information Technology, New Delhi. He holds an MBA in Finance, a B.E. from PSG College of Technology, and a PPM from Carnegie Mellon University. His previous roles include District Collector and Magistrate, Managing Director, and Special Secretary to the Government. He has received the State Award for Best District Collector (2017–18) and the P Keshavadev Special Award (2019).`,
   },
   {
-    slug: 'seeram-sambasiva-rao',
-    name: 'Seeram Sambasiva Rao',
-    type: 'contributor',
-    role: 'Contributor',
-    segment: 'South Asia',
-    region: 'South Asia',
-    title: 'IAS | Special Secretary & Digital Governance Leader',
-    img: null,
-    imgPosition: 'center 20%',
-    tags: ['Civil Service', 'Digital Governance', 'Public Administration', 'Citizen Services'],
-    bio: `Seeram Sambasiva Rao is an Indian Administrative Service (IAS) officer and digital transformation leader recognized for pioneering citizen-centric digital platforms and transparent e-governance solutions. Throughout his public administration career as District Collector and Special Secretary, he has championed compassionate technology deployments that connect marginalized communities with essential public welfare and healthcare resources.`,
-  },
-  {
     slug: 'dr-suresh-namboothiri',
     name: 'Dr. Suresh Namboothiri',
     type: 'speaker',
     role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
-    title: 'Founder & Managing Director, Espoir Technologies | Innovation Strategist',
+    title: 'Director & Chief Mentor, Espoir Technologies | Innovation Strategist & Applied AI Author',
     img: '/speakers/dr-suresh-namboothiri.jpeg',
     imgPosition: 'center 20%',
-    tags: ['Espoir Technologies', 'Innovation & R&D', 'Design Thinking', 'South Asia Tech'],
-    bio: `Dr. Suresh Namboothiri is an innovation strategist, design thinking expert, and Founder & Managing Director of Espoir Technologies. With decades of leadership in research, industrial design, and technology-driven education, he specializes in building transformative engineering and product development methodologies that empower young technologists and innovators across South Asia.`,
+    tags: ['Espoir Technologies', 'Applied AI', 'Design Thinking', 'Critical Thinking', 'South Asia Tech'],
+    bio: `With 40+ years of experience across technology, industry, and academia, Dr. Suresh Namboothiri works at the intersection of artificial intelligence, critical thinking, education, and interdisciplinary product development. He began his career at BPL-Sanyo and later served as COO with the Tata Group, contributing to the development of 160+ products across consumer electronics, telecom, medical electronics, automobiles, and software.
+
+He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architected AI-based platforms including Bloom's OBE Lab, Vigyana, and AI-charya. He has also co-developed 50+ AI prompt engineering techniques and co-authored five books on applied AI.`,
   },
   {
     slug: 'tony-thomas',
@@ -490,17 +524,31 @@ She holds a Master's in International Human Rights Law from the University of No
     role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia & Global',
-    title: 'Global Tech Executive, Strategic Advisor | Former CIO at Nissan, GE & Vodafone',
+    title: 'Global Digital & Technology Leader, Senior Advisor to EQT Group, & Chairman of ICT Academy of Kerala',
+    link: 'https://www.linkedin.com/in/anthonythomasa/',
     img: '/speakers/tony-thomas.jpeg',
     imgPosition: 'center 20%',
     tags: ['Digital Transformation', 'Enterprise AI', 'Global Leadership', 'Tech Governance'],
     bio: `Tony Thomas is an internationally recognized technology executive and board advisor who previously served as Chief Information Officer at Nissan Motor Corporation, GE, and Vodafone India. With extensive experience leading global digital transformation and enterprise technology strategies, he advises organizations on building resilient, ethical, and compassionate tech ecosystems.`,
   },
   {
+    slug: 'seeram-sambasiva-rao',
+    name: 'Seeram Sambasiva Rao',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'IAS | Special Secretary & Digital Governance Leader',
+    img: '/speakers/seeram-sambasiva-rao.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Civil Service', 'Digital Governance', 'Public Administration', 'Citizen Services'],
+    bio: `Seeram Sambasiva Rao is an Indian Administrative Service (IAS) officer and digital transformation leader recognized for pioneering citizen-centric digital platforms and transparent e-governance solutions. Throughout his public administration career as District Collector and Special Secretary, he has championed compassionate technology deployments that connect marginalized communities with essential public welfare and healthcare resources.`,
+  },
+  {
     slug: 'nandakishore-laya',
     name: 'Nandakishore Laya',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Engineering Leader & Technology Educator',
@@ -512,8 +560,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'afm-yusuf-haider',
     name: 'AFM Yusuf Haider',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Academic Leader, Physicist & Former Vice Chancellor',
@@ -525,8 +573,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'deepak-gupta',
     name: 'Deepak Gupta',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'AI Researcher & Community Tech Convener',
@@ -538,21 +586,21 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'prof-roshan-g-ragel',
     name: 'Prof. Roshan G. Ragel',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
-    title: 'Professor of Computer Engineering, University of Peradeniya, Sri Lanka',
+    title: 'Professor of Computer Engineering, University of Peradeniya & Consultant CEO, LEARN',
     img: null,
     imgPosition: 'center 20%',
-    tags: ['Computer Engineering', 'Embedded Systems', 'Cybersecurity', 'Sri Lanka'],
-    bio: `Prof. Roshan G. Ragel is Professor and Head of Computer Engineering at the University of Peradeniya, Sri Lanka. His research spans embedded AI systems, cybersecurity, and accelerating digital transformation in higher education across South Asia.`,
+    tags: ['Computer Engineering', 'Embedded Systems', 'Cybersecurity', 'Sri Lanka', 'LEARN'],
+    bio: `Prof. Roshan G. Ragel is Professor and Head of Computer Engineering at the University of Peradeniya, Sri Lanka, and Consultant CEO of LEARN. His research spans embedded AI systems, cybersecurity, and accelerating digital transformation in higher education across South Asia.`,
   },
   {
     slug: 'pervez-hoodbhoy',
     name: 'Pervez Hoodbhoy',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Nuclear Physicist, Essayist & Peace Advocate',
@@ -564,8 +612,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'achuth-sankar',
     name: 'Dr. Achuth Sankar S. Nair',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Professor of Computational Biology & Bioinformatics',
@@ -577,8 +625,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'arun-surendran',
     name: 'Dr. Arun Surendran',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Principal, Trinity College of Engineering & Strategic Advisor',
@@ -590,8 +638,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'p-j-narayan',
     name: 'Prof. P. J. Narayanan',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Director & Professor, IIIT Hyderabad',
@@ -603,8 +651,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'jayashankar-prasad',
     name: 'Jayashankar Prasad',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Startup Ecosystem Leader | Former CEO, Kerala Startup Mission',
@@ -616,34 +664,63 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'arundhathi-krishna',
     name: 'Arundhathi Krishna',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Youth Technologist & Community AI Advocate',
-    img: null,
+    img: '/speakers/arundhathi-krishna.jpg',
     imgPosition: 'center 20%',
     tags: ['Youth Leadership', 'Community Engineering', 'Grassroots Tech', 'South Asia'],
     bio: `Arundhathi Krishna is a young technologist and community leader developing accessible, open-source AI applications and fostering youth-led social impact projects across South Asia.`,
   },
+
+  // --- MIDDLE EAST, CAUCASUS & CENTRAL ASIA (GCC) ---
   {
     slug: 'priya-m-nair',
     name: 'Priya M Nair',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
-    title: 'AI Governance & Digital Strategy Lead',
-    img: null,
+    title: 'Co-Founder, President and CEO of ZWAG INC | Global Ambassador for Responsible AI',
+    link: 'https://www.linkedin.com/in/priya-zwag-ai/',
+    img: '/speakers/priya-m-nair.jpg',
     imgPosition: 'center 20%',
-    tags: ['Digital Strategy', 'Tech Governance', 'Middle East', 'Central Asia'],
-    bio: `Priya M Nair is an enterprise AI strategist and digital transformation consultant working across the Middle East, Caucasus, and Central Asia to implement responsible, human-centered governance frameworks.`,
+    tags: ['ZWAG INC', 'Cognitive Sovereignty', 'UMF', 'Responsible AI', 'Formula-G'],
+    bio: `Priya M. Nair is the Co-Founder, President and CEO of ZWAG INC. A mission-driven DeepTech founder dedicated to dismantling the Western-centric biases of modern AI. As the co-architect of Mātr, she is pioneering a new era of Cognitive Sovereignty through the Universal Metalinguistic Framework (UMF) - a breakthrough layer designed to ensure that AI accurately represents the linguistic and cultural nuances of the global majority.
+
+With a strategic career spanning the UAE Air Force and leadership at AECOM, Priya transitioned from the corporate world to bridge AI’s "interpretation gap." Her work on UMF has already demonstrated a 2x times improvement in translation accuracy across divergent languages by modeling how languages diverge, rather than just how they align.
+
+A Global Ambassador for Responsible AI (GAFAI) and author of Formula-G, Priya is a vocal advocate for inclusion. She brings a relentless, "soulful" grit to the frontier of machine intelligence, building the infrastructure for a truly universal digital future.
+
+Mentorship & Authorship:
+• Mentor, Westford Mentorship Program, an initiative by Westford University College, UAE.
+• Mentored multiple startups through a structured three month program under the “Startup with Priya” initiative in collaboration with NeoMinds accelerator.
+• Author of Formula-G, Scale your Startup to a Growth Machine (Published November 2021).`,
+  },
+  {
+    slug: 'ruslan',
+    name: 'Ruslan Tleubayev',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC',
+    region: 'Middle East, Caucasus & Central Asia',
+    title: 'Business Development, AI & Data Center Infrastructure — NSART',
+    img: '/speakers/ruslan-tleubayev.jpg',
+    imgPosition: 'center 20%',
+    tags: ['NSART', 'Data Center Infrastructure', 'AI Energy & Compute', 'Kazakhstan', 'Central Asia'],
+    bio: `Ruslan Tleubayev is a business development professional focused on data center and AI infrastructure opportunities across Central Asia and neighboring markets. Based in Kazakhstan, Ruslan works with NSART on the development of large-scale data center opportunities, connecting power, land, infrastructure development and the growing demand for compute from AI and cloud operators. His current work includes projects across Kazakhstan and other emerging markets, with a focus on creating new infrastructure capacity for the rapidly expanding AI economy.
+
+Ruslan is particularly interested in the physical side of artificial intelligence: the energy, data centers and computing infrastructure required to turn advances in AI into real-world capacity. He sees Central Asia as an emerging participant in this transformation, with Kazakhstan’s energy base, geography and industrial infrastructure creating an opportunity for the region to play a larger role in the global AI value chain.
+
+His perspective also focuses on the human and economic transition created by AI. Just as previous technological revolutions transformed physical labor and created entirely new professions and industries, he believes AI will reshape cognitive work and require people, companies and countries to find new areas where they can create value. At AI + Compassion, Ruslan brings a Central Asian perspective on how technological progress can create broader participation — not only in using AI, but also in building the infrastructure and economies that support it.`,
   },
   {
     slug: 'mohamed-ezzaldinn',
     name: 'Mohamed Ezzaldinn',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Enterprise AI & Emerging Technologies Architect',
@@ -655,8 +732,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'aigerim-zhangozina',
     name: 'Aigerim Zhangozina',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Digital Innovation & AI Education Advocate',
@@ -666,23 +743,10 @@ She holds a Master's in International Human Rights Law from the University of No
     bio: `Aigerim Zhangozina is a Central Asian tech leader and education innovator advancing AI literacy, youth entrepreneurship, and inclusive technology policy across Kazakhstan, the Caucasus, and Central Asia.`,
   },
   {
-    slug: 'ruslan',
-    name: 'Ruslan',
-    type: 'contributor',
-    role: 'Contributor',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Systems Architect & Regional AI Researcher',
-    img: null,
-    imgPosition: 'center 20%',
-    tags: ['Systems Architecture', 'Central Asia', 'Distributed Intelligence', 'Caucasus'],
-    bio: `Ruslan is a systems engineer and technology architect specializing in distributed data networks, localized AI infrastructure, and cross-border tech collaboration throughout Central Asia and the Caucasus.`,
-  },
-  {
     slug: 'omar-aloyoun',
     name: 'Omar Aloyoun',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Civic Technology Strategist & Digital Policy Specialist',
@@ -691,18 +755,22 @@ She holds a Master's in International Human Rights Law from the University of No
     tags: ['Civic Tech', 'Digital Policy', 'Smart Governance', 'Middle East'],
     bio: `Omar Aloyoun is a civic technology strategist and policy advisor guiding government and enterprise initiatives on ethical AI deployment, smart city governance, and compassionate digital transformation in the Middle East.`,
   },
+
+  // --- AFRICA ---
   {
-    slug: 'marco-lesukat',
-    name: 'Marco Lesukat',
+    slug: 'marko-lesukat',
+    name: 'Marko Lesukat',
     type: 'speaker',
     role: 'Speaker',
     segment: 'Africa',
     region: 'East Africa, Southern Africa & Central',
-    title: 'Grassroots Technologist & Community Innovation Strategist',
+    title: 'Team Leader and Disaster Risk Management (DRM) Expert',
     img: null,
     imgPosition: 'center 20%',
-    tags: ['Grassroots AI', 'Community Innovation', 'East Africa', 'Social Impact'],
-    bio: `Marco Lesukat is an East African community technologist and innovator specializing in grassroots digital empowerment, localized AI applications, and community-driven technology solutions for social and economic resilience across Africa.`,
+    tags: ['Disaster Risk Management', 'Climate Resilience', 'Early Warning Systems', 'Sendai Framework', 'Kenya & Horn of Africa'],
+    bio: `Marko Lesukat is a Kenyan disaster risk management and climate-resilience specialist with over 25 years of experience advising governments, regional bodies, UN agencies, the World Bank, the European Union and bilateral donors across the Horn, Eastern and Southern Africa. A civil, water and environmental engineer by training (M.Sc. Civil Engineering, B.Sc. Agricultural Engineering and a Postgraduate Diploma in Disaster Management), he has led teams of up to 28 experts and programmes of up to USD 65+ million, including as Chief of Party of the USAID Ethiopia Disaster Risk Management Activity and Team Leader of the EU-funded DRM Decentralisation Programme in Ethiopia.
+
+His early warning and anticipatory action work includes Somaliland's National Disaster Risk Assessment and people-centred two-way early warning communication system, drought early-warning thresholds adopted across Kenya's 23 drylands counties, the IGAD/ICPAC resilience monitoring dashboard, and oversight of flood early warning systems under the World Bank's ECRP-II in South Sudan. He was lead author of Uganda's USD 2.7 billion National DRM Plan (2022-2032) and co-lead drafter of Ethiopia's National DRM Legal Framework (2025), working to the Sendai Framework, AU Agenda 2063 and the Africa Regional DRR Strategy. He is fluent in English, Kiswahili and Maasai/Samburu.`,
   },
   {
     slug: 'evelyn-lusenaka',
@@ -716,6 +784,59 @@ She holds a Master's in International Human Rights Law from the University of No
     imgPosition: 'center 20%',
     tags: ['Digital Inclusion', 'Public Health AI', 'African Innovation', 'Youth Empowerment'],
     bio: `Evelyn Lusenaka is a digital inclusion advocate and researcher focusing on ethical healthcare technologies, youth tech education, and community-centered artificial intelligence solutions in East and Central Africa.`,
+  },
+  {
+    slug: 'dr-ken-west',
+    name: 'Dr. Ken West',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Africa',
+    region: 'East Africa, Southern Africa & Central',
+    title: 'Performance Scientist & Multicultural Integration Specialist',
+    img: '/speakers/dr-ken-west.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Performance Science', 'Multicultural Integration', 'Oxford University', 'Self-Empowerment', 'Africa'],
+    bio: `Dr. Ken West is a performance scientist who helps international teams and individuals evolve to their highest level of performance by resolving personal & team limitations.
+
+To develop this expertise, Ken has spent over 20 years seeing patients as an optometrist in the USA and South Africa, over 36 years working with elite amateur & professional sportsmen and women in 44 countries and 48 sports, 30 years mentoring corporations on multicultural integration & optimization in Europe, Asia, Africa & North America, 30+ years integrating diverse wellbeing disciplines into a simplified model for higher success rates and 6 years evolving the performance science graduate program at Oxford University, UK. He has had the honour of working with many Olympic medallists, world champions and elite coaches and performers in numerous unique disciplines.
+
+Ken now mentors individuals and teaches corporate workshops globally to evolve self awareness, self empowerment, self organisation, self governance, cooperation & optimisation in the personal space and work place.
+
+Ken enjoys researching the human experience to develop models to accelerate the evolutionary process through unique and challenging projects in the multi-cultural arena. Ken is available for private consultations, mentoring and project involvement (doc@cv-4d.org).`,
+  },
+  {
+    slug: 'patrick-mccullough',
+    name: 'Patrick McCullough',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Africa',
+    region: 'East Africa, Southern Africa & Central',
+    title: 'Exponential Tech Pitch Coach & Presentation Strategist',
+    img: '/speakers/patrick-mccullough.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Pitch Strategy', 'Exponential Tech', 'Founder Institute', 'GENIA'],
+    bio: `Patrick McCullough is an Exponential Tech Pitch Coach and Presentation Strategist, helping startups raise funding globally. As Founding Producer of Seán Óg Productions for 24+ years, he produced four award-winning indie films and served as actor coach on "Atomic Blonde" and "Houdini." An angel investor, startup mentor at Founder Institute, and founding advisor to GENIA Latinoamérica, McCullough specializes in pitch strategy, messaging, and sprint facilitation for entrepreneurs addressing global challenges, helping exponential entrepreneurs define their strategic trajectory globally.`,
+  },
+
+  // --- EUROPE ---
+  {
+    slug: 'emily-kate-genatowski',
+    name: 'Emily Kate Genatowski',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'UK, Ireland, Iberia & West Africa',
+    title: 'Founder, PSL | AI Domestic Robotics Researcher',
+    img: '/speakers/emily-kate-genatowski.jpg',
+    imgPosition: 'center 15%',
+    tags: ['Humanoid Robotics', 'Domestic AI', 'PSL Founder', 'Harvard & Columbia Alumna'],
+    bio: `Emily Kate Genatowski is an immersive AI researcher and historian who gained global recognition for living full-time with a humanoid robot in Vienna. Her work explores what happens when advanced technology moves out of the lab and into the most personal space of all: the home.
+
+A Harvard and Columbia alumna, she is a PhD candidate at the University of Vienna, where her historian's perspective shapes how she studies the relationship between people and intelligent machines. Rather than observing from a distance, she learns through lived experience what daily life with a humanoid robot demands of both human and machine.
+
+Her career spans culture and technology. She previously served as North American coordinator for Google Arts & Culture.
+
+Today, she is the founder of PSL, an insurtech startup focused on standardizing risk for autonomous machinery. As robots and autonomous systems enter homes, workplaces, and public spaces, PSL addresses a critical question: how do we measure and insure the risks they introduce? Her research and entrepreneurship share one mission: building the trust and structures society needs to live safely alongside autonomous technology.`,
   },
   {
     slug: 'neil-nassar',
@@ -737,32 +858,13 @@ He has spent much of his early twenties living and working abroad, including a y
 Today, he puts that conviction into practice by using entrepreneurship and AI to strengthen social development organizations creating meaningful impact.`,
   },
   {
-    slug: 'emily-kate-genatowski',
-    name: 'Emily Kate Genatowski',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Europe',
-    region: 'UK, Ireland, Iberia & West Africa',
-    title: 'AI Domestic Robotics Researcher | Bringing the conversations of tomorrow to the table today',
-    img: '/speakers/emily-kate-genatowski.jpg',
-    imgPosition: 'center 15%',
-    tags: ['Humanoid Robotics', 'Domestic AI', 'PSL Founder', 'Harvard & Columbia Alumna'],
-    bio: `Emily Kate Genatowski is an immersive AI researcher and historian who gained global recognition for living full-time with a humanoid robot in Vienna. Her work explores what happens when advanced technology moves out of the lab and into the most personal space of all: the home.
-
-A Harvard and Columbia alumna, she is a PhD candidate at the University of Vienna, where her historian's perspective shapes how she studies the relationship between people and intelligent machines. Rather than observing from a distance, she learns through lived experience what daily life with a humanoid robot demands of both human and machine.
-
-Her career spans culture and technology. She previously served as North American coordinator for Google Arts & Culture.
-
-Today, she is the founder of PSL, an insurtech startup focused on standardizing risk for autonomous machinery. As robots and autonomous systems enter homes, workplaces, and public spaces, PSL addresses a critical question: how do we measure and insure the risks they introduce? Her research and entrepreneurship share one mission: building the trust and structures society needs to live safely alongside autonomous technology.`,
-  },
-  {
     slug: 'valerie-m-saintot',
     name: 'Valérie M. Saintot, PhD',
     type: 'speaker',
     role: 'Speaker',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
-    title: 'Lawyer | Adj. Prof. Innov. | AI & Legal Tech | Mindfulness',
+    title: 'Lawyer | Adj. Prof. Innov. | European Central Bank | Mindfulness & LegalTech',
     img: '/speakers/valerie-saintot.png',
     imgPosition: 'center 18%',
     tags: ['LegalTech & AI', 'Mindfulness', 'Organizational Performance', 'Life-Centric Pathways'],
@@ -800,7 +902,7 @@ Having lived and worked between different places and professional worlds, Julie 
     role: 'Speaker',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
-    title: 'Chief Evolution Philosopher, Founder of the School of Wisdom',
+    title: 'Chief Evolution Philosopher, Sherpa42 & Founder of the School of Wisdom',
     img: '/speakers/paolo-cervari.jpeg',
     imgPosition: 'center 20%',
     tags: ['Philosophical Counseling', 'Systemic Problem Solving', 'School of Wisdom', 'Sherpa42'],
@@ -814,7 +916,7 @@ Having lived and worked between different places and professional worlds, Julie 
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Founder & CEO, Findability Sciences | Enterprise AI Visionary',
-    img: '/speakers/anand-mahurkar.jpg',
+    img: null,
     imgPosition: 'center 20%',
     tags: ['Enterprise AI', 'Findability Sciences', 'Data Science', 'Responsible AI'],
     bio: `Anand Mahurkar is the Founder and CEO of Findability Sciences, a global enterprise AI firm. Recognized as an innovative technology entrepreneur, he leads initiatives applying predictive AI, big data, and machine learning to drive compassionate and sustainable industrial transformation.`,
@@ -822,8 +924,8 @@ Having lived and worked between different places and professional worlds, Julie 
   {
     slug: 'paola-cervari',
     name: 'Paola Cervari',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Psychologist & Systemic Communication Consultant',
@@ -835,16 +937,41 @@ Having lived and worked between different places and professional worlds, Julie 
   {
     slug: 'massimo-camplone',
     name: 'Massimo Camplone',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
-    title: 'Innovation Consultant & Circular Transformation Lead',
-    img: null,
+    title: 'IT Architect, Consultant & Visual Artist ("névoa na rua")',
+    img: '/speakers/massimo-camplone.jpg',
     imgPosition: 'center 20%',
-    tags: ['Circular Economy', 'Human-Centered Design', 'European Innovation'],
-    bio: `Massimo Camplone is an Italian innovation consultant and sustainability architect, advising enterprises and institutions on circular business models, social impact, and integrating human dignity into emerging tech operations.`,
+    tags: ['névoa na rua', 'IT Architecture', 'Visual Arts', 'ABAQ', 'Ego te absolvo', 'Spazio Genesi'],
+    bio: `Massimo Camplone, known as "névoa na rua", has worked in information technology for over thirty-five years as an IT architect and consultant, designing cloud infrastructure on Microsoft Azure and Cloudflare. His AI work ranges from training non-technical people to designing systems, including a model that recognises pre-digital intaglio techniques. This experience is not the backdrop to his art but its condition: he questions the systems that mediate language, access and relationship as someone who builds them.
+
+At the Academy of Fine Arts of L'Aquila (ABAQ), his thesis The Perspective Trap reads perspective as an apparatus of power: the vanishing point decides what is centre and what is periphery. The same question, who decides what is seen and from where, runs through his recent work. After a degree in sculpture, he is entering the master's in Visual Arts.
+
+Poesie Orbitali, commissioned for Uno scintillio nell'ombra (L'Aquila Italian Capital of Culture 2026), is a territorial sculpture: eight phrases traced by GPS over three months, legible only at map scale. In the performance, the artist, disguised as a tour guide, handed out QR code cards amid megaphone voices.
+
+Ego te absolvo, by the collective "Tu non sai chi sono io" (with Veronica Falzea, Alyssa Filoramo and dmndavi), shown at the Summer School dello Stretto 2026 in Reggio Calabria, rebuilds a confessional: a human voice confesses, a synthetic one answers. Its claim: AI listens to suffering better. "Not because it is better at it. Because it costs it nothing."
+
+In Penne he created Te lo dico a voce, asking residents one by one to let him write that phrase on their terraces, readable only from above, and certifying even refusals by SHA256. Relationship becomes singular again: to many, but one by one.
+
+He is founder, secretary and technology lead of Spazio Genesi ETS, a student association affiliated with ABAQ.`,
   },
+  {
+    slug: 'mike-warwick',
+    name: 'Mike Warwick',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'Europe',
+    region: 'UK, Ireland, Iberia & West Africa',
+    title: "Host of 'Where to Next?' on Do Radio | Somatic Therapist & Life Coach",
+    img: '/speakers/mike-warwick.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Do Radio', 'Where to Next?', 'Somatic Therapy', 'Life Coaching', 'Entrepreneurship'],
+    bio: `Mike Warwick presents Where to Next? alongside Dan Kieren for Do Radio. He’s a somatic therapist, certified life coach, and serial entrepreneur exploring the intersection of human wellbeing, communication, and technological transition.`,
+  },
+
+  // --- CARIBBEAN & LATAM ---
   {
     slug: 'jeremy-erasmus',
     name: 'Jeremy Erasmus',
@@ -852,7 +979,7 @@ Having lived and worked between different places and professional worlds, Julie 
     role: 'Speaker',
     segment: 'Caribbean & LATAM',
     region: 'Eastern & Southern South America, Caribbean',
-    title: 'e-Government Steering Committee Chair | Digital Transformation Leader',
+    title: 'e-Government Steering Committee Chair | Digital Transformation Leader, Government of Aruba',
     img: '/speakers/jeremy-erasmus.jpeg',
     imgPosition: 'center 15%',
     tags: ['Digital Government', 'Public Sector Modernization', 'SIDS', 'Responsible AI'],
@@ -914,8 +1041,8 @@ Satesh is also actively involved in teaching, student development, research diss
   {
     slug: 'violette-ayala',
     name: 'Violette Ayala',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'Caribbean & LATAM',
     region: 'Eastern & Southern South America, Caribbean',
     title: 'Filmmaker, Artist & Indigenous Technologist',
@@ -931,12 +1058,14 @@ Satesh is also actively involved in teaching, student development, research diss
     role: 'Speaker',
     segment: 'Caribbean & LATAM',
     region: 'Eastern & Southern South America, Caribbean',
-    title: 'Leader, Women in AI Colombia | Young AI Leaders Bogotá',
+    title: 'Founder & CEO Young AI Leaders | Women in AI Colombia',
     img: '/speakers/valeria-soler.jpeg',
     imgPosition: 'center 20%',
     tags: ['Women in AI', 'Youth Leadership', 'Latin America', 'SDG Tech'],
     bio: `Valeria Soler connects people, ideas, and resources to spark inclusive futures in technology, ensuring Latin American women and youth have a voice in AI. She leads two international initiatives in Colombia: Women in AI (launching the first South American chapter) and Young AI Leaders Bogotá, a UN-backed hub applying AI to SDG challenges. With experience across government, academia, and deep-tech startups, she bridges policy, design, and innovation as an artist, podcaster, and facilitator.`,
   },
+
+  // --- NORTH AMERICA ---
   {
     slug: 'kunal-sood',
     name: 'Kunal Sood',
@@ -970,11 +1099,11 @@ Satesh is also actively involved in teaching, student development, research diss
     role: 'Speaker',
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Wall Street Journal Bestselling Author, AI & CX Strategist | Former Salesforce Chief Evangelist',
+    title: 'Executive Producer, Writer/Storyteller & Soul-Science Alchemist | WSJ Bestselling Author',
     img: '/speakers/dr-natalie-petouhoff.jpg',
     imgPosition: 'center 20%',
-    tags: ['Empathy in AI', 'Customer Experience', 'Bestselling Author', 'Leadership'],
-    bio: `Dr. Natalie Petouhoff is a Wall Street Journal bestselling author, customer experience and AI strategist, and former Senior Vice President & Chief Evangelist at Salesforce. A former analyst with Gartner and Forrester and Pepperdine University adjunct professor, she focuses on human-centered innovation, emotional intelligence, and compassionate leadership in the age of artificial intelligence.`,
+    tags: ['Empathy in Action', 'Soul-Science Alchemist', 'Bestselling Author', 'Customer Experience'],
+    bio: `As an architect of tomorrow, this right-brained, rocket scientist's management theories were quoted in the NYTimes, Wired, and Fast Company, and she has been a featured commentator on ABC, CBS, and MSNBC. Then the pandemic provided a pivotal new petri dish. As the world stood still, she questioned everything. Writing feverishly, she published the culmination of her life's work, combining both science and personal growth: her leadership book, EMPATHY IN ACTION. Earning 15 awards and becoming a Wall Street Journal bestseller, it became the hottest leadership book on the power of empathy. Empathy: The Pursuit of Joy- A hero's journey Documentary and Experience - about empathy, compassion and resilience is her next step in helping to achieve the goal of a billion people feeling empathy.`,
   },
   {
     slug: 'josh-sikkema',
@@ -983,11 +1112,11 @@ Satesh is also actively involved in teaching, student development, research diss
     role: 'Speaker',
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Film Director, Producer & Immersive Media Innovator',
+    title: 'Director, Cinematographer & Creative Visionary',
     img: '/speakers/josh-sikkema.jpg',
     imgPosition: 'center 20%',
-    tags: ['Cinematic Storytelling', 'Immersive Tech', 'Cultural Impact', 'Creative AI'],
-    bio: `Josh Sikkema is an award-winning film director, producer, and immersive media entrepreneur. Known for blending cinematic storytelling with emerging digital technologies, he champions compassionate, human-first narratives and cross-cultural media experiences that inspire global audiences.`,
+    tags: ['Film Director', 'Cinematography', 'Creative Visionary', 'Social Impact', 'Storytelling'],
+    bio: `Josh is an award-winning film director and cinematographer whose work bridges the worlds of music, narrative storytelling, and social impact. His debut short film, "Something in the Clouds," earned 8 festival wins and 21 official selections, establishing him as a compelling visual storyteller with a signature cinematic style. The Anti-Diet Diet Club and The Courage to Thrive and The Granny Documentary are among Josh's accomplishments in the documentary space that bring heart and soul to the screen.`,
   },
   {
     slug: 'marques-anderson',
@@ -1002,19 +1131,8 @@ Satesh is also actively involved in teaching, student development, research diss
     tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
     bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
   },
-  {
-    slug: 'patrick-mccullough',
-    name: 'Patrick McCullough',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Exponential Tech Pitch Coach & Presentation Strategist',
-    img: '/speakers/patrick-mccullough.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Pitch Strategy', 'Exponential Tech', 'Founder Institute', 'GENIA'],
-    bio: `Patrick McCullough is an Exponential Tech Pitch Coach and Presentation Strategist, helping startups raise funding globally. As Founding Producer of Seán Óg Productions for 24+ years, he produced four award-winning indie films and served as actor coach on "Atomic Blonde" and "Houdini." An angel investor, startup mentor at Founder Institute, and founding advisor to GENIA Latinoamérica, McCullough specializes in pitch strategy, messaging, and sprint facilitation for entrepreneurs addressing global challenges, helping exponential entrepreneurs define their strategic trajectory globally.`,
-  },
+
+  // --- HAWAIʻI, ALASKA & PACIFIC ISLANDS ---
   {
     slug: 'linzi-boyd',
     name: 'Linzi Boyd',
@@ -1048,8 +1166,8 @@ Mitch treats ethics as a design principle, not an afterthought. Initiatives faci
   {
     slug: 'zoe-milligan',
     name: 'Zoe Milligan',
-    type: 'contributor',
-    role: 'Contributor',
+    type: 'speaker',
+    role: 'Speaker',
     segment: 'Pacific Islands / Ocean',
     region: 'Hawaiʻi, Alaska & Pacific Islands',
     title: 'Conscious Learning Architect & Founder, The L&D Vault',
@@ -1071,12 +1189,8 @@ export const PRODUCERS_AND_COPRODUCERS = PEOPLE.filter(
 );
 
 export const CONFIRMED_SPEAKERS = PEOPLE.filter(
-  (p) => (p.type === 'speaker' || p.isSpeaker) && p.type !== 'contributor'
-).sort((a, b) => {
-  if (a.img && !b.img) return -1;
-  if (!a.img && b.img) return 1;
-  return 0;
-});
+  (p) => (p.type === 'speaker' || p.isSpeaker) && p.type !== 'contributor' && Boolean(p.img)
+);
 
 export function getPersonBySlug(slug) {
   if (!slug) return null;
@@ -1085,11 +1199,14 @@ export function getPersonBySlug(slug) {
   if (direct) return direct;
 
   // Check aliases (e.g. carl-sundberg vs carl-sunberg, gary-bolles vs gary-a-bolles)
-  if (clean === 'carl-sundberg') return PEOPLE.find((p) => p.slug === 'carl-sunberg');
-  if (clean === 'carl-sunberg') return PEOPLE.find((p) => p.slug === 'carl-sunberg');
-  if (clean === 'gary-bolles') return PEOPLE.find((p) => p.slug === 'gary-a-bolles');
-  if (clean === 'marianne-power') return PEOPLE.find((p) => p.slug === 'marianne-power');
-  if (clean === 'mariane-power') return PEOPLE.find((p) => p.slug === 'marianne-power');
+  if (clean === 'carl-sundberg' || clean === 'carl-sunberg') return PEOPLE.find((p) => p.slug === 'carl-sunberg');
+  if (clean === 'gary-bolles' || clean === 'gary-a-bolles') return PEOPLE.find((p) => p.slug === 'gary-a-bolles');
+  if (clean === 'marianne-power' || clean === 'mariane-power') return PEOPLE.find((p) => p.slug === 'marianne-power');
+  if (clean === 'marco-lesukat' || clean === 'marko-lesukat') return PEOPLE.find((p) => p.slug === 'marko-lesukat');
+  if (clean === 'dr-ken-west' || clean === 'ken-west' || clean === 'dr-ken-weat' || clean === 'ken-weat') return PEOPLE.find((p) => p.slug === 'dr-ken-west');
+  if (clean === 'ruslan' || clean === 'ruslan-tleubayev') return PEOPLE.find((p) => p.slug === 'ruslan');
+  if (clean === 'dr-suresh-namboothiri' || clean === 'suresh-namboothiri') return PEOPLE.find((p) => p.slug === 'dr-suresh-namboothiri');
+  if (clean === 'valerie-saintot' || clean === 'valerie-m-saintot') return PEOPLE.find((p) => p.slug === 'valerie-m-saintot');
 
   // Check with or without 'dr-'
   const altDr = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;

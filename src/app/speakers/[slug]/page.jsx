@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Mic, ExternalLink, UserCheck, Sparkles } from 'lucide-react';
+import { ArrowLeft, UserCheck, Sparkles } from 'lucide-react';
 import { SPEAKERS } from '@/data/speakersData';
+import SpeakerAvatar from '@/components/speakerAvatar';
 
 export async function generateStaticParams() {
   return SPEAKERS.map((speaker) => ({
@@ -44,14 +44,12 @@ export default async function SpeakerBioPage({ params }) {
           {/* Header Strip with High-Res Image & Meta */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 pb-8 border-b border-slate-100">
             <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden bg-slate-100 shadow-md border-2 border-emerald-200 shrink-0">
-              <Image
+              <SpeakerAvatar
                 src={speaker.img}
-                alt={speaker.name}
-                fill
-                priority
-                className="object-cover"
-                style={{ objectPosition: speaker.imgPosition || 'center' }}
+                name={speaker.name}
+                imgPosition={speaker.imgPosition || 'center'}
                 sizes="(max-width: 640px) 144px, 176px"
+                priority
               />
             </div>
 
