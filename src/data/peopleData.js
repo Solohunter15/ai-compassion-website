@@ -44,6 +44,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     slug: 'carl-sunberg',
     name: 'Carl Sundberg',
     type: 'co-producer',
+    isSpeaker: true,
     role: 'Co-Producer / MC',
     segment: 'East Asia & Pacific Islands',
     region: 'Pacific Rim & Japan',
@@ -387,8 +388,8 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
   {
     slug: 'hikari-kii',
     name: 'Hikari Kii',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Southeast Asia',
     region: 'Southeast Asia',
     title: 'Creative Technologist & AI Ethics Researcher',
@@ -400,8 +401,8 @@ The Althea Project grows out of this interdisciplinary background. It reflects C
   {
     slug: 'soofiya-s',
     name: 'Soofiya S',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Southeast Asia',
     region: 'Southeast Asia',
     title: 'Youth Technologist & Digital Agency Advocate',
@@ -459,8 +460,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'seeram-sambasiva-rao',
     name: 'Seeram Sambasiva Rao',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'IAS | Special Secretary & Digital Governance Leader',
@@ -498,8 +499,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'nandakishore-laya',
     name: 'Nandakishore Laya',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Engineering Leader & Technology Educator',
@@ -511,8 +512,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'afm-yusuf-haider',
     name: 'AFM Yusuf Haider',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Academic Leader, Physicist & Former Vice Chancellor',
@@ -524,8 +525,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'deepak-gupta',
     name: 'Deepak Gupta',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'AI Researcher & Community Tech Convener',
@@ -537,8 +538,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'prof-roshan-g-ragel',
     name: 'Prof. Roshan G. Ragel',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Professor of Computer Engineering, University of Peradeniya, Sri Lanka',
@@ -550,8 +551,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'pervez-hoodbhoy',
     name: 'Pervez Hoodbhoy',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Nuclear Physicist, Essayist & Peace Advocate',
@@ -563,8 +564,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'achuth-sankar',
     name: 'Dr. Achuth Sankar S. Nair',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Professor of Computational Biology & Bioinformatics',
@@ -576,8 +577,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'arun-surendran',
     name: 'Dr. Arun Surendran',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Principal, Trinity College of Engineering & Strategic Advisor',
@@ -589,8 +590,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'p-j-narayan',
     name: 'Prof. P. J. Narayanan',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Director & Professor, IIIT Hyderabad',
@@ -602,8 +603,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'jayashankar-prasad',
     name: 'Jayashankar Prasad',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Startup Ecosystem Leader | Former CEO, Kerala Startup Mission',
@@ -615,8 +616,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'arundhathi-krishna',
     name: 'Arundhathi Krishna',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'South Asia',
     region: 'South Asia',
     title: 'Youth Technologist & Community AI Advocate',
@@ -628,8 +629,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'priya-m-nair',
     name: 'Priya M Nair',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'AI Governance & Digital Strategy Lead',
@@ -641,8 +642,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'mohamed-ezzaldinn',
     name: 'Mohamed Ezzaldinn',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Enterprise AI & Emerging Technologies Architect',
@@ -654,8 +655,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'aigerim-zhangozina',
     name: 'Aigerim Zhangozina',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Digital Innovation & AI Education Advocate',
@@ -667,8 +668,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'ruslan',
     name: 'Ruslan',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Systems Architect & Regional AI Researcher',
@@ -680,8 +681,8 @@ She holds a Master's in International Human Rights Law from the University of No
   {
     slug: 'omar-aloyoun',
     name: 'Omar Aloyoun',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Civic Technology Strategist & Digital Policy Specialist',
@@ -808,8 +809,8 @@ Having lived and worked between different places and professional worlds, Julie 
   {
     slug: 'anand-mahurkar',
     name: 'Anand Mahurkar',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Founder & CEO, Findability Sciences | Enterprise AI Visionary',
@@ -821,8 +822,8 @@ Having lived and worked between different places and professional worlds, Julie 
   {
     slug: 'paola-cervari',
     name: 'Paola Cervari',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Psychologist & Systemic Communication Consultant',
@@ -834,8 +835,8 @@ Having lived and worked between different places and professional worlds, Julie 
   {
     slug: 'massimo-camplone',
     name: 'Massimo Camplone',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Europe',
     region: 'UK, Ireland, Iberia & West Africa',
     title: 'Innovation Consultant & Circular Transformation Lead',
@@ -913,8 +914,8 @@ Satesh is also actively involved in teaching, student development, research diss
   {
     slug: 'violette-ayala',
     name: 'Violette Ayala',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Caribbean & LATAM',
     region: 'Eastern & Southern South America, Caribbean',
     title: 'Filmmaker, Artist & Indigenous Technologist',
@@ -1047,8 +1048,8 @@ Mitch treats ethics as a design principle, not an afterthought. Initiatives faci
   {
     slug: 'zoe-milligan',
     name: 'Zoe Milligan',
-    type: 'speaker',
-    role: 'Speaker',
+    type: 'contributor',
+    role: 'Contributor',
     segment: 'Pacific Islands / Ocean',
     region: 'Hawaiʻi, Alaska & Pacific Islands',
     title: 'Conscious Learning Architect & Founder, The L&D Vault',
@@ -1070,7 +1071,7 @@ export const PRODUCERS_AND_COPRODUCERS = PEOPLE.filter(
 );
 
 export const CONFIRMED_SPEAKERS = PEOPLE.filter(
-  (p) => p.type === 'speaker'
+  (p) => (p.type === 'speaker' || p.isSpeaker) && p.type !== 'contributor'
 ).sort((a, b) => {
   if (a.img && !b.img) return -1;
   if (!a.img && b.img) return 1;
