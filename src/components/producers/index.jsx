@@ -96,12 +96,10 @@ export default function ProducersSection() {
                   </h3>
                   
                   <span
-                    className={`inline-block mx-auto text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                      person.type === 'co-producer'
+                    className={`inline-block mx-auto text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-2xs ${
+                      person.type === 'co-producer' || person.role.toLowerCase().includes('co-producer') || person.role.toLowerCase().includes('mc')
                         ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                        : person.role.toLowerCase().includes('lead')
-                        ? 'bg-blue-50 text-blue-900 border border-blue-200'
-                        : 'bg-emerald-100 text-[#163B32] border border-emerald-200'
+                        : 'bg-[#163B32] text-white border border-[#163B32]'
                     }`}
                   >
                     {person.role}

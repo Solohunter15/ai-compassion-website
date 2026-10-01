@@ -15,8 +15,9 @@ const FIELD_IDS = {
 
 const HUB_MAPPING = {
   'Australia, New Zealand & South Pacific': 'Australia, New Zealand & South Pacific',
-  'Japan, Korea, Taiwan & Northeast Asia (Kyoto)': 'Japan, Korea, Taiwan & Northeast Asia',
-  'Japan, Korea, Taiwan & Northeast Asia': 'Japan, Korea, Taiwan & Northeast Asia',
+  'Japan, Korea, Taiwan & East Asia (Kyoto)': 'Japan, Korea, Taiwan & East Asia',
+  'Japan, Korea, Taiwan & East Asia': 'Japan, Korea, Taiwan & East Asia',
+  'Japan, Korea, Taiwan & Northeast Asia': 'Japan, Korea, Taiwan & East Asia',
   'Southeast Asia (Youth Hub / Singapore)': 'Southeast Asia',
   'Southeast Asia': 'Southeast Asia',
   'South Asia': 'South Asia',
@@ -78,8 +79,8 @@ export async function POST(request) {
       .filter(Boolean);
 
     if (mappedHubs.length === 0) {
-      // Default to Northeast Asia if none selected
-      formParams.append(FIELD_IDS.regionalHub, 'Japan, Korea, Taiwan & Northeast Asia');
+      // Default to East Asia if none selected
+      formParams.append(FIELD_IDS.regionalHub, 'Japan, Korea, Taiwan & East Asia');
     } else {
       mappedHubs.forEach((hub) => {
         formParams.append(FIELD_IDS.regionalHub, hub);

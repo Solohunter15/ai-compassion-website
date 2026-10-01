@@ -30,7 +30,7 @@ export const RELAY_REGIONS = [
   {
     id: 2,
     segment: 'East Asia',
-    region: 'Japan, Korea, Taiwan & Northeast Asia',
+    region: 'Japan, Korea, Taiwan & East Asia',
     shortName: 'East Asia',
     city: 'East Asia (Kyoto / Tokyo / Seoul / Taipei)',
     timezone: 'Asia/Tokyo',
