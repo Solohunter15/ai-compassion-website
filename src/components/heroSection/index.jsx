@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, Mic } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function HeroSection() {
   const heroRef = useRef(null);
@@ -144,10 +144,9 @@ export default function HeroSection() {
             A 24-hour global conversation for a planet-centered future (nature, humanity, &amp; AI/technology).
           </p>
 
-          {/* Action Buttons: REGISTER NOW & JOIN AS SPEAKER */}
+          {/* Action Buttons: REGISTER NOW */}
           <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 pt-2">
-            
-            {/* 1. REGISTER NOW Button (Links directly to MakeMyPass) */}
+            {/* REGISTER NOW Button (Links directly to MakeMyPass) */}
             <a
               href="https://makemypass.com/event/ai-compassion-participants"
               target="_blank"
@@ -156,18 +155,6 @@ export default function HeroSection() {
             >
               <span>REGISTER NOW</span>
               <ArrowUpRight className="w-4 h-4" />
-            </a>
-
-            {/* 2. JOIN AS SPEAKER Button (Links to MakeMyPass Speaker Application) */}
-            <a
-              href="https://makemypass.com/event/ai-compassion-sp-fac-app?utm_source=chatgpt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#163B32] hover:text-white bg-emerald-50/90 hover:bg-[#163B32] border border-[#163B32]/30 hover:border-[#163B32] rounded-full shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-            >
-              <Mic className="w-3.5 h-3.5 text-[#C96F4A]" />
-              <span>JOIN AS SPEAKER</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
             </a>
           </div>
 
