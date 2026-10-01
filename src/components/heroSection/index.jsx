@@ -83,7 +83,7 @@ export default function HeroSection() {
             alt="AI + Compassion Global Forum 2026 Artwork"
             fill
             priority
-            quality={95}
+            quality={100}
             className="object-cover object-right-bottom opacity-95"
             sizes="(max-width: 1024px) 100vw, 70vw"
           />
