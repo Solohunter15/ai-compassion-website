@@ -56,7 +56,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '17:00–19:00',
     },
     producers: ['Christina Gerakiteys (Producer)'],
-    speakers: ['Marianne Power', 'Rob Lee', 'Ian Haycroft'],
+    speakers: ['Mariane Power', 'Rob Lee', 'Ian Haycroft'],
     theme: 'Indigenous wisdom, planetary stewardship, and compassionate futures',
   },
   {

@@ -33,7 +33,7 @@ export const global = [
     time: "07:00-09:00 UTC",
     items: [
       "Christina Gerakiteys (Producer)",
-      "Marianne Power",
+      "Mariane Power",
       "Rob Lee",
       "Ian Haycroft",
     ],
