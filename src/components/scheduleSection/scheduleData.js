@@ -324,3 +324,76 @@ export const SCHEDULE_MATRIX = [
     theme: 'Coming Home to Compassion - Honoring what we have shared—and what we will nurture together.',
   },
 ];
+
+export const SCHEDULE_BLOCK_TIMES = [
+  { id: 'kickoff', blockIndex: 0, blockNumber: 'Block 0', startUtcMin: 6 * 60, endUtcMin: 7 * 60, segment: 'Kyoto Opening Ceremony', region: 'Kyoto Opening Ceremony', stageIdx: 0, globeRegionId: 2 },
+  { id: 'block-1', blockIndex: 1, blockNumber: 'Block 1', startUtcMin: 7 * 60, endUtcMin: 9 * 60, segment: 'Oceania', region: 'Australia, New Zealand & South Pacific', stageIdx: 1, globeRegionId: 1 },
+  { id: 'block-2', blockIndex: 2, blockNumber: 'Block 2', startUtcMin: 9 * 60, endUtcMin: 11 * 60, segment: 'East Asia', region: 'Japan, Korea, Taiwan & Northeast Asia', stageIdx: 2, globeRegionId: 2 },
+  { id: 'block-3', blockIndex: 3, blockNumber: 'Block 3', startUtcMin: 11 * 60, endUtcMin: 13 * 60, segment: 'Southeast Asia', region: 'Southeast Asia', stageIdx: 3, globeRegionId: 3 },
+  { id: 'block-4', blockIndex: 4, blockNumber: 'Block 4', startUtcMin: 13 * 60, endUtcMin: 15 * 60, segment: 'South Asia', region: 'South Asia', stageIdx: 4, globeRegionId: 4 },
+  { id: 'block-5', blockIndex: 5, blockNumber: 'Block 5', startUtcMin: 15 * 60, endUtcMin: 17 * 60, segment: 'Middle East & Central Asia', region: 'Middle East, Caucasus & Central Asia', stageIdx: 5, globeRegionId: 5 },
+  { id: 'block-6', blockIndex: 6, blockNumber: 'Block 6', startUtcMin: 17 * 60, endUtcMin: 19 * 60, segment: 'Africa', region: 'East Africa, Southern Africa & Central', stageIdx: 6, globeRegionId: 6 },
+  { id: 'block-7', blockIndex: 7, blockNumber: 'Block 7', startUtcMin: 19 * 60, endUtcMin: 21 * 60, segment: 'Europe & West Africa', region: 'UK, Ireland, Iberia & West Africa', stageIdx: 7, globeRegionId: 7 },
+  { id: 'block-8', blockIndex: 8, blockNumber: 'Block 8', startUtcMin: 21 * 60, endUtcMin: 23 * 60, segment: 'Caribbean & South America', region: 'Eastern & Southern South America & Caribbean', stageIdx: 8, globeRegionId: 8 },
+  { id: 'block-9-11', subBlockId: 'block-9', blockIndex: 9, blockNumber: 'Block 9', startUtcMin: 23 * 60, endUtcMin: 25 * 60, segment: 'North America (East)', region: 'North America Segment (East)', stageIdx: 9, groupId: 'group-north-america', globeRegionId: 9 },
+  { id: 'block-9-11', subBlockId: 'block-10', blockIndex: 10, blockNumber: 'Block 10', startUtcMin: 25 * 60, endUtcMin: 27 * 60, segment: 'North America (Central)', region: 'North America Segment (Central)', stageIdx: 9, groupId: 'group-north-america', globeRegionId: 9 },
+  { id: 'block-9-11', subBlockId: 'block-11', blockIndex: 11, blockNumber: 'Block 11', startUtcMin: 27 * 60, endUtcMin: 29 * 60, segment: 'North America (West)', region: 'North America Segment (West)', stageIdx: 9, groupId: 'group-north-america', globeRegionId: 9 },
+  { id: 'block-12', blockIndex: 12, blockNumber: 'Block 12', startUtcMin: 29 * 60, endUtcMin: 31 * 60, segment: 'Pacific Islands / Ocean', region: 'Hawaiʻi, Alaska & Pacific Islands', stageIdx: 10, globeRegionId: 10 },
+  { id: 'homecoming', blockIndex: 13, blockNumber: 'Block 13', startUtcMin: 31 * 60, endUtcMin: 32 * 60, segment: 'Kyoto Closing Ceremony', region: 'Kyoto Closing Ceremony', stageIdx: 11, globeRegionId: 2 },
+];
+
+export function getLiveRelayStatus(date = new Date()) {
+  const utcHours = date.getUTCHours();
+  const utcMinutes = date.getUTCMinutes();
+  const utcSeconds = date.getUTCSeconds();
+  
+  let currentTotalMin = utcHours * 60 + utcMinutes + utcSeconds / 60;
+  if (utcHours < 6) {
+    currentTotalMin += 24 * 60;
+  }
+
+  const relayStartMin = 6 * 60;
+  const relayEndMin = 32 * 60;
+
+  let activeBlock = SCHEDULE_BLOCK_TIMES.find(
+    (b) => currentTotalMin >= b.startUtcMin && currentTotalMin < b.endUtcMin
+  );
+  if (!activeBlock) {
+    activeBlock = currentTotalMin >= relayEndMin 
+      ? SCHEDULE_BLOCK_TIMES[SCHEDULE_BLOCK_TIMES.length - 1] 
+      : SCHEDULE_BLOCK_TIMES[0];
+  }
+
+  const clampedMin = Math.max(relayStartMin, Math.min(relayEndMin, currentTotalMin));
+  const totalProgressPercent = Math.min(100, Math.max(0, ((clampedMin - relayStartMin) / (relayEndMin - relayStartMin)) * 100));
+
+  const stageElapsed = Math.max(0, currentTotalMin - activeBlock.startUtcMin);
+  const stageDuration = activeBlock.endUtcMin - activeBlock.startUtcMin;
+  const stageProgressPercent = Math.min(100, Math.max(0, (stageElapsed / stageDuration) * 100));
+  const minutesRemaining = Math.max(0, Math.ceil(activeBlock.endUtcMin - currentTotalMin));
+
+  const currentIdx = SCHEDULE_BLOCK_TIMES.findIndex((b) => b.blockIndex === activeBlock.blockIndex);
+  const nextBlock = currentIdx >= 0 && currentIdx < SCHEDULE_BLOCK_TIMES.length - 1 
+    ? SCHEDULE_BLOCK_TIMES[currentIdx + 1] 
+    : null;
+
+  return {
+    activeBlockId: activeBlock.id,
+    subBlockId: activeBlock.subBlockId || null,
+    groupId: activeBlock.groupId || null,
+    blockNumber: activeBlock.blockNumber,
+    blockIndex: activeBlock.blockIndex,
+    stageIndex: activeBlock.stageIdx,
+    stageNumber: activeBlock.stageIdx + 1,
+    totalStages: 12,
+    segment: activeBlock.segment,
+    region: activeBlock.region,
+    globeRegionId: activeBlock.globeRegionId,
+    totalProgressPercent: Math.round(totalProgressPercent),
+    totalProgressExact: Number(totalProgressPercent.toFixed(1)),
+    stageProgressPercent: Math.round(stageProgressPercent),
+    minutesRemaining,
+    nextSegment: nextBlock ? nextBlock.segment : 'Closing Ceremony',
+  };
+}
+
