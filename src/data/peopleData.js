@@ -492,19 +492,6 @@ She holds a Master's in International Human Rights Law from the University of No
     bio: `Mohammed Y. Safirulla.K is a 2010-batch Indian Administrative Service officer of the Kerala cadre and currently serves as Director at the Ministry of Electronics and Information Technology, New Delhi. He holds an MBA in Finance, a B.E. from PSG College of Technology, and a PPM from Carnegie Mellon University. His previous roles include District Collector and Magistrate, Managing Director, and Special Secretary to the Government. He has received the State Award for Best District Collector (2017–18) and the P Keshavadev Special Award (2019).`,
   },
   {
-    slug: 'zoe-milligan',
-    name: 'Zoe Milligan',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'South Asia',
-    region: 'South Asia & Global',
-    title: 'Conscious Learning Architect & Founder, The L&D Vault',
-    link: 'https://www.linkedin.com/in/zoemilliganignitespark/',
-    img: null,
-    tags: ['Conscious Learning', 'Ignite the Spark', 'The L&D Vault', 'Psychological Safety', 'One Earth'],
-    bio: `She is a Conscious Learning Architect and creator of Ignite the Spark, focused on transformational learning, psychological safety, leadership, and team development. She is also the founder of The L&D Vault, partnered with One Earth, which supports L&D professionals in becoming Conscious Learning practitioners.`,
-  },
-  {
     slug: 'dr-suresh-namboothiri',
     name: 'Dr. Suresh Namboothiri',
     type: 'speaker',
@@ -518,20 +505,6 @@ She holds a Master's in International Human Rights Law from the University of No
     bio: `With 40+ years of experience across technology, industry, and academia, Dr. Suresh Namboothiri works at the intersection of artificial intelligence, critical thinking, education, and interdisciplinary product development. He began his career at BPL-Sanyo and later served as COO with the Tata Group, contributing to the development of 160+ products across consumer electronics, telecom, medical electronics, automobiles, and software.
 
 He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architected AI-based platforms including Bloom's OBE Lab, Vigyana, and AI-charya. He has also co-developed 50+ AI prompt engineering techniques and co-authored five books on applied AI.`,
-  },
-  {
-    slug: 'tony-thomas',
-    name: 'Tony Thomas',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'South Asia',
-    region: 'South Asia & Global',
-    title: 'Global Digital & Technology Leader, Senior Advisor to EQT Group, & Chairman of ICT Academy of Kerala',
-    link: 'https://www.linkedin.com/in/anthonythomasa/',
-    img: '/speakers/tony-thomas.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Digital Transformation', 'Enterprise AI', 'Global Leadership', 'Tech Governance'],
-    bio: `Tony Thomas is an internationally recognized technology executive and board advisor who previously served as Chief Information Officer at Nissan Motor Corporation, GE, and Vodafone India. With extensive experience leading global digital transformation and enterprise technology strategies, he advises organizations on building resilient, ethical, and compassionate tech ecosystems.`,
   },
   {
     slug: 'sobhana-jaya-madhavan',
@@ -773,7 +746,7 @@ At AI + Compassion, Ruslan brings a Central Asian perspective on how technologic
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'AI Implementation Strategist at Duqm IT Solutions (Oman)',
-    img: '/speakers/mohamed-ezzaldeen.jpg',
+    img: '/speakers/dea-bakashvili.png',
     imgPosition: 'center 20%',
     tags: ['Duqm IT Solutions', 'AI Implementation', 'Enterprise Automation', 'Oman', 'GCC'],
     bio: `Mohamed Ezzaldeen is a forward-thinking AI Implementation Strategist at Duqm IT Solutions in Oman. He specializes in driving corporate innovation by transforming legacy, manual workflows into cutting-edge, automated IT ecosystems. Aligned with Oman’s rapidly expanding digital economy, Mohamed acts as a vital bridge between complex artificial intelligence capabilities and practical business integration.
@@ -869,20 +842,6 @@ Currently consulting with Qatar Foundation's Strategic Initiatives (Bil Araby) a
 I work in Arabic and English, and I am most useful where deep technical knowledge, institutional leadership, and cultural fluency must come together.`,
   },
   {
-    slug: 'khalid-a-aleid',
-    name: 'Khalid A Aleid',
-    type: 'speaker',
-    role: 'Expert in Technology and Business Continuity',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Senior Business continuity loss Expert',
-    img: null,
-    tags: ['Business Continuity', 'Loss Management', 'Sharaka Association', 'Telecom Operations', 'Governance'],
-    bio: `A seasoned telecom executive with over twenty years of extensive leadership experience specializing in Business Continuity, Loss Management, network operations, and strategic transformation initiatives. Proven track record in Partnership and Vendor management, delivering multiple on-ground mega-projects that drive innovation and optimize network performance. Highly proficient in overseeing critical infrastructure and executing advanced preventive maintenance methodologies to ensure operational excellence.
-
-Recently certified as a Board of Director, bringing rigorous governance and strategic oversight to corporate leadership. Dedicates expertise in technology to social impact by leading the Technology Committee for the Sharaka Association, driving enablement for disabled people. Holds specialized management and technical certifications, including CCNA, PMP, and Agile Management. Demonstrated ability to achieve significant operational efficiency through Capex automation, excellence offices, and talent centers.`,
-  },
-  {
     slug: 'dea-bakashvili',
     name: 'Dea Bakashvili',
     type: 'speaker',
@@ -890,7 +849,7 @@ Recently certified as a Board of Director, bringing rigorous governance and stra
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Founder & CEO, Early Talent Access Network (ETAN)',
-    img: '/speakers/dea-bakashvili.png',
+    img: '/speakers/mohamed-ezzaldeen.jpg',
     imgPosition: 'center 20%',
     tags: ['ETAN', 'Youth Empowerment', 'Ethical AI Governance', 'NEET Youth', 'DemTech Fellow'],
     bio: `Dea Bakashvili is a social entrepreneur, public policy researcher, and youth advocate dedicated to shaping inclusive digital futures and ethical AI governance. As Founder and CEO of the Early Talent Access Network (ETAN), she builds economic resilience for youth Not in Education, Employment, or Training (NEET). By delivering market-relevant tech education, AI literacy, peer mentorship, and essential hardware access, ETAN connects disengaged youth with top-tier university networks and global corporate partners for high-demand digital roles.
@@ -914,19 +873,6 @@ Dea holds certifications from Oxford Saïd Business School (in partnership with 
 Aigerim holds a Master of Fine Arts (MFA) in Filmmaking (Cum Laude) from the New York Film Academy in Los Angeles. This achievement marks her fourth master’s degree, following a distinguished career in academia where she earned an Innovative Teaching Award at Nazarbayev University. Her cinematic style is heavily influenced by master directors like Sidney Lumet and Yasujiro Ozu, blending sharp dramatic tension with profound psychological realism.
 
 As a versatile visionary, Aigerim writes, directs, and produces compelling independent cinema through her banner, The Red Door Films. Her directorial portfolio features impactful projects like The Wrong Door (2025), How to Mother, and The Last Night Stand. Beyond directing, she is a prolific collaborator in the Hollywood indie circuit, serving as a line producer and an accomplished production sound mixer on dozens of sets. Aigerim bridges international perspectives, continuously shaping evocative, globally resonant stories.`,
-  },
-  {
-    slug: 'danil-kerimi',
-    name: 'Danil Kerimi',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Technology Executive & Policy Strategist',
-    img: '/speakers/danil-kerimi.jpeg',
-    imgPosition: 'center 20%',
-    tags: ['Technology Governance', 'Economic Diplomacy', 'UN & WEF', 'Digital Finance', 'WIPO'],
-    bio: `With over two decades of experience across the UN, World Economic Forum, and financial industry, he specializes in digital finance, technology governance, economic diplomacy, and AI initiatives. He has worked on international regulatory sandboxes and innovative financing for AI capacity-building. He also serves on advisory and oversight bodies at WIPO, the Council of the Great Lakes Region, and the World Smart Sustainable Cities Organization.`,
   },
 
   // --- AFRICA ---
@@ -1400,7 +1346,6 @@ export function getPersonBySlug(slug) {
   if (clean === 'achuth-sankar' || clean === 'dr-achuth-sankar-s-nair') return PEOPLE.find((p) => p.slug === 'achuth-sankar');
   if (clean === 'rob-lee' || clean === 'roblee') return PEOPLE.find((p) => p.slug === 'rob-lee');
   if (clean === 'jake-bal' || clean === 'jakebal') return PEOPLE.find((p) => p.slug === 'jake-bal');
-  if (clean === 'tony-thomas' || clean === 'tonythomas') return PEOPLE.find((p) => p.slug === 'tony-thomas');
   if (clean === 'dr-ben-goertzel' || clean === 'ben-goertzel' || clean === 'dr-ben' || clean === 'ben-g') return PEOPLE.find((p) => p.slug === 'dr-ben-goertzel');
   if (clean === 'dr-anour-f-a-dafa-alla' || clean === 'anour-f-a-dafa-alla' || clean === 'dr-anour' || clean === 'anour' || clean === 'dafa-alla') return PEOPLE.find((p) => p.slug === 'dr-anour-f-a-dafa-alla');
   if (clean === 'binish-moulana' || clean === 'binishmoulana' || clean === 'binish' || clean === 'dr-binish') return PEOPLE.find((p) => p.slug === 'binish-moulana');
@@ -1413,9 +1358,6 @@ export function getPersonBySlug(slug) {
   if (clean === 'rashika-narain' || clean === 'rashikanarain' || clean === 'rashika') return PEOPLE.find((p) => p.slug === 'rashika-narain');
   if (clean === 'suuvi' || clean === 'suuvi-bacelar' || clean === 'sophia-bacelar' || clean === 'suvi') return PEOPLE.find((p) => p.slug === 'suuvi');
   if (clean === 'afm-yusuf-haider' || clean === 'yusuf-haider' || clean === 'yusufhaider' || clean === 'prof-yusuf-haider') return PEOPLE.find((p) => p.slug === 'afm-yusuf-haider');
-  if (clean === 'danil-kerimi' || clean === 'danilkerimi') return PEOPLE.find((p) => p.slug === 'danil-kerimi');
-  if (clean === 'zoe-milligan' || clean === 'zoemilligan') return PEOPLE.find((p) => p.slug === 'zoe-milligan');
-  if (clean === 'khalid-a-aleid' || clean === 'khalid-aleid' || clean === 'khalid') return PEOPLE.find((p) => p.slug === 'khalid-a-aleid');
   if (clean === 'mohammed-safirulla' || clean === 'mohammed-y-safirulla-k' || clean === 'mohammed-y-safirulla') return PEOPLE.find((p) => p.slug === 'mohammed-safirulla');
   if (clean === 'guido-rojer' || clean === 'dr-guido-rojer') return PEOPLE.find((p) => p.slug === 'guido-rojer');
   if (clean === 'edith-oller' || clean === 'dr-edith-oller') return PEOPLE.find((p) => p.slug === 'edith-oller');
