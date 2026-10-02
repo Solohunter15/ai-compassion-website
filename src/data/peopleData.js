@@ -1242,16 +1242,24 @@ His work is driven by two connected questions: how to sustainably expand access 
   },
   {
     slug: 'marques-anderson',
-    name: 'Marques Anderson',
+    name: 'Marques D. Anderson',
     type: 'speaker',
     role: 'Speaker',
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder & Director, World Design Organization | Olympian & Urban Innovation Specialist',
+    title: 'Founder & Director, World Education Foundation',
     img: '/speakers/marques-anderson.jpg',
     imgPosition: 'center 20%',
-    tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
-    bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
+    tags: ['World Education Foundation', 'WE Foundation', 'Global Systems', 'Sustainable Cities', 'Adult Learning'],
+    bio: `Marques D. Anderson is the founder and director of the World Education Foundation, a solution based organization. Through his life experiences, he has honed his skills to becoming a master cultivator of connections, innovation and discoveries which create new avenues of thought, technology and learning.
+
+Graduating from UCLA with a Bachelor of Arts in American Literature and Culture, Marques began his professional career working in the National Football League; being drafted by the Green Bay Packers in 2002 and playing until 2006. During his final year, Marques met his mentor and decided to leave his NFL career to move in a different direction. Inspired by Paul Hawken and his book Natural Capitalism: Creating the Next Industrial Revolution, he embarked on a new journey focused on contributing to the disciplines which highlight sustainability in, human, social, environmental and economic frameworks.
+
+In 2007 Marques set out traveling through Europe for 10 months and South America for 7 months. During this time Marques collaborated and researched with, professors, tech companies, industry innovators, business leaders, along with local and government entities. In 2009, Marques returned to his formal studies and received his Masters in Adult Learning and Global Change from Linköping University in Sweden.
+
+During this period, Marques created the World Education Foundation, also known as the WE Foundation. Since its conception in 2010 the WE Foundation has worked with an international network of experts, interns and volunteers, assisting in project structure and implementation, focused on 5 key developmental areas: Energy, Health, Education, Infrastructure and Sports. The organization is currently involved in multiple initiatives, including 2 projects in Iraq, 3 projects in the DR Congo and projects in Myanmar and the Western Sahara.
+
+Spending time in 72 countries, Marques builds innovative platforms which establish sustainable global systems, through new market solutions, livelihood opportunities and the development of future cities around the world.`,
   },
   {
     slug: 'joshua-villarreal',
@@ -1493,6 +1501,7 @@ export function getPersonBySlug(slug) {
   if (clean === 'guido-rojer' || clean === 'dr-guido-rojer') return PEOPLE.find((p) => p.slug === 'guido-rojer');
   if (clean === 'edith-oller' || clean === 'dr-edith-oller') return PEOPLE.find((p) => p.slug === 'edith-oller');
   if (clean === 'olaf-witkowski' || clean === 'dr-olaf-witkowski') return PEOPLE.find((p) => p.slug === 'olaf-witkowski');
+  if (clean === 'marques-d-anderson' || clean === 'marques-anderson') return PEOPLE.find((p) => p.slug === 'marques-anderson');
 
   // Check with or without 'dr-' or 'prof-'
   const altDr = clean.startsWith('dr-') ? clean.replace(/^dr-/, '') : `dr-${clean}`;

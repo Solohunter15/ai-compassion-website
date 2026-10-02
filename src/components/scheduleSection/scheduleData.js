@@ -273,7 +273,7 @@ export const SCHEDULE_MATRIX = [
       AEST: '09:00–15:00 (Oct 3)',
     },
     producers: ['Ani Chahal Honan (Producer)'],
-    speakers: ['Dr. Ben Goertzel', 'Kunal Sood', 'Gary Bolles', 'Dr. Natalie Petouhoff', 'Josh Sikkema', 'Marques Anderson'],
+    speakers: ['Dr. Ben Goertzel', 'Kunal Sood', 'Gary Bolles', 'Dr. Natalie Petouhoff', 'Josh Sikkema', 'Marques D. Anderson'],
     theme: 'Frontier AI, whole-person health, civil rights, cross-border enterprise and technology with compassion',
   },
   {

@@ -155,7 +155,7 @@ export const global = [
       "Gary Bolles",
       "Dr. Natalie Petouhoff",
       "Josh Sikkema",
-      "Marques Anderson",
+      "Marques D. Anderson",
     ],
   },
   {
