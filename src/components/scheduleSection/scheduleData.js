@@ -141,8 +141,9 @@ export const SCHEDULE_MATRIX = [
       'Jayashankar Prasad',
       'Binish Moulana',
       'Arundhathi Krishna',
+      'Deepak Gupta',
     ],
-    theme: 'AI for social impact, youth opportunity, health & responsible governance',
+    theme: 'Responsible and Sustainable AI Governance: Education, Youth, and Social Impact in South Asia',
   },
   {
     id: 'block-5',

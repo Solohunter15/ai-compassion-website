@@ -692,6 +692,19 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
     tags: ['Youth Leadership', 'Community Engineering', 'Grassroots Tech', 'South Asia'],
     bio: `Arundhathi Krishna is a young technologist and community leader developing accessible, open-source AI applications and fostering youth-led social impact projects across South Asia.`,
   },
+  {
+    slug: 'deepak-gupta',
+    name: 'Deepak Gupta',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'South Asia',
+    region: 'South Asia',
+    title: 'Professor at Amrita School of Business | International Business, Innovation Management & CRM Specialist',
+    img: '/speakers/deepak-gupta.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Amrita School of Business', 'International Business', 'Marketing Research', 'Innovation Management', 'IIM Calcutta', 'IIT Delhi'],
+    bio: `Deepak Gupta is a Professor at Amrita School of Business, with specialisations in International Business, Marketing Research, Innovation Management, and CRM. He holds a PGDM from IIM Calcutta and a BTech in Chemical Engineering from IIT Delhi. He previously worked as an Area Sales Manager at Pond's India Ltd.`,
+  },
 
   // --- MIDDLE EAST, CAUCASUS & CENTRAL ASIA (GCC) ---
   {
@@ -916,11 +929,15 @@ His early warning and anticipatory action work includes Somaliland's National Di
     role: 'Speaker',
     segment: 'Africa',
     region: 'East Africa, Southern Africa & Central',
-    title: 'Digital Inclusion Advocate & Healthcare Technologist',
+    title: 'Director, Centre of Excellence for Seed Systems in Africa (CESSA) – AGRA',
     img: '/speakers/evelyn-lusenaka.jpg',
     imgPosition: 'center 20%',
-    tags: ['Digital Inclusion', 'Public Health AI', 'African Innovation', 'Youth Empowerment'],
-    bio: `Evelyn Lusenaka is a digital inclusion advocate and researcher focusing on ethical healthcare technologies, youth tech education, and community-centered artificial intelligence solutions in East and Central Africa.`,
+    tags: ['AGRA', 'CESSA', 'Seed Systems', 'Agricultural Transformation', 'Trade Diplomacy', 'Africa'],
+    bio: `Evelyn Lusenaka is a premier strategic leader in African agricultural transformation, specializing in regulatory diplomacy and private-sector-led market expansion. With over two decades of cross-regional expertise working for CropLife Africa Middle East spanning 26 countries across Africa and the Middle East, she now directs the Centre of Excellence for Seed Systems in Africa (CESSA) at AGRA. In this role, she leads continental initiatives to architect resilient, next-generation seed value chains that drive trade, strengthen food security, and power sustainable economic growth.
+
+An expert in trade diplomacy and market integration, Evelyn has been a primary architect in harmonizing regional inputs regulations and agricultural policies across the EAC, SADC and ECOWAS trade blocs—dramatically reducing non-tariff barriers to establish unified, investment-ready markets. She acts as a strategic bridge between African smallholder systems and global trade bodies, advocating for inclusive international green regulations, supply chain integrity, anti-counterfeiting systems, and the responsible adoption of advanced agricultural technologies.
+
+By aligning high-level policy frameworks with private-sector innovation and export competitiveness, Evelyn drives systemic, commercial-scale agricultural growth, positioning Africa at the forefront of the global agri-innovation economy.`,
   },
   {
     slug: 'dr-ken-west',

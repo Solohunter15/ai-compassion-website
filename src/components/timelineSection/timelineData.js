@@ -85,6 +85,7 @@ export const global = [
       "Jayashankar Prasad",
       "Binish Moulana",
       "Arundhathi Krishna",
+      "Deepak Gupta",
     ],
   },
   {
