@@ -172,6 +172,25 @@ Brainy was born and raised in Uganda and lives in Hoima. He did his own schoolin
 
 In 2020 he registered SXLA and opened Spectrum Secondary School in a church. The school survived COVID-19 and a 2022 storm that destroyed its shelter, rebuilt with his own resources. Two of its students went on to win an international design competition using AI, the moment that convinced him the model could work anywhere in Uganda.`,
   },
+  {
+    slug: 'ani-chahal-honan',
+    name: 'Ani Chahal Honan',
+    type: 'producer',
+    role: 'Producer',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Founder & Managing Partner Imagine Global',
+    img: '/ani.png',
+    imgPosition: 'center 20%',
+    tags: ['Deep Tech', 'Beneficial AGI', 'Sovereign AI', 'Regenerative Systems'],
+    bio: `Ani Chahal Honan is the Founder and Managing Partner of IMAGINE, a global deep tech and emerging science ecosystem uniting capital, venture studios, frontier labs, and innovation hubs to advance intelligence, biological, and planetary systems.
+
+Ani has built and scaled companies alongside pioneers in AI, robotics, biotechnology, spatial technologies, and blockchain, representing over $50B in exits and acquisitions. IMAGINE is part of one of the largest independent coalitions of AI scientists beyond Big Tech, advancing cognitive AI, neuro-symbolic AI, collective intelligence, beneficial AGI, and sovereign AI, while helping shape an Intelligence Economy where human agency drives broad-based prosperity. In the life sciences, IMAGINE unites pioneers in longevity, regenerative medicine, and biotechnology to accelerate breakthroughs in human health.
+
+Through IMAGINE, Ani leads a global compassion project alongside a whole-person health initiative, bringing mind, body, and heart to innovation. A certified meditation teacher, she advocates for mental health, societal empowerment, and regenerative systems.
+
+Ani has been honored by the U.S. Congress and United Nations, named a UNGA 100 Disruptor, a Kate Spade World Changing Woman, and invited to the XPRIZE Foundation Board of Trustees. A contributor to the Milken Institute's Power of Ideas, she champions innovation guided by compassion, play, and purpose.`,
+  },
 
   // ==========================================
   // REGIONAL COORDINATORS

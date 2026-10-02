@@ -152,6 +152,7 @@ export const global = [
     title: "North America Segment",
     time: "23:00-05:00 UTC",
     items: [
+      "Ani Chahal Honan (Producer)",
       "Dr. Ben Goertzel",
       "Kunal Sood",
       "Gary Bolles",
