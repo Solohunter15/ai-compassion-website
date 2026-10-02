@@ -967,7 +967,7 @@ Ken enjoys researching the human experience to develop models to accelerate the 
     region: 'East Africa, Southern Africa & Central',
     title: 'Exponential Tech Pitch Coach & Presentation Strategist',
     img: '/speakers/patrick-mccullough.jpg',
-    imgPosition: 'center 20%',
+    imgPosition: 'center center',
     tags: ['Pitch Strategy', 'Exponential Tech', 'Founder Institute', 'GENIA'],
     bio: `Patrick McCullough is an Exponential Tech Pitch Coach and Presentation Strategist, helping startups raise funding globally. As Founding Producer of Seán Óg Productions for 24+ years, he produced four award-winning indie films and served as actor coach on "Atomic Blonde" and "Houdini." An angel investor, startup mentor at Founder Institute, and founding advisor to GENIA Latinoamérica, McCullough specializes in pitch strategy, messaging, and sprint facilitation for entrepreneurs addressing global challenges, helping exponential entrepreneurs define their strategic trajectory globally.`,
   },

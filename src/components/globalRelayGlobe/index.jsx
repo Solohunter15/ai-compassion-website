@@ -16,10 +16,41 @@ import {
 } from 'lucide-react';
 import ThreeEarthGlobe from './ThreeEarthGlobe';
 import { RELAY_REGIONS } from './relayData';
+import { getLiveRelayStatus } from '@/components/scheduleSection/scheduleData';
 
 export default function GlobalRelayGlobeSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    try {
+      const live = getLiveRelayStatus();
+      const idx = RELAY_REGIONS.findIndex((r) => r.id === live.globeRegionId);
+      return idx >= 0 ? idx : 2; // Southeast Asia default
+    } catch {
+      return 2;
+    }
+  });
+  const [liveRegionId, setLiveRegionId] = useState(() => {
+    try {
+      return getLiveRelayStatus().globeRegionId;
+    } catch {
+      return 3;
+    }
+  });
   const [localTime, setLocalTime] = useState('');
+
+  // Periodically check live region
+  useEffect(() => {
+    const checkLive = () => {
+      try {
+        const live = getLiveRelayStatus();
+        setLiveRegionId(live.globeRegionId);
+      } catch (e) {
+        // ignore
+      }
+    };
+    checkLive();
+    const interval = setInterval(checkLive, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Live Local Time ticker for the active region
   useEffect(() => {
@@ -125,12 +156,20 @@ export default function GlobalRelayGlobeSection() {
                   <MapPin className="w-3.5 h-3.5 text-[#C96F4A]" />
                   <span>{activeRegion.city}</span>
                 </div>
-                {activeRegion.utcTiming && (
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#163B32]/10 border border-[#163B32]/20 text-[#163B32] text-xs font-mono font-bold tracking-tight">
-                    <Clock className="w-3.5 h-3.5 text-[#163B32]" />
-                    <span>{activeRegion.utcTiming}</span>
-                  </div>
-                )}
+                <div className="flex items-center gap-2">
+                  {activeRegion.id === liveRegionId && (
+                    <span className="inline-flex items-center gap-1 font-mono text-[11px] font-black uppercase tracking-wider text-white bg-rose-600 px-2.5 py-0.5 rounded-full shadow-xs animate-pulse">
+                      <Radio className="w-3 h-3" />
+                      LIVE NOW
+                    </span>
+                  )}
+                  {activeRegion.utcTiming && (
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#163B32]/10 border border-[#163B32]/20 text-[#163B32] text-xs font-mono font-bold tracking-tight">
+                      <Clock className="w-3.5 h-3.5 text-[#163B32]" />
+                      <span>{activeRegion.utcTiming}</span>
+                    </div>
+                  )}
+                </div>
               </div>
               <h3 className="font-editorial text-lg sm:text-xl md:text-2xl font-bold text-[#171918] leading-snug tracking-tight">
                 {activeRegion.region}
