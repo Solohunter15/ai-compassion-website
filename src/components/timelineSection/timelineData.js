@@ -94,12 +94,9 @@ export const global = [
     time: "15:00-17:00 UTC",
     items: [
       "Walied Albasheer (Producer)",
-      "Priya M Nair",
       "Dr. Sara Hegazy",
-      "Mohamed Ezzaldeen",
       "Mohamed Osman",
       "Anas Almarie",
-      "Dea Bakashvili",
       "Aigerim Zhangozina",
       "Ruslan",
       "Dr. Anour F A Dafa-Alla",
