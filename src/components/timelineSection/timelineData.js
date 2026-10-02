@@ -24,7 +24,7 @@ export const global = [
       "Jun Suto (Producer)",
       "Carl Sundberg (Co-Producer)",
       "Dr. Olaf Witkowski",
-      "Sami Seghers",
+      "Sami Seghers (Meditation Instructor)",
     ],
   },
   {
@@ -45,7 +45,7 @@ export const global = [
     items: [
       "Jun Suto (Producer)",
       "Carl Sundberg (Co-Producer)",
-      "Ishizu Tomohiro",
+      "Tomohiro Ishizu",
       "Junko Hosomi",
       "Christopher Currell",
     ],
@@ -165,9 +165,10 @@ export const global = [
     time: "05:00-07:00 UTC",
     items: [
       "Jun Suto (Producer)",
+      "Carl Sundberg (Co-Producer)",
       "Joshua Castle",
-      "Linzi Boyd",
       "Mitch Hammer",
+      "Linzi Boyd",
     ],
   },
   {
@@ -177,16 +178,7 @@ export const global = [
     items: [
       "Jun Suto (Producer)",
       "Carl Sundberg (Co-Producer)",
-      "Fabrizio Gramuglio",
-      "Dr. Edith Öller",
-      "Julieta Reyes",
-      "Aditi Singh",
-      "Deepu S Nath",
-      "Ani Chahal Honan",
-      "Brainy Swaibu",
-      "Dr. Lee Kironget",
-      "Walied Albasheer",
-      "Christina Gerakiteys",
+      "Regional Producers",
     ],
   },
 ];
@@ -199,7 +191,7 @@ export const kyoto = [
     items: [
       "Jun Suto (Producer)",
       "Carl Sundberg (Co-Producer)",
-      "Ishizu Tomohiro",
+      "Tomohiro Ishizu",
       "Junko Hosomi",
       "Christopher Currell",
     ],

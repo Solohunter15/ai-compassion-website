@@ -39,7 +39,7 @@ export const RELAY_REGIONS = [
     code: 'JPN-02',
     lat: 35.0116,
     lng: 135.7681,
-    theme: 'Planet-centered AI, education, robotics and intergenerational responsibility',
+    theme: 'The Art of Resonance - Beauty, Kansei, and the relationships that help life flourish in the age of AI.',
     blocks: [2],
     producer: {
       name: 'Jun Suto',
@@ -244,7 +244,7 @@ export const RELAY_REGIONS = [
     code: 'PAC-10',
     lat: 21.3069,
     lng: -157.8583,
-    theme: 'Ocean consciousness, Indigenous navigation, ecological responsibility & island communities',
+    theme: 'An Ocean of Possibility — Exploring AI, compassion, and abundance.',
     blocks: [12],
     producer: {
       name: 'Jun Suto',
