@@ -213,7 +213,11 @@ function TimelineSection({
   const alwaysLeftAlign = [
     "Tamami Tono",
     "Sister Jenna",
+    "Sister Dr. Jenna",
     "Hiroshi Ishiguro & Edi Pyrek",
+    "Dr. Hiroshi Ishiguro & Edi Pyrek",
+    "Yoichi Ochiai",
+    "Dr. Yoichi Ochiai",
     "Yoichi Ochiai / Narumi Yoshikawa"
   ];
 

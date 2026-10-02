@@ -89,7 +89,7 @@ export const RELAY_REGIONS = [
     code: 'IND-04',
     lat: 8.5241,
     lng: 76.9366,
-    theme: 'AI for social impact, youth opportunity, health & responsible governance',
+    theme: 'Responsible and Sustainable AI Governance: Education, Youth, and Social Impact in South Asia',
     blocks: [4],
     producer: {
       name: 'Deepu S Nath',
