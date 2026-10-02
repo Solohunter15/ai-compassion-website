@@ -22,8 +22,9 @@ export const global = [
     time: "06:00-07:00 UTC",
     items: [
       "Jun Suto (Producer)",
+      "Carl Sundberg (Co-Producer)",
       "Dr. Olaf Witkowski",
-      "Carl Sundberg",
+      "Sami Seghers",
     ],
   },
   {
@@ -32,7 +33,7 @@ export const global = [
     time: "07:00-09:00 UTC",
     items: [
       "Christina Gerakiteys (Producer)",
-      "Marianne Power",
+      "Mariane Power",
       "Rob Lee",
       "Ian Haycroft",
     ],
@@ -43,11 +44,10 @@ export const global = [
     time: "09:00-11:00 UTC",
     items: [
       "Jun Suto (Producer)",
+      "Carl Sundberg (Co-Producer)",
       "Ishizu Tomohiro",
       "Junko Hosomi",
       "Christopher Currell",
-      "Sami Seghers",
-      "Suuvi",
     ],
   },
   {
@@ -73,7 +73,7 @@ export const global = [
       "Dr. Suresh Namboothiri",
       "Sobhana Jaya Madhavan",
       "Seeram Sambasiva Rao",
-      "Nandakishore M",
+      "Nandakishor M",
       "AFM Yusuf Haider",
       "Prof. Roshan G. Ragel",
       "Pervez Hoodbhoy",
@@ -83,7 +83,6 @@ export const global = [
       "PJ Narayanan",
       "Rashika Narain",
       "Jayashankar Prasad",
-      "Tony Thomas",
       "Binish Moulana",
       "Arundhathi Krishna",
     ],
@@ -129,7 +128,6 @@ export const global = [
       "Valérie M. Saintot",
       "Julie Hellmann",
       "Paolo Cervari",
-      "Anand Mahurkar",
       "Massimo Camplone",
       "Mike Warwick",
     ],
@@ -200,10 +198,10 @@ export const kyoto = [
     time: "09:00-11:00 UTC",
     items: [
       "Jun Suto (Producer)",
+      "Carl Sundberg (Co-Producer)",
       "Ishizu Tomohiro",
       "Junko Hosomi",
       "Christopher Currell",
-      "Dr. Olaf Witkowski",
     ],
   },
 ];
