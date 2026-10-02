@@ -74,7 +74,9 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     img: '/deepu.png',
     imgPosition: 'center 20%',
     tags: ['Grassroots Tech', 'Community Education', 'Youth Ecosystems', 'South Asia'],
-    bio: `Deepu S Nath leads grassroots technology and community education initiatives across South Asia, connecting youth ecosystems with compassionate, planet-centered AI architectures and empowering thousands of emerging technologists.`,
+    bio: `Deepu S. Nath is a technology entrepreneur, ecosystem builder, and advocate for human-centred innovation. As Managing Director of FAYA and Chief Volunteer of μLearn, he works at the intersection of technology, education, and youth empowerment, championing inclusive opportunities and community-driven learning.
+
+As the South Asia Regional Producer of the AI + Compassion Global Forum 2026, Deepu brings together diverse voices to explore how AI can shape education, youth opportunities, and social impact. He works towards shaping the country’s trajectory in sustainable AI, championing technological advancement that strengthens innovation, builds national AI capabilities, and ensures the country remains future-ready in an rapidly evolving AI landscape.`,
   },
   {
     slug: 'walied-albasheer',
@@ -264,7 +266,7 @@ Jeniffer champions regional alignment between indigenous knowledge holders, yout
     segment: 'Oceania',
     region: 'Australia, New Zealand & South Pacific',
     title: 'Founder & CEO, Bright Coast AI',
-    img: '/speakers/rob-lee.jpg',
+    img: '/speakers/jake-bal.jpg',
     imgPosition: 'center 20%',
     tags: ['Applied AI', 'Financial Markets', 'Chicago Booth', 'Sydney', 'Oceania'],
     bio: `Rob Lee is the founder and CEO of Bright Coast AI, a Sydney firm that builds AI strategy, automation and intelligent systems for businesses of every size. He spent 20+ years in financial markets, technology and operations, leading business intelligence and corporate development at high-frequency trading firms Jump Trading, IMC and Akuna Capital. Earlier roles include program and portfolio management at ABN AMRO Clearing and exchange-traded derivatives sales at Eurex. He holds an engineering degree from the University of Illinois and an MBA from Chicago Booth.`,
@@ -558,19 +560,6 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
     imgPosition: 'center 20%',
     tags: ['Science Policy', 'Academic Leadership', 'Higher Education', 'Bangladesh'],
     bio: `Prof. AFM Yusuf Haider is an eminent physicist, academic leader, and former Vice Chancellor pioneering science, technology, and ethical innovation education across South Asia.`,
-  },
-  {
-    slug: 'deepak-gupta',
-    name: 'Deepak Gupta',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'South Asia',
-    region: 'South Asia',
-    title: 'AI Researcher & Community Tech Convener',
-    img: '/speakers/deepak-gupta.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Developer Ecosystems', 'Applied AI', 'Grassroots Tech', 'Youth Empowerment'],
-    bio: `Deepak Gupta is an AI researcher and developer ecosystem builder cultivating grassroots student innovators and tech communities across South Asia.`,
   },
   {
     slug: 'prof-roshan-g-ragel',
@@ -1201,7 +1190,7 @@ Her work has been presented by institutions including Carnegie Hall, the Fondati
     segment: 'North America',
     region: 'Eastern, Central & Western North America, Mexico',
     title: 'Clinician Executive | Healthcare System Transformation & Value-Based Care',
-    img: '/speakers/jake-bal.jpg',
+    img: '/speakers/rob-lee.jpg',
     imgPosition: 'center 20%',
     tags: ['Healthcare Finance', 'Kennedy Krieger Institute', 'Value-Based Care', 'Health Economics', 'Yale SOM'],
     bio: `Jake Bal is a clinical leader at Kennedy Krieger Institute, a nonprofit pediatric health system in Baltimore, Maryland. Drawing on his background in healthcare finance and operations, he has also taken on supporting roles in process improvement and new program development, engaging in financial modeling, budgeting, and staffing strategy, reflecting his broader interest in how organizations translate clinical priorities into sound operational strategy.
