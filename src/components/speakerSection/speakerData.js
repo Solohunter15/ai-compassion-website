@@ -49,7 +49,6 @@ import krishna from "@/../public/krishna.png";
 import fady from "@/../public/fady.png";
 import manal from "@/../public/manal.png";
 import sofia from "@/../public/sofia.png";
-import ani from "@/../public/ani.png";
 import butler from "@/../public/butler.png";
 import nichol from "@/../public/nichol.png";
 import dekai from "@/../public/dekai.png";
@@ -350,12 +349,6 @@ export const speakers = [
     name: "Sofia Couto da Rocha",
     title: "Sofia Couto da Rocha is a researcher and advocate for compassionate AI, focusing on its applications in healthcare and mental well-being. She explores how AI can be designed to support human empathy and improve patient outcomes through personalized care.",
     img: sofia
-  },
-  { 
-    slug: "ani-chahal-honan",
-    name: "Ani Chahal Honan",
-    title: "Ani Chahal Honan is a visionary leader and entrepreneur at the intersection of technology and human potential. She has founded several initiatives aimed at leveraging AI for positive social impact and fostering a more compassionate and equitable world.",
-    img: ani
   },
   { 
     slug: "stephen-butler",

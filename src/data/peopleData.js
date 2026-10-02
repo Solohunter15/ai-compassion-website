@@ -92,20 +92,6 @@ As the South Asia Regional Producer of the AI + Compassion Global Forum 2026, De
     bio: `Managing Partner at Intuitio Ventures and Founder-CEO of Inbound LLC, whose edge AI platform runs across more than one hundred enterprise deployments in the GCC. Registered delegate across eight ITU-T Focus Group meetings on AI for Autonomous and Assisted Driving, and a member of the UAE side of the UAE-Estonia and UAE-Finland business councils. Recognized among the Global 50 Most Impactful Social Innovators and Top 100 Sustainable CEOs.`,
   },
   {
-    slug: 'ani-chahal-honan',
-    name: 'Ani Chahal Honan',
-    type: 'producer',
-    role: 'Producer',
-    title: 'Founder & Managing Partner Imagine Global',
-    img: '/ani.png',
-    imgPosition: 'center 20%',
-    tags: ['Imagine Global', 'Deep Tech', 'Intelligence Economy', 'Planetary Systems', 'Whole-Person Health'],
-    bio: `Ani Chahal Honan is the Founder and Managing Partner of IMAGINE, a global deep tech and emerging science ecosystem uniting capital, venture studios, frontier labs, and innovation hubs to advance intelligence, biological, and planetary systems.
-Ani has built and scaled companies alongside pioneers in AI, robotics, biotechnology, spatial technologies, and blockchain, representing over $50B in exits and acquisitions. IMAGINE is part of one of the largest independent coalitions of AI scientists beyond Big Tech, advancing cognitive AI, neuro-symbolic AI, collective intelligence, beneficial AGI, and sovereign AI, while helping shape an Intelligence Economy where human agency drives broad-based prosperity. In the life sciences, IMAGINE unites pioneers in longevity, regenerative medicine, and biotechnology to accelerate breakthroughs in human health.
-Through IMAGINE, Ani leads a global compassion project alongside a whole-person health initiative, bringing mind, body, and heart to innovation. A certified meditation teacher, she advocates for mental health, societal empowerment, and regenerative systems.
-Ani has been honored by the U.S. Congress and United Nations, named a UNGA 100 Disruptor, a Kate Spade World Changing Woman, and invited to the XPRIZE Foundation Board of Trustees. A contributor to the Milken Institute's Power of Ideas, she champions innovation guided by compassion, play, and purpose.`,
-  },
-  {
     slug: 'dr-lee-kironget',
     name: 'Dr. Lee Kironget',
     type: 'producer',
@@ -185,25 +171,6 @@ Anticipating AI's impact on public engagement, she completed executive AI strate
 Brainy was born and raised in Uganda and lives in Hoima. He did his own schooling at Kyangwali Secondary School, inside Kyangwali refugee settlement, sitting in classrooms beside South Sudanese and Congolese students. In 2007 he returned to that same school as an assistant teacher and later spent five years as a qualified teacher in Hoima's host community after completing his bachelor's degree in education in 2012. In 2017 he resigned to teach himself, from the ground up, the tools a changing economy was already demanding: AI, digital infrastructure, and the habits of self-directed learning, drawing on Peter Diamandis's Abundance and the Singularity University community.
 
 In 2020 he registered SXLA and opened Spectrum Secondary School in a church. The school survived COVID-19 and a 2022 storm that destroyed its shelter, rebuilt with his own resources. Two of its students went on to win an international design competition using AI, the moment that convinced him the model could work anywhere in Uganda.`,
-  },
-  {
-    slug: 'ani-chahal-honan',
-    name: 'Ani Chahal Honan',
-    type: 'producer',
-    role: 'Producer',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder & Managing Partner Imagine Global',
-    img: '/ani.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Deep Tech', 'Beneficial AGI', 'Sovereign AI', 'Regenerative Systems'],
-    bio: `Ani Chahal Honan is the Founder and Managing Partner of IMAGINE, a global deep tech and emerging science ecosystem uniting capital, venture studios, frontier labs, and innovation hubs to advance intelligence, biological, and planetary systems.
-
-Ani has built and scaled companies alongside pioneers in AI, robotics, biotechnology, spatial technologies, and blockchain, representing over $50B in exits and acquisitions. IMAGINE is part of one of the largest independent coalitions of AI scientists beyond Big Tech, advancing cognitive AI, neuro-symbolic AI, collective intelligence, beneficial AGI, and sovereign AI, while helping shape an Intelligence Economy where human agency drives broad-based prosperity. In the life sciences, IMAGINE unites pioneers in longevity, regenerative medicine, and biotechnology to accelerate breakthroughs in human health.
-
-Through IMAGINE, Ani leads a global compassion project alongside a whole-person health initiative, bringing mind, body, and heart to innovation. A certified meditation teacher, she advocates for mental health, societal empowerment, and regenerative systems.
-
-Ani has been honored by the U.S. Congress and United Nations, named a UNGA 100 Disruptor, a Kate Spade World Changing Woman, and invited to the XPRIZE Foundation Board of Trustees. A contributor to the Milken Institute's Power of Ideas, she champions innovation guided by compassion, play, and purpose.`,
   },
 
   // ==========================================

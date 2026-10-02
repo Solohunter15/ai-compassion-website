@@ -70,7 +70,6 @@ export default function ScheduleSection() {
             id: 'group-north-america',
             isGroup: true,
             segment: 'North America',
-            lead: 'Ani Chahal Honan',
             blocks: [...naBlocks],
           });
           naBlocks.length = 0;
@@ -88,7 +87,6 @@ export default function ScheduleSection() {
         id: 'group-north-america',
         isGroup: true,
         segment: 'North America',
-        lead: 'Ani Chahal Honan',
         blocks: [...naBlocks],
       });
     }
@@ -384,20 +382,11 @@ export default function ScheduleSection() {
                               </button>
                             </div>
 
-                            {/* Lead Information */}
+                            {/* Header Information */}
                             <div className={`flex flex-col gap-1 ${isEven ? 'md:items-end' : 'md:items-start'}`}>
                               <h4 className="font-editorial text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
                                 North America Segment
                               </h4>
-                              <div className="flex items-center gap-2 text-xs font-medium text-slate-700">
-                                <span className="font-bold text-[#163B32]">Lead:</span>
-                                <Link
-                                  href="/ani-chahal-honan"
-                                  className="text-[#163B32] font-semibold hover:text-[#C96F4A] transition-colors underline underline-offset-2"
-                                >
-                                  Ani Chahal Honan (North America Lead / Producer)
-                                </Link>
-                              </div>
                             </div>
 
                             {/* Live Stage Progress Indicator if Live */}
