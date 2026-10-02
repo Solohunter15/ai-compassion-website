@@ -694,32 +694,6 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
 
   // --- MIDDLE EAST, CAUCASUS & CENTRAL ASIA (GCC) ---
   {
-    slug: 'priya-m-nair',
-    name: 'Priya M Nair',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'President & CEO',
-    link: 'https://www.linkedin.com/in/priya-zwag-ai/',
-    img: '/speakers/priya-m-nair.jpg',
-    imgPosition: 'center 20%',
-    tags: ['ZWAG INC', 'Cognitive Sovereignty', 'UMF', 'Responsible AI', 'Formula-G'],
-    bio: `Priya M. Nair is the Co-Founder, President and CEO of ZWAG INC.
-A mission-driven DeepTech founder dedicated to dismantling the Western-centric biases of modern AI. As the co-architect of Mātr, she is pioneering a new era of Cognitive Sovereignty through the Universal Metalinguistic Framework (UMF) - a breakthrough layer designed to ensure that AI accurately represents the linguistic and cultural nuances of the global majority.
-
-With a strategic career spanning the UAE Air Force and leadership at AECOM, Priya transitioned from the corporate world to bridge AI’s "interpretation gap." Her work on UMF has already demonstrated a 2x times improvement in translation accuracy across divergent languages by modeling how languages diverge, rather than just how they align.
-
-A Global Ambassador for Responsible AI (GAFAI) and author of Formula-G, Priya is a vocal advocate for inclusion. She brings a relentless, "soulful" grit to the frontier of machine intelligence, building the infrastructure for a truly universal digital future.
-
-MENTORSHIP
-Mentor, Westford Mentorship Program, an initiative by Westford University College, UAE.
-Mentored multiple startups through a structured three month program under the “Startup with Priya” initiative in collaboration with NeoMinds accelerator.
-
-AUTHORSHIP
-Author of Formula-G, Scale your Startup to a Growth Machine (Management/ Entrepreneurship/ Start Up) (Published November 2021).`,
-  },
-  {
     slug: 'ruslan',
     name: 'Ruslan Tleubayev',
     type: 'speaker',
@@ -739,23 +713,6 @@ Ruslan is particularly interested in the physical side of artificial intelligenc
 His perspective also focuses on the human and economic transition created by AI. Just as previous technological revolutions transformed physical labor and created entirely new professions and industries, he believes AI will reshape cognitive work and require people, companies and countries to find new areas where they can create value.
 
 At AI + Compassion, Ruslan brings a Central Asian perspective on how technological progress can create broader participation — not only in using AI, but also in building the infrastructure and economies that support it.`,
-  },
-  {
-    slug: 'mohamed-ezzaldeen',
-    name: 'Mohamed Ezzaldeen',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'AI Implementation Strategist at Duqm IT Solutions (Oman)',
-    img: '/speakers/mohamed-ezzaldeen.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Duqm IT Solutions', 'AI Implementation', 'Enterprise Automation', 'Oman', 'GCC'],
-    bio: `Mohamed Ezzaldeen is a forward-thinking AI Implementation Strategist at Duqm IT Solutions in Oman. He specializes in driving corporate innovation by transforming legacy, manual workflows into cutting-edge, automated IT ecosystems. Aligned with Oman’s rapidly expanding digital economy, Mohamed acts as a vital bridge between complex artificial intelligence capabilities and practical business integration.
-
-An alumnus of Al-Neelain University, Mohamed possesses a robust technical and analytical foundation. His expertise lies in engineering continuous, 24/7 autonomous environments that maximize operational efficiency while strictly mitigating the risks associated with deploying emerging technologies. He is a strong advocate for responsible AI development, focusing heavily on establishing governance frameworks that protect data privacy and ensure compliance when deploying agentic AI systems within enterprise workflows.
-
-Known for his strategic foresight, Mohamed collaborates closely with cross-functional leadership teams to architect resilient digital infrastructures. His work ensures that modern organizations not only adapt to the shifting technological landscape but thrive securely within it. Through his role at Duqm IT Solutions, Mohamed continues to shape the future of enterprise automation and intelligent system management across the GCC region.`,
   },
   {
     slug: 'mohamed-osman',
@@ -857,21 +814,6 @@ I work in Arabic and English, and I am most useful where deep technical knowledg
     bio: `A seasoned telecom executive with over twenty years of extensive leadership experience specializing in Business Continuity, Loss Management, network operations, and strategic transformation initiatives. Proven track record in Partnership and Vendor management, delivering multiple on-ground mega-projects that drive innovation and optimize network performance. Highly proficient in overseeing critical infrastructure and executing advanced preventive maintenance methodologies to ensure operational excellence.
 
 Recently certified as a Board of Director, bringing rigorous governance and strategic oversight to corporate leadership. Dedicates expertise in technology to social impact by leading the Technology Committee for the Sharaka Association, driving enablement for disabled people. Holds specialized management and technical certifications, including CCNA, PMP, and Agile Management. Demonstrated ability to achieve significant operational efficiency through Capex automation, excellence offices, and talent centers.`,
-  },
-  {
-    slug: 'dea-bakashvili',
-    name: 'Dea Bakashvili',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Founder & CEO, Early Talent Access Network (ETAN)',
-    img: '/speakers/dea-bakashvili.png',
-    imgPosition: 'center 20%',
-    tags: ['ETAN', 'Youth Empowerment', 'Ethical AI Governance', 'NEET Youth', 'DemTech Fellow'],
-    bio: `Dea Bakashvili is a social entrepreneur, public policy researcher, and youth advocate dedicated to shaping inclusive digital futures and ethical AI governance. As Founder and CEO of the Early Talent Access Network (ETAN), she builds economic resilience for youth Not in Education, Employment, or Training (NEET). By delivering market-relevant tech education, AI literacy, peer mentorship, and essential hardware access, ETAN connects disengaged youth with top-tier university networks and global corporate partners for high-demand digital roles.
-
-Dea holds certifications from Oxford Saïd Business School (in partnership with UNESCO), Harvard Business School Online, and Charles University via TFAS. She serves as an Alliance of Democracies DemTech Fellow, a Young European Ambassador, and an EU4Youth Alumni Fellow. Having contributed to strategic digital governance frameworks with the UNDP and Georgia’s Digital Governance Agency, Dea presented ETAN at the Copenhagen Democracy Summit and was named a finalist for the 2026 Partisan Awards. She remains a leading voice for ensuring global technological shifts leave no young person behind.`,
   },
   {
     slug: 'dr-sara-hegazy',
@@ -1540,10 +1482,9 @@ export function getPersonBySlug(slug) {
   if (clean === 'dr-anour-f-a-dafa-alla' || clean === 'anour-f-a-dafa-alla' || clean === 'dr-anour' || clean === 'anour' || clean === 'dafa-alla') return PEOPLE.find((p) => p.slug === 'dr-anour-f-a-dafa-alla');
   if (clean === 'binish-moulana' || clean === 'binishmoulana' || clean === 'binish' || clean === 'dr-binish') return PEOPLE.find((p) => p.slug === 'binish-moulana');
   if (clean === 'nagabhushana-rao' || clean === 'nagabhushanarao' || clean === 'nagab') return PEOPLE.find((p) => p.slug === 'nagabhushana-rao');
-  if (clean === 'mohamed-ezzaldeen' || clean === 'mohamed-ezzaldinn' || clean === 'ezzaldeen' || clean === 'ezzaldin') return PEOPLE.find((p) => p.slug === 'mohamed-ezzaldeen');
   if (clean === 'mohamed-osman' || clean === 'mohamedosman' || clean === 'osman') return PEOPLE.find((p) => p.slug === 'mohamed-osman');
   if (clean === 'anas-almarie' || clean === 'anasalmarie' || clean === 'anas') return PEOPLE.find((p) => p.slug === 'anas-almarie');
-  if (clean === 'dea-bakashvili' || clean === 'deabakashvili' || clean === 'dea') return PEOPLE.find((p) => p.slug === 'dea-bakashvili');
+
   if (clean === 'pj-narayanan' || clean === 'pj-narayan' || clean === 'p-j-narayan' || clean === 'p-j-narayanan' || clean === 'pjnarayanan') return PEOPLE.find((p) => p.slug === 'pj-narayanan');
   if (clean === 'rashika-narain' || clean === 'rashikanarain' || clean === 'rashika') return PEOPLE.find((p) => p.slug === 'rashika-narain');
   if (clean === 'suuvi' || clean === 'suuvi-bacelar' || clean === 'sophia-bacelar' || clean === 'suvi') return PEOPLE.find((p) => p.slug === 'suuvi');
