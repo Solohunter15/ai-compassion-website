@@ -99,13 +99,10 @@ As the South Asia Regional Producer of the AI + Compassion Global Forum 2026, De
     title: 'Founder & Managing Partner Imagine Global',
     img: '/ani.png',
     imgPosition: 'center 20%',
-    tags: ['Imagine Global', 'Deep Tech', 'Cognitive AI', 'Planetary Systems', 'Compassion'],
+    tags: ['Imagine Global', 'Deep Tech', 'Intelligence Economy', 'Planetary Systems', 'Whole-Person Health'],
     bio: `Ani Chahal Honan is the Founder and Managing Partner of IMAGINE, a global deep tech and emerging science ecosystem uniting capital, venture studios, frontier labs, and innovation hubs to advance intelligence, biological, and planetary systems.
-
 Ani has built and scaled companies alongside pioneers in AI, robotics, biotechnology, spatial technologies, and blockchain, representing over $50B in exits and acquisitions. IMAGINE is part of one of the largest independent coalitions of AI scientists beyond Big Tech, advancing cognitive AI, neuro-symbolic AI, collective intelligence, beneficial AGI, and sovereign AI, while helping shape an Intelligence Economy where human agency drives broad-based prosperity. In the life sciences, IMAGINE unites pioneers in longevity, regenerative medicine, and biotechnology to accelerate breakthroughs in human health.
-
 Through IMAGINE, Ani leads a global compassion project alongside a whole-person health initiative, bringing mind, body, and heart to innovation. A certified meditation teacher, she advocates for mental health, societal empowerment, and regenerative systems.
-
 Ani has been honored by the U.S. Congress and United Nations, named a UNGA 100 Disruptor, a Kate Spade World Changing Woman, and invited to the XPRIZE Foundation Board of Trustees. A contributor to the Milken Institute's Power of Ideas, she champions innovation guided by compassion, play, and purpose.`,
   },
   {
@@ -752,7 +749,7 @@ At AI + Compassion, Ruslan brings a Central Asian perspective on how technologic
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'AI Implementation Strategist at Duqm IT Solutions (Oman)',
-    img: '/speakers/dea-bakashvili.png',
+    img: '/speakers/mohamed-ezzaldeen.jpg',
     imgPosition: 'center 20%',
     tags: ['Duqm IT Solutions', 'AI Implementation', 'Enterprise Automation', 'Oman', 'GCC'],
     bio: `Mohamed Ezzaldeen is a forward-thinking AI Implementation Strategist at Duqm IT Solutions in Oman. He specializes in driving corporate innovation by transforming legacy, manual workflows into cutting-edge, automated IT ecosystems. Aligned with Oman’s rapidly expanding digital economy, Mohamed acts as a vital bridge between complex artificial intelligence capabilities and practical business integration.
@@ -848,6 +845,21 @@ Currently consulting with Qatar Foundation's Strategic Initiatives (Bil Araby) a
 I work in Arabic and English, and I am most useful where deep technical knowledge, institutional leadership, and cultural fluency must come together.`,
   },
   {
+    slug: 'khalid-a-aleid',
+    name: 'Khalid a aleid',
+    type: 'speaker',
+    role: 'Expert in Tichnoalgy and buisness Continuity',
+    segment: 'GCC',
+    region: 'Middle East, Caucasus & Central Asia',
+    title: 'Senior Business continuity loss Expert',
+    img: '/speakers/khalid-a-aleid.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Business Continuity', 'Loss Management', 'Critical Infrastructure', 'Sharaka Association', 'Telecom Operations'],
+    bio: `A seasoned telecom executive with over twenty years of extensive leadership experience specializing in Business Continuity, Loss Management, network operations, and strategic transformation initiatives. Proven track record in Partnership and Vendor management, delivering multiple on-ground mega-projects that drive innovation and optimize network performance. Highly proficient in overseeing critical infrastructure and executing advanced preventive maintenance methodologies to ensure operational excellence.
+
+Recently certified as a Board of Director, bringing rigorous governance and strategic oversight to corporate leadership. Dedicates expertise in technology to social impact by leading the Technology Committee for the Sharaka Association, driving enablement for disabled people. Holds specialized management and technical certifications, including CCNA, PMP, and Agile Management. Demonstrated ability to achieve significant operational efficiency through Capex automation, excellence offices, and talent centers.`,
+  },
+  {
     slug: 'dea-bakashvili',
     name: 'Dea Bakashvili',
     type: 'speaker',
@@ -855,7 +867,7 @@ I work in Arabic and English, and I am most useful where deep technical knowledg
     segment: 'GCC',
     region: 'Middle East, Caucasus & Central Asia',
     title: 'Founder & CEO, Early Talent Access Network (ETAN)',
-    img: '/speakers/mohamed-ezzaldeen.jpg',
+    img: '/speakers/dea-bakashvili.png',
     imgPosition: 'center 20%',
     tags: ['ETAN', 'Youth Empowerment', 'Ethical AI Governance', 'NEET Youth', 'DemTech Fellow'],
     bio: `Dea Bakashvili is a social entrepreneur, public policy researcher, and youth advocate dedicated to shaping inclusive digital futures and ethical AI governance. As Founder and CEO of the Early Talent Access Network (ETAN), she builds economic resilience for youth Not in Education, Employment, or Training (NEET). By delivering market-relevant tech education, AI literacy, peer mentorship, and essential hardware access, ETAN connects disengaged youth with top-tier university networks and global corporate partners for high-demand digital roles.
@@ -1173,7 +1185,7 @@ Trained in political science and design, and formerly at Colombia's Ministry of 
     img: '/speakers/dr-ben-goertzel.jpg',
     imgPosition: 'center 20%',
     tags: ['SingularityNET', 'ASI Alliance', 'AGI Society', 'Sophia Robot', "Desdemona's Dream"],
-    bio: `Dr. Ben Goertzel is a cross-disciplinary scientist, entrepreneur, author and musician. Based primarily in Seattle, he is the founder and CEO of SingularityNET, a decentralized AI network; Chairman of the Artificial General Intelligence Society, and general Chair of the Artificial General Intelligence conference series. As Chief Scientist of robotics firm Hanson Robotics, he led the software team behind the Sophia robot. He leads the Desdemona's Dream rock band along with lead singer Desdemona Robot, Sophia's younger sister.
+    bio: `Dr. Ben Goertzel is a cross-disciplinary scientist, entrepreneur, author and musician. Based primarily in Seattle, he is the founder and CEO of SingularityNET, a decentralized Ai network; Chairman of the Artificial General Intelligence Society, and general Chair of the Artificial General Intelligence conference series. As Chief Scientist of robotics firm Hanson Robotics, he led the software team behind the Sophia robot. He leads the Desdemona's Dream rock band along with lead singer Desdemona Robot, Sophia's younger sister.
 
 His research work encompasses artificial general intelligence, natural language processing, cognitive science, data mining, machine learning, computational finance, bioinformatics, virtual worlds and gaming and other areas.
 
@@ -1281,6 +1293,160 @@ His work is driven by two connected questions: how to sustainably expand access 
     tags: ['Indigenous Wisdom', 'Urban Innovation', 'Regenerative Design', 'Olympian'],
     bio: `Marques Anderson is an Olympian, innovation architect, and founder working across indigenous wisdom, advanced technologies, and planetary regenerative infrastructure to design resilient and humane living systems.`,
   },
+  {
+    slug: 'joshua-villarreal',
+    name: 'Joshua Villarreal',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Founder / Entrepreneur | SMLE, KAIA PEPTIDES, YOUR MOM’S COFFEE',
+    img: '/speakers/joshua-villarreal.png',
+    imgPosition: 'center 20%',
+    tags: ['SMLE', 'KAIA Peptides', "Your Mom's Coffee", 'Health & AI', 'Compassionate Thinking Partner'],
+    bio: `Talk: In 2025, my life changed almost overnight when I developed Guillain-Barré syndrome (GBS), a rare neurological condition that left me hospitalized and fighting to regain control of my body. During that recovery, artificial intelligence became an unexpected partner in my healing journey. I used AI not as a replacement for physicians or medical care, but as a tool to help me better understand my body, research complex information, organize questions, and develop a more intentional approach to recovery. It helped me explore nutrition, emerging research around peptides and recovery, supplementation, movement, and mindfulness—translating overwhelming amounts of information into something I could understand, discuss, and act upon responsibly. But perhaps its greatest impact was giving me a new level of agency. At a moment when I felt disconnected from my own body, AI helped me become an active participant in understanding my recovery. My talk explores what becomes possible when artificial intelligence is approached not simply as technology, but as a compassionate thinking partner—one that can help people navigate complexity, ask better questions, understand themselves more deeply, and make more informed decisions alongside qualified professionals. My experience raises a larger question: What if the future of AI isn’t only about making us more productive, but helping us become more human?`,
+  },
+  {
+    slug: 'reachel-singh',
+    name: 'Reachel Singh',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Singer-songwriter weaving ancient wisdom with modern healing',
+    img: '/speakers/reachel-singh.png',
+    imgPosition: 'center 20%',
+    tags: ['Mantra Singing', 'Sound Healing', 'Soulingua', 'Rave to Ritual', 'MEYA App', 'OMMM'],
+    bio: `Raised at the crossroads of Indian heritage and Dutch culture, her journey has been deeply shaped by a rich spiritual upbringing and years of experience as an educator. Through travel, teaching, songwriting, and dedicated study of sound healing and esoteric wisdom from both Eastern and Western traditions, she has cultivated a deeply integrative approach to music and healing. Her practice weaves together ancestral knowledge, mantra singing, and vocal healing to support personal transformation, embodied connection, and soul growth. As a singer-songwriter, she creates original music that infuses sacred mantra with catchy, uplifting beats and heart-opening lyrics—inviting listeners back to their essence and into deeper resonance with the world around them. She weaves her teachings into projects like Soulingua and The FiVth Empire—spaces that make ancient wisdom more practical and accessible through sound and community gatherings. Her latest project, Rave to Ritual, is a conscious rave experience blending electronic music, affirmations, and healing frequencies, transforming dance into a spiritual practice. In collaboration with the MEYA app—a platform that fuses music, meditation, and healing sound —Rave to Ritual brings a vibrant, elevated approach to mindfulness and inner work. She is currently recording her debut album in collaboration with Vinay Vyas, with OMMM serving as executive producers.`,
+  },
+  {
+    slug: 'francisco-ayala-gabilondo',
+    name: 'Francisco Ayala Gabilondo',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Director General, Huerto Roma Verde',
+    img: '/speakers/francisco-ayala-gabilondo.png',
+    imgPosition: 'center 20%',
+    tags: ['Huerto Roma Verde', 'Permaculture', 'Urban Resilience', 'Biocommunity Economy', 'Mexico City'],
+    bio: `Paco Ayala is a renowned socio-environmental activist, social entrepreneur, and staunch advocate for urban resilience in the face of the climate crisis in Mexico. He stepped away from a career in law to become a "social tinkerer," dedicated to mending the community fabric and restoring the urban environment. He is the founder and CEO of Huerto Roma Verde (a project of La Cuadra A.C.), a bio-social laboratory and center for civic innovation established over 12 years ago in Mexico City. Under his leadership, a site that had become an unsanitary vacant lot following the 1985 earthquake was transformed into a global benchmark for permaculture, the biocommunity economy, and regenerative culture. In addition to his work at the garden, Ayala founded the multidisciplinary cultural venue Bajo Circuito and is an active participant in the Homes for Humanity movement and the Pachakuti Network. His approach integrates the wisdom of indigenous peoples, social biology, and permaculture to mitigate climate damage and design livable, sustainable alternatives for 21stcentury megalopolises.`,
+  },
+  {
+    slug: 'mindahi-bastida',
+    name: 'Mindahi Bastida',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Mindahi Bastida Professional Biography 07.2026',
+    img: '/speakers/mindahi-bastida.png',
+    imgPosition: 'center 20%',
+    tags: ['Otomi-Toltec Regional Council', 'The Earth Elders', 'Original Caretakers', 'UNESCO Sacred Sites', 'Rights of Nature'],
+    bio: `Mindahi Crescencio Bastida Muñoz, Ph.D., is an internationally recognized Indigenous scholar, ritual ceremony officer, and global environmental advocate. Born in San Pedro Tultepec, Lerma, Mexico, he is a member of the Otomi-Toltec Peoples and serves as a traditional authority and General Coordinator of the Otomi-Toltec Regional Council in Mexico, as well as a senior counselor for the Grand Council of the Eagle and the Condor.
+
+Academic Background & Leadership: Dr. Bastida Muñoz holds a Doctorate in Rural Development from the Universidad Autónoma Metropolitana (UAM) in Mexico and a Master’s Degree in Political Science from Carleton University in Ottawa, Canada. Throughout his career, he has bridged academic research, policy work, and Indigenous philosophy:
+• Academic Leadership: Served as the Director of the Sustainable Development Division at the Intercultural University of the State of Mexico (UIEM).
+• Institutional Initiatives: Directed the Original Caretakers Program at the Center for Earth Ethics (Union Theological Seminary, New York City) from 2015 to 2020, and led the Original Nations Program at The Fountain (2020-2023).
+• Founding The Earth Elders: As founder and coordinator of The Earth Elders, he works with an international network of Indigenous spiritual leaders to implement the Earth Mandates across 52 global bioregions - an initiative originating from a 2013 sacred council of elders in the Sierra Nevada de Santa Marta, Colombia.
+
+International Advocacy & Policy: A consultant to UNESCO on Sacred Sites and Biocultural Protection since 2012, Dr. Bastida has spent decades advocating for the rights of nature, Indigenous sovereignty, and biocultural conservation.
+• Global Forums: He has represented Indigenous nations at major summits across over fifty countries, including the 1992 UN Earth Summit (Rio de Janeiro), the World Summit on Sustainable Development (Johannesburg, 2002), the World Economic Forum, and various UN Climate Change Conferences (COP21 Paris, COP26 Glasgow).
+• Advisory & Executive Roles: He serves on the Advisory Group of the Yale Forum on Religion and Ecology, the Senior Advisory Council of the United Religions Initiative (URI), the Executive Committee of the Alliance of Guardians of Mother Nature, and as President of the Mexico Council for Sustainable Development. He previously served on the Joint Public Advisory Committee (JPAC) for the Commission for Environmental Cooperation (CEC).
+
+Publications & Scholarship: Dr. Bastida has published extensively on topics including state–Indigenous relations, collective intellectual property, intercultural education, traditional ecological knowledge (TEK), and sacred sites protection. He is the chief editor of a multi-volume book series on the biodiversity, gastronomy, and culture of the highland wetlands of Mexico, and author of two key books:
+• Ancestors: Divine Remembrance of Lineage, Relations and Sacred Sites (translated into four languages)
+• Rooted in Ethics`,
+  },
+  {
+    slug: 'michelle-narciso',
+    name: 'Michelle Narciso',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Founder and CEO, OMMM',
+    img: '/speakers/michelle-narciso.png',
+    imgPosition: 'center 20%',
+    tags: ['OMMM', 'Paramount Global', 'Transformational Experiences', 'Consciousness & Media', 'NYC Times Square Events'],
+    bio: `Michelle Narciso is the Founder and CEO of OMMM, a global movement and media platform dedicated to elevating consciousness and integrating spirituality, mental well-being, and sustainability into everyday life. Rooted in the principle of interconnectedness, OMMM invites people to go inward and recognize the oneness of all beings and the planet. Through immersive content, transformational experiences, and collaborations with its community of OMMMbassadors, the platform fosters collective awakening around the world. Under Michelle's leadership, OMMM has co-produced multiple large-scale concerts and events, including Earth Day and the UN International Day of Peace celebrations in New York City's Times Square. These gatherings carry messages of unity, peace, and planetary care to one of the most visible stages in the world.
+
+Michelle brings more than two decades of experience as a global media executive. Most recently, she served as Senior Vice President of Strategy and Business Operations at Paramount Global, where she earned a reputation for visionary thinking and a rare ability to bridge creativity with strategic execution. During her tenure, she spearheaded high-profile projects, drove operational efficiencies, and curated music programming and events that captivated audiences worldwide. That blend of creative instinct and business discipline continues to shape how she builds and leads today.
+
+Now, Michelle is focused on building global communities, fostering purpose-driven leadership, and co-creating initiatives that weave together love, ancient wisdom, and modern solutions to support both personal and planetary well-being. Her work reflects a belief that inner transformation and positive global change go hand in hand, and that media, music, and shared experiences can be powerful catalysts for both.`,
+  },
+  {
+    slug: 'robot-koch',
+    name: 'Robot Koch',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'artist/producer/composer',
+    img: '/speakers/robot-koch.png',
+    imgPosition: 'center 20%',
+    tags: ['Sphere', 'Trees and Cyborgs', '3D Surround Sound', 'Electronic Music', 'Best Composer Electronic Music'],
+    bio: `Robot Koch is an award winning artist/producer/composer from Berlin, living in Los Angeles. He has been steadily crafting a remarkably mature and original sound that expertly combines a deep and cinematic atmosphere, emotional reflection and forward thinking production. His visual music lends itself to picture and has been used on numerous TV Shows, Movie Trailers, Feature Films and Ad campaigns over the last few years.
+
+Robot Koch has been presenting his music live over the last decade, attracting a growing audience worldwide and appearing on the lineups of major festivals like Coachella, Sonar, Mutek and played Boiler Room several times.
+
+Apart from pursuing his artist career, Robert Koch can be found working as a producer and writer for both indie and major artists worldwide, gaining gold and platinum records for his productions. For his album Sphere Koch expanded his musical horizon even more and created an immersive Full Dome Live Show with 3D surround sound and 360 visuals, which he developed in cooperation with visual artist Mickael Le Goff. Sphere sold out in Planetariums and Festivals worldwide, winning several awards for "Best Immersive Experience".
+
+Robert Koch, who also won the German Music Composers Award 2014 in the category 'Best Composer Electronic Music' runs his own label, Trees and Cyborgs, which he founded in 2016.
+
+Robot Koch's music is an intriguing dialogue between technology and nature that seems particularly relevant to the times we live in. It's a constantly evolving exploration of that what lies beyond. “It's like traveling through space, with all the beautiful and scary moments such a journey involves,” says Koch. It is this confluence of beauty and fear that likewise grants his music a shamanic motif, as the BBC’s Bobby Friction noted on Koch’s music; "It sounds like artificial intelligence discovering religion."`,
+  },
+  {
+    slug: 'jennifer-aaker',
+    name: 'Dr. Jennifer Aaker',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'General Atlantic Professor, Stanford Graduate School of Business',
+    img: '/speakers/jennifer-aaker.png',
+    imgPosition: 'center 20%',
+    tags: ['Stanford GSB', 'Behavioral Science', 'Humor Seriously', 'Purpose & Meaning', 'Obama Presidential Foundation'],
+    bio: `Dr. Jennifer Aaker is General Atlantic Professor at Stanford Graduate School of Business and a renowned behavioral scientist specializing in purpose, meaning, and technology's impact on well-being. Winner of the Distinguished Scientific Achievement Award and MBA Professor of the Year, her bestselling books including Humor, Seriously have been translated into 20+ languages. She serves on boards of the Obama Presidential Foundation and other organizations, helping leaders foster purpose and connection in business.`,
+  },
+  {
+    slug: 'jeni-chang',
+    name: 'Jeni Chang',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Managing Director & Investor FOUNDER INSTITUTE | NEW ENERGY FINANCIAL',
+    img: '/speakers/jeni-chang.png',
+    imgPosition: 'center 20%',
+    tags: ['Founder Institute', 'New Energy Financial', 'Geneticist & Behavioral Psych', 'AI & Human Drivers', 'Fortune 100 Consulting'],
+    bio: `Jeni is focused on weaving human behavior & the physical into the DNA of AI. Our relationship to it is changing. As AI and agents shift from tools we use to things we interact with, technology alone is not enough. The untapped potential is not in understanding human drivers. It's in applying that understanding to how AI shapes our world and business.
+
+Jeni’s journey has been unconventional. She’s a geneticist by education with behavioral psych in tow. Mgmt consultant for Fortune 100 companies (Citi, United, Google). Swapped out professional button downs for founder tees & started a startup. Now Mg Dir. for a global accelerator (Founder Institute) & GP (New Energy Financial Grp).`,
+  },
+  {
+    slug: 'doris-a-taylor',
+    name: 'Doris A. Taylor',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'North America',
+    region: 'Eastern, Central & Western North America, Mexico',
+    title: 'Hon DSc, FAHA, FACC, FESC, FAIMBE',
+    img: '/speakers/doris-a-taylor.png',
+    imgPosition: 'center 20%',
+    tags: ['Organamet Bio', 'Regenerative Medicine', 'Tissue Engineering', 'Decellularization', 'Bioartificial Organs'],
+    bio: `Doris A. Taylor is an American scientist, entrepreneur, and global thought leader in regenerative medicine and tissue engineering. She is currently the founder of Organamet Bio, Inc. She also co-founded Miromatrix Medical, Inc. and founded RegenMedix Consulting LLC to help academic and commercial enterprises succeed in regenerative medicine. She has published nearly 200 papers and holds more than 30 patents.
+
+Dr. Taylor previously spent more than 20 years in senior academic positions, most recently as Director of Regenerative Medicine Research and Director of the Center for Cell and Organ Biotechnology at the Texas Heart Institute in Houston, Texas, through March 2020. She has trained hundreds of undergraduate, graduate, and postdoctoral fellows in her laboratories in the U.S. and Europe.
+
+Dr. Taylor is credited with the first functional repair of injured heart with stem cells, in 1998. In 2008, her group transformed organ transplantation science by developing a decellularization method that turns untransplantable organs into scaffolds for building new organs with stem cells. The American Heart Association named this work one of its "Top 10 Research Advances," and Time magazine nominated her as one of the "100 Most Influential People in the World." Turning to disease prevention, she has begun developing "cellular signatures" of heart disease and aging that appear to differ by age, sex, race, and ethnicity.
+
+A frequent media expert on cell therapy, women's health, cardiac repair, and organ transplantation, Dr. Taylor has been featured by 60 Minutes, CNN, The New York Times, The Wall Street Journal, Forbes, National Geographic, the BBC, ABC, NBC, CBS, Good Morning America, The Oprah Winfrey Show, PBS NOVA, NPR's On Being with Krista Tippett, Discovery Channel's Through the Wormhole with Morgan Freeman, and Science Channel's Stem Cell Universe with Stephen Hawking.
+
+Dr. Taylor serves on numerous think tanks and international scientific committees, including for the NIH, the FDA, AABB, and the Alliance for Regenerative Medicine. She is a member of the Leadership Advisory Committee of the Advanced Regenerative Manufacturing Institute (ARMI) and sits on the international jury for the Institut de France Lefoulon-Delalande Foundation Grand Prix, awarded annually for worldwide contributions to cardiovascular medicine.
+
+She earned a bachelor's degree from Mississippi University for Women (MUW) and a PhD from UT Southwestern Medical Center.`,
+  },
 
   // --- HAWAIʻI, ALASKA & PACIFIC ISLANDS ---
   {
@@ -1313,401 +1479,6 @@ Mitch Hammer builds technology that helps people trust what companies tell them.
 Originally from Sydney, Mitch earned his master's in international business in Australia. He worked with the Trade Commission at the Australian Consulate in Dubai before moving to Japan, drawn by the differences between Western and Japanese business styles. At sustainability consultancy DGI, he was among the first to bring environmental commodities onto blockchains that track CO2 emissions. He also helped major Japanese companies measure their impact and meet international frameworks, and he represented DGI at the United Nations General Assembly.
 
 Mitch treats ethics as a design principle, not an afterthought. Initiatives facilitated by PocketSeed have helped remove 500,000 plastic bottles from the ocean, offset 13.3 million kilograms of carbon emissions, and deploy 14,424 kelp plants. He is an alumnus of the Antler Japan (JPN4) founder program. His message to audiences is simple: dig a bit deeper into why things are being said.`,
-  },
-  {
-    slug: 'ruslan-tleubayev',
-    name: 'Ruslan Tleubayev',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Central Asia & Caucasus',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Business Development, AI & Data Center Infrastructure — NSART',
-    img: '/speakers/ruslan-tleubayev.jpg',
-    imgPosition: 'center 20%',
-    tags: ['AI Infrastructure', 'Data Centers', 'Energy & Compute', 'Central Asia'],
-    bio: `Ruslan Tleubayev is a business development professional focused on data center and AI infrastructure opportunities across Central Asia and neighboring markets.
-
-Based in Kazakhstan, Ruslan works with NSART on the development of large-scale data center opportunities, connecting power, land, infrastructure development and the growing demand for compute from AI and cloud operators. His current work includes projects across Kazakhstan and other emerging markets, with a focus on creating new infrastructure capacity for the rapidly expanding AI economy.
-
-Ruslan is particularly interested in the physical side of artificial intelligence: the energy, data centers and computing infrastructure required to turn advances in AI into real-world capacity. He sees Central Asia as an emerging participant in this transformation, with Kazakhstan’s energy base, geography and industrial infrastructure creating an opportunity for the region to play a larger role in the global AI value chain.
-
-His perspective also focuses on the human and economic transition created by AI. Just as previous technological revolutions transformed physical labor and created entirely new professions and industries, he believes AI will reshape cognitive work and require people, companies and countries to find new areas where they can create value.
-
-At AI + Compassion, Ruslan brings a Central Asian perspective on how technological progress can create broader participation — not only in using AI, but also in building the infrastructure and economies that support it.`,
-  },
-  {
-    slug: 'priya-m-nair',
-    name: 'Priya M Nair',
-    type: 'speaker',
-    role: 'Speaker',
-    title: 'President & CEO, ZWAG INC',
-    img: '/speakers/priya-m-nair.jpg',
-    imgPosition: 'center 20%',
-    tags: ['DeepTech', 'Cognitive Sovereignty', 'UMF', 'Responsible AI', 'Mātr'],
-    bio: `Priya M. Nair is the Co-Founder, President and CEO of ZWAG INC.
-A mission-driven DeepTech founder dedicated to dismantling the Western-centric biases of modern AI. As the co-architect of Mātr, she is pioneering a new era of Cognitive Sovereignty through the Universal Metalinguistic Framework (UMF) - a breakthrough layer designed to ensure that AI accurately represents the linguistic and cultural nuances of the global majority.
-
-With a strategic career spanning the UAE Air Force and leadership at AECOM, Priya transitioned from the corporate world to bridge AI’s "interpretation gap." Her work on UMF has already demonstrated a 2x times improvement in translation accuracy across divergent languages by modeling how languages diverge, rather than just how they align.
-
-A Global Ambassador for Responsible AI (GAFAI) and author of Formula-G, Priya is a vocal advocate for inclusion. She brings a relentless, "soulful" grit to the frontier of machine intelligence, building the infrastructure for a truly universal digital future.
-
-MENTORSHIP:
-Mentor, Westford Mentorship Program, an initiative by Westford University College, UAE.
-Mentored multiple startups through a structured three month program under the “Startup with Priya” initiative in collaboration with NeoMinds accelerator.
-
-AUTHORSHIP:
-Author of Formula-G, Scale your Startup to a Growth Machine (Management/ Entrepreneurship/ Start Up) (Published November 2021).`,
-  },
-  {
-    slug: 'mohamed-ezzaldeen',
-    name: 'Mohamed Ezzaldeen',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'AI Implementation Strategist at Duqm IT Solutions (Oman)',
-    img: '/speakers/mohamed-ezzaldeen.png',
-    imgPosition: 'center 20%',
-    tags: ['AI Implementation', 'Enterprise Automation', 'Autonomous Systems', 'Responsible AI'],
-    bio: `Mohamed Ezzaldeen is a forward-thinking AI Implementation Strategist at Duqm IT Solutions in Oman. He specializes in driving corporate innovation by transforming legacy, manual workflows into cutting-edge, automated IT ecosystems. Aligned with Oman’s rapidly expanding digital economy, Mohamed acts as a vital bridge between complex artificial intelligence capabilities and practical business integration.
-
-An alumnus of Al-Neelain University, Mohamed possesses a robust technical and analytical foundation. His expertise lies in engineering continuous, 24/7 autonomous environments that maximize operational efficiency while strictly mitigating the risks associated with deploying emerging technologies. He is a strong advocate for responsible AI development, focusing heavily on establishing governance frameworks that protect data privacy and ensure compliance when deploying agentic AI systems within enterprise workflows.
-
-Known for his strategic foresight, Mohamed collaborates closely with cross-functional leadership teams to architect resilient digital infrastructures. His work ensures that modern organizations not only adapt to the shifting technological landscape but thrive securely within it. Through his role at Duqm IT Solutions, Mohamed continues to shape the future of enterprise automation and intelligent system management across the GCC region.`,
-  },
-  {
-    slug: 'mohamed-osman',
-    name: 'Mohamed Osman',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Strategy and Resilience Advisor | Venture Builder | PhD Candidate',
-    img: '/speakers/mohamed-osman.png',
-    imgPosition: 'center 20%',
-    tags: ['Organizational Resilience', 'Venture Building', 'Innovalience', 'Digital Transformation'],
-    bio: `Mohamed Osman is a strategy and resilience advisor, venture builder, and PhD candidate in Strategic Studies, with more than 20 years of experience across telecommunications, digital transformation, and enterprise resilience. His experience spans major corporations, including Fortune 100 companies, and emerging markets, connecting technology, governance, and strategic priorities to strengthen organizational adaptability.
-
-His advisory focus includes translating emerging technologies, institutional assets, and ecosystem partnerships into commercially viable ventures. He explores how venture building can unlock economic opportunity while addressing essential needs in connectivity, digital services, and underserved communities.
-
-Mohamed is developing Innovalience, a framework integrating innovation, resilience, governance, and ecosystem collaboration through orchestration. His work examines how people, organizations and ventures can move beyond surviving disruption toward antifragility: learning, adapting, and becoming stronger through uncertainty.
-
-He holds a master’s degree in Computer Science. His doctoral research investigates organizational resilience and digital transformation in emerging markets, informing his approach to strategy, investment, and venture development.
-
-At the AI+Compassion Global Forum, Mohamed explores how responsible AI, resilient infrastructure, and entrepreneurship can sustain essential services and expand opportunity in emerging markets. He advocates compassion as a practical foundation for strategic decisions and innovation, helping organizations create lasting value while strengthening communities facing disruption.`,
-  },
-  {
-    slug: 'aigerim-zhangozina',
-    name: 'Aigerim Zhangozina',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Film Director | Producer in Los Angeles and Astana',
-    img: '/speakers/aigerim-zhangozina.png',
-    imgPosition: 'center 20%',
-    tags: ['Filmmaking', 'Visual Storytelling', 'The Red Door Films', 'Empathetic Cinema'],
-    bio: `Aigerim Zhangozina is an award-winning Kazakhstani filmmaker, director, and producer based in Los Angeles and Astana. Known for her deeply empathetic storytelling, she focuses her narrative lens on complex human relationships, societal pressures, and the modern female experience.
-
-Aigerim holds a Master of Fine Arts (MFA) in Filmmaking (Cum Laude) from the New York Film Academy in Los Angeles. This achievement marks her fourth master’s degree, following a distinguished career in academia where she earned an Innovative Teaching Award at Nazarbayev University. Her cinematic style is heavily influenced by master directors like Sidney Lumet and Yasujiro Ozu, blending sharp dramatic tension with profound psychological realism.
-
-As a versatile visionary, Aigerim writes, directs, and produces compelling independent cinema through her banner, The Red Door Films. Her directorial portfolio features impactful projects like The Wrong Door (2025), How to Mother, and The Last Night Stand. Beyond directing, she is a prolific collaborator in the Hollywood indie circuit, serving as a line producer and an accomplished production sound mixer on dozens of sets. Aigerim bridges international perspectives, continuously shaping evocative, globally resonant stories.`,
-  },
-  {
-    slug: 'suuvi-bacelar',
-    name: 'Suuvi Bacelar',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Multidisciplinary Artist, Composer, Producer & Creative Technologist',
-    img: '/speakers/suuvi.png',
-    imgPosition: 'center 20%',
-    tags: ['Multidisciplinary Art', 'Electronic Music', 'Neuroscience', 'Creative Tech'],
-    bio: `SUUVI is a Cuban-Chinese multidisciplinary artist, composer, producer, and creative technologist whose work explores the intersection of art, technology, consciousness, and human experience.
-
-Trained at The Juilliard School from an early age, she has evolved from an international performance career into an interdisciplinary practice spanning electronic music, movement, visual art, data, neuroscience, and emerging technologies.
-
-Her work examines themes of grief, memory, transformation, embodiment, and connection, with a particular interest in how technology can deepen rather than diminish our capacity for emotional experience and human connection. Through immersive performance and cross-disciplinary collaboration, she explores the role artists can play in shaping more humane, culturally meaningful relationships with new technologies.
-
-Her work has been presented by institutions including Carnegie Hall, the Fondation Louis Vuitton, National Sawdust, REDCAT, and the Getty Villa, and she collaborates across the arts, science, and technology.`,
-  },
-  {
-    slug: 'ben-goertzel',
-    name: 'Dr. Ben Goertzel',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'CEO of SingularityNET and the Artificial Superintelligence (ASI) Alliance',
-    img: '/speakers/dr-ben-goertzel.jpg',
-    imgPosition: 'center 20%',
-    tags: ['SingularityNET', 'AGI', 'ASI Alliance', 'Decentralized AI', 'Sophia the Robot'],
-    bio: `Dr. Ben Goertzel is a cross-disciplinary scientist, entrepreneur, author and musician. Based primarily in Seattle, he is the founder and CEO of SingularityNET, a decentralized AI network; Chairman of the Artificial General Intelligence Society, and general Chair of the Artificial General Intelligence conference series. As Chief Scientist of robotics firm Hanson Robotics, he led the software team behind the Sophia robot. He leads the Desdemona's Dream rock band along with lead singer Desdemona Robot, Sophia's younger sister.
-
-His research work encompasses artificial general intelligence, natural language processing, cognitive science, data mining, machine learning, computational finance, bioinformatics, virtual worlds and gaming and other areas.
-
-He has published several dozen scientific books, 200+ technical papers, and numerous journalistic articles. Before entering the software industry he served as a university faculty in several departments of mathematics, computer science and cognitive science, in the US, Australia and New Zealand. Dr. Goertzel obtained his PhD in mathematics from Temple University in 1989.`,
-  },
-  {
-    slug: 'nagabhushana-rao',
-    name: 'Nagabhushana Rao',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Advisor & Senior Risk, Governance and Transformation Professional',
-    img: '/speakers/nagabhushana-rao.png',
-    imgPosition: 'center 20%',
-    tags: ['Enterprise Risk', 'Governance & Trust', 'Responsible AI', 'Operational Excellence'],
-    bio: `Nagabhushana Rao (Naga) is an advisor and senior risk, governance and transformation professional with more than two decades of international experience spanning technology, telecommunications, financial services, cloud services and consulting.
-
-His work sits at the intersection of enterprise risk, governance, resilience, emerging technology and responsible AI, with a particular interest in how organizations can embrace technological innovation while preserving accountability, human judgment and trust. Throughout his career, he has advised senior leadership, developed enterprise governance and risk frameworks, and led complex transformation and operational excellence initiatives across global and multicultural environments.
-
-Naga brings a practitioner’s perspective to the evolving conversation around artificial intelligence. He believes that the significance of AI extends beyond technological capability or productivity: it raises fundamental questions about how decisions are made, how accountability is maintained, whose interests technology serves, and how organizations ensure that human values remain embedded as AI becomes increasingly influential.
-
-He is a Certified Fellow of the Institute of Risk Management (CFIRM) and has undertaken executive management development at INSEAD, Chicago Booth and the Indian Institute of Management Calcutta, alongside formal learning in artificial intelligence and responsible AI.
-
-As an advisor, Naga advocates for an approach to AI that balances innovation with responsibility, intelligence with empathy, and technological progress with human purpose. His interest is in helping shape governance models and leadership thinking that enable AI to strengthen organizations and communities while protecting trust, dignity and human agency.`,
-  },
-  {
-    slug: 'anas-almarie',
-    name: 'Anas Almarie',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Managing Director, SOCIAL STATION',
-    img: '/speakers/anas-almarie.png',
-    imgPosition: 'center 20%',
-    tags: ['Ethical AI', 'Digital Transformation', 'CX Consulting', 'MarComm'],
-    bio: `Anas Almarie is an advocate for ethical AI. He is a Dubai-based CX consultant, Digital Transformation adviser, and MarComm practitioner, keynote speaker, corporate trainer, lecturer. He is involved in local and global governmental and corporate projects, as well as philanthropic initiatives in Syria.
-
-He currently runs SOCIAL STATION, a digital CX and marketing agency based in Dubai. He is also an adjunct professor at the University of Dubai and a consultant to a member of a royal family in the UAE.
-
-You can connect with Anas at www.anasalmarie.com.`,
-  },
-  {
-    slug: 'anour-f-a-dafa-alla',
-    name: 'Anour F A Dafa-Alla',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'AI & Research Leader | Co-Founder, SudaVerse | Author, AI for a Green Planet | PhD Computer Science',
-    img: '/speakers/dr-anour-f-a-dafa-alla.jpg',
-    imgPosition: 'center 20%',
-    tags: ['SudaVerse', 'AI for Green Planet', 'Data Privacy', 'Sudanese Researchers Foundation'],
-    bio: `I build institutions at the intersection of AI, education & Research, and community.
-
-Over 20 years, I have moved between three worlds: rigorous computer science research (PhD in privacy-preserving data mining, Chungbuk National University), technology education leadership (department head and assistant professor roles across Qatar, Saudi Arabia, and Sudan), and large-scale community building.
-
-What I have built:
-• SudaVerse: an AI company preserving Sudanese cultural memory and opening new pathways in art, agriculture, health, and education
-• Sudanese Researchers Foundation: grew from under 100 members in 2009 to 845,000+ worldwide, linking Sudanese students with researchers globally
-• TED Arabic translation community: 1,659+ talks translated, ranked #1 most active translator globally for 5+ consecutive years (2009~2013) among 26,000 volunteers, and now working on AI dubbing (12M+ plays on dubbed talks)
-• Author of AI for a Green Planet, examining how AI can serve climate and sustainability goals
-
-Currently consulting with Qatar Foundation's Strategic Initiatives (Bil Araby) and advising on innovation in healthcare (PHCC).
-
-I work in Arabic and English, and I am most useful where deep technical knowledge, institutional leadership, and cultural fluency must come together.`,
-  },
-  {
-    slug: 'khalid-a-aleid',
-    name: 'Khalid A. Aleid',
-    type: 'speaker',
-    role: 'Expert in Technology and Business Continuity',
-    segment: 'GCC',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Senior Business Continuity Loss Expert',
-    img: '/speakers/khalid-a-aleid.jpg',
-    imgPosition: 'center 20%',
-    tags: ['Business Continuity', 'Loss Management', 'Critical Infrastructure', 'Technology & Social Impact'],
-    bio: `A seasoned telecom executive with over twenty years of extensive leadership experience specializing in Business Continuity, Loss Management, network operations, and strategic transformation initiatives. Proven track record in Partnership and Vendor management, delivering multiple on-ground mega-projects that drive innovation and optimize network performance. Highly proficient in overseeing critical infrastructure and executing advanced preventive maintenance methodologies to ensure operational excellence.
-
-Recently certified as a Board of Director, bringing rigorous governance and strategic oversight to corporate leadership. Dedicates expertise in technology to social impact by leading the Technology Committee for the Sharaka Association, driving enablement for disabled people. Holds specialized management and technical certifications, including CCNA, PMP, and Agile Management. Demonstrated ability to achieve significant operational efficiency through Capex automation, excellence offices, and talent centers.`,
-  },
-  {
-    slug: 'dea-bakashvili',
-    name: 'Dea Bakashvili',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'Central Asia & Caucasus',
-    region: 'Middle East, Caucasus & Central Asia',
-    title: 'Founder & CEO, Early Talent Access Network (ETAN)',
-    img: '/speakers/dea-bakashvili.png',
-    imgPosition: 'center 20%',
-    tags: ['ETAN', 'Youth Empowerment', 'AI Literacy', 'DemTech Fellow', 'Digital Governance'],
-    bio: `Dea Bakashvili is a social entrepreneur, public policy researcher, and youth advocate dedicated to shaping inclusive digital futures and ethical AI governance. As Founder and CEO of the Early Talent Access Network (ETAN), she builds economic resilience for youth Not in Education, Employment, or Training (NEET). By delivering market-relevant tech education, AI literacy, peer mentorship, and essential hardware access, ETAN connects disengaged youth with top-tier university networks and global corporate partners for high-demand digital roles.
-
-Dea holds certifications from Oxford Saïd Business School (in partnership with UNESCO), Harvard Business School Online, and Charles University via TFAS. She serves as an Alliance of Democracies DemTech Fellow, a Young European Ambassador, and an EU4Youth Alumni Fellow. Having contributed to strategic digital governance frameworks with the UNDP and Georgia’s Digital Governance Agency, Dea presented ETAN at the Copenhagen Democracy Summit and was named a finalist for the 2026 Partisan Awards. She remains a leading voice for ensuring global technological shifts leave no young person behind.`,
-  },
-  {
-    slug: 'joshua-villarreal',
-    name: 'Joshua Villarreal',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder & Entrepreneur | SMLE, KAIA PEPTIDES, YOUR MOM’S COFFEE',
-    img: '/speakers/joshua-villarreal.png',
-    imgPosition: 'center 20%',
-    tags: ['Founder', 'Healing Journey', 'Mindfulness', 'Compassionate AI', 'Health Tech'],
-    bio: `Talk: In 2025, my life changed almost overnight when I developed Guillain-Barré syndrome (GBS), a rare neurological condition that left me hospitalized and fighting to regain control of my body. During that recovery, artificial intelligence became an unexpected partner in my healing journey. I used AI not as a replacement for physicians or medical care, but as a tool to help me better understand my body, research complex information, organize questions, and develop a more intentional approach to recovery. It helped me explore nutrition, emerging research around peptides and recovery, supplementation, movement, and mindfulness—translating overwhelming amounts of information into something I could understand, discuss, and act upon responsibly.
-
-But perhaps its greatest impact was giving me a new level of agency. At a moment when I felt disconnected from my own body, AI helped me become an active participant in understanding my recovery. My talk explores what becomes possible when artificial intelligence is approached not simply as technology, but as a compassionate thinking partner—one that can help people navigate complexity, ask better questions, understand themselves more deeply, and make more informed decisions alongside qualified professionals. My experience raises a larger question: What if the future of AI isn’t only about making us more productive, but helping us become more human?`,
-  },
-  {
-    slug: 'reachel-singh',
-    name: 'Reachel Singh',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Singer-Songwriter Weaving Ancient Wisdom with Modern Healing',
-    img: '/speakers/reachel-singh.png',
-    imgPosition: 'center 20%',
-    tags: ['Sound Healing', 'Vocal Healing', 'Rave to Ritual', 'Soulingua', 'Mantra'],
-    bio: `Raised at the crossroads of Indian heritage and Dutch culture, her journey has been deeply shaped by a rich spiritual upbringing and years of experience as an educator. Through travel, teaching, songwriting, and dedicated study of sound healing and esoteric wisdom from both Eastern and Western traditions, she has cultivated a deeply integrative approach to music and healing. Her practice weaves together ancestral knowledge, mantra singing, and vocal healing to support personal transformation, embodied connection, and soul growth.
-
-As a singer-songwriter, she creates original music that infuses sacred mantra with catchy, uplifting beats and heart-opening lyrics—inviting listeners back to their essence and into deeper resonance with the world around them. She weaves her teachings into projects like Soulingua and The FiVth Empire—spaces that make ancient wisdom more practical and accessible through sound and community gatherings.
-
-Her latest project, Rave to Ritual, is a conscious rave experience blending electronic music, affirmations, and healing frequencies, transforming dance into a spiritual practice. In collaboration with the MEYA app—a platform that fuses music, meditation, and healing sound —Rave to Ritual brings a vibrant, elevated approach to mindfulness and inner work. She is currently recording her debut album in collaboration with Vinay Vyas, with OMMM serving as executive producers.`,
-  },
-  {
-    slug: 'francisco-ayala-gabilondo',
-    name: 'Francisco Ayala Gabilondo',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Director General, Huerto Roma Verde',
-    img: '/speakers/francisco-ayala-gabilondo.png',
-    imgPosition: 'center 20%',
-    tags: ['Huerto Roma Verde', 'Permaculture', 'Urban Resilience', 'Regenerative Culture'],
-    bio: `Paco Ayala is a renowned socio-environmental activist, social entrepreneur, and staunch advocate for urban resilience in the face of the climate crisis in Mexico. He stepped away from a career in law to become a "social tinkerer," dedicated to mending the community fabric and restoring the urban environment.
-
-He is the founder and CEO of Huerto Roma Verde (a project of La Cuadra A.C.), a bio-social laboratory and center for civic innovation established over 12 years ago in Mexico City. Under his leadership, a site that had become an unsanitary vacant lot following the 1985 earthquake was transformed into a global benchmark for permaculture, the biocommunity economy, and regenerative culture.
-
-In addition to his work at the garden, Ayala founded the multidisciplinary cultural venue Bajo Circuito and is an active participant in the Homes for Humanity movement and the Pachakuti Network. His approach integrates the wisdom of indigenous peoples, social biology, and permaculture to mitigate climate damage and design livable, sustainable alternatives for 21st century megalopolises.`,
-  },
-  {
-    slug: 'mindahi-bastida',
-    name: 'Mindahi Bastida',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Director of the Original Caretakers Program | Indigenous Scholar & Environmental Advocate',
-    img: '/speakers/mindahi-bastida.png',
-    imgPosition: 'center 20%',
-    tags: ['Indigenous Wisdom', 'Otomi-Toltec', 'The Earth Elders', 'Original Caretakers', 'UNESCO'],
-    bio: `Mindahi Crescencio Bastida Muñoz, Ph.D., is an internationally recognized Indigenous scholar, ritual ceremony officer, and global environmental advocate. Born in San Pedro Tultepec, Lerma, Mexico, he is a member of the Otomi-Toltec Peoples and serves as a traditional authority and General Coordinator of the Otomi-Toltec Regional Council in Mexico, as well as a senior counselor for the Grand Council of the Eagle and the Condor.
-
-Academic Background & Leadership:
-Dr. Bastida Muñoz holds a Doctorate in Rural Development from the Universidad Autónoma Metropolitana (UAM) in Mexico and a Master’s Degree in Political Science from Carleton University in Ottawa, Canada. Throughout his career, he has bridged academic research, policy work, and Indigenous philosophy:
-• Academic Leadership: Served as the Director of the Sustainable Development Division at the Intercultural University of the State of Mexico (UIEM).
-• Institutional Initiatives: Directed the Original Caretakers Program at the Center for Earth Ethics (Union Theological Seminary, New York City) from 2015 to 2020, and led the Original Nations Program at The Fountain (2020-2023).
-• Founding The Earth Elders: As founder and coordinator of The Earth Elders, he works with an international network of Indigenous spiritual leaders to implement the Earth Mandates across 52 global bioregions—an initiative originating from a 2013 sacred council of elders in the Sierra Nevada de Santa Marta, Colombia.
-
-International Advocacy & Policy:
-A consultant to UNESCO on Sacred Sites and Biocultural Protection since 2012, Dr. Bastida has spent decades advocating for the rights of nature, Indigenous sovereignty, and biocultural conservation.
-• Global Forums: He has represented Indigenous nations at major summits across over fifty countries, including the 1992 UN Earth Summit (Rio de Janeiro), the World Summit on Sustainable Development (Johannesburg, 2002), the World Economic Forum, and various UN Climate Change Conferences (COP21 Paris, COP26 Glasgow).
-• Advisory & Executive Roles: He serves on the Advisory Group of the Yale Forum on Religion and Ecology, the Senior Advisory Council of the United Religions Initiative (URI), the Executive Committee of the Alliance of Guardians of Mother Nature, and as President of the Mexico Council for Sustainable Development. He previously served on the Joint Public Advisory Committee (JPAC) for the Commission for Environmental Cooperation (CEC).
-
-Publications & Scholarship:
-Dr. Bastida has published extensively on topics including state–Indigenous relations, collective intellectual property, intercultural education, traditional ecological knowledge (TEK), and sacred sites protection. He is the chief editor of a multi-volume book series on the biodiversity, gastronomy, and culture of the highland wetlands of Mexico, and author of two key books:
-• Ancestors: Divine Remembrance of Lineage, Relations and Sacred Sites (translated into four languages)
-• Rooted in Ethics`,
-  },
-  {
-    slug: 'michelle-narciso',
-    name: 'Michelle Narciso',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder and CEO, OMMM',
-    img: '/speakers/michelle-narciso.png',
-    imgPosition: 'center 20%',
-    tags: ['OMMM', 'Consciousness', 'Planetary Well-being', 'Global Media', 'Purpose-Driven'],
-    bio: `Michelle Narciso is the Founder and CEO of OMMM, a global movement and media platform dedicated to elevating consciousness and integrating spirituality, mental well-being, and sustainability into everyday life. Rooted in the principle of interconnectedness, OMMM invites people to go inward and recognize the oneness of all beings and the planet. Through immersive content, transformational experiences, and collaborations with its community of OMMMbassadors, the platform fosters collective awakening around the world. Under Michelle's leadership, OMMM has co-produced multiple large-scale concerts and events, including Earth Day and the UN International Day of Peace celebrations in New York City's Times Square. These gatherings carry messages of unity, peace, and planetary care to one of the most visible stages in the world.
-
-Michelle brings more than two decades of experience as a global media executive. Most recently, she served as Senior Vice President of Strategy and Business Operations at Paramount Global, where she earned a reputation for visionary thinking and a rare ability to bridge creativity with strategic execution. During her tenure, she spearheaded high-profile projects, drove operational efficiencies, and curated music programming and events that captivated audiences worldwide. That blend of creative instinct and business discipline continues to shape how she builds and leads today.
-
-Now, Michelle is focused on building global communities, fostering purpose-driven leadership, and co-creating initiatives that weave together love, ancient wisdom, and modern solutions to support both personal and planetary well-being. Her work reflects a belief that inner transformation and positive global change go hand in hand, and that media, music, and shared experiences can be powerful catalysts for both.`,
-  },
-  {
-    slug: 'robot-koch',
-    name: 'Robot Koch',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Award-Winning Artist, Producer & Composer',
-    img: '/speakers/robot-koch.png',
-    imgPosition: 'center 20%',
-    tags: ['Electronic Music', 'Spatial Audio', 'Trees and Cyborgs', 'Sphere Full Dome'],
-    bio: `Robot Koch is an award winning artist/producer/composer from Berlin, living in Los Angeles. He has been steadily crafting a remarkably mature and original sound that expertly combines a deep and cinematic atmosphere, emotional reflection and forward thinking production. His visual music lends itself to picture and has been used on numerous TV Shows, Movie Trailers, Feature Films and Ad campaigns over the last few years.
-
-Robot Koch has been presenting his music live over the last decade, attracting a growing audience worldwide and appearing on the lineups of major festivals like Coachella, Sonar, Mutek and played Boiler Room several times.
-
-Apart from pursuing his artist career, Robert Koch can be found working as a producer and writer for both indie and major artists worldwide, gaining gold and platinum records for his productions. For his album Sphere Koch expanded his musical horizon even more and created an immersive Full Dome Live Show with 3D surround sound and 360 visuals, which he developed in cooperation with visual artist Mickael Le Goff. Sphere sold out in Planetariums and Festivals worldwide, winning several awards for "Best Immersive Experience".
-
-Robert Koch, who also won the German Music Composers Award 2014 in the category 'Best Composer Electronic Music' runs his own label, Trees and Cyborgs, which he founded in 2016.
-
-Robot Koch's music is an intriguing dialogue between technology and nature that seems particularly relevant to the times we live in. It's a constantly evolving exploration of that what lies beyond. “It's like traveling through space, with all the beautiful and scary moments such a journey involves,” says Koch. It is this confluence of beauty and fear that likewise grants his music a shamanic motif, as the BBC’s Bobby Friction noted on Koch’s music; "It sounds like artificial intelligence discovering religion."`,
-  },
-  {
-    slug: 'jennifer-aaker',
-    name: 'Dr. Jennifer Aaker',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'General Atlantic Professor, Stanford Graduate School of Business',
-    img: '/speakers/jennifer-aaker.png',
-    imgPosition: 'center 20%',
-    tags: ['Stanford GSB', 'Behavioral Science', 'Humor Seriously', 'Purpose & Tech', 'Well-being'],
-    bio: `Dr. Jennifer Aaker is General Atlantic Professor at Stanford Graduate School of Business and a renowned behavioral scientist specializing in purpose, meaning, and technology's impact on well-being. Winner of the Distinguished Scientific Achievement Award and MBA Professor of the Year, her bestselling books including Humor, Seriously have been translated into 20+ languages. She serves on boards of the Obama Presidential Foundation and other organizations, helping leaders foster purpose and connection in business.`,
-  },
-  {
-    slug: 'jeni-chang',
-    name: 'Jeni Chang',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Managing Director & Investor, FOUNDER INSTITUTE | NEW ENERGY FINANCIAL',
-    img: '/speakers/jeni-chang.png',
-    imgPosition: 'center 20%',
-    tags: ['Founder Institute', 'New Energy Financial', 'Geneticist', 'Human Drivers in AI'],
-    bio: `Jeni is focused on weaving human behavior & the physical into the DNA of AI. Our relationship to it is changing. As AI and agents shift from tools we use to things we interact with, technology alone is not enough. The untapped potential is not in understanding human drivers. It's in applying that understanding to how AI shapes our world and business.
-
-Jeni’s journey has been unconventional. She’s a geneticist by education with behavioral psych in tow. Mgmt consultant for Fortune 100 companies (Citi, United, Google). Swapped out professional button downs for founder tees & started a startup. Now Mg Dir. for a global accelerator (Founder Institute) & GP (New Energy Financial Grp).`,
-  },
-  {
-    slug: 'doris-a-taylor',
-    name: 'Dr. Doris A. Taylor',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Hon DSc, FAHA, FACC, FESC, FAIMBE | Founder, Organamet Bio',
-    img: '/speakers/doris-a-taylor.png',
-    imgPosition: 'center 20%',
-    tags: ['Organamet Bio', 'Regenerative Medicine', 'Tissue Engineering', 'Decellularization'],
-    bio: `Doris A. Taylor is an American scientist, entrepreneur, and global thought leader in regenerative medicine and tissue engineering. She is currently the founder of Organamet Bio, Inc. She also co-founded Miromatrix Medical, Inc. and founded RegenMedix Consulting LLC to help academic and commercial enterprises succeed in regenerative medicine. She has published nearly 200 papers and holds more than 30 patents.
-
-Dr. Taylor previously spent more than 20 years in senior academic positions, most recently as Director of Regenerative Medicine Research and Director of the Center for Cell and Organ Biotechnology at the Texas Heart Institute in Houston, Texas, through March 2020. She has trained hundreds of undergraduate, graduate, and postdoctoral fellows in her laboratories in the U.S. and Europe.
-
-Dr. Taylor is credited with the first functional repair of injured heart with stem cells, in 1998. In 2008, her group transformed organ transplantation science by developing a decellularization method that turns untransplantable organs into scaffolds for building new organs with stem cells. The American Heart Association named this work one of its "Top 10 Research Advances," and Time magazine nominated her as one of the "100 Most Influential People in the World." Turning to disease prevention, she has begun developing "cellular signatures" of heart disease and aging that appear to differ by age, sex, race, and ethnicity.
-
-A frequent media expert on cell therapy, women's health, cardiac repair, and organ transplantation, Dr. Taylor has been featured by 60 Minutes, CNN, The New York Times, The Wall Street Journal, Forbes, National Geographic, the BBC, ABC, NBC, CBS, Good Morning America, The Oprah Winfrey Show, PBS NOVA, NPR's On Being with Krista Tippett, Discovery Channel's Through the Wormhole with Morgan Freeman, and Science Channel's Stem Cell Universe with Stephen Hawking.
-
-Dr. Taylor serves on numerous think tanks and international scientific committees, including for the NIH, the FDA, AABB, and the Alliance for Regenerative Medicine. She is a member of the Leadership Advisory Committee of the Advanced Regenerative Manufacturing Institute (ARMI) and sits on the international jury for the Institut de France Lefoulon-Delalande Foundation Grand Prix, awarded annually for worldwide contributions to cardiovascular medicine.
-
-She earned a bachelor's degree from Mississippi University for Women (MUW) and a PhD from UT Southwestern Medical Center.`,
   },
 ];
 

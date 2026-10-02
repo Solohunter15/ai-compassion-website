@@ -187,9 +187,18 @@ export default function Navbar() {
             href="https://live.compassionai.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
           >
             Watch Live Now
+          </a>
+
+          <a
+            href="https://makemypass.com/event/ai-compassion-participants"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wider uppercase text-[#163B32] bg-white hover:bg-[#163B32]/10 border border-[#163B32] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+          >
+            Register Now
           </a>
         </div>
 
@@ -252,6 +261,16 @@ export default function Navbar() {
                 className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm cursor-pointer inline-block"
               >
                 Watch Live Now
+              </a>
+
+              <a
+                href="https://makemypass.com/event/ai-compassion-participants"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center py-3 bg-white text-[#163B32] border border-[#163B32] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm cursor-pointer inline-block"
+              >
+                Register Now
               </a>
             </div>
           </div>
