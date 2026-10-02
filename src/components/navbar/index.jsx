@@ -184,12 +184,12 @@ export default function Navbar() {
           </a>
 
           <a
-            href="https://makemypass.com/event/ai-compassion-participants"
+            href="https://live.compassionai.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-xs hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
           >
-            Register
+            Watch Live Now
           </a>
         </div>
 
@@ -245,13 +245,13 @@ export default function Navbar() {
               </a>
 
               <a
-                href="https://makemypass.com/event/ai-compassion-participants"
+                href="https://live.compassionai.io/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full text-center py-3 bg-[#163B32] text-[#F8F6F0] rounded-xl font-bold text-xs tracking-wider uppercase shadow-sm cursor-pointer inline-block"
               >
-                Register
+                Watch Live Now
               </a>
             </div>
           </div>

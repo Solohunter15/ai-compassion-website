@@ -144,16 +144,16 @@ export default function HeroSection() {
             A 24-hour global conversation for a planet-centered future (nature, humanity, &amp; AI/technology).
           </p>
 
-          {/* Action Buttons: REGISTER NOW */}
+          {/* Action Buttons: WATCH LIVE NOW */}
           <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 pt-2">
-            {/* REGISTER NOW Button (Links directly to MakeMyPass) */}
+            {/* Watch Live Now Button */}
             <a
-              href="https://makemypass.com/event/ai-compassion-participants"
+              href="https://live.compassionai.io/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-bold tracking-wider uppercase text-[#F8F6F0] bg-[#163B32] hover:bg-[#0F2620] rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
-              <span>REGISTER NOW</span>
+              <span>WATCH LIVE NOW</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
