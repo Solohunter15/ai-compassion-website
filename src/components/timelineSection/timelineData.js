@@ -1,17 +1,17 @@
 export const scheduleLeft = [
   { time: "", title: "", subtitle: "", items: ["Tamami Tono"] },
-  { time: "", title: "", subtitle: "", items: ["Sister Jenna"] },
-  { time: "", title: "", subtitle: "", items: ["Hiroshi Ishiguro & Edi Pyrek"] },
-  { time: "", title: "", subtitle: "", items: ["Yoichi Ochiai"] },
+  { time: "", title: "", subtitle: "", items: ["Sister Dr. Jenna"] },
+  { time: "", title: "", subtitle: "", items: ["Dr. Hiroshi Ishiguro & Edi Pyrek"] },
+  { time: "", title: "", subtitle: "", items: ["Dr. Yoichi Ochiai"] },
   { time: "", title: "", subtitle: "", items: ["Kunal Sood"] },
 ];
 
 export const scheduleRight = [
   { time: "", title: "", subtitle: "", items: ["Narumi Yoshikawa"] },
   { time: "", title: "", subtitle: "", items: ["Dr. Olaf Witkowski"] },
-  { time: "", title: "", subtitle: "", items: ["Toshie Takahashi"] },
-  { time: "", title: "", subtitle: "", items: ["Alex Cahana"] },
-  { time: "", title: "", subtitle: "", items: ["Ben Weber"] },
+  { time: "", title: "", subtitle: "", items: ["Prof. Toshie Takahashi"] },
+  { time: "", title: "", subtitle: "", items: ["Dr. Alex Cahana"] },
+  { time: "", title: "", subtitle: "", items: ["Dr. Ben Weber"] },
   { time: "", title: "", subtitle: "", items: ["Ahmer Inam"] },
 ];
 
@@ -76,9 +76,9 @@ export const global = [
       "Nandakishor M",
       "AFM Yusuf Haider",
       "Prof. Roshan G. Ragel",
-      "Pervez Hoodbhoy",
-      "Achuth Sankar",
-      "Arun Surendran",
+      "Dr. Pervez Hoodbhoy",
+      "Dr. Achuth Sankar",
+      "Dr. Arun Surendran",
       "Nagabhushana Rao",
       "PJ Narayanan",
       "Rashika Narain",
@@ -126,7 +126,7 @@ export const global = [
       "Dr. Edith Öller (Co-Producer)",
       "Emily Kate Genatowski",
       "Neil Nassar",
-      "Valérie M. Saintot",
+      "Dr. Valérie M. Saintot",
       "Julie Hellmann",
       "Paolo Cervari",
       "Massimo Camplone",

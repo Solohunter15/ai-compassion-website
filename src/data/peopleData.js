@@ -590,7 +590,7 @@ He is Director & Chief Mentor at Espoir Technologies, Pune, and has co-architect
   },
   {
     slug: 'pervez-hoodbhoy',
-    name: 'Pervez Hoodbhoy',
+    name: 'Dr. Pervez Hoodbhoy',
     type: 'speaker',
     role: 'Speaker',
     segment: 'South Asia',
