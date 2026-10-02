@@ -888,6 +888,21 @@ Recently certified as a Board of Director, bringing rigorous governance and stra
 Dea holds certifications from Oxford Saïd Business School (in partnership with UNESCO), Harvard Business School Online, and Charles University via TFAS. She serves as an Alliance of Democracies DemTech Fellow, a Young European Ambassador, and an EU4Youth Alumni Fellow. Having contributed to strategic digital governance frameworks with the UNDP and Georgia’s Digital Governance Agency, Dea presented ETAN at the Copenhagen Democracy Summit and was named a finalist for the 2026 Partisan Awards. She remains a leading voice for ensuring global technological shifts leave no young person behind.`,
   },
   {
+    slug: 'dr-sara-hegazy',
+    name: 'Dr. Sara Hegazy',
+    type: 'speaker',
+    role: 'Speaker',
+    segment: 'GCC',
+    region: 'Middle East, Caucasus & Central Asia',
+    title: 'Founder & CEO of Soulhouette Awarables™, Founder of Healenna, Neuropsychotherapist, Communications Engineer, and TEDx Speaker',
+    img: '/speakers/dr-sara-hegazy.jpg',
+    imgPosition: 'center 20%',
+    tags: ['Soulhouette Awarables™', 'Healenna', 'Neuropsychotherapy', 'Bio-Intelligence', 'TEDx Speaker'],
+    bio: `Dr. Sara Hegazy is a multidisciplinary entrepreneur and scientist whose work sits at the intersection of engineering, art, and the human nervous system. Originally a communications engineer, she also spent time as a designer walking international fashion weeks before becoming a neuropsychotherapist and PhD researcher.
+
+She is the architect of Soulhouette Awarables™, described as the world's first conscious AI Human Body Intelligence System, which focuses on bio-sensors for early diagnosis and personalized longevity. Additionally, she founded Healenna to provide integrative holistic health services that merge modern science with traditional healing systems. Guided by her philosophy that "Innovation is Inner Aviation," her expertise spans neuropsychology, heart-brain coherence, bio-intelligence, and conscious entrepreneurship.`,
+  },
+  {
     slug: 'aigerim-zhangozina',
     name: 'Aigerim Zhangozina',
     type: 'speaker',

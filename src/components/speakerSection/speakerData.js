@@ -292,9 +292,9 @@ export const speakers = [
     img: chada
   },
   { 
-    slug: "sara-hegazy",
-    name: "Sara Hegazy",
-    title: "Sara Hegazy is a renowned Egyptian fashion designer and technology enthusiast exploring the intersection of couture and digital innovation. Known for her avant-garde designs that integrate traditional craftsmanship with futuristic materials, she has showcased her work internationally, advocating for sustainable and tech-driven fashion practices.",
+    slug: "dr-sara-hegazy",
+    name: "Dr. Sara Hegazy",
+    title: "Founder & CEO of Soulhouette Awarables™, Founder of Healenna, Neuropsychotherapist, Communications Engineer, and TEDx Speaker. Dr. Sara Hegazy is a multidisciplinary entrepreneur and scientist whose work sits at the intersection of engineering, art, and the human nervous system. Originally a communications engineer, she also spent time as a designer walking international fashion weeks before becoming a neuropsychotherapist and PhD researcher. She is the architect of Soulhouette Awarables™, the world's first conscious AI Human Body Intelligence System, which focuses on bio-sensors for early diagnosis and personalized longevity.",
     img: sara
   },
   { 

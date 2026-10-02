@@ -166,6 +166,7 @@ export const SCHEDULE_MATRIX = [
     producers: ['Walied Albasheer (Producer)'],
     speakers: [
       'Priya M Nair',
+      'Dr. Sara Hegazy',
       'Mohamed Ezzaldeen',
       'Mohamed Osman',
       'Anas Almarie',
