@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+
 const MARQUEE_ITEMS = [
   'ONE WORLD',
   '12 REGIONS',
@@ -13,10 +15,38 @@ const MARQUEE_ITEMS = [
 
 export default function ContinuousMarquee({ reverse = false, variant = 'light' }) {
   const isDark = variant === 'dark';
-  const animationClass = reverse ? 'animate-marquee-right' : 'animate-marquee-left';
+  const marqueeRef = useRef(null);
+  const [speedMultiplier, setSpeedMultiplier] = useState(1);
 
-  // Sequence repeated to fill wide viewports
+  // Dynamic scroll velocity reactivity
+  useEffect(() => {
+    let velocityTimeout;
+    const handleScrollVelocity = (e) => {
+      const v = Math.abs(e.detail?.velocity || 0);
+      if (v > 0.1) {
+        // Boost animation speed proportional to scroll velocity
+        const boost = Math.min(3.5, 1 + v * 0.4);
+        setSpeedMultiplier(boost);
+
+        if (velocityTimeout) clearTimeout(velocityTimeout);
+        velocityTimeout = setTimeout(() => {
+          setSpeedMultiplier(1);
+        }, 200);
+      }
+    };
+
+    window.addEventListener('lenis-scroll', handleScrollVelocity);
+    return () => {
+      window.removeEventListener('lenis-scroll', handleScrollVelocity);
+      if (velocityTimeout) clearTimeout(velocityTimeout);
+    };
+  }, []);
+
+  const animationClass = reverse ? 'animate-marquee-right' : 'animate-marquee-left';
   const sequence = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
+
+  const baseDuration = reverse ? 28 : 25;
+  const currentDuration = baseDuration / speedMultiplier;
 
   return (
     <div
@@ -26,7 +56,14 @@ export default function ContinuousMarquee({ reverse = false, variant = 'light' }
           : 'bg-[#F2F3EF] border-[#E6E9E4] text-[#163B32]'
       }`}
     >
-      <div className={animationClass}>
+      <div 
+        ref={marqueeRef}
+        className={animationClass}
+        style={{ 
+          animationDuration: `${currentDuration}s`,
+          transition: 'animation-duration 0.25s ease-out'
+        }}
+      >
         {/* Two identical groups create an endless, flawless -50% loop */}
         {[0, 1].map((groupKey) => (
           <div key={groupKey} className="flex items-center shrink-0">

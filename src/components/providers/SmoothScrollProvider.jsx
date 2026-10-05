@@ -9,29 +9,27 @@ export default function SmoothScrollProvider({ children }) {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Gracefully handle reduced motion preference if requested
+    // Gracefully handle reduced motion preference
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      // Reveal everything immediately if reduced motion is requested
-      document.querySelectorAll('.reveal-on-scroll, [data-reveal]').forEach((el) => {
-        el.classList.add('is-revealed');
-      });
       return;
     }
 
     try {
+      // 1. Register GSAP ScrollTrigger
       gsap.registerPlugin(ScrollTrigger);
 
+      // 2. Initialize Lenis Smooth Scroll Engine
       const lenis = new Lenis({
-        duration: 0.9,
+        duration: 1.0,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: 'vertical',
         gestureOrientation: 'vertical',
         smoothWheel: true,
-        wheelMultiplier: 1.0,
+        wheelMultiplier: 1.05,
         touchMultiplier: 1.2,
         infinite: false,
       });
@@ -39,64 +37,113 @@ export default function SmoothScrollProvider({ children }) {
       lenisRef.current = lenis;
       window.__lenis = lenis;
 
-      // Synchronize Lenis with GSAP ScrollTrigger with zero style recalculation overhead
-      lenis.on('scroll', () => {
+      // 3. Synchronize Lenis with GSAP ScrollTrigger
+      lenis.on('scroll', (e) => {
         ScrollTrigger.update();
+        window.dispatchEvent(
+          new CustomEvent('lenis-scroll', {
+            detail: { velocity: e.velocity, scroll: e.scroll, progress: e.progress },
+          })
+        );
       });
 
+      // 4. Drive Lenis updates via GSAP Ticker
       const tickerCallback = (time) => {
         lenis.raf(time * 1000);
       };
-
       gsap.ticker.add(tickerCallback);
-      gsap.ticker.lagSmoothing(500, 33);
 
-      // Automated Viewport Reveal Observer for smooth dynamic scrolling reveals
-      const scrollSelector =
-        '.reveal-on-scroll, [data-reveal], .scroll-fade-up, .scroll-fade-down, .scroll-pop, .scroll-popup, .scroll-fade-in, .scroll-slide-left, .scroll-slide-right';
+      // 5. Setup Dynamic Bidirectional Scroll Animations & Parallax
+      let ctx;
+      const initScrollAnimations = () => {
+        if (ctx) ctx.revert();
 
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              if (!entry.target.hasAttribute('data-scroll-repeat')) {
-                revealObserver.unobserve(entry.target);
+        ctx = gsap.context(() => {
+          // A. Multi-speed Parallax Scrub on [data-parallax]
+          const parallaxEls = document.querySelectorAll('[data-parallax]');
+          parallaxEls.forEach((el) => {
+            const speed = parseFloat(el.getAttribute('data-parallax')) || 0.2;
+            const yDist = speed * 80;
+            gsap.fromTo(
+              el,
+              { y: -yDist },
+              {
+                y: yDist,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: el.closest('section') || el,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 1,
+                },
               }
-            } else if (entry.target.hasAttribute('data-scroll-repeat')) {
-              entry.target.classList.remove('is-revealed');
+            );
+          });
+
+          // B. Section-level Dynamic Fade In & Fade Out on Enter/Leave
+          const sections = document.querySelectorAll('section:not(#hero)');
+          sections.forEach((section) => {
+            // Smooth entrance fade & slide up when coming into view, subtle fade out when exiting
+            gsap.fromTo(
+              section,
+              { opacity: 0.25, y: 35 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.9,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top 88%',
+                  end: 'bottom 12%',
+                  toggleActions: 'play reverse play reverse',
+                },
+              }
+            );
+
+            // Staggered child elements reveal inside each section
+            const childCards = section.querySelectorAll('.scroll-card, .scroll-fade-up, .scroll-pop, .scroll-slide-left, .scroll-slide-right');
+            if (childCards.length > 0) {
+              gsap.fromTo(
+                childCards,
+                { opacity: 0, y: 28, scale: 0.96 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  duration: 0.75,
+                  stagger: 0.07,
+                  ease: 'power2.out',
+                  scrollTrigger: {
+                    trigger: section,
+                    start: 'top 82%',
+                    end: 'bottom 15%',
+                    toggleActions: 'play reverse play reverse',
+                  },
+                }
+              );
             }
           });
-        },
-        {
-          root: null,
-          rootMargin: '0px 0px -6% 0px',
-          threshold: 0.08,
-        }
-      );
-
-      const observeElements = () => {
-        const elements = document.querySelectorAll(scrollSelector);
-        elements.forEach((el) => {
-          if (!el.classList.contains('is-revealed')) {
-            revealObserver.observe(el);
-          }
         });
+
+        ScrollTrigger.refresh();
       };
 
-      observeElements();
-      let mutationTimeout;
-      const debouncedObserve = () => {
-        if (mutationTimeout) clearTimeout(mutationTimeout);
-        mutationTimeout = setTimeout(observeElements, 150);
-      };
-      const mutationObserver = new MutationObserver(debouncedObserve);
-      mutationObserver.observe(document.body, { childList: true, subtree: true });
+      // Initial run & deferred refresh for images
+      initScrollAnimations();
+      const t1 = setTimeout(initScrollAnimations, 250);
+      const t2 = setTimeout(() => ScrollTrigger.refresh(), 800);
+
+      // Listen for window resize to recalculate trigger bounds
+      const handleResize = () => ScrollTrigger.refresh();
+      window.addEventListener('resize', handleResize);
 
       return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        window.removeEventListener('resize', handleResize);
         gsap.ticker.remove(tickerCallback);
-        revealObserver.disconnect();
-        mutationObserver.disconnect();
+        if (ctx) ctx.revert();
         lenis.destroy();
         window.__lenis = null;
       };
@@ -107,3 +154,6 @@ export default function SmoothScrollProvider({ children }) {
 
   return <>{children}</>;
 }
+
+
+
