@@ -46,7 +46,7 @@ Currently serving as an inaugural member of the Medical Intelligence and Innovat
     region: 'Pacific Rim & Japan',
     title: 'Financial Services Technology & Risk Management Specialist',
     img: '/speakers/carl-sundberg.webp',
-    imgPosition: 'center 20%',
+    imgPosition: 'center',
     tags: ['Financial Tech', 'Risk Management', 'Disaster Recovery', 'Edge Computing', 'Co-Producer / MC'],
     bio: `With 45+ years of experience in financial services-related technology, he specializes in the Pacific Rim, particularly Japan. His expertise spans disaster recovery and business continuity, risk management, cloud computing, cluster and grid computing, smart grids, and edge computing. He has also worked across education, rural community development, nonprofit ventures, and volunteer initiatives.`,
   },
@@ -1260,19 +1260,6 @@ In 2007 Marques set out traveling through Europe for 10 months and South America
 During this period, Marques created the World Education Foundation, also known as the WE Foundation. Since its conception in 2010 the WE Foundation has worked with an international network of experts, interns and volunteers, assisting in project structure and implementation, focused on 5 key developmental areas: Energy, Health, Education, Infrastructure and Sports. The organization is currently involved in multiple initiatives, including 2 projects in Iraq, 3 projects in the DR Congo and projects in Myanmar and the Western Sahara.
 
 Spending time in 72 countries, Marques builds innovative platforms which establish sustainable global systems, through new market solutions, livelihood opportunities and the development of future cities around the world.`,
-  },
-  {
-    slug: 'joshua-villarreal',
-    name: 'Joshua Villarreal',
-    type: 'speaker',
-    role: 'Speaker',
-    segment: 'North America',
-    region: 'Eastern, Central & Western North America, Mexico',
-    title: 'Founder / Entrepreneur | SMLE, KAIA PEPTIDES, YOUR MOM’S COFFEE',
-    img: '/speakers/joshua-villarreal.webp',
-    imgPosition: 'center 20%',
-    tags: ['SMLE', 'KAIA Peptides', "Your Mom's Coffee", 'Health & AI', 'Compassionate Thinking Partner'],
-    bio: `Talk: In 2025, my life changed almost overnight when I developed Guillain-Barré syndrome (GBS), a rare neurological condition that left me hospitalized and fighting to regain control of my body. During that recovery, artificial intelligence became an unexpected partner in my healing journey. I used AI not as a replacement for physicians or medical care, but as a tool to help me better understand my body, research complex information, organize questions, and develop a more intentional approach to recovery. It helped me explore nutrition, emerging research around peptides and recovery, supplementation, movement, and mindfulness—translating overwhelming amounts of information into something I could understand, discuss, and act upon responsibly. But perhaps its greatest impact was giving me a new level of agency. At a moment when I felt disconnected from my own body, AI helped me become an active participant in understanding my recovery. My talk explores what becomes possible when artificial intelligence is approached not simply as technology, but as a compassionate thinking partner—one that can help people navigate complexity, ask better questions, understand themselves more deeply, and make more informed decisions alongside qualified professionals. My experience raises a larger question: What if the future of AI isn’t only about making us more productive, but helping us become more human?`,
   },
   {
     slug: 'reachel-singh',
