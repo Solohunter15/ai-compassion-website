@@ -159,14 +159,19 @@ html.lenis, html.lenis body {
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marqueeLeft 30s linear infinite;
+  animation: marqueeLeft 58s linear infinite;
 }
 
 .animate-marquee-right {
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marqueeRight 30s linear infinite;
+  animation: marqueeRight 62s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
 }
 
 /* Floating Hovering Glassmorphic Frames Animations */
@@ -272,6 +277,26 @@ html.lenis, html.lenis body {
 .glow-border-hover:hover::before {
   opacity: 1;
 }
+
+/* Scroll Animation Transitions & Micro-Interactions */
+.scroll-pop-in {
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.scroll-fade-up {
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.scroll-fade-out {
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-scale-smooth {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 
 
 

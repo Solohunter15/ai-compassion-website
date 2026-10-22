@@ -16,37 +16,9 @@ const MARQUEE_ITEMS = [
 export default function ContinuousMarquee({ reverse = false, variant = 'light' }) {
   const isDark = variant === 'dark';
   const marqueeRef = useRef(null);
-  const [speedMultiplier, setSpeedMultiplier] = useState(1);
-
-  // Dynamic scroll velocity reactivity
-  useEffect(() => {
-    let velocityTimeout;
-    const handleScrollVelocity = (e) => {
-      const v = Math.abs(e.detail?.velocity || 0);
-      if (v > 0.1) {
-        // Boost animation speed proportional to scroll velocity
-        const boost = Math.min(3.5, 1 + v * 0.4);
-        setSpeedMultiplier(boost);
-
-        if (velocityTimeout) clearTimeout(velocityTimeout);
-        velocityTimeout = setTimeout(() => {
-          setSpeedMultiplier(1);
-        }, 200);
-      }
-    };
-
-    window.addEventListener('lenis-scroll', handleScrollVelocity);
-    return () => {
-      window.removeEventListener('lenis-scroll', handleScrollVelocity);
-      if (velocityTimeout) clearTimeout(velocityTimeout);
-    };
-  }, []);
-
   const animationClass = reverse ? 'animate-marquee-right' : 'animate-marquee-left';
   const sequence = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
-
-  const baseDuration = reverse ? 28 : 25;
-  const currentDuration = baseDuration / speedMultiplier;
+  const currentDuration = reverse ? 62 : 58;
 
   return (
     <div

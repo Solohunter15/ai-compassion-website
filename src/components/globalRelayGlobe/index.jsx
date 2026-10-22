@@ -13,8 +13,18 @@ import {
   ExternalLink,
   Layers,
 } from 'lucide-react';
-import ThreeEarthGlobe from './ThreeEarthGlobe';
+import dynamic from 'next/dynamic';
 import { RELAY_REGIONS } from './relayData';
+
+const ThreeEarthGlobe = dynamic(() => import('./ThreeEarthGlobe'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex flex-col items-center justify-center rounded-full bg-[#102A24]/10 border border-[#163B32]/10 animate-pulse aspect-square">
+      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-2 border-dashed border-[#163B32]/30 animate-spin" style={{ animationDuration: '10s' }} />
+      <span className="font-mono text-xs text-[#163B32]/70 mt-3 font-semibold tracking-wider uppercase">Loading 3D Globe...</span>
+    </div>
+  ),
+});
 
 export default function GlobalRelayGlobeSection() {
   const [activeIndex, setActiveIndex] = useState(0);

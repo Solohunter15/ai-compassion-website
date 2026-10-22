@@ -80,49 +80,154 @@ export default function SmoothScrollProvider({ children }) {
             );
           });
 
-          // B. Section-level Dynamic Fade In & Fade Out on Enter/Leave
+          // B. Section-level Smooth Dynamic Fade In
           const sections = document.querySelectorAll('section:not(#hero)');
           sections.forEach((section) => {
-            // Smooth entrance fade & slide up when coming into view, subtle fade out when exiting
             gsap.fromTo(
               section,
-              { opacity: 0.25, y: 35 },
+              { opacity: 0.15, y: 25 },
               {
                 opacity: 1,
                 y: 0,
-                duration: 0.9,
-                ease: 'power3.out',
+                duration: 0.85,
+                ease: 'power2.out',
                 scrollTrigger: {
                   trigger: section,
-                  start: 'top 88%',
-                  end: 'bottom 12%',
-                  toggleActions: 'play reverse play reverse',
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
                 },
               }
             );
+          });
 
-            // Staggered child elements reveal inside each section
-            const childCards = section.querySelectorAll('.scroll-card, .scroll-fade-up, .scroll-pop, .scroll-slide-left, .scroll-slide-right');
-            if (childCards.length > 0) {
+          // C. Rich Individual Micro-Animations across sections
+          // 1. Pop-In Animations (.scroll-pop, .scroll-pop-in)
+          const popEls = document.querySelectorAll('.scroll-pop, .scroll-pop-in');
+          popEls.forEach((el) => {
+            gsap.fromTo(
+              el,
+              { opacity: 0, scale: 0.9, y: 24 },
+              {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 0.7,
+                ease: 'back.out(1.4)',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 2. Fade Up Animations (.scroll-fade-up)
+          const fadeUpEls = document.querySelectorAll('.scroll-fade-up');
+          fadeUpEls.forEach((el) => {
+            gsap.fromTo(
+              el,
+              { opacity: 0, y: 35 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 3. Fade Down Animations (.scroll-fade-down)
+          const fadeDownEls = document.querySelectorAll('.scroll-fade-down');
+          fadeDownEls.forEach((el) => {
+            gsap.fromTo(
+              el,
+              { opacity: 0, y: -25 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 4. Slide Left Animations (.scroll-slide-left)
+          const slideLeftEls = document.querySelectorAll('.scroll-slide-left');
+          slideLeftEls.forEach((el) => {
+            gsap.fromTo(
+              el,
+              { opacity: 0, x: -40 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 5. Slide Right Animations (.scroll-slide-right)
+          const slideRightEls = document.querySelectorAll('.scroll-slide-right');
+          slideRightEls.forEach((el) => {
+            gsap.fromTo(
+              el,
+              { opacity: 0, x: 40 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%',
+                  toggleActions: 'play none none reverse',
+                },
+              }
+            );
+          });
+
+          // 6. Staggered Batch Pop-In for Interactive Cards (.scroll-card)
+          ScrollTrigger.batch('.scroll-card', {
+            interval: 0.08,
+            batchMax: 4,
+            onEnter: (batch) =>
               gsap.fromTo(
-                childCards,
-                { opacity: 0, y: 28, scale: 0.96 },
+                batch,
+                { opacity: 0, y: 24, scale: 0.93 },
                 {
                   opacity: 1,
                   y: 0,
                   scale: 1,
-                  duration: 0.75,
+                  duration: 0.65,
                   stagger: 0.07,
-                  ease: 'power2.out',
-                  scrollTrigger: {
-                    trigger: section,
-                    start: 'top 82%',
-                    end: 'bottom 15%',
-                    toggleActions: 'play reverse play reverse',
-                  },
+                  ease: 'back.out(1.2)',
+                  overwrite: 'auto',
                 }
-              );
-            }
+              ),
+            onLeaveBack: (batch) =>
+              gsap.to(batch, {
+                opacity: 0,
+                y: 20,
+                scale: 0.95,
+                duration: 0.35,
+                overwrite: 'auto',
+              }),
           });
         });
 

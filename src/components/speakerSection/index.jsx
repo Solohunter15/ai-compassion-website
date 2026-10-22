@@ -87,10 +87,7 @@ export default function SpeakerSection() {
                 </div>
 
                 {/* Name & Title */}
-                <div className="flex flex-col gap-1 w-full">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#163B32] bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full mx-auto">
-                    Speaker
-                  </span>
+                <div className="flex flex-col gap-1 w-full pt-1">
 
                   <h3 className="font-editorial text-xs sm:text-sm md:text-base font-bold text-slate-900 group-hover:text-[#163B32] transition-colors leading-snug line-clamp-2">
                     {speaker.name}
@@ -175,10 +172,6 @@ export default function SpeakerSection() {
 
                 {/* Details */}
                 <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 flex-1">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-[#163B32] border border-emerald-300">
-                    Confirmed Speaker
-                  </span>
-
                   <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-[#163B32]">
                     {selectedSpeaker.name}
                   </h3>

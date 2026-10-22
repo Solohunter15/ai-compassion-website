@@ -10,7 +10,6 @@ import {
   Brain,
   Handshake,
   Sprout,
-  Sparkles,
 } from 'lucide-react';
 
 const PILLARS_DATA = [
@@ -166,10 +165,6 @@ export default function PillarsSection() {
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center gap-2.5 max-w-2xl mx-auto scroll-fade-down">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-[#172554] font-mono text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-[#C96F4A]" />
-            <span>Guiding Architecture</span>
-          </div>
           <h2 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#172554]">
             Thematic Pillars
           </h2>

@@ -95,9 +95,6 @@ export default function AboutSection() {
           <h2 className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#171918]">
             About Us
           </h2>
-          <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[#163B32] font-mono text-xs font-semibold">
-            Planetary Philosophy
-          </span>
         </div>
 
         {/* 2-Column Editorial Grid */}
